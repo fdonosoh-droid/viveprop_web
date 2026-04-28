@@ -1,0 +1,636 @@
+'use client'
+
+import React, { useState } from 'react'
+import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
+} from '@/components/ui/dialog'
+import { Button }         from '@/components/ui/button'
+import { Input }          from '@/components/ui/input'
+import { Label }          from '@/components/ui/label'
+import { CurrencyInput }  from '@/components/ui/currency-input'
+import { Progress } from '@/components/ui/progress'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+} from '@/components/ui/select'
+import { evaluar, defaultParams, formatCLP, formatUF } from '@/lib/perfilamiento/evaluation-engine'
+import { type FormData, initialFormData, type EvaluationOutput } from '@/lib/perfilamiento/types/evaluation'
+import { guardarPerfilamientoAction } from '@/lib/perfilamiento/actions'
+import { cn } from '@/lib/utils/cn'
+import { formatPhone } from '@/lib/utils/phone'
+import { validateRut, formatRut } from '@/lib/utils/rut'
+
+// ── Tipos ────────────────────────────────────────────────────────
+export interface RangoCapacidad {
+  minUF: number   // Math.min(porPie, porLtv) — valor conservador
+  maxUF: number   // Math.max(porPie, porLtv) — valor optimista
+  creditoMaxCLP: number
+  dividendoMaxCLP: number
+  resultado: EvaluationOutput['resultado']
+}
+
+interface Props {
+  open: boolean
+  onClose: () => void
+  /** Callback que recibe el rango, el id del perfilamiento y los datos básicos del cliente */
+  onConfirmar: (rango: RangoCapacidad, perfilamientoId: string, datosCliente: { nombre: string; rut: string; email: string; telefono: string; objetivoCompra?: string }) => void
+  /** Valor UF del día (inyectado desde el cotizador) */
+  ufDelDia: number
+}
+
+// ── Constantes de pasos ──────────────────────────────────────────
+const PASOS = [
+  'Datos personales',
+  'Ingresos',
+  'Deudas',
+  'Ahorro / Pie',
+  'Co-solicitante',
+  'Resumen',
+] as const
+
+const TOTAL_PASOS = PASOS.length
+
+// ── Helper ───────────────────────────────────────────────────────
+const num = (v: number | ''): number => (v === '' ? 0 : Number(v))
+
+// ── Componente principal ─────────────────────────────────────────
+export default function PerfilamientoModal({ open, onClose, onConfirmar, ufDelDia }: Props) {
+  const [paso, setPaso]           = useState(0)
+  const [form, setForm]           = useState<FormData>(initialFormData)
+  const [eval_, setEval_]         = useState<EvaluationOutput | null>(null)
+  const [evaluado, setEvaluado]   = useState(false)
+  const [camposFaltantes, setCamposFaltantes] = useState<string[]>([])
+  const [rutErrors, setRutErrors] = useState<{ rut?: string; comp_rut?: string }>({})
+
+  const onChange = (partial: Partial<FormData>) =>
+    setForm(prev => ({ ...prev, ...partial }))
+
+  function handleRutChange(field: 'rut' | 'comp_rut', raw: string) {
+    const clean = raw.replace(/[^0-9kK.\-]/gi, '')
+    onChange({ [field]: clean } as Partial<FormData>)
+    if (rutErrors[field] && validateRut(clean)) {
+      setRutErrors(e => ({ ...e, [field]: undefined }))
+    }
+  }
+
+  function handleRutBlur(field: 'rut' | 'comp_rut') {
+    const val = field === 'rut' ? form.rut : form.comp_rut
+    if (!val) return
+    const formatted = formatRut(val)
+    onChange({ [field]: formatted } as Partial<FormData>)
+    if (!validateRut(val)) {
+      setRutErrors(e => ({ ...e, [field]: 'RUT inválido — verifique el número y dígito verificador' }))
+    } else {
+      setRutErrors(e => ({ ...e, [field]: undefined }))
+    }
+  }
+
+  const handleNum = (field: keyof FormData) =>
+    (e: React.ChangeEvent<HTMLInputElement>) =>
+      onChange({ [field]: e.target.value === '' ? '' : Number(e.target.value) } as Partial<FormData>)
+
+  // Validación paso 0 — Datos personales
+  const validarPaso0 = (): string[] => {
+    const f: string[] = []
+    if (!form.nombre.trim())          f.push('Nombre completo')
+    if (!form.rut.trim())             f.push('RUT')
+    else if (!validateRut(form.rut))  { setRutErrors(e => ({ ...e, rut: 'RUT inválido — verifique el número y dígito verificador' })); f.push('RUT') }
+    if (!form.email.trim())           f.push('Email')
+    if (!form.telefono.trim())        f.push('Teléfono')
+    if (form.edad === '')             f.push('Edad')
+    if (form.dependientes === '')     f.push('Dependientes')
+    if (form.antiguedadMeses === '')  f.push('Antigüedad laboral')
+    if (!form.objetivoCompra)         f.push('Objetivo de compra')
+    return f
+  }
+
+  // Avanzar / retroceder
+  const siguiente = () => {
+    if (paso === 0) {
+      const faltantes = validarPaso0()
+      if (faltantes.length > 0) { setCamposFaltantes(faltantes); return }
+      setCamposFaltantes([])
+    }
+    if (paso < TOTAL_PASOS - 1) { setPaso(p => p + 1); return }
+    // Último paso → evaluar
+    const uf = { valor: ufDelDia, fecha: new Date().toISOString(), fuente: 'cotizador' }
+    const resultado = evaluar(form, defaultParams, uf)
+    setEval_(resultado)
+    setEvaluado(true)
+  }
+  const anterior = () => { setCamposFaltantes([]); setPaso(p => Math.max(0, p - 1)) }
+
+  const handleConfirmar = async () => {
+    if (!eval_) return
+    const capacidadCLP = (eval_.propiedadMaxCapacidadCombinada ?? eval_.propiedadMaxCapacidad) * 1.10
+    const minUF = ufDelDia > 0 ? capacidadCLP / ufDelDia : 0
+    const maxUF = minUF * 1.15
+
+    // Guardar perfilamiento en historial (fire-and-forget con id retornado)
+    const perfilamientoId = await guardarPerfilamientoAction({
+      nombre:               form.nombre,
+      rut:                  form.rut,
+      resultado:            eval_.resultado,
+      razones:              eval_.razones,
+      ingresoEvaluable:     eval_.ingresoEvaluable,
+      dividendoMaximo:      eval_.dividendoMaximoCombinado ?? eval_.dividendoMaximo,
+      creditoMaximo:        eval_.creditoMaximoCombinado ?? eval_.creditoMaximo,
+      pieDisponible:        num(form.pieDisponible) + (form.tieneComplementario ? num(form.comp_pieDisponible) : 0),
+      rangoConservadorUF:   minUF,
+      rangoOptimistaUF:     maxUF,
+      tieneComplementario:  form.tieneComplementario,
+      comp_nombre:          form.tieneComplementario ? form.comp_nombre : undefined,
+      dividendoMaximoCombinado: form.tieneComplementario ? eval_.dividendoMaximoCombinado : undefined,
+      creditoMaximoCombinado:   form.tieneComplementario ? eval_.creditoMaximoCombinado   : undefined,
+    }).catch(() => '')   // si falla el guardado, continúa igual
+
+    onConfirmar({
+      minUF,
+      maxUF,
+      creditoMaxCLP:   eval_.creditoMaximoCombinado ?? eval_.creditoMaximo,
+      dividendoMaxCLP: eval_.dividendoMaximoCombinado ?? eval_.dividendoMaximo,
+      resultado:       eval_.resultado,
+    }, perfilamientoId, { nombre: form.nombre, rut: form.rut, email: form.email, telefono: form.telefono, objetivoCompra: form.objetivoCompra || undefined })
+    handleClose()
+  }
+
+  const handleClose = () => {
+    setPaso(0)
+    setForm(initialFormData)
+    setEval_(null)
+    setEvaluado(false)
+    setCamposFaltantes([])
+    onClose()
+  }
+
+  const pct = ((paso + 1) / TOTAL_PASOS) * 100
+
+  return (
+    <Dialog open={open} onOpenChange={v => { if (!v) handleClose() }}>
+      <DialogContent className="max-w-xl">
+        <DialogHeader>
+          <DialogTitle className="text-blue-800">Perfilamiento de comprador</DialogTitle>
+          <DialogDescription>
+            Evaluamos la capacidad financiera para encontrar unidades adecuadas.
+          </DialogDescription>
+        </DialogHeader>
+
+        {!evaluado ? (
+          <>
+            {/* Barra de progreso */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs text-gray-500">
+                <span>Paso {paso + 1} de {TOTAL_PASOS} — {PASOS[paso]}</span>
+                <span>{Math.round(pct)}%</span>
+              </div>
+              <Progress value={pct} />
+            </div>
+
+            {/* Contenido del paso */}
+            <div className="min-h-[320px]">
+              {paso === 0 && <StepPersonal       data={form} onChange={onChange} handleNum={handleNum} rutErrors={rutErrors} onRutChange={handleRutChange} onRutBlur={handleRutBlur} />}
+              {paso === 1 && <StepIncome         data={form} onChange={onChange} handleNum={handleNum} />}
+              {paso === 2 && <StepDebts          data={form} onChange={onChange} handleNum={handleNum} />}
+              {paso === 3 && <StepSavings        data={form} onChange={onChange} handleNum={handleNum} />}
+              {paso === 4 && <StepComplementary  data={form} onChange={onChange} handleNum={handleNum} rutErrors={rutErrors} onRutChange={handleRutChange} onRutBlur={handleRutBlur} />}
+              {paso === 5 && <StepSummary        data={form} />}
+            </div>
+
+            {/* Error campos faltantes */}
+            {camposFaltantes.length > 0 && (
+              <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+                <p className="font-semibold mb-1">Completa los siguientes campos antes de continuar:</p>
+                <ul className="list-disc list-inside space-y-0.5">
+                  {camposFaltantes.map(c => <li key={c}>{c}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {/* Navegación */}
+            <div className="flex justify-between pt-2 border-t">
+              <Button variant="outline" onClick={anterior} disabled={paso === 0}>
+                ← Anterior
+              </Button>
+              <Button onClick={siguiente}>
+                {paso === TOTAL_PASOS - 1 ? 'Evaluar capacidad' : 'Siguiente →'}
+              </Button>
+            </div>
+          </>
+        ) : (
+          <ResultadoEval eval_={eval_!} ufDelDia={ufDelDia} onConfirmar={handleConfirmar} onVolver={() => setEvaluado(false)} />
+        )}
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PASOS
+// ═══════════════════════════════════════════════════════════════
+
+interface StepProps {
+  data: FormData
+  onChange: (p: Partial<FormData>) => void
+  handleNum: (f: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement>) => void
+  rutErrors?: { rut?: string; comp_rut?: string }
+  onRutChange?: (field: 'rut' | 'comp_rut', raw: string) => void
+  onRutBlur?: (field: 'rut' | 'comp_rut') => void
+}
+
+// ── Paso 1: Datos personales ─────────────────────────────────────
+function StepPersonal({ data, onChange, handleNum, rutErrors, onRutChange, onRutBlur }: StepProps) {
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Datos personales</SectionTitle>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Field label="Nombre completo *">
+          <Input value={data.nombre} onChange={e => onChange({ nombre: e.target.value })} placeholder="Juan Pérez" />
+        </Field>
+        <Field label="RUT *" error={rutErrors?.rut}>
+          <Input
+            value={data.rut}
+            onChange={e => onRutChange?.('rut', e.target.value)}
+            onBlur={() => onRutBlur?.('rut')}
+            placeholder="12.345.678-9"
+            className={rutErrors?.rut ? 'border-red-500' : ''}
+          />
+        </Field>
+        <Field label="Email *">
+          <Input type="email" value={data.email} onChange={e => onChange({ email: e.target.value })} placeholder="cliente@ejemplo.cl" />
+        </Field>
+        <Field label="Teléfono *">
+          <Input
+            type="tel"
+            value={data.telefono}
+            onChange={e => onChange({ telefono: e.target.value })}
+            onBlur={e => {
+              const { formatted } = formatPhone(e.target.value)
+              onChange({ telefono: formatted })
+            }}
+            placeholder="+56 9 1234 5678"
+          />
+        </Field>
+      </div>
+      <div className="grid sm:grid-cols-3 gap-3">
+        <Field label="Edad *">
+          <Input type="number" min={18} max={99} value={data.edad} onChange={handleNum('edad')} placeholder="35" />
+        </Field>
+        <Field label="Estado civil">
+          <Select value={data.estadoCivil} onValueChange={v => onChange({ estadoCivil: v })}>
+            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="soltero">Soltero/a</SelectItem>
+              <SelectItem value="casado">Casado/a</SelectItem>
+              <SelectItem value="divorciado">Divorciado/a</SelectItem>
+              <SelectItem value="viudo">Viudo/a</SelectItem>
+            </SelectContent>
+          </Select>
+        </Field>
+        <Field label="Dependientes *">
+          <Input type="number" min={0} value={data.dependientes} onChange={handleNum('dependientes')} placeholder="0" />
+        </Field>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Field label="Tipo de contrato">
+          <Select value={data.tipoContrato} onValueChange={v => onChange({ tipoContrato: v })}>
+            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="dependiente">Dependiente</SelectItem>
+              <SelectItem value="independiente">Independiente</SelectItem>
+              <SelectItem value="honorarios">Honorarios</SelectItem>
+            </SelectContent>
+          </Select>
+        </Field>
+        <Field label="Antigüedad laboral (meses) *">
+          <Input type="number" min={0} value={data.antiguedadMeses} onChange={handleNum('antiguedadMeses')} placeholder="24" />
+        </Field>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Field label="Objetivo de compra *">
+          <Select value={data.objetivoCompra} onValueChange={v => onChange({ objetivoCompra: v })}>
+            <SelectTrigger><SelectValue placeholder="Selecciona objetivo" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="residencial">Residencial</SelectItem>
+              <SelectItem value="inversion">Inversión</SelectItem>
+            </SelectContent>
+          </Select>
+        </Field>
+      </div>
+    </div>
+  )
+}
+
+// ── Paso 2: Ingresos ─────────────────────────────────────────────
+function StepIncome({ data, onChange }: Pick<StepProps, 'data' | 'onChange' | 'handleNum'>) {
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Ingresos mensuales (CLP)</SectionTitle>
+      <Field label="Renta líquida mensual" hint="Sueldo líquido después de descuentos.">
+        <CurrencyInput value={data.rentaLiquida} onChange={v => onChange({ rentaLiquida: v } as Partial<FormData>)} placeholder="1500000" />
+      </Field>
+      <Field label="Ingresos variables (promedio)" hint="Comisiones, bonos. Se considera 50%.">
+        <CurrencyInput value={data.ingresosVariables} onChange={v => onChange({ ingresosVariables: v } as Partial<FormData>)} placeholder="200000" />
+      </Field>
+      <Field label="Otros ingresos" hint="Arriendos, pensiones, rentas de capital.">
+        <CurrencyInput value={data.otrosIngresos} onChange={v => onChange({ otrosIngresos: v } as Partial<FormData>)} placeholder="0" />
+      </Field>
+    </div>
+  )
+}
+
+// ── Paso 3: Deudas ───────────────────────────────────────────────
+function StepDebts({ data, onChange, handleNum }: StepProps) {
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Deudas y obligaciones mensuales (CLP)</SectionTitle>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <Field label="Cuotas de créditos" hint="Consumo, automotriz, etc.">
+          <CurrencyInput value={data.cuotasCreditos} onChange={v => onChange({ cuotasCreditos: v } as Partial<FormData>)} placeholder="0" />
+        </Field>
+        <Field label="Pago tarjetas de crédito" hint="Pago mínimo o cuota pactada.">
+          <CurrencyInput value={data.pagoTarjetas} onChange={v => onChange({ pagoTarjetas: v } as Partial<FormData>)} placeholder="0" />
+        </Field>
+        <Field label="Pensiones alimenticias">
+          <CurrencyInput value={data.pensiones} onChange={v => onChange({ pensiones: v } as Partial<FormData>)} placeholder="0" />
+        </Field>
+        <Field label="Otras obligaciones">
+          <CurrencyInput value={data.otrasObligaciones} onChange={v => onChange({ otrasObligaciones: v } as Partial<FormData>)} placeholder="0" />
+        </Field>
+      </div>
+      <div className="pt-3 border-t space-y-2">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <Checkbox
+            checked={data.morosidad}
+            onCheckedChange={v => onChange({ morosidad: Boolean(v) })}
+          />
+          <span className="text-sm font-medium">¿Tiene morosidades o protestos vigentes?</span>
+        </label>
+        {data.morosidad && (
+          <textarea
+            className="w-full mt-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={2}
+            value={data.notasMorosidad}
+            onChange={e => onChange({ notasMorosidad: e.target.value })}
+            placeholder="Describe brevemente la situación..."
+          />
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ── Paso 4: Ahorro ───────────────────────────────────────────────
+function StepSavings({ data, onChange }: Pick<StepProps, 'data' | 'onChange' | 'handleNum'>) {
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Ahorro / Pie disponible</SectionTitle>
+      <p className="text-sm text-gray-500">Monto total disponible para el pie de la propiedad, en CLP.</p>
+      <Field label="Pie disponible (CLP)" hint="Ahorros, subsidios u otros fondos para el pie.">
+        <CurrencyInput value={data.pieDisponible} onChange={v => onChange({ pieDisponible: v } as Partial<FormData>)} placeholder="15000000" />
+      </Field>
+    </div>
+  )
+}
+
+// ── Paso 5: Co-solicitante ───────────────────────────────────────
+function StepComplementary({ data, onChange, handleNum, rutErrors, onRutChange, onRutBlur }: StepProps) {
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Co-solicitante (opcional)</SectionTitle>
+      <p className="text-sm text-gray-500">Agrega un co-solicitante para aumentar la capacidad de compra.</p>
+
+      <label className="flex items-center gap-2 cursor-pointer">
+        <Checkbox
+          checked={data.tieneComplementario}
+          onCheckedChange={v => onChange({ tieneComplementario: Boolean(v) })}
+        />
+        <span className="text-sm font-medium">Agregar co-solicitante</span>
+      </label>
+
+      {data.tieneComplementario && (
+        <div className="space-y-3 pt-3 border-t">
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Field label="Nombre">
+              <Input value={data.comp_nombre} onChange={e => onChange({ comp_nombre: e.target.value })} placeholder="María López" />
+            </Field>
+            <Field label="RUT" error={rutErrors?.comp_rut}>
+              <Input
+                value={data.comp_rut}
+                onChange={e => onRutChange?.('comp_rut', e.target.value)}
+                onBlur={() => onRutBlur?.('comp_rut')}
+                placeholder="11.222.333-4"
+                className={rutErrors?.comp_rut ? 'border-red-500' : ''}
+              />
+            </Field>
+          </div>
+          <Field label="Relación">
+            <Select value={data.comp_relacion} onValueChange={v => onChange({ comp_relacion: v })}>
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="conyuge">Cónyuge</SelectItem>
+                <SelectItem value="conviviente">Conviviente civil</SelectItem>
+                <SelectItem value="familiar">Familiar directo</SelectItem>
+                <SelectItem value="otro">Otro</SelectItem>
+              </SelectContent>
+            </Select>
+          </Field>
+
+          <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide pt-2">Ingresos del co-solicitante</p>
+          <div className="grid sm:grid-cols-3 gap-3">
+            <Field label="Renta líquida">
+              <CurrencyInput value={data.comp_rentaLiquida} onChange={v => onChange({ comp_rentaLiquida: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+            <Field label="Variables">
+              <CurrencyInput value={data.comp_ingresosVariables} onChange={v => onChange({ comp_ingresosVariables: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+            <Field label="Otros">
+              <CurrencyInput value={data.comp_otrosIngresos} onChange={v => onChange({ comp_otrosIngresos: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+          </div>
+
+          <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide pt-2">Deudas del co-solicitante</p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <Field label="Cuotas créditos">
+              <CurrencyInput value={data.comp_cuotasCreditos} onChange={v => onChange({ comp_cuotasCreditos: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+            <Field label="Pago tarjetas">
+              <CurrencyInput value={data.comp_pagoTarjetas} onChange={v => onChange({ comp_pagoTarjetas: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+            <Field label="Pensiones">
+              <CurrencyInput value={data.comp_pensiones} onChange={v => onChange({ comp_pensiones: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+            <Field label="Otras oblig.">
+              <CurrencyInput value={data.comp_otrasObligaciones} onChange={v => onChange({ comp_otrasObligaciones: v } as Partial<FormData>)} placeholder="0" />
+            </Field>
+          </div>
+          <Field label="Pie adicional del co-solicitante (CLP)">
+            <CurrencyInput value={data.comp_pieDisponible} onChange={v => onChange({ comp_pieDisponible: v } as Partial<FormData>)} placeholder="0" />
+          </Field>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Paso 6: Resumen ──────────────────────────────────────────────
+function StepSummary({ data }: { data: FormData }) {
+  const Row = ({ label, value }: { label: string; value: string }) => (
+    <div className="flex justify-between py-1 border-b border-dashed border-gray-200 last:border-0">
+      <span className="text-sm text-gray-500">{label}</span>
+      <span className="text-sm font-medium">{value}</span>
+    </div>
+  )
+  const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">{title}</p>
+      <div className="bg-gray-50 rounded-lg px-4 py-2">{children}</div>
+    </div>
+  )
+
+  return (
+    <div className="space-y-4">
+      <SectionTitle>Resumen de datos</SectionTitle>
+      <p className="text-sm text-gray-500">Revisa antes de evaluar.</p>
+      <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1">
+        <Section title="Personal">
+          <Row label="Nombre"    value={data.nombre || '—'} />
+          <Row label="Edad"      value={data.edad ? `${data.edad} años` : '—'} />
+          <Row label="Contrato"  value={data.tipoContrato} />
+          <Row label="Antigüedad" value={data.antiguedadMeses ? `${data.antiguedadMeses} meses` : '—'} />
+        </Section>
+        <Section title="Ingresos mensuales">
+          <Row label="Renta líquida"  value={formatCLP(num(data.rentaLiquida))} />
+          <Row label="Variables"      value={formatCLP(num(data.ingresosVariables))} />
+          <Row label="Otros"          value={formatCLP(num(data.otrosIngresos))} />
+        </Section>
+        <Section title="Deudas mensuales">
+          <Row label="Cuotas créditos" value={formatCLP(num(data.cuotasCreditos))} />
+          <Row label="Tarjetas"        value={formatCLP(num(data.pagoTarjetas))} />
+          <Row label="Pensiones"       value={formatCLP(num(data.pensiones))} />
+          <Row label="Otras"           value={formatCLP(num(data.otrasObligaciones))} />
+          <Row label="Morosidad"       value={data.morosidad ? '⚠ Sí' : 'No'} />
+        </Section>
+        <Section title="Ahorro">
+          <Row label="Pie disponible" value={formatCLP(num(data.pieDisponible))} />
+        </Section>
+        {data.tieneComplementario && (
+          <Section title={`Co-solicitante: ${data.comp_nombre || '—'}`}>
+            <Row label="Renta líquida"  value={formatCLP(num(data.comp_rentaLiquida))} />
+            <Row label="Variables"      value={formatCLP(num(data.comp_ingresosVariables))} />
+            <Row label="Pie adicional"  value={formatCLP(num(data.comp_pieDisponible))} />
+          </Section>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RESULTADO
+// ═══════════════════════════════════════════════════════════════
+function ResultadoEval({
+  eval_, ufDelDia, onConfirmar, onVolver,
+}: {
+  eval_: EvaluationOutput
+  ufDelDia: number
+  onConfirmar: () => void
+  onVolver: () => void
+}) {
+  const capacidadCLP = (eval_.propiedadMaxCapacidadCombinada ?? eval_.propiedadMaxCapacidad) * 1.10
+  const minCLP = capacidadCLP
+  const maxCLP = capacidadCLP * 1.15
+  const minUF  = ufDelDia > 0 ? minCLP / ufDelDia : 0
+  const maxUF  = ufDelDia > 0 ? maxCLP / ufDelDia : 0
+
+  const apto = eval_.resultado !== 'no_apto'
+
+  const badge = {
+    apto:               'bg-green-100 text-green-800 border-green-200',
+    apto_con_condiciones: 'bg-amber-100 text-amber-800 border-amber-200',
+    no_apto:            'bg-red-100 text-red-800 border-red-200',
+  }[eval_.resultado]
+
+  const label = {
+    apto:               'Apto',
+    apto_con_condiciones: 'Apto con condiciones',
+    no_apto:            'No apto',
+  }[eval_.resultado]
+
+  return (
+    <div className="space-y-5">
+      {/* Badge resultado */}
+      <div className="flex items-center gap-3">
+        <span className={cn('px-3 py-1 rounded-full text-sm font-semibold border', badge)}>
+          {label}
+        </span>
+      </div>
+
+      {/* Razones */}
+      <div className="bg-gray-50 rounded-lg p-4 space-y-1">
+        {eval_.razones.map((r, i) => (
+          <p key={i} className="text-sm text-gray-700">• {r}</p>
+        ))}
+      </div>
+
+      {/* Capacidad de compra */}
+      {apto && (
+        <div className="border border-blue-200 bg-blue-50 rounded-xl p-4 space-y-3">
+          <p className="text-sm font-semibold text-blue-800">Capacidad de compra estimada</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white rounded-lg p-3 text-center border border-blue-100">
+              <p className="text-xs text-gray-500 mb-1">Rango conservador</p>
+              <p className="font-bold text-blue-800">{Math.round(minUF).toLocaleString('es-CL')} UF</p>
+              <p className="text-xs text-gray-400">{formatCLP(minCLP)}</p>
+            </div>
+            <div className="bg-white rounded-lg p-3 text-center border border-blue-100">
+              <p className="text-xs text-gray-500 mb-1">Rango optimista</p>
+              <p className="font-bold text-blue-800">{Math.round(maxUF).toLocaleString('es-CL')} UF</p>
+              <p className="text-xs text-gray-400">{formatCLP(maxCLP)}</p>
+            </div>
+          </div>
+          <div className="text-xs text-gray-500 space-y-0.5">
+            <p>• Dividendo máx: {formatCLP(eval_.dividendoMaximoCombinado ?? eval_.dividendoMaximo)}/mes</p>
+            <p>• Crédito máx: {formatCLP(eval_.creditoMaximoCombinado ?? eval_.creditoMaximo)}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Acciones */}
+      <div className="flex justify-between pt-2 border-t">
+        <Button variant="outline" onClick={onVolver}>← Volver</Button>
+        {apto ? (
+          <Button onClick={onConfirmar} className="bg-blue-700 hover:bg-blue-800">
+            Buscar unidades en este rango →
+          </Button>
+        ) : (
+          <Button variant="secondary" onClick={onVolver}>Revisar datos</Button>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Sub-componentes UI internos
+// ═══════════════════════════════════════════════════════════════
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="text-lg font-semibold text-gray-800">{children}</h2>
+}
+
+function Field({
+  label, hint, error, children,
+}: {
+  label: string
+  hint?: string
+  error?: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="space-y-1">
+      <Label>{label}</Label>
+      {children}
+      {error && <p className="text-xs text-red-600">{error}</p>}
+      {hint && <p className="text-xs text-gray-400">{hint}</p>}
+    </div>
+  )
+}

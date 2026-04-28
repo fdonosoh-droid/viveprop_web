@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Mercado · Av. Las Condes 9560 DP 508 · ViveProp</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root {
+  --indigo:       #4338CA;
+  --indigo-dark:  #312E81;
+  --indigo-mid:   #6366F1;
+  --indigo-light: #EEF2FF;
+  --indigo-pale:  #E0E7FF;
+  --green:        #059669;
+  --green-light:  #ECFDF5;
+  --amber:        #D97706;
+  --amber-light:  #FFFBEB;
+  --red:          #DC2626;
+  --gray-50:  #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --uf-today: 39908;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #E8EAF0; color: var(--gray-900); line-height: 1.6; }
+
+/* ─── PDF button (hidden on print) ─── */
+.pdf-btn {
+  position: fixed; top: 20px; right: 20px; z-index: 100;
+  background: var(--indigo); color: #fff;
+  border: none; border-radius: 10px;
+  padding: 12px 22px; font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(67,56,202,0.4);
+  transition: background .15s;
+}
+.pdf-btn:hover { background: var(--indigo-dark); }
+
+/* ─── Página ─── */
+.page {
+  max-width: 860px; margin: 40px auto 60px;
+  background: #fff; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 6px 50px rgba(0,0,0,0.12);
+}
+
+/* ─── Header ─── */
+.header {
+  background: linear-gradient(135deg, var(--indigo-dark) 0%, var(--indigo) 55%, var(--indigo-mid) 100%);
+  padding: 44px 48px 40px; color: #fff; position: relative; overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute; right: -60px; top: -60px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+.brand { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+.brand span { opacity: 0.55; font-weight: 300; }
+.report-pill {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+}
+.header-client { margin-bottom: 20px; }
+.header-client .label { font-size: 11px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+.header-client .name { font-size: 20px; font-weight: 700; }
+.header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 6px; }
+.header .addr { font-size: 14px; opacity: 0.72; margin-bottom: 26px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 500;
+}
+.chip.green { background: rgba(5,150,105,0.25); border-color: rgba(5,150,105,0.4); }
+
+/* ─── Sections ─── */
+.section { padding: 36px 48px; border-bottom: 1px solid var(--gray-100); }
+.section:last-child { border-bottom: none; }
+.stitle {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.4px; color: var(--indigo); margin-bottom: 20px;
+}
+
+/* ─── Prop cards ─── */
+.prop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.pcard {
+  background: var(--indigo-light); border-radius: 10px; padding: 16px 14px; text-align: center;
+}
+.pcard .val { font-size: 20px; font-weight: 800; color: var(--indigo); display: block; }
+.pcard .lbl { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+.tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  background: var(--gray-100); border-radius: 6px; padding: 4px 10px;
+  font-size: 12px; color: var(--gray-700); font-weight: 500;
+}
+.tag.g { background: var(--green-light); color: var(--green); }
+.tag.i { background: var(--indigo-light); color: var(--indigo); }
+
+/* ─── Comparables ─── */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table thead th {
+  background: var(--gray-50); padding: 10px 12px;
+  text-align: left; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.7px; color: var(--gray-500);
+  border-bottom: 2px solid var(--gray-200);
+}
+.comp-table tbody td { padding: 13px 12px; vertical-align: middle; border-bottom: 1px solid var(--gray-100); }
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table tbody tr.mine { background: var(--indigo-light); }
+.comp-table tbody tr.mine td { color: var(--indigo-dark); font-weight: 600; border-bottom: none; }
+.addr-cell .main { font-weight: 600; color: var(--gray-800); font-size: 13px; }
+.addr-cell .sub { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+.uf { font-weight: 800; font-size: 15px; color: var(--gray-900); }
+.pesos { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
+.dist-pill {
+  display: inline-block; background: var(--gray-100);
+  border-radius: 10px; padding: 2px 8px; font-size: 11px; color: var(--gray-500);
+}
+.dist-pill.same { background: #FEF3C7; color: #92400E; font-weight: 600; }
+.badge {
+  display: inline-block; border-radius: 6px; padding: 2px 7px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
+}
+.badge.yes { background: var(--green-light); color: var(--green); }
+.badge.no  { background: #FEE2E2; color: var(--red); }
+
+/* ─── Price box ─── */
+.price-hero {
+  background: linear-gradient(135deg, var(--indigo-light), var(--indigo-pale));
+  border: 1.5px solid #C7D2FE; border-radius: 16px; padding: 32px 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.ph-left .label { font-size: 12px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+.ph-left .uf-big { font-size: 56px; font-weight: 800; color: var(--indigo); letter-spacing: -2px; line-height: 1; }
+.ph-left .uf-sub { font-size: 11px; color: var(--indigo-mid); margin-top: 2px; }
+.ph-left .pesos-big { font-size: 22px; font-weight: 600; color: var(--gray-700); margin-top: 8px; }
+.ph-right { display: flex; flex-direction: column; gap: 10px; }
+.range-row { display: flex; gap: 12px; align-items: center; }
+.rl { font-size: 12px; color: var(--gray-500); min-width: 140px; text-align: right; }
+.rv { font-size: 16px; font-weight: 700; }
+.rv.low  { color: var(--amber); }
+.rv.mid  { color: var(--indigo); }
+.rv.high { color: var(--green); }
+
+/* ─── Analysis ─── */
+.analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.acard {
+  border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px;
+}
+.acard .aval { font-size: 22px; font-weight: 800; color: var(--gray-900); display: block; margin-bottom: 4px; }
+.acard .albl { font-size: 12px; color: var(--gray-500); }
+.acard .adesc { font-size: 12px; color: var(--gray-600); margin-top: 8px; line-height: 1.5; }
+
+/* ─── Market ─── */
+.mkt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.mcard {
+  border: 1px solid var(--gray-200); border-radius: 10px; padding: 18px; text-align: center;
+}
+.mcard .mval { font-size: 20px; font-weight: 800; color: var(--gray-900); display: block; }
+.mcard .mlbl { font-size: 11px; color: var(--gray-500); margin-top: 4px; line-height: 1.4; }
+.mcard.highlight { border-color: var(--indigo); background: var(--indigo-light); }
+.mcard.highlight .mval { color: var(--indigo); }
+
+/* ─── Conclusion ─── */
+.concl {
+  background: var(--green-light); border-left: 4px solid var(--green);
+  border-radius: 0 12px 12px 0; padding: 20px 24px;
+  font-size: 14px; color: #065F46; line-height: 1.75;
+}
+.concl strong { color: #064E3B; }
+
+/* ─── Disclaimer ─── */
+.note { font-size: 11px; color: var(--gray-400); font-style: italic; margin-top: 14px; line-height: 1.5; }
+
+/* ─── Footer ─── */
+.footer {
+  background: var(--indigo-dark); color: rgba(255,255,255,0.7);
+  padding: 22px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+  gap: 10px; flex-wrap: wrap; font-size: 12px;
+}
+.footer .brand-f { font-size: 16px; font-weight: 800; color: #fff; }
+.footer .contact { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+.footer .date { text-align: right; }
+
+/* ─── Print ─── */
+@media print {
+  body { background: #fff; }
+  .pdf-btn { display: none; }
+  .page { max-width: 100%; margin: 0; border-radius: 0; box-shadow: none; }
+  .section { padding: 26px 36px; }
+  .header { padding: 32px 36px 28px; }
+  .footer { padding: 16px 36px; }
+}
+@media (max-width: 640px) {
+  .header { padding: 28px 22px 24px; }
+  .section { padding: 26px 22px; }
+  .prop-grid { grid-template-columns: repeat(2, 1fr); }
+  .mkt-grid { grid-template-columns: repeat(2, 1fr); }
+  .analysis-grid { grid-template-columns: 1fr; }
+  .price-hero { flex-direction: column; text-align: center; }
+  .ph-right { align-items: center; }
+  .rl { text-align: center; }
+  .footer { flex-direction: column; text-align: center; }
+  .header-top { flex-direction: column; gap: 10px; }
+  .pdf-btn { top: auto; bottom: 16px; right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<button class="pdf-btn" onclick="window.print()">⬇ Descargar PDF</button>
+
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-top">
+      <div class="brand">Vive<span>Prop</span></div>
+      <div class="report-pill">Informe Comparativo de Mercado</div>
+    </div>
+    <div class="header-client">
+      <div class="label">Preparado para</div>
+      <div class="name">Sra. María Teresa Jottar Nasrallah</div>
+    </div>
+    <h1>Av. Las Condes 9560, Depto. 508</h1>
+    <div class="addr">Las Condes · Región Metropolitana · Arriendo · Abril 2026</div>
+    <div class="chips">
+      <div class="chip">2 Dormitorios</div>
+      <div class="chip">2 Baños</div>
+      <div class="chip">74 m² construidos</div>
+      <div class="chip">90 m² totales</div>
+      <div class="chip green">✓ Bodega</div>
+      <div class="chip green">✓ Estacionamiento</div>
+    </div>
+  </div>
+
+  <!-- ══ CARACTERÍSTICAS ══ -->
+  <div class="section">
+    <div class="stitle">Características de su Propiedad</div>
+    <div class="prop-grid">
+      <div class="pcard">
+        <span class="val">74 m²</span>
+        <span class="lbl">Construidos</span>
+      </div>
+      <div class="pcard">
+        <span class="val">90 m²</span>
+        <span class="lbl">Totales</span>
+      </div>
+      <div class="pcard">
+        <span class="val">2D · 2B</span>
+        <span class="lbl">Dorm · Baños</span>
+      </div>
+      <div class="pcard">
+        <span class="val">Piso 5</span>
+        <span class="lbl">Depto. 508</span>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag g">✓ Estacionamiento incluido</span>
+      <span class="tag g">✓ Bodega incluida</span>
+      <span class="tag i">Edificio Av. Las Condes 9560</span>
+      <span class="tag">Sector Las Condes Alto</span>
+      <span class="tag">Amenidades completas</span>
+    </div>
+    <p class="note" style="margin-top:14px">
+      El edificio cuenta con: conserjería 24 hrs, piscina exterior, piscina temperada, sauna, quinchos, gimnasio, lavandería, sala de cine y sala de eventos.
+    </p>
+  </div>
+
+  <!-- ══ COMPARABLES ══ -->
+  <div class="section">
+    <div class="stitle">Análisis Comparativo · Radio 1 km</div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Propiedad</th>
+          <th>Distancia</th>
+          <th>M² útiles</th>
+          <th>Tipo</th>
+          <th>Est+Bod</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="addr-cell">
+            <div class="main">Av. Las Condes 9560 · Piso 16</div>
+            <div class="sub">Mismo edificio · Orientación Nor-Oriente · Año 2015</div>
+          </td>
+          <td><span class="dist-pill same">Mismo Edif.</span></td>
+          <td>65 m² / 70 m²</td>
+          <td>2D · 2B</td>
+          <td><span class="badge yes">Sí</span></td>
+          <td>
+            <div class="uf">UF 30,1</div>
+            <div class="pesos">$1.200.000/mes</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="addr-cell">
+            <div class="main">Las Condes, sector Estoril / Av. Las Condes</div>
+            <div class="sub">Piscina, quincho, control acceso 24/7 · Sin amoblar</div>
+          </td>
+          <td><span class="dist-pill">~600 m</span></td>
+          <td>75 m² + 13 m² terraza</td>
+          <td>2D · 2B</td>
+          <td><span class="badge yes">Sí</span></td>
+          <td>
+            <div class="uf">UF 28</div>
+            <div class="pesos">~$1.117.000/mes</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="addr-cell">
+            <div class="main">Los Militares, Las Condes</div>
+            <div class="sub">Proyecto Murano · Quincho, jacuzzi, terraza</div>
+          </td>
+          <td><span class="dist-pill">~900 m</span></td>
+          <td>58 m² + 8 m² loggia</td>
+          <td>2D · 2B</td>
+          <td><span class="badge yes">Sí</span></td>
+          <td>
+            <div class="uf">UF 21,3</div>
+            <div class="pesos">$850.000/mes</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="addr-cell">
+            <div class="main">Los Militares con La Gloria, Las Condes</div>
+            <div class="sub">Terraza, seguridad · Sin amoblar</div>
+          </td>
+          <td><span class="dist-pill">~950 m</span></td>
+          <td>80 m²</td>
+          <td>2D · 2B</td>
+          <td><span class="badge yes">Sí</span></td>
+          <td>
+            <div class="uf">UF 25</div>
+            <div class="pesos">$999.000/mes</div>
+          </td>
+        </tr>
+
+        <tr class="mine">
+          <td class="addr-cell">
+            <div class="main">➜ SU PROPIEDAD · Av. Las Condes 9560, DP 508</div>
+            <div class="sub">Mayor superficie total · Bodega + Estacionamiento · Amenidades completas</div>
+          </td>
+          <td><span class="dist-pill same">—</span></td>
+          <td>74 m² / 90 m²</td>
+          <td>2D · 2B</td>
+          <td><span class="badge yes">Sí</span></td>
+          <td>
+            <div class="uf">UF 31–33</div>
+            <div class="pesos">Valor estimado</div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <p class="note">* Fuentes: BienesOnline.cl, CasasParaTi.cl, Nestoria.cl, PropiedadesSotomayor.com · Relevamiento Abril 2026 · UF = $39.908 (20-04-2026)</p>
+  </div>
+
+  <!-- ══ ANÁLISIS ══ -->
+  <div class="section">
+    <div class="stitle">Análisis de Ajuste de Precio</div>
+    <div class="analysis-grid">
+      <div class="acard">
+        <span class="aval">+13,8%</span>
+        <span class="albl">Más superficie útil vs comparable mismo edificio</span>
+        <p class="adesc">El comparable directo (piso 16, mismo edificio) tiene 65 m² vs sus 74 m². Esa diferencia de 9 m² justifica un premio de precio de aproximadamente UF 2,5 sobre la base.</p>
+      </div>
+      <div class="acard">
+        <span class="aval">−5 a −8%</span>
+        <span class="albl">Ajuste por piso inferior (5 vs 16)</span>
+        <p class="adesc">Los pisos altos tienen mayor cotización por vistas, luminosidad y menor ruido. El piso 5 tiene un descuento estimado de UF 1,5–2 frente a unidades altas del mismo edificio.</p>
+      </div>
+      <div class="acard">
+        <span class="aval">+28,6%</span>
+        <span class="albl">Mayor superficie total (90 m² vs 70 m²)</span>
+        <p class="adesc">Los 90 m² totales —incluyendo terrazas y espacios exteriores— otorgan una calidad de vida superior. Arrendatarios con familia valoran este espacio adicional.</p>
+      </div>
+      <div class="acard">
+        <span class="aval">UF 32</span>
+        <span class="albl">Precio recomendado (punto medio óptimo)</span>
+        <p class="adesc">Tomando el comparable del mismo edificio (UF 30,1) + premio por m² adicional (UF 2,5) − ajuste por piso (UF 1,5), el precio justo de mercado se ubica en <strong>UF 32</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PRECIO RECOMENDADO ══ -->
+  <div class="section">
+    <div class="stitle">Precio Recomendado de Arriendo</div>
+    <div class="price-hero">
+      <div class="ph-left">
+        <div class="label">Precio de publicación recomendado</div>
+        <div class="uf-big">UF 32</div>
+        <div class="uf-sub">UF a $39.908 · 20 de abril 2026</div>
+        <div class="pesos-big">~ $1.277.000 / mes</div>
+      </div>
+      <div class="ph-right">
+        <div class="range-row">
+          <span class="rl">Mínimo aceptable</span>
+          <span class="rv low">UF 30</span>
+        </div>
+        <div class="range-row">
+          <span class="rl">Precio recomendado</span>
+          <span class="rv mid">UF 32</span>
+        </div>
+        <div class="range-row">
+          <span class="rl">Máximo c/ muebles</span>
+          <span class="rv high">UF 35–37</span>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:14px">
+      El precio de <strong>UF 32</strong> permite una colocación rápida (estimada en 15–25 días) con un perfil de arrendatario sólido. Si la propiedad se entrega amoblada y con equipamiento completo, el precio puede subir hasta <strong>UF 35–37</strong>. Publicar por encima de UF 34 sin muebles alarga el tiempo de vacancia y reduce la oferta de candidatos calificados.
+    </p>
+  </div>
+
+  <!-- ══ MERCADO ══ -->
+  <div class="section">
+    <div class="stitle">Contexto de Mercado · Las Condes 2025–2026</div>
+    <div class="mkt-grid">
+      <div class="mcard highlight">
+        <span class="mval">$13.085</span>
+        <span class="mlbl">Precio promedio/m²<br>arriendo en Las Condes</span>
+      </div>
+      <div class="mcard">
+        <span class="mval">#1</span>
+        <span class="mlbl">Las Condes lidera precios<br>de arriendo en Santiago</span>
+      </div>
+      <div class="mcard">
+        <span class="mval">+9,6%</span>
+        <span class="mlbl">Sobre Providencia<br>($11.943/m²)</span>
+      </div>
+      <div class="mcard">
+        <span class="mval">55%</span>
+        <span class="mlbl">Del mercado de arriendo<br>son departamentos</span>
+      </div>
+      <div class="mcard">
+        <span class="mval">Alta</span>
+        <span class="mlbl">Demanda por 2D+2B<br>en sector alto Las Condes</span>
+      </div>
+      <div class="mcard">
+        <span class="mval">15–25 días</span>
+        <span class="mlbl">Tiempo estimado colocación<br>a precio de mercado</span>
+      </div>
+    </div>
+    <p class="note" style="margin-top:14px">Fuente: Informe Mercado de Arriendos 1er semestre 2025, Yapo.cl.</p>
+  </div>
+
+  <!-- ══ CONCLUSIÓN ══ -->
+  <div class="section">
+    <div class="stitle">Conclusión y Recomendación</div>
+    <div class="concl">
+      Estimada Sra. Jottar, su propiedad en <strong>Av. Las Condes 9560 DP 508</strong> se encuentra en uno de los edificios mejor posicionados del sector, con amenidades completas, y ofrece una de las superficies más generosas del mercado inmediato.<br><br>
+      Basado en el análisis de 4 propiedades comparables —incluyendo una unidad en el <strong>mismo edificio</strong>— el precio justo de mercado se ubica en <strong>UF 32 mensuales (~$1.277.000)</strong>. Este valor le garantiza una colocación rápida (15–25 días) con arrendatarios de perfil financiero sólido.<br><br>
+      <strong>ViveProp</strong> cuenta con la red de contactos, herramientas de marketing digital y experiencia en el segmento premium de Las Condes para gestionar el arriendo de su propiedad con máxima eficiencia y transparencia.
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <div>
+      <div class="brand-f">ViveProp</div>
+      <div class="contact">Agencia Intermediación Inmobiliaria Data SpA · RUT 78.041.781-1</div>
+      <div class="contact">Mario Lipari Orrego · Av. Kennedy 7441 of. 905, Vitacura</div>
+      <div class="contact">propiedadesdomingof@gmail.com</div>
+    </div>
+    <div class="date">
+      <div>Informe preparado el</div>
+      <div style="font-weight:700;color:#fff;font-size:14px">20 de Abril, 2026</div>
+      <div>UF $39.908 (SII)</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

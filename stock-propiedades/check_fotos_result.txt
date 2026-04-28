@@ -1,0 +1,56 @@
+======================================================================
+REPORTE FOTOS: NUNOA + PROVIDENCIA
+Total consultadas: 45
+Con fotos:         0
+SIN fotos:         45
+Errores API:       0
+======================================================================
+
+--- PROPIEDADES SIN FOTOS (45) ---
+  OP 43288       id=461999    Ñuñoa            Eco Irarrazaval DP215-B  [fotos=[]]
+  OP 19248       id=434503    Ñuñoa            Ciudadano Montt DP1009  [fotos=[]]
+  OP 19363       id=436299    Ñuñoa            Ciudadano Montt DP708  [fotos=[]]
+  OP 54814       id=          Ñuñoa            Live Ñuñoa DP305  [sin id]
+  OP 54822       id=          Ñuñoa            Live Ñuñoa DP1205  [sin id]
+  OP 19115       id=434363    Ñuñoa            Ñuñoa Vida DP1009  [fotos=[]]
+  OP 52078       id=479994    Providencia      Edificio Linares 42 DP207  [fotos=[]]
+  OP 44878       id=465958    Ñuñoa            Plaza Zañartu DP1103  [fotos=[]]
+  OP 52088       id=480004    Providencia      Edificio Linares 42 DP407  [fotos=[]]
+  OP 52084       id=480000    Providencia      Edificio Linares 42 DP307  [fotos=[]]
+  OP 19114       id=434362    Ñuñoa            Ñuñoa Vida DP212  [fotos=[]]
+  OP 42138       id=460759    Ñuñoa            Plaza Zañartu DP601  [fotos=[]]
+  OP 23300       id=442767    Ñuñoa            Eco Urbe I DP2508  [fotos=[]]
+  OP 47764       id=469554    Ñuñoa            Francisco Villagra DP809  [fotos=[]]
+  OP 29766       id=450014    Ñuñoa            Ñuñoa Design DP608  [fotos=[]]
+  OP TBD299      id=497915    Ñuñoa            Edificio Vitro DP506  [fotos=[]]
+  OP 46076       id=467980    Ñuñoa            RVC Castillo Urizar DP709  [fotos=[]]
+  OP TBD125      id=497858    Ñuñoa            Eco Urbe II DP2201  [fotos=[]]
+  OP 28191       id=448225    Ñuñoa            Eco Urbe II DP2401  [fotos=[]]
+  OP 40480       id=459409    Ñuñoa            Plaza Zañartu DP801  [fotos=[]]
+  OP TBD301      id=497917    Ñuñoa            Edificio Vitro DP605  [fotos=[]]
+  OP 19493       id=436451    Ñuñoa            Concepto Magic DP614  [fotos=[]]
+  OP 11910       id=223822    Ñuñoa            Eco Italia Torre C DP403C  [fotos=[]]
+  OP 47917       id=469725    Ñuñoa            Conquista Los Alerces DP901  [fotos=[]]
+  OP 40786       id=459789    Ñuñoa            Eco Irarrazaval DP908-A  [fotos=[]]
+  OP 49076       id=473484    Ñuñoa            Eco Irarrazaval DP208B  [fotos=[]]
+  OP 52091       id=480007    Providencia      Edificio Linares 42 DP505  [fotos=[]]
+  OP 48946       id=473309    Ñuñoa            Matta Oriente DP1106  [fotos=[]]
+  OP 44777       id=465855    Ñuñoa            Eco Irarrazaval DP404A  [fotos=[]]
+  OP 47781       id=469571    Ñuñoa            Edificio Nelson 1816 DP802  [fotos=[]]
+  OP TBD302      id=497918    Ñuñoa            Edificio Vitro DP917  [fotos=[]]
+  OP 11499       id=219646    Ñuñoa            Eco Italia Torre A DP907A  [fotos=[]]
+  OP 42262       id=460888    Ñuñoa            Eco Irarrazaval DP1408-A  [fotos=[]]
+  OP 40783       id=459786    Ñuñoa            Eco Irarrazaval DP808-A  [fotos=[]]
+  OP 33201       id=451880    Ñuñoa            Eco Italia Torre C DP201C  [fotos=[]]
+  OP 54813       id=          Ñuñoa            Live Ñuñoa DP206  [sin id]
+  OP 11501       id=219648    Ñuñoa            Eco Italia Torre A DP904A  [fotos=[]]
+  OP 54816       id=          Ñuñoa            Live Ñuñoa DP506  [sin id]
+  OP 54819       id=          Ñuñoa            Live Ñuñoa DP805  [sin id]
+  OP 61613       id=507014    Ñuñoa            Edficio The Place DP305-B  [fotos=[]]
+  OP 61614       id=507015    Ñuñoa            Edficio The Place DP212-A  [fotos=[]]
+  OP 54810       id=          Ñuñoa            Live Ñuñoa DP1104  [sin id]
+  OP 11540       id=219844    Ñuñoa            Eco Italia Torre A DP908A  [fotos=[]]
+  OP 48436       id=471283    Ñuñoa            Eco Irarrazaval DP1601-A  [fotos=[]]
+  OP 13362       id=326393    Ñuñoa            Garcia Valenzuela DP308  [fotos=[]]
+
+--- PROPIEDADES CON FOTOS ---
