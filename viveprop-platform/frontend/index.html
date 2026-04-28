@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ViveProp · Plataforma</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<link rel="stylesheet" href="/src/styles/app.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sb-header">
+      <div class="sb-logo-wrap">
+        <img src="/images/logo.png" alt="ViveProp">
+      </div>
+      <div class="sb-logo-icon">
+        <img src="/images/logo.png" alt="ViveProp">
+      </div>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="sb-section">Stock</div>
+      <button class="snav-btn active" onclick="openModule('sec')" data-m="sec">
+        <span class="sn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg></span>
+        <span class="sn-label">Usados</span>
+      </button>
+      <button class="snav-btn" onclick="openModule('pri')" data-m="pri">
+        <span class="sn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="10" width="14" height="11" rx="1"/><path d="M9 21v-5h6v5"/><path d="M12 3l-4 7h8l-4-7z"/></svg></span>
+        <span class="sn-label">Nuevos</span>
+      </button>
+      <div class="sb-divider"></div>
+      <button class="snav-btn" onclick="openModule('perfil')" data-m="perfil">
+        <span class="sn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+        <span class="sn-label">Perfilador</span>
+      </button>
+      <button class="snav-btn" onclick="openModule('cotiz')" data-m="cotiz">
+        <span class="sn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></span>
+        <span class="sn-label">Cotizador</span>
+      </button>
+    </nav>
+
+    <!-- Filtros SECUNDARIO -->
+    <div class="sbf-wrap" id="sbf-sec">
+      <div class="sbf-section">Buscar</div>
+      <input type="text" class="sbf-input" id="sec-search" placeholder="Edificio, dirección…" oninput="secFilter()">
+
+      <div class="sbf-section">Estado</div>
+      <div class="sbf-estado-list">
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="lista" checked onchange="secFilter()"><span class="sbf-dot" style="background:#10B981"></span>Disponible</label>
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="desocupar" checked onchange="secFilter()"><span class="sbf-dot" style="background:#2563EB"></span>Por desocupar</label>
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="reacond" checked onchange="secFilter()"><span class="sbf-dot" style="background:#D97706"></span>Reacondicionando</label>
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="aviso" checked onchange="secFilter()"><span class="sbf-dot" style="background:#DC2626"></span>Aviso salida</label>
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="proximo" checked onchange="secFilter()"><span class="sbf-dot" style="background:#7C3AED"></span>Próx. ingreso</label>
+        <label class="sbf-estado-row"><input type="checkbox" class="sec-estado-cb" value="arrendado" checked onchange="secFilter()"><span class="sbf-dot" style="background:#94A3B8"></span>Arrendado</label>
+      </div>
+
+      <div class="sbf-section">Comuna</div>
+      <div class="mc-wrap" id="sec-mc-wrap">
+        <input class="mc-input" id="sec-mc-input" placeholder="Buscar comuna…" oninput="mcFilter('sec')" onfocus="mcOpen('sec')" autocomplete="off">
+        <div class="mc-dropdown" id="sec-mc-dropdown"></div>
+        <div class="mc-tags" id="sec-mc-tags"></div>
+      </div>
+
+      <div class="sbf-section">Dormitorios</div>
+      <div class="sbf-pills">
+        <button class="sbf-pill" data-val="1" data-grp="sec-dorm" onclick="toggleSecPill(this,'dorm')">1D</button>
+        <button class="sbf-pill" data-val="2" data-grp="sec-dorm" onclick="toggleSecPill(this,'dorm')">2D</button>
+        <button class="sbf-pill" data-val="3" data-grp="sec-dorm" onclick="toggleSecPill(this,'dorm')">3D</button>
+        <button class="sbf-pill" data-val="4" data-grp="sec-dorm" onclick="toggleSecPill(this,'dorm')">4D+</button>
+      </div>
+
+      <div class="sbf-section">Baños</div>
+      <div class="sbf-pills">
+        <button class="sbf-pill" data-val="1" data-grp="sec-bano" onclick="toggleSecPill(this,'bano')">1B</button>
+        <button class="sbf-pill" data-val="2" data-grp="sec-bano" onclick="toggleSecPill(this,'bano')">2B</button>
+        <button class="sbf-pill" data-val="3" data-grp="sec-bano" onclick="toggleSecPill(this,'bano')">3B+</button>
+      </div>
+
+      <div class="sbf-section">Precio (UF)</div>
+      <div class="price-range-row">
+        <input type="number" class="price-input" id="sec-precio-min" placeholder="Desde" min="0" oninput="secFilter()">
+        <span class="price-sep">—</span>
+        <input type="number" class="price-input" id="sec-precio-max" placeholder="Hasta" min="0" oninput="secFilter()">
+      </div>
+
+      <div class="sbf-section">Extras</div>
+      <div class="sbf-extra-checks">
+        <label class="sbf-toggle-row"><input type="checkbox" id="sec-est" onchange="secFilter()"> Con estacionamiento</label>
+        <label class="sbf-toggle-row"><input type="checkbox" id="sec-bod" onchange="secFilter()"> Con bodega</label>
+        <label class="sbf-toggle-row"><input type="checkbox" id="sec-op" onchange="secFilter()"> Solo oportunidades</label>
+      </div>
+    </div>
+
+    <!-- Filtros PRIMARIO -->
+    <div class="sbf-wrap" id="sbf-pri" style="display:none">
+      <div class="sbf-section">Buscar</div>
+      <input type="text" class="sbf-input" id="pri-search" placeholder="Proyecto, inmobiliaria…" oninput="priFilter()">
+
+      <div class="sbf-section">Comuna</div>
+      <div class="mc-wrap" id="pri-mc-wrap">
+        <input class="mc-input" id="pri-mc-input" placeholder="Buscar comuna…" oninput="mcFilter('pri')" onfocus="mcOpen('pri')" autocomplete="off">
+        <div class="mc-dropdown" id="pri-mc-dropdown"></div>
+        <div class="mc-tags" id="pri-mc-tags"></div>
+      </div>
+
+      <div class="sbf-section">Dormitorios</div>
+      <div class="sbf-pills" id="pri-dorm-pills">
+        <button class="sbf-pill" data-val="1" data-grp="pri-dorm" onclick="togglePriPill(this,'dorm')">1D</button>
+        <button class="sbf-pill" data-val="2" data-grp="pri-dorm" onclick="togglePriPill(this,'dorm')">2D</button>
+        <button class="sbf-pill" data-val="3" data-grp="pri-dorm" onclick="togglePriPill(this,'dorm')">3D</button>
+        <button class="sbf-pill" data-val="4" data-grp="pri-dorm" onclick="togglePriPill(this,'dorm')">4D+</button>
+      </div>
+
+      <div class="sbf-section">Baños</div>
+      <div class="sbf-pills">
+        <button class="sbf-pill" data-val="1" data-grp="pri-bano" onclick="togglePriPill(this,'bano')">1B</button>
+        <button class="sbf-pill" data-val="2" data-grp="pri-bano" onclick="togglePriPill(this,'bano')">2B</button>
+        <button class="sbf-pill" data-val="3" data-grp="pri-bano" onclick="togglePriPill(this,'bano')">3B+</button>
+      </div>
+
+      <div class="sbf-section">Entrega</div>
+      <select class="sbf-select" id="pri-entrega" onchange="priFilter()">
+        <option value="">Cualquier entrega</option>
+        <option>Inmediata</option><option>2025</option>
+        <option>2026</option><option>2027</option><option>2028</option><option>2029</option>
+      </select>
+
+      <div class="sbf-section">Precio (UF)</div>
+      <div class="price-range-row">
+        <input type="number" class="price-input" id="pri-precio-min" placeholder="Desde" min="0" oninput="priFilter()">
+        <span class="price-sep">—</span>
+        <input type="number" class="price-input" id="pri-precio-max" placeholder="Hasta" min="0" oninput="priFilter()">
+      </div>
+
+      <div class="sbf-section">Extras</div>
+      <div class="sbf-extra-checks">
+        <label class="sbf-toggle-row"><input type="checkbox" id="pri-est" onchange="priFilter()"> Con estacionamiento</label>
+        <label class="sbf-toggle-row"><input type="checkbox" id="pri-bod" onchange="priFilter()"> Con bodega</label>
+      </div>
+    </div>
+
+    <div class="sb-footer">
+      <div class="uf-tag">
+        <span class="uf-tag-label">UF hoy</span>
+        <span class="uf-tag-val" id="uf-val">—</span>
+        <span class="uf-tag-date" id="uf-date"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <div class="main-wrap">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="tb-logo-wrap">
+        <img src="/images/logo.png" alt="ViveProp">
+      </div>
+      <div class="topbar-title" id="topbar-title">Stock Secundario</div>
+      <div class="topbar-right">
+        <div class="tb-pill" id="tb-stats">— disponibles · — total</div>
+      </div>
+    </header>
+
+    <!-- Modules -->
+    <main id="appMain">
+
+      <!-- ════ SECUNDARIO ════ -->
+      <div class="module active" id="mod-sec">
+        <div class="filter-strip">
+          <div class="f-search-wrap">
+            <span class="f-search-icon">🔍</span>
+            <input type="text" id="sec-search-top" placeholder="Buscar usados — edificio, dirección..." oninput="secFilter()">
+          </div>
+        </div>
+        <div class="content-hdr">
+          <span class="results-count" id="sec-count">—</span>
+          <div class="view-toggle">
+            <button class="vtg-btn active" id="btn-lista" onclick="setSecView('lista')">☰ Lista</button>
+            <button class="vtg-btn" id="btn-mapa" onclick="setSecView('mapa')">🗺 Mapa</button>
+          </div>
+          <div class="pager">
+            <button onclick="secPage(-1)" id="sec-prev">‹ Ant.</button>
+            <span class="pager-info" id="sec-pager">—</span>
+            <button onclick="secPage(1)" id="sec-next">Sig. ›</button>
+          </div>
+        </div>
+        <div class="gondola-wrap" id="sec-gondola-wrap">
+          <div class="gondola" id="sec-grid"></div>
+        </div>
+        <div id="sec-map-wrap">
+          <div id="sec-map"></div>
+          <div id="geo-progress">
+            <span id="geo-msg">Ubicando…</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" id="geo-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ PRIMARIO ════ -->
+      <div class="module" id="mod-pri">
+        <div class="filter-strip">
+          <div class="f-search-wrap">
+            <span class="f-search-icon">🔍</span>
+            <input type="text" id="pri-search-top" placeholder="Proyecto, inmobiliaria, comuna..." oninput="priFilter()">
+          </div>
+        </div>
+        <div class="content-hdr">
+          <span class="results-count" id="pri-count">—</span>
+          <div class="view-toggle">
+            <button class="vtg-btn active" id="pri-btn-lista" onclick="setPriView('lista')">☰ Lista</button>
+            <button class="vtg-btn" id="pri-btn-mapa" onclick="setPriView('mapa')">🗺 Mapa</button>
+          </div>
+          <div class="pager" id="pri-pager-wrap">
+            <button onclick="priPage(-1)" id="pri-prev">‹ Ant.</button>
+            <span class="pager-info" id="pri-pager">—</span>
+            <button onclick="priPage(1)" id="pri-next">Sig. ›</button>
+          </div>
+        </div>
+        <div class="gondola-wrap" id="pri-gondola-wrap">
+          <div class="gondola" id="pri-grid"></div>
+        </div>
+        <div id="pri-map-wrap">
+          <div id="pri-map"></div>
+          <div id="pri-geo-progress">
+            <span id="pri-geo-msg">Ubicando…</span>
+            <div class="geo-bar-wrap"><div class="geo-bar" id="pri-geo-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ PERFILADOR ════ -->
+      <div class="module" id="mod-perfil">
+        <div class="tool-body">
+          <div class="tool-form-wrap">
+            <h2>Perfilador de Comprador</h2>
+            <p class="tdesc">Calcula la capacidad de compra basada en renta y ahorro del cliente.</p>
+
+            <div class="fg"><label>Renta líquida mensual</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-renta" placeholder="1.500.000" oninput="calcPerfil()"></div>
+            </div>
+            <div class="fg"><label>Ahorro disponible (pie)</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-ahorro" placeholder="10.000.000" oninput="calcPerfil()"></div>
+            </div>
+            <div class="fg"><label>Otras deudas mensuales</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-deudas" placeholder="0" oninput="calcPerfil()"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Plazo</label>
+                <select id="p-plazo" onchange="calcPerfil()">
+                  <option value="15">15 años</option>
+                  <option value="20">20 años</option>
+                  <option value="25" selected>25 años</option>
+                  <option value="30">30 años</option>
+                </select>
+              </div>
+              <div class="fg"><label>Tasa anual</label>
+                <input type="number" id="p-tasa" value="5.0" step="0.1" min="1" max="15" oninput="calcPerfil()">
+              </div>
+            </div>
+            <div class="search-btns" id="p-btns" style="display:none">
+              <button class="btn-sec" onclick="searchFromPerfil('sec')">🏢 Ver Secundario</button>
+              <button class="btn-pri" onclick="searchFromPerfil('pri')">🏗️ Ver Primario</button>
+            </div>
+          </div>
+          <div class="tool-results-wrap" id="p-results">
+            <div class="empty-tool"><div class="ei">👤</div><p>Ingresa la renta del cliente para calcular su perfil</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ COTIZADOR ════ -->
+      <div class="module" id="mod-cotiz">
+        <div class="tool-body">
+          <div class="tool-form-wrap">
+            <h2>Cotizador</h2>
+            <p class="tdesc">Simula el financiamiento de cualquier propiedad.</p>
+
+            <div class="cprop-banner" id="c-prop-info" style="display:none"></div>
+
+            <div class="fg"><label>Precio (UF)</label>
+              <input type="number" id="c-precio" placeholder="3.500" oninput="calcCotiz()">
+            </div>
+            <div class="fg">
+              <label>Pie — <span id="pie-lbl">20%</span></label>
+              <div class="pie-row">
+                <input type="range"  id="c-pie-r" min="10" max="50" value="20" oninput="syncPie('r')">
+                <input type="number" id="c-pie-n" value="20" min="10" max="50" class="pie-num fg input" step="1" oninput="syncPie('n')" style="border:1.5px solid var(--g200);border-radius:8px;height:38px;font-family:'Inter',sans-serif;font-size:14px;outline:none">
+                <span>%</span>
+              </div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label>Plazo</label>
+                <select id="c-plazo" onchange="calcCotiz()">
+                  <option value="15">15 años</option>
+                  <option value="20">20 años</option>
+                  <option value="25" selected>25 años</option>
+                  <option value="30">30 años</option>
+                </select>
+              </div>
+              <div class="fg"><label>Tasa anual</label>
+                <input type="number" id="c-tasa" value="5.0" step="0.1" min="1" max="15" oninput="calcCotiz()">
+              </div>
+            </div>
+            <div class="fg"><label>Gastos comunes est. ($/mes)</label>
+              <input type="number" id="c-gc" placeholder="150.000" oninput="calcCotiz()">
+            </div>
+          </div>
+          <div class="tool-results-wrap" id="c-results">
+            <div class="empty-tool"><div class="ei">📊</div><p>Ingresa el precio de la propiedad para simular el financiamiento</p></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ══ DETAIL MODAL ══ -->
+<div id="detail-modal">
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-photos">
+      <div class="dp-spin" id="dp-spin"><div class="dp-spinner"></div></div>
+      <img id="dp-img" src="" alt="">
+      <button class="dp-close" onclick="closeDetail()">✕</button>
+      <div class="dp-nav">
+        <button id="dp-prev" onclick="navDp(-1)" disabled>‹</button>
+        <button id="dp-next" onclick="navDp(1)" disabled>›</button>
+      </div>
+      <div class="dp-counter" id="dp-counter" style="display:none"></div>
+      <div class="dp-thumbs" id="dp-thumbs"></div>
+    </div>
+    <div class="detail-content" id="detail-content">
+      <div style="color:var(--g500);text-align:center;padding:30px">Cargando información…</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VIDEO MODAL ══ -->
+<div id="video-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:600;align-items:center;justify-content:center;padding:20px" onclick="closeVideo()">
+  <div style="width:100%;max-width:900px;position:relative" onclick="event.stopPropagation()">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <button id="video-copy-btn" onclick="copyVideoLink()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px">
+        🔗 Copiar enlace para cliente
+      </button>
+      <button onclick="closeVideo()" style="background:none;border:none;color:white;font-size:28px;cursor:pointer;line-height:1;padding:0 4px">✕</button>
+    </div>
+    <div id="video-player-wrap" style="position:relative;width:100%;background:#000;border-radius:12px;overflow:hidden">
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROJECT MODAL (Primario) ══ -->
+<div id="proj-modal">
+  <div class="pm-panel">
+    <div class="pm-header">
+      <div style="flex:1;min-width:0">
+        <div class="pm-title" id="pm-title">Proyecto</div>
+        <div class="pm-sub" id="pm-sub"></div>
+      </div>
+      <button class="pm-close" onclick="closeProjModal()">✕</button>
+    </div>
+    <div class="pm-tabs">
+      <button class="pm-tab active" id="pm-tab-gal" onclick="pmTab('gal')">Galería</button>
+      <button class="pm-tab" id="pm-tab-map" onclick="pmTab('map')">Ubicación</button>
+      <button class="pm-tab" id="pm-tab-units" onclick="pmTab('units')">Unidades</button>
+      <button class="pm-tab" id="pm-tab-cc" onclick="pmTab('cc')" style="display:none">📋 Condiciones</button>
+    </div>
+    <!-- GALERÍA -->
+    <div class="pm-pane" id="pm-pane-gal">
+      <div class="pm-photos">
+        <div class="pm-gal-spin" id="pm-gal-spin" style="display:none"><div class="pm-gal-spinner"></div></div>
+        <img id="pm-gal-img" src="" alt="">
+        <div class="pm-gal-nophoto" id="pm-gal-nophoto" style="display:none">Sin imágenes disponibles</div>
+        <div class="pm-gal-nav">
+          <button id="pm-gal-prev" onclick="pmGalNav(-1)" disabled>‹</button>
+          <button id="pm-gal-next" onclick="pmGalNav(1)" disabled>›</button>
+        </div>
+        <div class="pm-gal-counter" id="pm-gal-counter" style="display:none"></div>
+        <div class="pm-gal-thumbs" id="pm-gal-thumbs"></div>
+      </div>
+      <div class="pm-proj-summary" id="pm-proj-summary"></div>
+      <div class="pm-pdf-list" id="pm-pdf-list"></div>
+    </div>
+    <!-- UBICACIÓN -->
+    <div class="pm-pane" id="pm-pane-map" style="display:none">
+      <div id="pm-map"></div>
+    </div>
+    <!-- UNIDADES -->
+    <div class="pm-pane" id="pm-pane-units" style="display:none">
+      <div class="pm-body">
+        <div id="pm-step1">
+          <div class="pm-section">Unidades disponibles</div>
+          <table class="pm-tbl">
+            <thead><tr>
+              <th>DP</th><th>Tipo</th><th>Piso</th><th>M² útil</th><th>Terraza</th><th>Orient.</th><th>Precio</th><th></th>
+            </tr></thead>
+            <tbody id="pm-units-body"></tbody>
+          </table>
+        </div>
+        <div class="pm-step2" id="pm-step2">
+          <div class="pm-section">Unidad seleccionada</div>
+          <div class="pm-selected-card">
+            <div class="pm-selected-title" id="pm-sel-title"></div>
+            <div class="pm-selected-detail" id="pm-sel-detail"></div>
+          </div>
+          <div id="pm-extras-wrap" style="display:none">
+            <div class="pm-section">Agregar opcionales</div>
+            <div class="pm-extras" id="pm-extras-list"></div>
+          </div>
+          <div class="pm-total-row">
+            <span class="pm-total-lbl">Total a cotizar</span>
+            <span class="pm-total-val" id="pm-total-val">UF 0</span>
+          </div>
+          <div class="pm-actions2">
+            <button class="btn-pm-back" onclick="pmBack()">← Volver</button>
+            <button class="btn-pm-cotiz" onclick="pmCotizar()">📊 Cotizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CONDICIONES COMERCIALES -->
+    <div class="pm-pane" id="pm-pane-cc" style="display:none;flex-direction:column">
+      <div class="pm-cc-inner" id="pm-cc-inner"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOADING OVERLAY ══ -->
+<div id="loading-overlay">
+  <div class="lo-msg" id="loading-msg">Preparando fotos…</div>
+  <div class="lo-bar-wrap"><div class="lo-bar" id="loading-bar"></div></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
