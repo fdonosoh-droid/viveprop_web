@@ -1,4 +1,4 @@
-// Auto-generado por condiciones_to_js.py — no editar manualmente
+// Generado por excel_to_js.py — 2026-04-28 14:31
 // Proyectos con condiciones: 62
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
@@ -307,10 +307,6 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Dcto Adicional",
-        "3% 3D"
-      ],
-      [
         "Giftcard",
         "GOP"
       ],
@@ -341,6 +337,10 @@ const CC_DATA = {
       [
         "RUT",
         "76416917-4"
+      ],
+      [
+        "Dcto Adicional",
+        "3% 3D"
       ]
     ],
     "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
@@ -561,10 +561,6 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Dcto Adicional",
-        "2% 3D"
-      ],
-      [
         "Giftcard",
         "GOP"
       ],
@@ -595,6 +591,10 @@ const CC_DATA = {
       [
         "RUT",
         "76113459-0"
+      ],
+      [
+        "Dcto Adicional",
+        "2% 3D"
       ]
     ],
     "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
@@ -654,7 +654,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_vicuna-mackenna-1796": {
     "titulo": "Vicuña Mackenna 1796 (ÑUB)",
@@ -711,7 +712,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_santa-rosa": {
     "titulo": "Santa Rosa (SRO)",
@@ -768,7 +770,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_tocornal": {
     "titulo": "Tocornal (TOC)",
@@ -825,7 +828,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_santos-ossa": {
     "titulo": "Santos Ossa (OSSA)",
@@ -882,7 +886,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_los-alerces": {
     "titulo": "Los Alerces (ALE)",
@@ -939,7 +944,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_bellavista": {
     "titulo": "Bellavista (BEL)",
@@ -996,7 +1002,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_froilan-roa": {
     "titulo": "Froilan Roa (ROA)",
@@ -1053,7 +1060,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_centenario-i": {
     "titulo": "Centenario I (FRK)",
@@ -1110,7 +1118,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_valle-los-ingleses": {
     "titulo": "Valle los Ingleses (ING)",
@@ -1167,7 +1176,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_vivaceta": {
     "titulo": "Vivaceta (VTA)",
@@ -1224,7 +1234,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_vicuna-mackenna-7589-i": {
     "titulo": "Vicuña Mackenna 7589 I y II (VIC) (VIC2)",
@@ -1281,7 +1292,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_diagonal-paraguay": {
     "titulo": "Diagonal Paraguay (DP)",
@@ -1334,7 +1346,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_abdon-cifuentes": {
     "titulo": "Abdón Cifuentes (ABD)",
@@ -1391,7 +1404,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_don-ignacio": {
     "titulo": "Don Ignacio (DOM)",
@@ -1448,7 +1462,8 @@ const CC_DATA = {
         "Celular",
         "56 9 8677 46 96"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_los-lilenes": {
     "titulo": "Los Lilenes (LEN)",
@@ -1505,7 +1520,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_coronel-godoy": {
     "titulo": "Coronel Godoy (GOD)",
@@ -1562,7 +1578,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3231 0545"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_nueva-esmeralda": {
     "titulo": "Nueva Esmeralda",
@@ -1619,7 +1636,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_brasil": {
     "titulo": "Brasil",
@@ -1676,7 +1694,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_vespucio-capital": {
     "titulo": "Vespucio Capital (La Parroquia)",
@@ -1733,7 +1752,8 @@ const CC_DATA = {
         "Celular",
         "56 9 3959 01 39"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_alto-maranon-3": {
     "titulo": "Alto Marañon 3",
@@ -1770,7 +1790,8 @@ const CC_DATA = {
         "Condiciones",
         "1. SOLO LÍNEA 5 DISPONIBLE\n2. Estacionamiento solo 3D/2B"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_blanca-estela-i-torre-a": {
     "titulo": "Edificio Blanca Estela torre A",
@@ -1807,7 +1828,8 @@ const CC_DATA = {
         "Condiciones",
         "SIN CONDICIONES ESPECIALES"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_blanca-estela-i-torre-b": {
     "titulo": "Edificio Blanca Estela torre B",
@@ -1844,7 +1866,8 @@ const CC_DATA = {
         "Condiciones",
         "SIN CONDICIONES ESPECIALES"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_condominio-parque-del-sur-torre-a": {
     "titulo": "Condominio Parque del Sur torre A",
@@ -1881,7 +1904,8 @@ const CC_DATA = {
         "Condiciones",
         "1. Estacionamiento desde 2D/2B\n2. Bodega desde 2D/1B\n3. Deptos 202, 203, 207, 208 y 209 va con anexo 60 días"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_edificio-lia-aguirre": {
     "titulo": "Edificio Lia Aguirre",
@@ -1918,7 +1942,8 @@ const CC_DATA = {
         "Condiciones",
         "1. SOLO LÍNEA 3 Y 14 DISPONIBLE \n2. Estacionamiento y bodega obligatoria\n3. Depto 209, 210, 211, 305 y 803 va con anexo 60 días"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_edificio-pedro-de-la-barra": {
     "titulo": "Edificio Pedro de la Barra",
@@ -1955,7 +1980,8 @@ const CC_DATA = {
         "Condiciones",
         "1. Estacionamiento y bodega solo 2D/2D\n2. Deptos 306, 308, 309 y 311 van con anexo 60 días"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_play": {
     "titulo": "Play",
@@ -2004,7 +2030,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "25% 1D+1D/Estudio                                                20% en el resto"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_fam": {
     "titulo": "Fam",
@@ -2053,7 +2080,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "15% deptos"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_line": {
     "titulo": "Line",
@@ -2102,7 +2130,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "15% deptos"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_mind": {
     "titulo": "Mind",
@@ -2151,7 +2180,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "10%"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_parque-de-araya-torre-poniente": {
     "titulo": "PDA Torre Poniente",
@@ -2200,7 +2230,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "10%"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_parque-de-araya-torre-oriente": {
     "titulo": "PDA Torre Oriente",
@@ -2249,7 +2280,8 @@ const CC_DATA = {
         "Descuento autorizado",
         "5%"
       ]
-    ]
+    ],
+    "nota": ""
   },
   "proj_status": {
     "titulo": "STATUS, Stgo. Centro (SANTOLAYA)",
@@ -2279,66 +2311,7 @@ const CC_DATA = {
         "PROMOCION 24D (Bono pie 10%) Y 36D ( Bono pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "1",
-          "AGOTADOS",
-          "PROMOCION 24D (Bono pie 10%) Y 36D ( Bono pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
-        ],
-        [
-          "1D+1B",
-          "1",
-          "1",
-          "AGOTADOS",
-          "CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO"
-        ],
-        [
-          "1,5D/2B",
-          "1",
-          "1",
-          "AGOTADOS",
-          "ULTIMOS 2 DEPTO DISP: 119 - 129"
-        ],
-        [
-          "1,5D/2B 2S",
-          "1",
-          "1",
-          "25%",
-          "VENTA OBLIGADA ESTAC Y BOD"
-        ],
-        [
-          "2D/2B",
-          "1",
-          "1",
-          "25%",
-          "ESTACIONAMIENTOS: 10% DESCTO"
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "AGOTADOS",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ],
-        [
-          "2D/2B KC",
-          "1",
-          "1",
-          "AGOTADOS",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_suena-marin": {
     "titulo": "SUEÑA MARIN, Stgo. Centro (SANTOLAYA)",
@@ -2368,73 +2341,7 @@ const CC_DATA = {
         "PROMOCION 24D  (Bono Pie 10%)"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "1",
-          "AGOTADOS",
-          "PROMOCION 24D  (Bono Pie 10%)"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "1",
-          "AGOTADOS",
-          "CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO"
-        ],
-        [
-          "1,5D/2B",
-          "0",
-          "1",
-          "AGOTADOS",
-          "ULTIMOS 2 DEPTOS DISPONIBLES: 320 - 820"
-        ],
-        [
-          "1,5D/2B 2S",
-          "0",
-          "1",
-          "AGOTADOS",
-          ""
-        ],
-        [
-          "2D/2B",
-          "0",
-          "1",
-          "AGOTADOS",
-          "VTA OBLIGADA BODEGA"
-        ],
-        [
-          "2D/2B 1S MARIP.",
-          "0",
-          "1",
-          "AGOTADOS",
-          ""
-        ],
-        [
-          "2D/2B 2S",
-          "0",
-          "1",
-          "AGOTADOS",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ],
-        [
-          "2D/2B L",
-          "0",
-          "1",
-          "20%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_suena-santa-elisa": {
     "titulo": "SUEÑA STA ELISA, La Cisterna (SANTOLAYA)",
@@ -2464,59 +2371,7 @@ const CC_DATA = {
         "PROMOCION 24D (Bono pie 10%) Y 36D (Bono Pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D+1B",
-          "0",
-          "1",
-          "25%",
-          "PROMOCION 24D (Bono pie 10%) Y 36D (Bono Pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
-        ],
-        [
-          "1,5D+1B+K",
-          "0",
-          "1",
-          "AGOTADOS",
-          "CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO"
-        ],
-        [
-          "2D+1B+K",
-          "0",
-          "1",
-          "AGOTADOS",
-          "ULTIMOS 2 DEPTOS DISPONIBLES DE 1D"
-        ],
-        [
-          "2D+2B+K",
-          "0",
-          "1",
-          "AGOTADOS",
-          ""
-        ],
-        [
-          "2S+2B+K",
-          "1",
-          "1",
-          "AGOTADOS",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ],
-        [
-          "2,5D+2B+K",
-          "1",
-          "1",
-          "AGOTADOS",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_garden-macul": {
     "titulo": "MACUL 3803, Macul (SANTOLAYA)",
@@ -2530,14 +2385,6 @@ const CC_DATA = {
         "217.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -2546,57 +2393,27 @@ const CC_DATA = {
         "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-02-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS(10% de bono pie) - SOLO DEPTOS 1,5D Y 2D"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-02-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "10%",
-          "PROMOCION 24 DIVIDENDOS(10% de bono pie) - SOLO DEPTOS 1,5D Y 2D"
-        ],
-        [
-          "1.5D/2B 2S",
-          "0",
-          "0",
-          "12%",
-          "PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: LAS PRIMERAS 25 CUOTAS 7% CON TOKU + 18 C/TC 3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "2D/2B 1S",
-          "0",
-          "0",
-          "15%",
-          "DEPTOS 1D 15% PIE EN 25 CUOTAS TOKU + 5% A LA ESCRITURA C/TC + 80% CREDITO"
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "15%",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_ciudad-cerrillos": {
     "titulo": "CONECTA CERRILLOS, Cerrillos (NAPOLEON)",
@@ -2610,14 +2427,6 @@ const CC_DATA = {
         "207.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 10%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "2027-12-01 00:00:00"
       ],
@@ -2626,68 +2435,31 @@ const CC_DATA = {
         "cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-07-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "9%"
       ],
       [
-        "Desc. adic. cierre",
-        "2%"
-      ],
-      [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS (CUESTA 12% DSCTO)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 10%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-07-01 00:00:00"
+      ],
+      [
+        "Desc. adic. cierre",
+        "2%"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Studio",
-          "0",
-          "0",
-          "9%",
-          "PROMOCION 24 DIVIDENDOS (CUESTA 12% DSCTO)"
-        ],
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "9%",
-          "PLAN ESPECIAL DE PAGO 10% EN    CUOTAS - LAS PRIMERAS    CUOTAS CON TOKU + 24 C/TC A LA ESCRITURA  + 10% 24D + 80% CREDITO"
-        ],
-        [
-          "1,5D/1B",
-          "0",
-          "0",
-          "9%",
-          "PEND ACTUALIZACION CONDICIONES"
-        ],
-        [
-          "1,5D/2B 1S",
-          "0",
-          "1",
-          "9%",
-          ""
-        ],
-        [
-          "1,5D/2B 2S",
-          "0",
-          "1",
-          "9%",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_suena-lincoyan": {
     "titulo": "SUEÑA LIRA, Santiago (SANTOLAYA)",
@@ -2701,14 +2473,6 @@ const CC_DATA = {
         "221.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "2027-03-01 00:00:00"
       ],
@@ -2717,71 +2481,27 @@ const CC_DATA = {
         "15 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2027-03-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24D  (10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2027-03-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "0",
-          "10%",
-          "PROMOCION 24D  (10% de bono pie)"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "0",
-          "10%",
-          "PLAN ESPECIAL PIE EN 33 CUOTAS: 7% EN 15 CUOTAS CON TOKU + 3% CUOTON CON 18 C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO"
-        ],
-        [
-          "1,5D/1B",
-          "1",
-          "1",
-          "14%",
-          ""
-        ],
-        [
-          "1,5D/2B",
-          "1",
-          "1",
-          "14%",
-          ""
-        ],
-        [
-          "2D/2B KA",
-          "1",
-          "1",
-          "14%",
-          "2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "14%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_suena-toesca": {
     "titulo": "SUEÑA TOESCA, Stgo (SANTOLAYA)",
@@ -2811,66 +2531,7 @@ const CC_DATA = {
         "PROMOCION 24D ( 10% de bono pie ) hasta 48D ( 20% de bono pie) (APLICA PARA UNID SEGÚN TASACION)  (24D CUESTA 10% DESCTO - 48D CUESTA 20% DESCTO)"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Studio",
-          "0",
-          "1",
-          "15%",
-          "PROMOCION 24D ( 10% de bono pie ) hasta 48D ( 20% de bono pie) (APLICA PARA UNID SEGÚN TASACION)  (24D CUESTA 10% DESCTO - 48D CUESTA 20% DESCTO)"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "1",
-          "20%",
-          "CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO"
-        ],
-        [
-          "1,5D / 1B",
-          "0",
-          "1",
-          "20%",
-          "VTA OBLIGADA BODEGA"
-        ],
-        [
-          "2D / 1B",
-          "1",
-          "1",
-          "20%",
-          ""
-        ],
-        [
-          "1,5D/2B 2S",
-          "1",
-          "1",
-          "20%",
-          "PLAN MAS CUOTAS: HASTA 5% EN 12 DOCUMENTADAS CON PAGARÉ POST ESCRITURA"
-        ],
-        [
-          "2D/2B KA",
-          "1",
-          "1",
-          "20%",
-          "2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
-        ],
-        [
-          "2D/2B KA Grande",
-          "1",
-          "1",
-          "20%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_neoflorida-3": {
     "titulo": "NEO FLORIDA III. La florida (SANTOLAYA)",
@@ -2900,52 +2561,7 @@ const CC_DATA = {
         "PROMOCION 24D( 10% de bono pie) Y 36D (15% de bono pie) (sujeto a valor tasación bco)"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D + 1B",
-          "1",
-          "1",
-          "18%",
-          "PROMOCION 24D( 10% de bono pie) Y 36D (15% de bono pie) (sujeto a valor tasación bco)"
-        ],
-        [
-          "2D/1B",
-          "1",
-          "1",
-          "23%",
-          "CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO"
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "23%",
-          "VTA OBLIGADA BODEGA"
-        ],
-        [
-          "2D/2B",
-          "1",
-          "1",
-          "23%",
-          ""
-        ],
-        [
-          "3D/2B",
-          "1",
-          "1",
-          "23%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_ciudad-lyon": {
     "titulo": "CIUDAD LYON, Providencia (DEISA)",
@@ -2957,10 +2573,6 @@ const CC_DATA = {
       [
         "Valor reserva",
         "229.000"
-      ],
-      [
-        "Contra promesa",
-        "8%"
       ],
       [
         "Fecha escrituración",
@@ -2977,40 +2589,13 @@ const CC_DATA = {
       [
         "Observaciones",
         "PROMOCION 12D (5% de bono pie)"
+      ],
+      [
+        "Contra promesa",
+        "8%"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D + 1B",
-          "1",
-          "1",
-          "15%",
-          "PROMOCION 12D (5% de bono pie)"
-        ],
-        [
-          "2D/2B KA",
-          "1",
-          "1",
-          "15%",
-          "PLAN ESPECIAL PIE 7,5% CONTRA PROMESA - 7,5 CONTRA ESCRITURA 18 C/TC + 5% 12D + 80% CH"
-        ],
-        [
-          "AZOTEAS",
-          "",
-          "",
-          "",
-          "OPORTUNIDAD: ULTIMA AZOTEA UF990"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_barrio-cueto": {
     "titulo": "BARRIO CUETO, Stgo (ORMUZ)",
@@ -3024,68 +2609,23 @@ const CC_DATA = {
         "220.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 2%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Descuento máximo",
         "21%"
       ],
       [
         "Observaciones",
         "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 2%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Studio",
-          "0",
-          "0",
-          "21%",
-          "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "0",
-          "21%",
-          "PLAN ESPECIAL PIE EN 39 CUOTAS: 2% en 3 CUOTAS TOKU + 8% en 36 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CREDITO"
-        ],
-        [
-          "1,5D/ 1B",
-          "0",
-          "1",
-          "24%",
-          "2 CUPOS ESTAC PARA DPTO. 1,5D1B"
-        ],
-        [
-          "2D/2B 1S",
-          "0",
-          "1",
-          "24%",
-          "2 AÑOS ARRIENDO GARANTIZADO 1D Y 2D SOBRE MERCADO INCUIDO EN EL PRECIO"
-        ],
-        [
-          "2D/2B 2S",
-          "0",
-          "1",
-          "24%",
-          "SI NO HAY ARRIENDO GARANTIZADO SE PUEDE DAR 4% DESC ADIC"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_nodo-la-cisterna": {
     "titulo": "NODO LA CISTERNA,  La Cisterna (DEISA)",
@@ -3099,14 +2639,6 @@ const CC_DATA = {
         "204.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "4to Trimestre 2027"
       ],
@@ -3115,50 +2647,27 @@ const CC_DATA = {
         "22 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2027-12-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2027-12-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "10%",
-          "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-        ],
-        [
-          "1,5D/1B",
-          "0",
-          "1",
-          "10%",
-          "PLAN ESPECIAL PIE EN HASTA 40 CUOTAS: LAS PRIMERAS 22 CUOTAS 7% CON TOKU + 18 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "2D/1B",
-          "1",
-          "1",
-          "10%",
-          "PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_ciudad-matta": {
     "titulo": "CIUDAD MATTA, Santiago (DEISA)",
@@ -3172,14 +2681,6 @@ const CC_DATA = {
         "222.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -3188,85 +2689,27 @@ const CC_DATA = {
         "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-03-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "LOCAL COMERCIAL",
-          "1",
-          "1",
-          "10%",
-          "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
-        ],
-        [
-          "Estudio",
-          "0",
-          "1",
-          "10%",
-          "PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: 7% LAS PRIMERAS 25 CUOTAS CON TOKU + 3% CUOTON CON 18 C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO"
-        ],
-        [
-          "1D+1B",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "1,5D/1B",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "1.5D/2B 1S",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "1.5D/2B 2S",
-          "1",
-          "1",
-          "10%",
-          "PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
-        ],
-        [
-          "2D/2B 1S",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "10%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_ciudad-espana": {
     "titulo": "CIUDAD ESPAÑA, Santiago (DEISA)",
@@ -3280,14 +2723,6 @@ const CC_DATA = {
         "228.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -3296,64 +2731,27 @@ const CC_DATA = {
         "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-03-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "0",
-          "10%",
-          "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "0",
-          "10%",
-          "PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: 7% LAS PRIMERAS 25 CUOTAS CON TOKU + 3% CUOTON CON 18 C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO"
-        ],
-        [
-          "1,5D/2B",
-          "1",
-          "1",
-          "10%",
-          "SIN ARRIENDO GARANTIZADO 2% DESCTO ADICIONAL"
-        ],
-        [
-          "2D/1B",
-          "1",
-          "1",
-          "10%",
-          "PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
-        ],
-        [
-          "2D/2B",
-          "1",
-          "1",
-          "10%",
-          "ARRIENDO GARANTIZADO SOBRE MERCADO 2 AÑOS INCLUIDO EN DESCTO MAX (REVISAR CONDICIONES Y VALORES QUE APLICAN)"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_ciudad-siete": {
     "titulo": "CIUDAD SIETE, Cerrillos (DEISA)",
@@ -3367,14 +2765,6 @@ const CC_DATA = {
         "230.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -3383,64 +2773,27 @@ const CC_DATA = {
         "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "10%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-03-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "0",
-          "10%",
-          "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-        ],
-        [
-          "1D+1B",
-          "0",
-          "1",
-          "10%",
-          "PLAN ESPECIAL PIE EN HASTA 43 CUOTAS - LAS PRIMERAS 25 CUOTAS 7% CON TOKU + 18 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "1,5D/2B",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "2D/1B",
-          "1",
-          "1",
-          "10%",
-          ""
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "10%",
-          "PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_mapocho-2880": {
     "titulo": "MAPOCHO 2880, Santiago (SANTOLAYA)",
@@ -3454,14 +2807,6 @@ const CC_DATA = {
         "203.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "2028-06-01 00:00:00"
       ],
@@ -3470,71 +2815,27 @@ const CC_DATA = {
         "38 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2028-06-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "15%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2028-06-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Estudio",
-          "0",
-          "0",
-          "15%",
-          "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
-        ],
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "20%",
-          "PLAN ESPECIAL PIE EN HASTA 56 CUOTAS: LAS PRIMERAS 38 CUOTAS 7% CON TOKU + 18 C/TC 3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "1,5D/1B",
-          "0",
-          "0",
-          "20%",
-          "4 CUPOS ESTAC PARA DEPTOS 2D1B // 4 CUPOS BODEGA PARA DEPT 1D1B"
-        ],
-        [
-          "1.5D/2B",
-          "1",
-          "1",
-          "20%",
-          ""
-        ],
-        [
-          "2D/2B 1S",
-          "1",
-          "1",
-          "20%",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ],
-        [
-          "LOCALES",
-          "0",
-          "1",
-          "5%",
-          "PLAN PAGO PIE LOCALES: 5% CP 15% EN CUOTAS - 5% C/E  - 75% CRED F Grales"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_fuenzalida-urrejola-303": {
     "titulo": "FUENZALIDA URREJOLA 303, La Cisterna (Inmob. Lugano)",
@@ -3548,14 +2849,6 @@ const CC_DATA = {
         "208.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Semestre 2027"
       ],
@@ -3564,50 +2857,27 @@ const CC_DATA = {
         "19 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2027-08-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "20%"
       ],
       [
         "Observaciones",
         "BONO PIE 10%  - ASOCIADO A FIRMA PAGARÉ"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2027-08-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "20%",
-          "BONO PIE 10%  - ASOCIADO A FIRMA PAGARÉ"
-        ],
-        [
-          "1,5D/2B 1S",
-          "1",
-          "1",
-          "20%",
-          "PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: LAS PRIMERAS 19 CUOTAS 7% CON TOKU + 24 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "2D/2B 1S",
-          "1",
-          "1",
-          "20%",
-          "2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_jmc-608": {
     "titulo": "JMC 608, SANTIAGO (SANTOLAYA)",
@@ -3621,14 +2891,6 @@ const CC_DATA = {
         "211.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "2do semestre 2028"
       ],
@@ -3637,78 +2899,27 @@ const CC_DATA = {
         "39 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "2029-03-01 00:00:00"
-      ],
-      [
         "Descuento máximo",
         "15%"
       ],
       [
         "Observaciones",
         "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "2029-03-01 00:00:00"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "Studio",
-          "0",
-          "0",
-          "15%",
-          "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-        ],
-        [
-          "1D/1B",
-          "0",
-          "0",
-          "15%",
-          ""
-        ],
-        [
-          "1,5D/1B",
-          "0",
-          "0",
-          "15%",
-          "PLAN ESPECIAL PIE EN HASTA 57 CUOTAS:  LAS PRIMERAS 39 CUOTAS 7% CON TOKU + 18 C/TC 3% A LA ESCRITURA  + 10% 24D + 80% CH"
-        ],
-        [
-          "1,5D / 2B",
-          "0",
-          "0",
-          "15%",
-          ""
-        ],
-        [
-          "2D / 2B 1S",
-          "1",
-          "1",
-          "15%",
-          ""
-        ],
-        [
-          "2D/2B 2S",
-          "1",
-          "1",
-          "15%",
-          ""
-        ],
-        [
-          "Locales",
-          "",
-          "",
-          "10%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_condominio-alto-hurtado-ii": {
     "titulo": "ALTO HURTADO ET 2, Padre Hurtado (70W)",
@@ -3720,14 +2931,6 @@ const CC_DATA = {
       [
         "Valor reserva",
         "235.000"
-      ],
-      [
-        "% cuotas const.",
-        "15%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
       ],
       [
         "Fecha escrituración",
@@ -3744,75 +2947,17 @@ const CC_DATA = {
       [
         "Observaciones",
         "PROMOCION 12 DIVIDENDOS (5% de bono pie)"
+      ],
+      [
+        "% cuotas const.",
+        "15%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "D - Chilena",
-          "",
-          "",
-          "15%",
-          "PROMOCION 12 DIVIDENDOS (5% de bono pie)"
-        ],
-        [
-          "D - Mediterránea",
-          "",
-          "",
-          "15%",
-          ""
-        ],
-        [
-          "C - Chilena",
-          "",
-          "",
-          "15%",
-          "PLAN ESPECIAL PIE EN 21 CUOTAS: 3 + 18 c/ TC"
-        ],
-        [
-          "C - Mediterránea",
-          "",
-          "",
-          "15%",
-          ""
-        ],
-        [
-          "E - Chilena",
-          "",
-          "",
-          "15%",
-          ""
-        ],
-        [
-          "E - Mediterránea",
-          "",
-          "",
-          "15%",
-          ""
-        ],
-        [
-          "G - Chilena",
-          "",
-          "",
-          "15%",
-          ""
-        ],
-        [
-          "G - Mediterránea",
-          "",
-          "",
-          "15%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   },
   "proj_condominio-alto-hurtado-iii": {
     "titulo": "ALTO HURTADO ET 3, Padre Hurtado  (70W)",
@@ -3824,14 +2969,6 @@ const CC_DATA = {
       [
         "Valor reserva",
         "235.000"
-      ],
-      [
-        "% cuotas const.",
-        "13%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
       ],
       [
         "Fecha escrituración",
@@ -3848,74 +2985,16 @@ const CC_DATA = {
       [
         "Observaciones",
         "PAGO DEL PIE: 2% PROMESA + 13% EN 22 CUOTAS + 5% C/E ó 15% EN 22 CUOTAS + 5% C/E ó 10% EN 22 CUOTAS + 10% C/E + 80% CH"
+      ],
+      [
+        "% cuotas const.",
+        "13%"
+      ],
+      [
+        "Contra promesa",
+        "2%"
       ]
     ],
-    "tabla": {
-      "headers": [
-        "Tipología",
-        "Estac.",
-        "Bodega",
-        "Dcto.",
-        "Obs."
-      ],
-      "rows": [
-        [
-          "D - Chilena",
-          "",
-          "",
-          "10%",
-          "PAGO DEL PIE: 2% PROMESA + 13% EN 22 CUOTAS + 5% C/E ó 15% EN 22 CUOTAS + 5% C/E ó 10% EN 22 CUOTAS + 10% C/E + 80% CH"
-        ],
-        [
-          "D - Mediterránea",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "C - Chilena",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "C - Mediterránea",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "E - Chilena",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "E - Mediterránea",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "G - Chilena",
-          "",
-          "",
-          "10%",
-          ""
-        ],
-        [
-          "G - Mediterránea",
-          "",
-          "",
-          "10%",
-          ""
-        ]
-      ]
-    }
+    "nota": ""
   }
 };

@@ -1,0 +1,192 @@
+"""
+excel_to_js.py — Convierte los .xlsx editados en archivos .js para viveprop-platform.
+Correr cada vez que se modifiquen los Excel.
+
+Requiere: pip install openpyxl
+Uso:      python tools/excel_to_js.py
+"""
+import json, sys
+from pathlib import Path
+from datetime import datetime
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+try:
+    import openpyxl
+except ImportError:
+    sys.exit("Falta openpyxl. Instalá con: pip install openpyxl")
+
+DATA_DIR = Path(__file__).parent.parent / "data"
+
+
+def read_sheet(ws):
+    """Devuelve lista de dicts usando la primera fila como encabezados."""
+    rows = list(ws.iter_rows(values_only=True))
+    if not rows:
+        return []
+    headers = [str(h) for h in rows[0]]
+    result = []
+    for row in rows[1:]:
+        if not any(v not in (None, "") for v in row):
+            continue  # saltar filas vacías
+        result.append({headers[i]: row[i] for i in range(len(headers))})
+    return result
+
+
+def val(v, default=""):
+    """Devuelve el valor o el default si es None."""
+    return default if v is None else v
+
+
+def to_js(var_name, data, comment=""):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    lines = [f"// Generado por excel_to_js.py — {ts}"]
+    if comment:
+        lines.append(f"// {comment}")
+    lines.append(f"const {var_name} = {json.dumps(data, ensure_ascii=False, indent=2)};")
+    return "\n".join(lines) + "\n"
+
+
+# ─── STOCK ────────────────────────────────────────────────────────────────────
+
+def excel_to_stock():
+    src = DATA_DIR / "stock.xlsx"
+    if not src.exists():
+        sys.exit(f"No encontré {src}. Primero corré js_to_excel.py")
+    print("Generando stock.js ...")
+
+    wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
+    rows = read_sheet(wb["Stock"])
+    wb.close()
+
+    stock = []
+    for r in rows:
+        stock.append({k: ("" if v is None else v) for k, v in r.items()})
+
+    out = DATA_DIR / "stock.js"
+    out.write_text(to_js("STOCK", stock, f"Propiedades: {len(stock)}"), encoding="utf-8")
+    print(f"  → {out}  ({len(stock)} propiedades)")
+
+
+# ─── PROJECTS ─────────────────────────────────────────────────────────────────
+
+def _safe_float(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return 0.0
+
+def _safe_int(v):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return 0
+
+def excel_to_projects():
+    src = DATA_DIR / "projects.xlsx"
+    if not src.exists():
+        sys.exit(f"No encontré {src}. Primero corré js_to_excel.py")
+    print("Generando projects.js ...")
+
+    wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
+    proj_rows = read_sheet(wb["Proyectos"])
+    unit_rows = read_sheet(wb["Unidades"])
+    wb.close()
+
+    # Agrupar unidades por proyecto
+    units_by_proj: dict[str, list] = {}
+    for u in unit_rows:
+        pid = str(val(u.get("proyecto_id"), ""))
+        units_by_proj.setdefault(pid, []).append(u)
+
+    projects = []
+    for p in proj_rows:
+        pid = str(val(p.get("id"), ""))
+        amenidades_raw = str(val(p.get("amenidades"), ""))
+        amenidades = [a.strip() for a in amenidades_raw.split(",") if a.strip()]
+
+        units = []
+        for u in units_by_proj.get(pid, []):
+            units.append({
+                "dp":          str(val(u.get("dp"), "")),
+                "tipologia":   str(val(u.get("tipologia"), "")),
+                "piso":        _safe_int(u.get("piso")),
+                "m2_interior": _safe_float(u.get("m2_interior")),
+                "m2_terraza":  _safe_float(u.get("m2_terraza")),
+                "m2_total":    _safe_float(u.get("m2_total")),
+                "orientacion": str(val(u.get("orientacion"), "")),
+                "dormitorios": str(val(u.get("dormitorios"), "")),
+                "banos":       str(val(u.get("banos"), "")),
+                "precio_uf":   _safe_float(u.get("precio_uf")),
+                "disponible":  bool(val(u.get("disponible"), True)),
+                "estado":      str(val(u.get("estado"), "")),
+            })
+
+        projects.append({
+            "id":           pid,
+            "nombre":       str(val(p.get("nombre"), "")),
+            "inmobiliaria": str(val(p.get("inmobiliaria"), "")),
+            "comuna":       str(val(p.get("comuna"), "")),
+            "direccion":    str(val(p.get("direccion"), "")),
+            "entrega":      str(val(p.get("entrega"), "")),
+            "descripcion":  str(val(p.get("descripcion"), "")),
+            "foto_portada": str(val(p.get("foto_portada"), "")),
+            "amenidades":   amenidades,
+            "unidades":     units,
+        })
+
+    total_u = sum(len(p["unidades"]) for p in projects)
+    out = DATA_DIR / "projects.js"
+    out.write_text(
+        to_js("PROJECTS", projects, f"Proyectos: {len(projects)} | Unidades: {total_u}"),
+        encoding="utf-8",
+    )
+    print(f"  → {out}  ({len(projects)} proyectos, {total_u} unidades)")
+
+
+# ─── CC_DATA ──────────────────────────────────────────────────────────────────
+
+def excel_to_cc_data():
+    src = DATA_DIR / "cc_data.xlsx"
+    if not src.exists():
+        sys.exit(f"No encontré {src}. Primero corré js_to_excel.py")
+    print("Generando cc_data.js ...")
+
+    wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
+    rows = read_sheet(wb["Condiciones"])
+    wb.close()
+
+    # Columnas que NO son campos comerciales
+    meta_cols = {"proyecto_id", "titulo", "nota"}
+    campo_labels = [k for k in (rows[0].keys() if rows else []) if k not in meta_cols]
+
+    cc_data = {}
+    for r in rows:
+        pid = str(val(r.get("proyecto_id"), ""))
+        if not pid:
+            continue
+        campos = [
+            [label, str(r[label])]
+            for label in campo_labels
+            if r.get(label) not in (None, "")
+        ]
+        cc_data[pid] = {
+            "titulo": str(val(r.get("titulo"), "")),
+            "campos": campos,
+            "nota":   str(val(r.get("nota"), "")),
+        }
+
+    out = DATA_DIR / "cc_data.js"
+    out.write_text(
+        to_js("CC_DATA", cc_data, f"Proyectos con condiciones: {len(cc_data)}"),
+        encoding="utf-8",
+    )
+    print(f"  → {out}  ({len(cc_data)} proyectos)")
+
+
+# ─── MAIN ─────────────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    excel_to_stock()
+    excel_to_projects()
+    excel_to_cc_data()
+    print("\nListo. Recargá el navegador para ver los cambios.")
