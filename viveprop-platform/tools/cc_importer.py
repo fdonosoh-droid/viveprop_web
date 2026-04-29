@@ -71,6 +71,9 @@ OVERRIDES = {
     ('URMENETA', 'ESPACIO PRIME'):                       None,   # no está en projects.xlsx
     ('URMENETA', 'GREEN CONCEPT VM'):                    None,
     ('INGEVEC',  'Vicuña Mackenna 7589 I y II (VIC) (VIC2)'): '__split__',
+    ('INGEVEC',  'Vicuña Mackenna 7589 (VIC y VIC2)'):        '__split__',
+    ('INGEVEC',  'Serrano (SER)'):                             None,
+    ('INGEVEC',  'ViMA (VIMA)'):                               None,
 }
 
 def load_projects():
@@ -97,8 +100,9 @@ def find_pids(name: str, inmob: str, by_name_inmob, by_norm) -> list:
     if key in OVERRIDES:
         val = OVERRIDES[key]
         if val == '__split__':
-            # Vicuña Mackenna 7589 I y II → dos proyectos
-            base = re.sub(r'\s*I\s+[Yy]\s+II.*', '', name).strip()
+            # Strip parentheticals first, then "I y II" suffix
+            base = re.sub(r'\s*\(.*', '', name).strip()
+            base = re.sub(r'\s*I\s+[Yy]\s+II.*', '', base).strip()
             r1 = find_pids(base + ' I',  inmob, by_name_inmob, by_norm)
             r2 = find_pids(base + ' II', inmob, by_name_inmob, by_norm)
             return r1 + r2
@@ -220,43 +224,56 @@ def parse_ingevec(ws, by_name_inmob, by_norm):
 
 
 def parse_rvc(ws, by_name_inmob, by_norm):
+    # New format (2025+): zone blocks with col 1=Comuna, col 2=Proyectos
+    # col 3=Tipo Entrega, col 4=Pie Mínimo, col 5=Financiamiento,
+    # col 6=N° Cuotas, col 7=Fecha entrega, col 8=Getnet, col 9=Alt. pie 10%,
+    # col 11=BROKER (contains "Si, con descuento máximo de un X%..."),
+    # col 12=Observaciones, col 13-18=promotion flags
     rows = list(ws.iter_rows(values_only=True))
-    # Buscar fila de cabecera con 'PROYECTO'
-    hdr_idx = next((i for i, r in enumerate(rows)
-                    if any(str(c or '').strip() == 'PROYECTO' for c in r)), None)
-    if hdr_idx is None: return {}
-    hdr_row = rows[hdr_idx]
-    pc = next(i for i, c in enumerate(hdr_row) if str(c or '').strip() == 'PROYECTO')
 
-    # col pc-1=COMUNA, pc=PROYECTO, pc+1=Tipo entrega, pc+2=Financiamiento,
-    # pc+3=Cuotas prog., pc+4=Getnet cuotas, pc+5=Fecha última cuota,
-    # pc+6=Descuento RVC, pc+7=Condiciones de ventas
     COLMAP = {
-        pc+1: 'Tipo entrega', pc+2: 'Financiamiento', pc+3: 'Cuotas prog.',
-        pc+4: 'Getnet (cuotas)', pc+5: 'Fecha ult. cuota', pc+6: 'Descuento RVC',
+        3: 'Tipo entrega', 4: 'Pie mínimo', 5: 'Financiamiento',
+        6: 'Cuotas prog.', 7: 'Fecha ult. cuota', 8: 'Getnet (cuotas)',
+        9: 'Alt. pie 10%',
     }
-    COND_COL = pc + 7
-    COM_COL  = pc - 1 if pc > 0 else None
+    _PROMOS = {
+        13: 'GOP Gratis', 14: '6 Dividendos Gratis', 15: '24 Dividendos',
+        16: 'Arriendo Asegurado 24m', 17: 'Crédito Directo', 18: 'Knockit',
+    }
 
-    # Comunas conocidas para filtrar filas de otras tablas en la misma hoja
-    _COMMUNES = {'vina del mar', 'concon', 'zona central', 'v region',
-                 'norte', 'iquique', 'antofagasta', 'valparaiso', 'santiago',
-                 'la florida', 'nunoa', 'la cisterna', 'estacion central',
-                 'san miguel', 'concon', 'zona central 1', 'zona central 2',
-                 'programa', 'etapa', 'etapa (sci)', 'tipo entrega', 'comuna'}
-
+    in_data = False
     result = {}
-    for row in rows[hdr_idx + 1:]:
-        name = _v(row, pc)
-        if not name or not isinstance(name, str): continue
-        name = name.strip()
-        if not name: continue
-        # Parar si volvemos a ver 'ZONA' como cabecera de otra tabla
-        zona_val = str(_v(row, 0) or '').strip().upper()
-        if zona_val == 'ZONA': break
-        # Saltear filas de otras tablas: communes, tipologías, bancos, etc.
-        if '/' in name: continue
-        if _norm(name) in _COMMUNES: continue
+
+    for row in rows:
+        col1 = str(_v(row, 1) or '').strip()
+        col2 = str(_v(row, 2) or '').strip()
+        col4 = str(_v(row, 4) or '').strip()
+
+        # Zone group header (CENTRAL / QUINTA / NORTE): col 4 = 'CONDICIONES DE VENTA'
+        if col4 == 'CONDICIONES DE VENTA':
+            in_data = False
+            continue
+
+        # Conditions column header row
+        if col2 == 'Proyectos':
+            in_data = True
+            continue
+
+        # Non-conditions table (TOPES GOP etc.): col 1 = 'ZONA'
+        if col1 == 'ZONA':
+            in_data = False
+            continue
+
+        if not in_data or not col2:
+            continue
+
+        name = col2
+        # Skip footer/note rows: long strings or known note starts
+        if (len(name) > 60
+                or name.startswith('Si ')
+                or name.startswith('Incluye')
+                or name.startswith('-')):
+            continue
 
         pids = find_pids(name, 'RVC', by_name_inmob, by_norm)
         if not pids:
@@ -264,21 +281,33 @@ def parse_rvc(ws, by_name_inmob, by_norm):
             continue
 
         campos_map = {}
-        if COM_COL is not None:
-            cv = _v(row, COM_COL)
-            if cv: campos_map['Comuna'] = str(cv).strip()
+        if col1 and col1 != 'Comuna':
+            campos_map['Comuna'] = col1
+
         for ci, label in COLMAP.items():
             v = _v(row, ci)
             if v is None: continue
             s = str(v).strip() if isinstance(v, str) else _fmt(v)
-            if s and s not in ('0', '0%', 'None'): campos_map[label] = s
+            if s and s not in ('0', '0%', 'None'):
+                campos_map[label] = s
 
-        nota = ''
-        cv2 = _v(row, COND_COL)
-        if cv2: nota = str(cv2).strip()
+        # Extract discount from BROKER column (col 11)
+        broker_val = _v(row, 11)
+        if broker_val and isinstance(broker_val, str) and broker_val.strip().lower() != 'no':
+            m = re.search(r'(\d+(?:[.,]\d+)?)\s*%', broker_val)
+            if m:
+                campos_map['Descuento RVC'] = m.group(1) + '%'
+
+        # Active promotions
+        active = [lbl for ci, lbl in _PROMOS.items()
+                  if str(_v(row, ci) or '').strip().upper().startswith('SI')]
+        if active:
+            campos_map['Promociones'] = ', '.join(active)
+
+        nota = str(_v(row, 12) or '').strip()
 
         for pid in pids:
-            if pid not in result:   # first-wins: ignorar apariciones en otras tablas
+            if pid not in result:   # first-wins
                 result[pid] = {'titulo': name, 'campos_map': campos_map,
                                'inmob': 'RVC', 'nota': nota}
     return result
@@ -429,8 +458,9 @@ XLSX_COLS = [
     'Cuotas pie', 'Pie período const.', 'Cuotón', 'Pie crédito s/int.',
     'Productos secundarios', 'Info adicional', 'Coordinador/a', 'Email', 'Celular',
     # RVC
-    'Comuna', 'Tipo entrega', 'Financiamiento', 'Cuotas prog.', 'Getnet (cuotas)',
-    'Fecha ult. cuota', 'Descuento RVC', 'Condiciones',
+    'Comuna', 'Tipo entrega', 'Pie mínimo', 'Financiamiento', 'Cuotas prog.',
+    'Getnet (cuotas)', 'Alt. pie 10%', 'Fecha ult. cuota', 'Descuento RVC',
+    'Promociones', 'Condiciones',
     # TOCTOC
     'Estado', 'Pre/Aprobación bancaria', 'Monto Reserva', 'Pie minimo %',
     'Cuotas', 'Monto Contra promesa', 'Forma de pago cuotas',
