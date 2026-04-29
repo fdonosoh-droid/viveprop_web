@@ -81,21 +81,29 @@ Click "Cotizar" (primario.js)
 **Criterio de aceptación:**
 ```js
 calcularCotizacion({
-  precioListaDepto: 4294, descuentoPct: 0.02,
+  precioListaDepto: 4294, descuentoPct: 0.02, descuentoAdicionalPct: 0,
   preciosConjuntos: [390, 128],
   bonoPiePct: 0.09, reservaCLP: 100000,
-  piePct: 0.12, cuotasPieN: 20,
+  piePct: 0.11,           // 11% — el doc muestra "PIE (11%)" en el header
+  upfrontPct: 0,          // 0% upfront
+  cuotasPieN: 20,
+  cuotonPct: 0,
   piePeriodoConstruccionPct: 0.06,
   pieCreditoDirectoPct: 0.05,
-  plazoAnios: 25, tasasCAE: [0.04, 0.045, 0.05],
+  plazoAnios: 30,          // 30 años — default en cotizador-web-mp
+  tasasCAE: [0.04, 0.045, 0.05],
   valorUF: 39841.72,
-  tipoCalculoBono: 'precio-lista-depto', ltvMaxPct: 1.0
-}, ...)
-// → valorVentaUF ≈ 4726.12
-// → bonoPieUF ≈ 386.46
-// → tasacionUF ≈ 5112.58
-// → creditoHipFinalUF ≈ 3773.17
-// → escenarios[0].cuotaMensualCLP ≈ 717.696
+  tipoCalculoBono: 'precio-lista-depto',
+  pieConjuntosPct: 0.20,  // 20% fijo para conjuntos (INPUT_FILES.xlsx)
+  arriendosMensualesCLP: [0, 0, 0],
+  plusvaliaAnual: 0.02,
+})
+// → valorVentaUF    = 4726.12  ✓
+// → pieTotalUF      = 566.49   ✓  (462.89 depto + 103.60 conjuntos)
+// → bonoPieUF       = 386.46   ✓
+// → tasacionUF      = 5112.58  ✓
+// → creditoHipFinalUF = 3773.17 ✓
+// → escenarios[0].cuotaMensualCLP ≈ 717.696  ✓
 ```
 
 ---

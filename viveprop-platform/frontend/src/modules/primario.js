@@ -485,14 +485,13 @@ export function pmBack() {
 
 export function pmCotizar() {
   if (!_selectedUnit || !_currentProject) return;
-  let total = _selectedUnit.precio_uf || 0;
-  const labels = [`${_currentProject.nombre} DP ${_selectedUnit.dp}`];
+  const secundarios = [];
   document.querySelectorAll('#pm-extras-list input[type=checkbox]:checked').forEach(cb => {
-    total += parseFloat(cb.value) || 0;
-    labels.push(cb.dataset.label);
+    const u = (_currentProject.unidades || []).find(x => x.dp === cb.dataset.dp);
+    if (u) secundarios.push(u);
   });
   closeProjModal();
-  cotizFromProp(total, labels.join(' + '));
+  cotizFromProp({ project: _currentProject, depto: _selectedUnit, secundarios });
 }
 
 export function toggleDormPill(btn) { btn.classList.toggle('active'); priFilter(); }
