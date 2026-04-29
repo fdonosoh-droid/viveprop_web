@@ -147,12 +147,16 @@ export function parseCCForCotizador(cc, inmobiliaria) {
   }
 
   // ── URMENETA ───────────────────────────────────────────────────────────────
-  // No tiene "Aporte inmobiliario" estándar; bono pie aparece en la nota
-  // Ej: "BONO PIE 10%" → aporteInmobiliario = 0.10
+  // Bono pie no tiene campo estándar — se extrae de la nota con 3 patrones:
+  //   P1: "10% BONO PIE"    (número antes)
+  //   P2: "BONO PIE 10%"    (número después)
+  //   P3: "10% 24D"         (dividendos — N% YD donde YD = Y dividendos)
   if (key.includes('URMENETA')) {
-    const notaStr    = cc?.nota || ''
-    const bonoMatch  = notaStr.match(/bono\s+pie\s+(\d+(?:[.,]\d+)?)%/i)
-    const aporte     = bonoMatch ? parseFloat(bonoMatch[1].replace(',', '.')) / 100 : 0
+    const notaStr   = cc?.nota || ''
+    const bonoMatch = notaStr.match(/(\d+(?:[.,]\d+)?)\s*%\s*bono\s+pie/i)
+                   || notaStr.match(/bono\s+pie\s+(\d+(?:[.,]\d+)?)\s*%/i)
+                   || notaStr.match(/(\d+(?:[.,]\d+)?)\s*%\s+\d+D\b/i)
+    const aporte    = bonoMatch ? parseFloat(bonoMatch[1].replace(',', '.')) / 100 : 0
     return {
       ...defaults,
       descuentoDepto:     parsePct(cm['Descuento máximo']),
