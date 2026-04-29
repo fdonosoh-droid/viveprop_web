@@ -1,12 +1,12 @@
-// Generado por excel_to_js.py — 2026-04-28 14:31
-// Proyectos con condiciones: 62
+// Generado por cc_importer.py — 2026-04-29 09:15
+// Proyectos con condiciones: 76
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
     "titulo": "Vista Llacolén B2",
     "campos": [
       [
         "ENTREGA",
-        "2.028"
+        "2027 - S2"
       ],
       [
         "COMUNA",
@@ -30,7 +30,7 @@ const CC_DATA = {
       ],
       [
         "UPAGO Cuotas",
-        "22"
+        "23"
       ],
       [
         "Cuota desde",
@@ -43,28 +43,16 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
-      ],
-      [
-        "PROYECTO",
-        "Aldunate"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA SANTA ROSA SPA"
-      ],
-      [
-        "RUT",
-        "76409319-4"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_vista-llacolen-a": {
     "titulo": "Vista Llacolén A",
     "campos": [
       [
         "ENTREGA",
-        "2.029"
+        "2028 - S2"
       ],
       [
         "COMUNA",
@@ -72,7 +60,7 @@ const CC_DATA = {
       ],
       [
         "Descuento Base",
-        "10%"
+        "15%"
       ],
       [
         "Giftcard",
@@ -88,7 +76,7 @@ const CC_DATA = {
       ],
       [
         "UPAGO Cuotas",
-        "35"
+        "36"
       ],
       [
         "Cuota desde",
@@ -101,28 +89,16 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
-      ],
-      [
-        "PROYECTO",
-        "Alto Buzeta (MT)"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA TRAVESIA SPA"
-      ],
-      [
-        "RUT",
-        "77700583-9"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_serrano-torre-a": {
     "titulo": "SERRANO TORRE A",
     "campos": [
       [
         "ENTREGA",
-        "2.029"
+        "2028 - S1"
       ],
       [
         "COMUNA",
@@ -146,7 +122,7 @@ const CC_DATA = {
       ],
       [
         "UPAGO Cuotas",
-        "22"
+        "24"
       ],
       [
         "Cuota desde",
@@ -159,28 +135,16 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
-      ],
-      [
-        "PROYECTO",
-        "Apostol Santiago"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA ENTRE RIOS SPA"
-      ],
-      [
-        "RUT",
-        "76411296-2"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_general-mackenna": {
     "titulo": "General Mackenna",
     "campos": [
       [
         "ENTREGA",
-        "2.029"
+        "2028 - S2"
       ],
       [
         "COMUNA",
@@ -188,7 +152,7 @@ const CC_DATA = {
       ],
       [
         "Descuento Base",
-        "12%"
+        "15%"
       ],
       [
         "Giftcard",
@@ -204,7 +168,7 @@ const CC_DATA = {
       ],
       [
         "UPAGO Cuotas",
-        "35"
+        "36"
       ],
       [
         "Cuota desde",
@@ -217,28 +181,16 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
-      ],
-      [
-        "PROYECTO",
-        "Cáceres"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA PROYECTOS SPA"
-      ],
-      [
-        "RUT",
-        "77274888-4"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_vistamar": {
     "titulo": "Vistamar",
     "campos": [
       [
         "ENTREGA",
-        "2.029"
+        "2028 - S2"
       ],
       [
         "COMUNA",
@@ -246,7 +198,7 @@ const CC_DATA = {
       ],
       [
         "Descuento Base",
-        "12%"
+        "15%"
       ],
       [
         "Giftcard",
@@ -262,7 +214,7 @@ const CC_DATA = {
       ],
       [
         "UPAGO Cuotas",
-        "35"
+        "36"
       ],
       [
         "Cuota desde",
@@ -275,21 +227,9 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
-      ],
-      [
-        "PROYECTO",
-        "General Mackenna"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "VISTA LLACOLEN SPA"
-      ],
-      [
-        "RUT",
-        "77684759-3"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_alto-buzeta-mt": {
     "titulo": "Alto Buzeta (MT)",
@@ -307,12 +247,20 @@ const CC_DATA = {
         "10%"
       ],
       [
+        "Dcto Adicional",
+        "3% 3D"
+      ],
+      [
         "Giftcard",
-        "GOP"
+        "500.000"
+      ],
+      [
+        "Upfront",
+        "2%"
       ],
       [
         "Pie en cuotas",
-        "10%"
+        "8%"
       ],
       [
         "UPAGO Cuotas",
@@ -325,25 +273,14 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "Jardines de Alvarado"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA DON RODRIGO SPA"
-      ],
-      [
-        "RUT",
-        "76416917-4"
-      ],
-      [
-        "Dcto Adicional",
-        "3% 3D"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
+  },
+  "proj_pintor-cicarelli-i-pc-i": {
+    "titulo": "Pintor Cicarelli I: solo tipología 3D1B (con descuento máximo de venta de 12%)",
+    "campos": [],
+    "nota": ""
   },
   "proj_caceres": {
     "titulo": "Cáceres",
@@ -361,8 +298,48 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Giftcard",
-        "GOP"
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
+      ]
+    ],
+    "nota": ""
+  },
+  "proj_jardines-de-alvarado": {
+    "titulo": "Jardines de Alvarado: solo tipología 3D1B (con descuento máximo de venta de 12%)",
+    "campos": [],
+    "nota": ""
+  },
+  "proj_mirador-mapocho": {
+    "titulo": "Mirador Mapocho: solo tipología 1D1B (con descuento máximo de venta de 7%)",
+    "campos": [],
+    "nota": ""
+  },
+  "proj_pintor-cicarelli-ii": {
+    "titulo": "Pintor Cicarelli II",
+    "campos": [
+      [
+        "ENTREGA",
+        "Inmediata"
+      ],
+      [
+        "COMUNA",
+        "San Joaquín"
+      ],
+      [
+        "Descuento Base",
+        "12%"
       ],
       [
         "Pie en cuotas",
@@ -379,21 +356,9 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "Pintor Cicarelli II"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA PROYECTOS SPA"
-      ],
-      [
-        "RUT",
-        "77274888-4"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_plaza-cervantes-i": {
     "titulo": "Plaza Cervantes I",
@@ -411,10 +376,6 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Giftcard",
-        "GOP"
-      ],
-      [
         "Pie en cuotas",
         "10%"
       ],
@@ -429,21 +390,9 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "SERRANO TORRE A"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "INVERSIONES IGNACIO SERRANO SPA"
-      ],
-      [
-        "RUT",
-        "77956043-0"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_plaza-cervantes-ii": {
     "titulo": "Plaza Cervantes II",
@@ -461,8 +410,42 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Giftcard",
-        "GOP"
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
+      ]
+    ],
+    "nota": ""
+  },
+  "proj_plaza-quilicura": {
+    "titulo": "Plaza Quilicura",
+    "campos": [
+      [
+        "ENTREGA",
+        "Inmediata"
+      ],
+      [
+        "COMUNA",
+        "Quilicura"
+      ],
+      [
+        "Descuento Base",
+        "10%"
+      ],
+      [
+        "Dcto Adicional",
+        "2% 2D (36m2)"
       ],
       [
         "Pie en cuotas",
@@ -479,21 +462,9 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "Trinidad III"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA PROYECTOS SPA"
-      ],
-      [
-        "RUT",
-        "77274888-4"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_trinidad-iii": {
     "titulo": "Trinidad III",
@@ -512,7 +483,7 @@ const CC_DATA = {
       ],
       [
         "Giftcard",
-        "GOP"
+        "500.000"
       ],
       [
         "Pie en cuotas",
@@ -529,21 +500,47 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "Vista Llacolén A"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "VISTA LLACOLEN SPA"
-      ],
-      [
-        "RUT",
-        "77684759-3"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
+  },
+  "proj_vista-costanera": {
+    "titulo": "Vista Costanera",
+    "campos": [
+      [
+        "ENTREGA",
+        "Inmediata"
+      ],
+      [
+        "COMUNA",
+        "Renca"
+      ],
+      [
+        "Descuento Base",
+        "12%"
+      ],
+      [
+        "Giftcard",
+        "500.000"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
+      ]
+    ],
+    "nota": ""
   },
   "proj_vista-reloncavi": {
     "titulo": "Vista Reloncaví",
@@ -561,8 +558,8 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Giftcard",
-        "GOP"
+        "Dcto Adicional",
+        "2% 3D"
       ],
       [
         "Pie en cuotas",
@@ -579,25 +576,9 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "Max 10%"
-      ],
-      [
-        "PROYECTO",
-        "Vista Reloncaví"
-      ],
-      [
-        "RAZÓN SOCIAL",
-        "MAESTRA CONDELL S.A."
-      ],
-      [
-        "RUT",
-        "76113459-0"
-      ],
-      [
-        "Dcto Adicional",
-        "2% 3D"
       ]
     ],
-    "nota": "GOP: devolución $800.000 por Gastos Operacionales (efectivo 30 días post CBR) · Cuota mínima proyectos futuros: UF 7"
+    "nota": ""
   },
   "proj_santa-isabel": {
     "titulo": "Santa Isabel (STI)",
@@ -611,12 +592,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
@@ -624,38 +601,18 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_vicuna-mackenna-1796": {
     "titulo": "Vicuña Mackenna 1796 (ÑUB)",
@@ -669,12 +626,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "10,0%"
       ],
       [
         "Cuotas pie",
@@ -682,38 +635,22 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
+        "2,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas\n 1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_santa-rosa": {
     "titulo": "Santa Rosa (SRO)",
@@ -727,12 +664,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
@@ -740,38 +673,18 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_tocornal": {
     "titulo": "Tocornal (TOC)",
@@ -785,12 +698,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "13%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
@@ -798,38 +707,18 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "0"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses\n Venta de depto + estacionamiento + bodega con gift card para el broker de $1.000.000"
   },
   "proj_santos-ossa": {
     "titulo": "Santos Ossa (OSSA)",
@@ -844,11 +733,11 @@ const CC_DATA = {
       ],
       [
         "Dcto. depto.",
-        "0"
+        "5,0%"
       ],
       [
         "Aporte inmobiliario",
-        "15%"
+        "10,0%"
       ],
       [
         "Cuotas pie",
@@ -856,38 +745,22 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "0"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "0"
+        "2,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "No aplica a beneficios DFL2\nCrédito en hasta 36 cuotas. Gift Card de $500.000"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
+    "nota": "No aplica a beneficios DFL2\n Crédito en hasta 36 cuotas. Gift Card de $1.000.000 para el broker"
   },
   "proj_los-alerces": {
     "titulo": "Los Alerces (ALE)",
@@ -901,12 +774,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "10,0%"
       ],
       [
         "Cuotas pie",
@@ -914,38 +783,22 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
+        "2,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas\n 1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_bellavista": {
     "titulo": "Bellavista (BEL)",
@@ -959,12 +812,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
@@ -972,38 +821,18 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_froilan-roa": {
     "titulo": "Froilan Roa (ROA)",
@@ -1017,12 +846,8 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
@@ -1030,38 +855,18 @@ const CC_DATA = {
       ],
       [
         "Pie período const.",
-        "3%"
+        "3,0%"
       ],
       [
         "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Clara Pinto"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_centenario-i": {
     "titulo": "Centenario I (FRK)",
@@ -1075,51 +880,19 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "15%"
+        "20,0%"
       ],
       [
         "Cuotas pie",
         "1"
       ],
       [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "0"
-      ],
-      [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
-      ],
-      [
-        "Coordinador/a",
-        "Clara Pinto"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_valle-los-ingleses": {
     "titulo": "Valle los Ingleses (ING)",
@@ -1133,51 +906,53 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "20%"
+        "20,0%"
       ],
       [
         "Cuotas pie",
         "1"
       ],
       [
-        "Pie período const.",
-        "0"
+        "Productos secundarios",
+        "1 a 1"
+      ]
+    ],
+    "nota": "No aplica a beneficios DFL2"
+  },
+  "proj_vespucio-capital": {
+    "titulo": "Vespucio Capital (VESP)",
+    "campos": [
+      [
+        "Tipo de entrega",
+        "Entrega Inmediata"
       ],
       [
-        "Cuotón",
-        "0"
+        "Reserva",
+        "100.000"
+      ],
+      [
+        "Dcto. depto.",
+        "3,0%"
+      ],
+      [
+        "Aporte inmobiliario",
+        "10,0%"
+      ],
+      [
+        "Cuotas pie",
+        "1"
       ],
       [
         "Pie crédito s/int.",
-        "0"
+        "10,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "No aplica a beneficios DFL2"
-      ],
-      [
-        "Coordinador/a",
-        "Clara Pinto"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en 63 cuotas con arriendo garantizado (Arriendo hasta el 30/06/2031)"
   },
   "proj_vivaceta": {
     "titulo": "Vivaceta (VTA)",
@@ -1191,51 +966,27 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "10%"
+        "10,0%"
       ],
       [
         "Cuotas pie",
-        "21"
+        "26"
       ],
       [
         "Pie período const.",
-        "5%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "5,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas\nPack Estacionamiento + bodega a UF150 para cualquier tipología"
-      ],
-      [
-        "Coordinador/a",
-        "Clara Pinto"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_vicuna-mackenna-7589-i": {
     "titulo": "Vicuña Mackenna 7589 I y II (VIC) (VIC2)",
@@ -1249,51 +1000,61 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "9%"
+        "9,0%"
       ],
       [
         "Cuotas pie",
-        "29"
+        "26"
       ],
       [
         "Pie período const.",
-        "6%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "6,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Hasta 40 cuotas comprando depto. 2D2B con estacionamiento\nCrédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "ccano@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
+  },
+  "proj_vicuna-mackenna-7589-ii": {
+    "titulo": "Vicuña Mackenna 7589 I y II (VIC) (VIC2)",
+    "campos": [
+      [
+        "Tipo de entrega",
+        "2do semestre 2027"
+      ],
+      [
+        "Reserva",
+        "100.000"
+      ],
+      [
+        "Aporte inmobiliario",
+        "9,0%"
+      ],
+      [
+        "Cuotas pie",
+        "26"
+      ],
+      [
+        "Pie período const.",
+        "6,0%"
+      ],
+      [
+        "Pie crédito s/int.",
+        "5,0%"
+      ],
+      [
+        "Productos secundarios",
+        "1 a 1"
+      ]
+    ],
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_diagonal-paraguay": {
     "titulo": "Diagonal Paraguay (DP)",
@@ -1307,44 +1068,20 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "5%"
+        "5,0%"
       ],
       [
         "Cuotas pie",
-        "25"
+        "22"
       ],
       [
         "Pie período const.",
-        "15%"
-      ],
-      [
-        "Cuotón",
-        "0"
-      ],
-      [
-        "Pie crédito s/int.",
-        "0"
+        "15,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
     "nota": ""
@@ -1361,51 +1098,27 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "9%"
+        "9,0%"
       ],
       [
         "Cuotas pie",
-        "31"
+        "28"
       ],
       [
         "Pie período const.",
-        "6%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "6,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_don-ignacio": {
     "titulo": "Don Ignacio (DOM)",
@@ -1419,51 +1132,27 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "9%"
+        "9,0%"
       ],
       [
         "Cuotas pie",
-        "33"
+        "30"
       ],
       [
         "Pie período const.",
-        "6%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "6,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Hasta 44 cuotas comprando depto. 2D2B con estacionamiento\nCrédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Clara Pinto"
-      ],
-      [
-        "Email",
-        "cpinto@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 8677 46 96"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_los-lilenes": {
     "titulo": "Los Lilenes (LEN)",
@@ -1477,51 +1166,27 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "7%"
+        "7,0%"
       ],
       [
         "Cuotas pie",
-        "39"
+        "36"
       ],
       [
         "Pie período const.",
-        "8%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "8,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Hasta 50 cuotas comprando depto. 2D2B con estacionamiento\nCrédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_coronel-godoy": {
     "titulo": "Coronel Godoy (GOD)",
@@ -1535,54 +1200,136 @@ const CC_DATA = {
         "100.000"
       ],
       [
-        "Dcto. depto.",
-        "0"
-      ],
-      [
         "Aporte inmobiliario",
-        "16%"
+        "15,0%"
       ],
       [
         "Cuotas pie",
-        "24"
+        "21"
       ],
       [
         "Pie período const.",
-        "4%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "3,0%"
       ],
       [
         "Pie crédito s/int.",
-        "0"
+        "2,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Hasta 46 cuotas comprando depto. 2D2B con estacionamiento\nCrédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Maritza Sotelo"
-      ],
-      [
-        "Email",
-        "msotelo@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3231 0545"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 12 cuotas"
   },
   "proj_nueva-esmeralda": {
-    "titulo": "Nueva Esmeralda",
+    "titulo": "Nueva Esmeralda (NES)",
+    "campos": [
+      [
+        "Tipo de entrega",
+        "2do semestre 2027"
+      ],
+      [
+        "Reserva",
+        "100.000"
+      ],
+      [
+        "Aporte inmobiliario",
+        "13,0%"
+      ],
+      [
+        "Cuotas pie",
+        "19"
+      ],
+      [
+        "Pie período const.",
+        "3,5%"
+      ],
+      [
+        "Pie crédito s/int.",
+        "3,5%"
+      ],
+      [
+        "Productos secundarios",
+        "1 a 1"
+      ]
+    ],
+    "nota": "Crédito en hasta 24 cuotas"
+  },
+  "proj_brasil": {
+    "titulo": "Brasil (BRA)",
+    "campos": [
+      [
+        "Tipo de entrega",
+        "1er semestre 2029"
+      ],
+      [
+        "Reserva",
+        "100.000"
+      ],
+      [
+        "Aporte inmobiliario",
+        "10,0%"
+      ],
+      [
+        "Cuotas pie",
+        "36"
+      ],
+      [
+        "Pie período const.",
+        "5,0%"
+      ],
+      [
+        "Pie crédito s/int.",
+        "5,0%"
+      ],
+      [
+        "Productos secundarios",
+        "1 a 1"
+      ]
+    ],
+    "nota": "Crédito en hasta 36 cuotas"
+  },
+  "proj_terrazzo": {
+    "titulo": "Terrazzo (TER)",
+    "campos": [
+      [
+        "Tipo de entrega",
+        "2do semestre 2028"
+      ],
+      [
+        "Reserva",
+        "100.000"
+      ],
+      [
+        "Dcto. depto.",
+        "3,0%"
+      ],
+      [
+        "Aporte inmobiliario",
+        "8,0%"
+      ],
+      [
+        "Cuotas pie",
+        "34"
+      ],
+      [
+        "Pie período const.",
+        "7,0%"
+      ],
+      [
+        "Pie crédito s/int.",
+        "5,0%"
+      ],
+      [
+        "Productos secundarios",
+        "1 a 1"
+      ]
+    ],
+    "nota": "Crédito en hasta 36 cuotas"
+  },
+  "proj_el-aromo": {
+    "titulo": "El Aromo (ARO)",
     "campos": [
       [
         "Tipo de entrega",
@@ -1594,53 +1341,33 @@ const CC_DATA = {
       ],
       [
         "Dcto. depto.",
-        "0"
+        "3,0%"
       ],
       [
         "Aporte inmobiliario",
-        "13%"
+        "11,0%"
       ],
       [
         "Cuotas pie",
-        "22"
+        "21"
       ],
       [
         "Pie período const.",
-        "4%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "4,0%"
       ],
       [
         "Pie crédito s/int.",
-        "4%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 24 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
-  "proj_brasil": {
-    "titulo": "Brasil",
+  "proj_matta": {
+    "titulo": "Matta (MAT)",
     "campos": [
       [
         "Tipo de entrega",
@@ -1652,108 +1379,30 @@ const CC_DATA = {
       ],
       [
         "Dcto. depto.",
-        "3%"
+        "3,0%"
       ],
       [
         "Aporte inmobiliario",
-        "8%"
+        "8,0%"
       ],
       [
         "Cuotas pie",
-        "39"
+        "36"
       ],
       [
         "Pie período const.",
-        "7%"
-      ],
-      [
-        "Cuotón",
-        "0"
+        "7,0%"
       ],
       [
         "Pie crédito s/int.",
-        "5%"
+        "5,0%"
       ],
       [
         "Productos secundarios",
         "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en hasta 36 cuotas"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
       ]
     ],
-    "nota": ""
-  },
-  "proj_vespucio-capital": {
-    "titulo": "Vespucio Capital (La Parroquia)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega Inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "5%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "0"
-      ],
-      [
-        "Cuotón",
-        "0"
-      ],
-      [
-        "Pie crédito s/int.",
-        "10%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ],
-      [
-        "Info adicional",
-        "Crédito en 60 cuotas con arriendo garantizado"
-      ],
-      [
-        "Coordinador/a",
-        "Ma. Laura Colmenares"
-      ],
-      [
-        "Email",
-        "mcolmenares@ingevec.cl"
-      ],
-      [
-        "Celular",
-        "56 9 3959 01 39"
-      ]
-    ],
-    "nota": ""
+    "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_alto-maranon-3": {
     "titulo": "Alto Marañon 3",
@@ -1780,25 +1429,21 @@ const CC_DATA = {
       ],
       [
         "Fecha ult. cuota",
-        "30-11-2025"
+        "28/02/2026"
       ],
       [
         "Descuento RVC",
         "10%"
-      ],
-      [
-        "Condiciones",
-        "1. SOLO LÍNEA 5 DISPONIBLE\n2. Estacionamiento solo 3D/2B"
       ]
     ],
-    "nota": ""
+    "nota": "1. SOLO LÍNEA 5 DISPONIBLE\n 2. Estacionamiento solo 3D/2B\n 3. Depto. 204 on anexo de 60 dias\n 4. No se pueden vender BD y EST por separado"
   },
-  "proj_blanca-estela-i-torre-a": {
-    "titulo": "Edificio Blanca Estela torre A",
+  "proj_edificio-coronel-souper": {
+    "titulo": "Edificio Coronel Souper",
     "campos": [
       [
         "Comuna",
-        "Concon"
+        "Estacion central"
       ],
       [
         "Tipo entrega",
@@ -1818,25 +1463,21 @@ const CC_DATA = {
       ],
       [
         "Fecha ult. cuota",
-        "30-11-2025"
+        "28/02/2026"
       ],
       [
         "Descuento RVC",
         "10%"
-      ],
-      [
-        "Condiciones",
-        "SIN CONDICIONES ESPECIALES"
       ]
     ],
-    "nota": ""
+    "nota": "1. Sin estacionamiento y bodegas disponibles\n 2. Anexo 60 dias todas las unidades"
   },
-  "proj_blanca-estela-i-torre-b": {
-    "titulo": "Edificio Blanca Estela torre B",
+  "proj_edificio-trinidad-ramirez": {
+    "titulo": "Edificio Trinidad Ramirez",
     "campos": [
       [
         "Comuna",
-        "Concon"
+        "La Cisterna"
       ],
       [
         "Tipo entrega",
@@ -1856,18 +1497,14 @@ const CC_DATA = {
       ],
       [
         "Fecha ult. cuota",
-        "30-11-2025"
+        "28/02/2027"
       ],
       [
         "Descuento RVC",
         "10%"
-      ],
-      [
-        "Condiciones",
-        "SIN CONDICIONES ESPECIALES"
       ]
     ],
-    "nota": ""
+    "nota": "1. Estacionamiento debe ser vendido junto con la ultima unidad disponible\n 2,Bodega obligatoria\n 2. Todas las unidades llevan anexo 60 días"
   },
   "proj_condominio-parque-del-sur-torre-a": {
     "titulo": "Condominio Parque del Sur torre A",
@@ -1894,18 +1531,116 @@ const CC_DATA = {
       ],
       [
         "Fecha ult. cuota",
-        "30-11-2025"
+        "28/02/2026"
       ],
       [
         "Descuento RVC",
         "10%"
-      ],
-      [
-        "Condiciones",
-        "1. Estacionamiento desde 2D/2B\n2. Bodega desde 2D/1B\n3. Deptos 202, 203, 207, 208 y 209 va con anexo 60 días"
       ]
     ],
-    "nota": ""
+    "nota": "1. Estacionamiento desde 2D/2B\n 2. Bodega desde 2D/1B\n 3. Deptos 202, 203, 207, 208 y 209 va con anexo 60 días\n 4. Solo disponibles linea 1, 3 y 6"
+  },
+  "proj_edificio-castillo-urizar": {
+    "titulo": "Edificio Castillo Urizar",
+    "campos": [
+      [
+        "Comuna",
+        "Ñuñoa"
+      ],
+      [
+        "Tipo entrega",
+        "INMEDIATA"
+      ],
+      [
+        "Financiamiento",
+        "Aprobación"
+      ],
+      [
+        "Cuotas prog.",
+        "1"
+      ],
+      [
+        "Getnet (cuotas)",
+        "36"
+      ],
+      [
+        "Fecha ult. cuota",
+        "28/02/2026"
+      ],
+      [
+        "Descuento RVC",
+        "10%"
+      ]
+    ],
+    "nota": "1. Estacionamiento y bodega obligatoria \n 2. Depto 1110 no va con subsidio a la tasa\n 3. Todas las unidades llevan anexo 60 días"
+  },
+  "proj_edificio-guillermo-mann": {
+    "titulo": "Edificio Guillermo Mann",
+    "campos": [
+      [
+        "Comuna",
+        "Ñuñoa"
+      ],
+      [
+        "Tipo entrega",
+        "INMEDIATA"
+      ],
+      [
+        "Financiamiento",
+        "Aprobación"
+      ],
+      [
+        "Cuotas prog.",
+        "1"
+      ],
+      [
+        "Getnet (cuotas)",
+        "36"
+      ],
+      [
+        "Fecha ult. cuota",
+        "28/02/2026"
+      ],
+      [
+        "Descuento RVC",
+        "10%"
+      ]
+    ],
+    "nota": "1. Bodega obligatoria\n 2. Estacionamiento tándem obligatorio desde 2D/1B en adelante\n 3. Todas las unidades llevan anexo 60 días\n 4. Deptos 302 se vende amoblado\n 5. Depto. 311 es sala de ventas"
+  },
+  "proj_condominio-francisco-zelada-torre-b": {
+    "titulo": "Condominio Francisco Zelada Torre B",
+    "campos": [
+      [
+        "Comuna",
+        "Estacion central"
+      ],
+      [
+        "Tipo entrega",
+        "FUTURA"
+      ],
+      [
+        "Financiamiento",
+        "Pre Aprobación"
+      ],
+      [
+        "Cuotas prog.",
+        "19"
+      ],
+      [
+        "Getnet (cuotas)",
+        "54 (18+36)"
+      ],
+      [
+        "Fecha ult. cuota",
+        "31-08-0202"
+      ],
+      [
+        "Descuento RVC",
+        "10%"
+      ]
+    ],
+    "nota": "1. Estacionamiento y bodega solo para 2D/1B en adelante"
   },
   "proj_edificio-lia-aguirre": {
     "titulo": "Edificio Lia Aguirre",
@@ -1932,18 +1667,14 @@ const CC_DATA = {
       ],
       [
         "Fecha ult. cuota",
-        "30-11-2025"
+        "28/02/2026"
       ],
       [
         "Descuento RVC",
-        "8%"
-      ],
-      [
-        "Condiciones",
-        "1. SOLO LÍNEA 3 Y 14 DISPONIBLE \n2. Estacionamiento y bodega obligatoria\n3. Depto 209, 210, 211, 305 y 803 va con anexo 60 días"
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "1. Estacionamiento y bodega obligatoria\n 2. Depto 209,210, 211,305 va con Anexo 60 Dias"
   },
   "proj_edificio-pedro-de-la-barra": {
     "titulo": "Edificio Pedro de la Barra",
@@ -1962,23 +1693,61 @@ const CC_DATA = {
       ],
       [
         "Cuotas prog.",
-        "11"
+        "7"
       ],
       [
         "Getnet (cuotas)",
-        "46 (10+36)"
+        "43 (7+36)"
       ],
       [
         "Fecha ult. cuota",
-        "2026-08-31 00:00:00"
+        "31/08/2026"
       ],
       [
         "Descuento RVC",
         "10%"
+      ]
+    ],
+    "nota": "1. Estacionamiento y bodega solo para 2D/2B\n 2. Deptos 306, 308, 309 y 311 van con anexo 60 días\n 3. Todas las lineas disponibles menos la 16"
+  },
+  "proj_parque-maranon-torre-a": {
+    "titulo": "PARQUE MARAÑON TORRE A",
+    "campos": [
+      [
+        "Comuna",
+        "Viña del Mar"
       ],
       [
-        "Condiciones",
-        "1. Estacionamiento y bodega solo 2D/2D\n2. Deptos 306, 308, 309 y 311 van con anexo 60 días"
+        "Tipo entrega",
+        "ITAU"
+      ]
+    ],
+    "nota": ""
+  },
+  "proj_blanca-estela-i-torre-a": {
+    "titulo": "BLANCA ESTELA I TORRE A Y B",
+    "campos": [
+      [
+        "Comuna",
+        "Viña del Mar"
+      ],
+      [
+        "Tipo entrega",
+        "Banco de Chile"
+      ]
+    ],
+    "nota": ""
+  },
+  "proj_edificio-parque-urbano": {
+    "titulo": "EDIFICIO PARQUE URBANO",
+    "campos": [
+      [
+        "Comuna",
+        "Viña del Mar"
+      ],
+      [
+        "Tipo entrega",
+        "Scotiabank"
       ]
     ],
     "nota": ""
@@ -2012,11 +1781,11 @@ const CC_DATA = {
       ],
       [
         "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
+        "* Toku *Getnet (hasta 24 cuotas sin intereses)"
       ],
       [
         "Fecha máxima de pago pie",
-        "2025-11-30 00:00:00"
+        "28/02/2026"
       ],
       [
         "Condición Estacionamientos",
@@ -2028,7 +1797,7 @@ const CC_DATA = {
       ],
       [
         "Descuento autorizado",
-        "25% 1D+1D/Estudio                                                20% en el resto"
+        "25% 1D+1D/Estudio 20% en el resto"
       ]
     ],
     "nota": ""
@@ -2062,11 +1831,11 @@ const CC_DATA = {
       ],
       [
         "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
+        "* Toku *Getnet (hasta 36 cuotas sin intereses)"
       ],
       [
         "Fecha máxima de pago pie",
-        "2025-11-30 00:00:00"
+        "28/02/2026"
       ],
       [
         "Condición Estacionamientos",
@@ -2078,7 +1847,7 @@ const CC_DATA = {
       ],
       [
         "Descuento autorizado",
-        "15% deptos"
+        "20% deptos y est."
       ]
     ],
     "nota": ""
@@ -2112,11 +1881,11 @@ const CC_DATA = {
       ],
       [
         "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
+        "* Toku *Getnet (hasta 36 cuotas sin intereses)"
       ],
       [
         "Fecha máxima de pago pie",
-        "2025-11-30 00:00:00"
+        "28/02/2026"
       ],
       [
         "Condición Estacionamientos",
@@ -2162,19 +1931,19 @@ const CC_DATA = {
       ],
       [
         "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
+        "* Toku *Getnet (hasta 36 cuotas sin intereses)"
       ],
       [
         "Fecha máxima de pago pie",
-        "2025-11-30 00:00:00"
+        "28/02/2026"
       ],
       [
         "Condición Estacionamientos",
-        "2D+2B Opcional /                  1D+1B No tiene derecho"
+        "Solo estos deptos 403/714/1701/1801 tienen derecho a estacionamiento"
       ],
       [
         "Condición Bodegas",
-        "2D+2B Opcional /                  1D+1B No tiene derecho"
+        "2D+2B Opcional / 1D+1B No tiene derecho"
       ],
       [
         "Descuento autorizado",
@@ -2204,7 +1973,7 @@ const CC_DATA = {
       ],
       [
         "Cuotas",
-        "6"
+        "3"
       ],
       [
         "Monto Contra promesa",
@@ -2216,7 +1985,7 @@ const CC_DATA = {
       ],
       [
         "Fecha máxima de pago pie",
-        "2026-05-31 00:00:00"
+        "31/05/2026"
       ],
       [
         "Condición Estacionamientos",
@@ -2254,7 +2023,7 @@ const CC_DATA = {
       ],
       [
         "Cuotas",
-        "14"
+        "11"
       ],
       [
         "Monto Contra promesa",
@@ -2266,7 +2035,7 @@ const CC_DATA = {
       ],
       [
         "Fecha máxima de pago pie",
-        "2027-01-28 00:00:00"
+        "28/01/2027"
       ],
       [
         "Condición Estacionamientos",
@@ -2299,19 +2068,15 @@ const CC_DATA = {
         "Inmediata"
       ],
       [
-        "Nº cuotas const.",
+        "N° cuotas const.",
         "1 a 3 cuotas TOKU / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "AGOTADOS"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D (Bono pie 10%) Y 36D ( Bono pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
+        "25%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D (Bono pie 10%) Y 36D ( Bono pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · ULTIMOS 2 DEPTO DISP: 119 - 129 · VENTA OBLIGADA ESTAC Y BOD · ESTACIONAMIENTOS: 10% DESCTO · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
   },
   "proj_suena-marin": {
     "titulo": "SUEÑA MARIN, Stgo. Centro (SANTOLAYA)",
@@ -2329,179 +2094,131 @@ const CC_DATA = {
         "Inmediata"
       ],
       [
-        "Nº cuotas const.",
+        "N° cuotas const.",
         "1 a 3 cuotas TOKU / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "AGOTADOS"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D  (Bono Pie 10%)"
+        "17.4% / 20%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D  (Bono Pie 10%) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · ULTIMOS 2 DEPTOS DISPONIBLES: 320 - 820 · VTA OBLIGADA BODEGA · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto · PROMOCION 24D"
   },
-  "proj_suena-santa-elisa": {
-    "titulo": "SUEÑA STA ELISA, La Cisterna (SANTOLAYA)",
+  "proj_nodo-la-cisterna": {
+    "titulo": "NODO LA CISTERNA,  La Cisterna (DEISA)",
     "campos": [
       [
         "Tipo de entrega",
-        "Inmediata"
+        "Futura"
       ],
       [
         "Valor reserva",
-        "216.000"
+        "204.000"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
       ],
       [
         "Fecha escrituración",
-        "Inmediata"
+        "4to Trimestre 2027"
       ],
       [
-        "Nº cuotas const.",
-        "1 a 3 cuotas doc / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
+        "N° cuotas const.",
+        "22 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/12/2027"
       ],
       [
         "Descuento máximo",
-        "25%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D (Bono pie 10%) Y 36D (Bono Pie 15%)(sujeto a valor tasación bco) (24D CUESTA 10% DESCTO, 36D CUESTA 15%)"
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS (10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 40 CUOTAS: LAS PRIMERAS 22 CUOTAS 7% CON TOKU + 18 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_garden-macul": {
-    "titulo": "MACUL 3803, Macul (SANTOLAYA)",
+    "titulo": "GARDEN MACUL, Macul (SANTOLAYA)",
     "campos": [
       [
         "Tipo de entrega",
-        "Futura"
+        "Inmediata"
       ],
       [
         "Valor reserva",
-        "217.000"
+        "227.000"
       ],
       [
         "Fecha escrituración",
-        "1er Trimestre 2028"
+        "Inmediata"
       ],
       [
-        "Nº cuotas const.",
-        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS(10% de bono pie) - SOLO DEPTOS 1,5D Y 2D"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "2028-02-01 00:00:00"
+        "N° cuotas const.",
+        "1 a 3 cuotas doc / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ]
     ],
-    "nota": ""
+    "nota": "DEPTOS AGOTADOS, 4 ESTAC DISPONIBLES · OFERTA ESTAC TANDEM, ULTIMO : N°63-64  UF400 (75% DESCTO 2DA UNIDAD!!)"
   },
   "proj_ciudad-cerrillos": {
-    "titulo": "CONECTA CERRILLOS, Cerrillos (NAPOLEON)",
+    "titulo": "CIUDAD CERRILLOS, Cerrillos  (DEISA)",
     "campos": [
       [
         "Tipo de entrega",
-        "Futura"
+        "Inmediata"
       ],
       [
         "Valor reserva",
-        "207.000"
-      ],
-      [
-        "Fecha escrituración",
-        "2027-12-01 00:00:00"
-      ],
-      [
-        "Nº cuotas const.",
-        "cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "9%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS (CUESTA 12% DSCTO)"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 10%"
+        "209.000"
       ],
       [
         "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "2028-07-01 00:00:00"
-      ],
-      [
-        "Desc. adic. cierre",
         "2%"
+      ],
+      [
+        "Fecha escrituración",
+        "Inmediata"
+      ],
+      [
+        "N° cuotas const.",
+        "1 a 3 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
+        "Descuento máximo",
+        "15%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D (10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 27 CUOTAS: 2% CP + 1,5% EN HASTA 3 CUOTAS TOKU  + CUOTON 6,5% EN 24 C/TC · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · SIN ARRIENDO GARANTIZADO 2% DESCTO ADIC · ARRIENDO GARANTIZADO 2 AÑOS SOBRE MERCADO (REVISAR VALORES QUE APLICAN)"
   },
   "proj_suena-lincoyan": {
-    "titulo": "SUEÑA LIRA, Santiago (SANTOLAYA)",
+    "titulo": "SUEÑA LINCOYAN, Ñuñoa (SANTOLAYA)",
     "campos": [
       [
         "Tipo de entrega",
-        "Futura"
+        "Inmediata"
       ],
       [
         "Valor reserva",
-        "221.000"
+        "219.000"
       ],
       [
         "Fecha escrituración",
-        "2027-03-01 00:00:00"
+        "Inmediata"
       ],
       [
-        "Nº cuotas const.",
-        "15 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
+        "N° cuotas const.",
+        "1 a 3 cuotas / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D  (10% de bono pie)"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "2027-03-01 00:00:00"
+        "18%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D  (10% de bono pie) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · 2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
   },
   "proj_suena-toesca": {
     "titulo": "SUEÑA TOESCA, Stgo (SANTOLAYA)",
@@ -2519,19 +2236,15 @@ const CC_DATA = {
         "Inmediata"
       ],
       [
-        "Nº cuotas const.",
+        "N° cuotas const.",
         "1 a 3 cuotas  / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "15%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D ( 10% de bono pie ) hasta 48D ( 20% de bono pie) (APLICA PARA UNID SEGÚN TASACION)  (24D CUESTA 10% DESCTO - 48D CUESTA 20% DESCTO)"
+        "15% / 20%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D ( 10% de bono pie ) hasta 48D ( 20% de bono pie) (APLICA PARA UNID SEGÚN TASACION)  (24D CUESTA 10% DESCTO - 48D CUESTA 20% DESCTO) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · VTA OBLIGADA BODEGA · PLAN MAS CUOTAS: HASTA 5% EN 12 DOCUMENTADAS CON PAGARÉ POST ESCRITURA · 2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
   },
   "proj_neoflorida-3": {
     "titulo": "NEO FLORIDA III. La florida (SANTOLAYA)",
@@ -2549,19 +2262,15 @@ const CC_DATA = {
         "Inmediata"
       ],
       [
-        "Nº cuotas const.",
+        "N° cuotas const.",
         "1 a 3 cuotas / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "18%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24D( 10% de bono pie) Y 36D (15% de bono pie) (sujeto a valor tasación bco)"
+        "18% / 23%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24D( 10% de bono pie) Y 36D (15% de bono pie) (sujeto a valor tasación bco) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · VTA OBLIGADA BODEGA"
   },
   "proj_ciudad-lyon": {
     "titulo": "CIUDAD LYON, Providencia (DEISA)",
@@ -2575,27 +2284,23 @@ const CC_DATA = {
         "229.000"
       ],
       [
+        "Contra promesa",
+        "7.5%"
+      ],
+      [
         "Fecha escrituración",
         "Inmediata"
       ],
       [
-        "Nº cuotas const.",
+        "N° cuotas const.",
         "1 cuotas /ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
       ],
       [
         "Descuento máximo",
         "15%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 12D (5% de bono pie)"
-      ],
-      [
-        "Contra promesa",
-        "8%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 12D (5% de bono pie) · PLAN ESPECIAL PIE 7,5% CONTRA PROMESA - 7,5 CONTRA ESCRITURA 18 C/TC + 5% 12D + 80% CH · OPORTUNIDAD: ULTIMA AZOTEA UF990"
   },
   "proj_barrio-cueto": {
     "titulo": "BARRIO CUETO, Stgo (ORMUZ)",
@@ -2609,65 +2314,19 @@ const CC_DATA = {
         "220.000"
       ],
       [
-        "Descuento máximo",
-        "21%"
-      ],
-      [
-        "Observaciones",
-        "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ"
-      ],
-      [
         "% cuotas const.",
         "Desde 2%"
       ],
       [
         "Contra promesa",
         "1era cuota"
-      ]
-    ],
-    "nota": ""
-  },
-  "proj_nodo-la-cisterna": {
-    "titulo": "NODO LA CISTERNA,  La Cisterna (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "204.000"
-      ],
-      [
-        "Fecha escrituración",
-        "4to Trimestre 2027"
-      ],
-      [
-        "Nº cuotas const.",
-        "22 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
         "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "2027-12-01 00:00:00"
+        "21% / 24%"
       ]
     ],
-    "nota": ""
+    "nota": "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ · PLAN ESPECIAL PIE EN 39 CUOTAS: 2% en 3 CUOTAS TOKU + 8% en 36 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CREDITO · 2 CUPOS ESTAC PARA DPTO. 1,5D1B · 2 AÑOS ARRIENDO GARANTIZADO 1D Y 2D SOBRE MERCADO INCUIDO EN EL PRECIO · SI NO HAY ARRIENDO GARANTIZADO SE PUEDE DAR 4% DESC ADIC"
   },
   "proj_ciudad-matta": {
     "titulo": "CIUDAD MATTA, Santiago (DEISA)",
@@ -2681,22 +2340,6 @@ const CC_DATA = {
         "222.000"
       ],
       [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "Nº cuotas const.",
-        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2705,11 +2348,23 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
+        "Fecha escrituración",
+        "1er Trimestre 2028"
+      ],
+      [
+        "N° cuotas const.",
+        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
         "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
+        "01/03/2028"
+      ],
+      [
+        "Descuento máximo",
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS(10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: 7% LAS PRIMERAS 25 CUOTAS CON TOKU + 3% CUOTON CON 18 C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_ciudad-espana": {
     "titulo": "CIUDAD ESPAÑA, Santiago (DEISA)",
@@ -2723,22 +2378,6 @@ const CC_DATA = {
         "228.000"
       ],
       [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "Nº cuotas const.",
-        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2747,11 +2386,23 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
+        "Fecha escrituración",
+        "1er Trimestre 2028"
+      ],
+      [
+        "N° cuotas const.",
+        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
         "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
+        "01/03/2028"
+      ],
+      [
+        "Descuento máximo",
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS (10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: 7% LAS PRIMERAS 25 CUOTAS CON TOKU + 3% CUOTON CON 18 C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · SIN ARRIENDO GARANTIZADO 2% DESCTO ADICIONAL · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN · ARRIENDO GARANTIZADO SOBRE MERCADO 2 AÑOS INCLUIDO EN DESCTO MAX (REVISAR CONDICIONES Y VALORES QUE APLICAN)"
   },
   "proj_ciudad-siete": {
     "titulo": "CIUDAD SIETE, Cerrillos (DEISA)",
@@ -2765,22 +2416,6 @@ const CC_DATA = {
         "230.000"
       ],
       [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "Nº cuotas const.",
-        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2789,11 +2424,23 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
+        "Fecha escrituración",
+        "1er Trimestre 2028"
+      ],
+      [
+        "N° cuotas const.",
+        "25 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
         "Fecha máx. cuota",
-        "2028-03-01 00:00:00"
+        "01/03/2028"
+      ],
+      [
+        "Descuento máximo",
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS (10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 43 CUOTAS - LAS PRIMERAS 25 CUOTAS 7% CON TOKU + 18 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_mapocho-2880": {
     "titulo": "MAPOCHO 2880, Santiago (SANTOLAYA)",
@@ -2807,22 +2454,6 @@ const CC_DATA = {
         "203.000"
       ],
       [
-        "Fecha escrituración",
-        "2028-06-01 00:00:00"
-      ],
-      [
-        "Nº cuotas const.",
-        "38 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS(10% de bono pie)"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2831,11 +2462,23 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
+        "Fecha escrituración",
+        "01/06/2028"
+      ],
+      [
+        "N° cuotas const.",
+        "38 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
+      ],
+      [
         "Fecha máx. cuota",
-        "2028-06-01 00:00:00"
+        "01/06/2028"
+      ],
+      [
+        "Descuento máximo",
+        "15% / 20% / 5%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS(10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 56 CUOTAS: LAS PRIMERAS 38 CUOTAS 7% CON TOKU + 18 C/TC 3% A LA ESCRITURA  + 10% 24D + 80% CH · 4 CUPOS ESTAC PARA DEPTOS 2D1B // 4 CUPOS BODEGA PARA DEPT 1D1B · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto · PLAN PAGO PIE LOCALES: 5% CP 15% EN CUOTAS - 5% C/E  - 75% CRED F Grales"
   },
   "proj_fuenzalida-urrejola-303": {
     "titulo": "FUENZALIDA URREJOLA 303, La Cisterna (Inmob. Lugano)",
@@ -2849,22 +2492,6 @@ const CC_DATA = {
         "208.000"
       ],
       [
-        "Fecha escrituración",
-        "1er Semestre 2027"
-      ],
-      [
-        "Nº cuotas const.",
-        "19 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "20%"
-      ],
-      [
-        "Observaciones",
-        "BONO PIE 10%  - ASOCIADO A FIRMA PAGARÉ"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2873,11 +2500,23 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
+        "Fecha escrituración",
+        "1er Semestre 2027"
+      ],
+      [
+        "N° cuotas const.",
+        "19 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
+      ],
+      [
         "Fecha máx. cuota",
-        "2027-08-01 00:00:00"
+        "01/08/2027"
+      ],
+      [
+        "Descuento máximo",
+        "20%"
       ]
     ],
-    "nota": ""
+    "nota": "BONO PIE 10%  - ASOCIADO A FIRMA PAGARÉ · PLAN ESPECIAL PIE EN HASTA 43 CUOTAS: LAS PRIMERAS 19 CUOTAS 7% CON TOKU + 24 C/TC  3% A LA ESCRITURA  + 10% 24D + 80% CH · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
   },
   "proj_jmc-608": {
     "titulo": "JMC 608, SANTIAGO (SANTOLAYA)",
@@ -2891,22 +2530,6 @@ const CC_DATA = {
         "211.000"
       ],
       [
-        "Fecha escrituración",
-        "2do semestre 2028"
-      ],
-      [
-        "Nº cuotas const.",
-        "39 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 24 DIVIDENDOS (10% de bono pie)"
-      ],
-      [
         "% cuotas const.",
         "Desde 7%"
       ],
@@ -2915,51 +2538,25 @@ const CC_DATA = {
         "1era cuota"
       ],
       [
-        "Fecha máx. cuota",
-        "2029-03-01 00:00:00"
-      ]
-    ],
-    "nota": ""
-  },
-  "proj_condominio-alto-hurtado-ii": {
-    "titulo": "ALTO HURTADO ET 2, Padre Hurtado (70W)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "235.000"
-      ],
-      [
         "Fecha escrituración",
-        "Inmediata"
+        "2do semestre 2028"
       ],
       [
-        "Nº cuotas const.",
-        "1 a 3 cuotas TOKU / ó  36 cuotas sin interés tarjeta crédito (máx 20% del precio) (GETNET)"
+        "N° cuotas const.",
+        "39 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/03/2029"
       ],
       [
         "Descuento máximo",
-        "15%"
-      ],
-      [
-        "Observaciones",
-        "PROMOCION 12 DIVIDENDOS (5% de bono pie)"
-      ],
-      [
-        "% cuotas const.",
-        "15%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
+        "10% / 15%"
       ]
     ],
-    "nota": ""
+    "nota": "PROMOCION 24 DIVIDENDOS (10% de bono pie) · PLAN ESPECIAL PIE EN HASTA 57 CUOTAS:  LAS PRIMERAS 39 CUOTAS 7% CON TOKU + 18 C/TC 3% A LA ESCRITURA  + 10% 24D + 80% CH"
   },
-  "proj_condominio-alto-hurtado-iii": {
+  "proj_condominio-alto-hurtado-ii": {
     "titulo": "ALTO HURTADO ET 3, Padre Hurtado  (70W)",
     "campos": [
       [
@@ -2971,30 +2568,26 @@ const CC_DATA = {
         "235.000"
       ],
       [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "Nº cuotas const.",
-        "22 cuotas TOKU / ó 36 cuotas sin interés tarjeta crédito (máx 20% del precio)(GETNET)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Observaciones",
-        "PAGO DEL PIE: 2% PROMESA + 13% EN 22 CUOTAS + 5% C/E ó 15% EN 22 CUOTAS + 5% C/E ó 10% EN 22 CUOTAS + 10% C/E + 80% CH"
-      ],
-      [
         "% cuotas const.",
         "13%"
       ],
       [
         "Contra promesa",
         "2%"
+      ],
+      [
+        "Fecha escrituración",
+        "1er Trimestre 2028"
+      ],
+      [
+        "N° cuotas const.",
+        "22 cuotas TOKU / ó 36 cuotas sin interés tarjeta crédito (máx 20% del precio)(GETNET)"
+      ],
+      [
+        "Descuento máximo",
+        "10%"
       ]
     ],
-    "nota": ""
+    "nota": "PAGO DEL PIE: 2% PROMESA + 13% EN 22 CUOTAS + 5% C/E ó 15% EN 22 CUOTAS + 5% C/E ó 10% EN 22 CUOTAS + 10% C/E + 80% CH"
   }
 };
