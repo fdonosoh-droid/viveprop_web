@@ -30,12 +30,14 @@ export function cotizFromProp(arg) {
 
     document.getElementById('cotiz-cascade').style.display = 'none'
     document.getElementById('cotiz-client-form').style.display = 'flex'
+    document.getElementById('cotiz-params-step').style.display = 'none'
     document.getElementById('cotiz-panel').style.display = 'none'
     window.openModule('cotiz')
   } catch (err) {
     console.error('[Cotizador] Error en cotizFromProp:', err)
     document.getElementById('cotiz-cascade').style.display = 'none'
     document.getElementById('cotiz-client-form').style.display = 'none'
+    document.getElementById('cotiz-params-step').style.display = 'none'
     document.getElementById('cotiz-panel').style.display = 'flex'
     window.openModule('cotiz')
     document.getElementById('cp-results').innerHTML =
@@ -73,6 +75,7 @@ export function volverDesdeCotiz() {
   } : null
   _state = null
   document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-cascade').style.display = ''
   window.openModule(isSecundario ? 'sec' : 'pri')
@@ -246,10 +249,25 @@ export function submitClientForm() {
   _state.cliente = { nombre, rut, email, tel, objetivo, corNombre, corEmail, corTel }
 
   _state.cotizId = _genCotizId()
-  _initParamsGrid(_state.parsedCC)
   document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'flex'
+  _initParamsGrid(_state.parsedCC)
+}
+
+export function volverDesdeParams() {
+  document.getElementById('cotiz-params-step').style.display = 'none'
+  document.getElementById('cotiz-client-form').style.display = 'flex'
+}
+
+export function submitParamsStep() {
+  document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'flex'
   recalcCotizPanel()
+}
+
+export function volverAParams() {
+  document.getElementById('cotiz-panel').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'flex'
 }
 
 function _initParamsGrid(parsedCC) {
@@ -263,37 +281,75 @@ function _initParamsGrid(parsedCC) {
   const cdir    = _pct100(parsedCC.creditoDirectoPct)
   const [c1, c2, c3] = CAE_OPTIONS.map(c => _pct100(c))
 
-  const cuotasLbl = `Cuotas pie${cuotas > 0 ? ` <span class="cp-fg-base">base ${cuotas}</span>` : ''}`
+  // Set title in params step header
+  const { project, depto, secundarios } = _state
+  const titleParts = [
+    `${project.nombre} · DP ${depto.dp}${depto.tipologia ? ' ' + depto.tipologia : ''}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp}`)
+  ]
+  document.getElementById('cps-header-title').textContent = titleParts.join(' + ')
+
+  // Locked field (from CC — read-only display + hidden input for _readParams)
+  const locked = (lbl, id, val) =>
+    `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
+    `<input id="${id}" class="cp-input cp-input--locked" type="text" value="${val}%" disabled></div>`
+
+  // Dropdown field
+  const dd = (lbl, id, options, val, fmtLbl) => {
+    const numVal = parseFloat(val)
+    const hasMatch = options.some(o => parseFloat(o) === numVal)
+    const allOpts = hasMatch ? options : [...options, numVal].sort((a, b) => a - b)
+    const opts = allOpts.map(o =>
+      `<option value="${o}"${parseFloat(o) === numVal ? ' selected' : ''}>${fmtLbl(o)}</option>`
+    ).join('')
+    return `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
+           `<select id="${id}" class="cp-input cp-select">${opts}</select></div>`
+  }
+
+  // Text input field
+  const txt = (lbl, id, val) =>
+    `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
+    `<input id="${id}" class="cp-input" type="number" min="0" step="any" value="${val}"></div>`
+
+  const cuotasLbl = `Cuotas Pie${cuotas > 0 ? ` <span class="cp-fg-base">base ${cuotas}</span>` : ''}`
   const cuotonLbl = `Cuotón %${cuoton === 0 ? ' <span class="cp-fg-noapl">no aplica</span>' : ''}`
 
-  const f = (lbl, id, val, min, max, step) =>
-    `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
-    `<input id="${id}" class="cp-input" type="number" min="${min}" max="${max}" step="${step}" value="${val}" onchange="recalcCotizPanel()"></div>`
+  const pieOpts   = [0, 5, 10, 15, 20, 25, 30, 35, 40]
+  const cuotasOpts= [0, 6, 12, 18, 24, 30, 36, 48, 60]
+  const cuotonOpts= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const plazoOpts = [5, 10, 15, 20, 25, 30]
+  const caeOpts   = [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0]
 
-  document.getElementById('cp-params-grid').innerHTML = `
-    <div class="cp-section-title">Parámetros de cotización</div>
+  document.getElementById('cps-params-grid').innerHTML = `
+    <div class="cp-section-title">Configuración de cotización</div>
+    <p class="cps-nota">Los campos en gris se leen desde condiciones comerciales y no son editables.</p>
     <div class="cp-params-body">
       <div class="cp-form-row cp-form-row--4">
-        ${f('Pie %',           'cpg-pie',      pie,          0, 100, 1)}
-        ${f('Plazo (años)',    'cpg-plazo',    PLAZO_DEFAULT, 5,  30, 1)}
-        ${f('Dcto. depto %',  'cpg-dcto',     dcto,          0, 100, 0.1)}
-        ${f('Aporte inmob %', 'cpg-aporte',   aporte,        0, 100, 0.1)}
+        ${locked('Descuento (%)',          'cpg-dcto',    dcto)}
+        ${locked('Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
+        ${dd('% de Pie',    'cpg-pie',    pieOpts,    pie,    v => v + '%')}
+        ${dd(cuotasLbl,     'cpg-cuotas', cuotasOpts, cuotas, v => v === 0 ? 'Sin cuotas' : v + ' cuotas')}
       </div>
       <div class="cp-form-row cp-form-row--4">
-        ${f(cuotasLbl,        'cpg-cuotas',   cuotas,  0,  48, 1)}
-        ${f('Pie const %',    'cpg-piecst',   piecst,  0, 100, 0.1)}
-        ${f(cuotonLbl,        'cpg-cuoton',   cuoton,  0, 100, 0.1)}
-        ${f('Upfront %',      'cpg-upfront',  upfront, 0, 100, 0.1)}
+        ${locked('Pie Construcción (%)',  'cpg-piecst', piecst)}
+        ${dd(cuotonLbl, 'cpg-cuoton', cuotonOpts, cuoton, v => v + '%')}
+        ${locked('Crédito Directo (%)',   'cpg-cdir',   cdir)}
+        ${txt('Upfront Promesa (%)', 'cpg-upfront', upfront)}
       </div>
       <div class="cp-form-row cp-form-row--3">
-        ${f('Crédito directo %',  'cpg-cdir',      cdir, 0, 100, 0.1)}
-        ${f('Plusvalía anual %',  'cpg-plusvalia',  2,   0,  20, 0.1)}
+        ${txt('Plusvalía anual (%)', 'cpg-plusvalia', 2)}
+        ${dd('Plazo', 'cpg-plazo', plazoOpts, PLAZO_DEFAULT, v => v + ' años')}
         <div class="cp-fg"></div>
       </div>
       <div class="cp-form-row cp-form-row--3">
-        ${f('CAE escenario 1', 'cpg-cae1', c1, 0, 20, 0.1)}
-        ${f('CAE escenario 2', 'cpg-cae2', c2, 0, 20, 0.1)}
-        ${f('CAE escenario 3', 'cpg-cae3', c3, 0, 20, 0.1)}
+        ${dd('Escenario 1 CAE', 'cpg-cae1', caeOpts, c1, v => v.toFixed(1) + '%')}
+        ${dd('Escenario 2 CAE', 'cpg-cae2', caeOpts, c2, v => v.toFixed(1) + '%')}
+        ${dd('Escenario 3 CAE', 'cpg-cae3', caeOpts, c3, v => v.toFixed(1) + '%')}
+      </div>
+      <div class="cp-form-row cp-form-row--3">
+        ${txt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', 450000)}
+        ${txt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', 450000)}
+        ${txt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', 450000)}
       </div>
     </div>`
 }
@@ -316,6 +372,9 @@ function _readParams() {
     cae1:      n('cpg-cae1')     || 4,
     cae2:      n('cpg-cae2')     || 4.5,
     cae3:      n('cpg-cae3')     || 5,
+    arriendo1: n('cpg-arriendo1'),
+    arriendo2: n('cpg-arriendo2'),
+    arriendo3: n('cpg-arriendo3'),
   }
 }
 
@@ -341,7 +400,7 @@ function _buildInput(params) {
     valorUF:                   store.UF,
     tipoCalculoBono:           regla.tipoCalculoBono,
     pieConjuntosPct:           regla.pieConjuntosPct,
-    arriendosMensualesCLP:     [0, 0, 0],
+    arriendosMensualesCLP:     [params.arriendo1, params.arriendo2, params.arriendo3],
     plusvaliaAnual:            params.plusvalia / 100,
   }
 }
@@ -761,12 +820,14 @@ export function cotizSecProp(propId) {
     _initClientForm()
     document.getElementById('cotiz-cascade').style.display = 'none'
     document.getElementById('cotiz-client-form').style.display = 'flex'
+    document.getElementById('cotiz-params-step').style.display = 'none'
     document.getElementById('cotiz-panel').style.display = 'none'
     window.openModule('cotiz')
   } catch (err) {
     console.error('[Cotizador] Error en cotizSecProp:', err)
     document.getElementById('cotiz-cascade').style.display = 'none'
     document.getElementById('cotiz-client-form').style.display = 'none'
+    document.getElementById('cotiz-params-step').style.display = 'none'
     document.getElementById('cotiz-panel').style.display = 'flex'
     window.openModule('cotiz')
     document.getElementById('cp-results').innerHTML =
@@ -778,6 +839,7 @@ export function nuevaCotizacion() {
   _state = null
   _recotizarMode = false
   document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-cascade').style.display = ''
   window.cascReset()
@@ -788,6 +850,7 @@ export function recotizar() {
   _state = null
   _recotizarMode = true
   document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-cascade').style.display = ''
   window.cascReset()

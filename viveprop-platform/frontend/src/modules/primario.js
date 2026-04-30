@@ -8,7 +8,7 @@ const PRI_PER_PAGE = PER_PAGE;
 const CC_INMOBS = ['INGEVEC', 'RVC', 'TOCTOC', 'URMENETA', 'MAESTRA'];
 
 let priFilt = [], priMaxUF = null, priPg = 1, priView = 'lista';
-let _currentProject = null, _selectedUnit = null;
+let _currentProject = null, _selectedUnit = null, _currentExtras = [];
 let _pmGalPhotos = [], _pmGalIdx = 0;
 
 function getCCFiles(inmob) {
@@ -450,13 +450,14 @@ export function selectProjUnit(dp) {
      u.m2_terraza  ? u.m2_terraza.toFixed(1)  + ' m² terraza' : '',
      u.orientacion || ''].filter(Boolean).join(' · ');
   const extras     = (p.unidades || []).filter(x => x.disponible && isExtra(x.tipologia));
+  _currentExtras   = extras;
   const extrasWrap = document.getElementById('pm-extras-wrap');
   const extrasList = document.getElementById('pm-extras-list');
   if (extras.length) {
     extrasWrap.style.display = '';
-    extrasList.innerHTML = extras.map(e => `
+    extrasList.innerHTML = extras.map((e, i) => `
       <label class="extra-row" onclick="pmUpdateTotal()">
-        <input type="checkbox" value="${e.precio_uf}" data-dp="${H(e.dp)}" data-label="${H(e.tipologia)} DP ${H(e.dp)}">
+        <input type="checkbox" value="${e.precio_uf}" data-idx="${i}" data-dp="${H(e.dp)}" data-label="${H(e.tipologia)} DP ${H(e.dp)}">
         <span class="extra-label">${H(e.tipologia)} — DP ${H(e.dp)}</span>
         <span class="extra-price">${fmt.uf(e.precio_uf)}</span>
       </label>`).join('');
@@ -490,7 +491,8 @@ export function pmCotizar() {
   const depto      = _selectedUnit;
   const secundarios = [];
   document.querySelectorAll('#pm-extras-list input[type=checkbox]:checked').forEach(cb => {
-    const u = (project.unidades || []).find(x => x.dp === cb.dataset.dp);
+    const idx = parseInt(cb.dataset.idx);
+    const u = !isNaN(idx) ? _currentExtras[idx] : (project.unidades || []).find(x => x.dp === cb.dataset.dp);
     if (u) secundarios.push(u);
   });
   closeProjModal();

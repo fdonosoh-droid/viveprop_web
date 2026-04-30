@@ -429,10 +429,28 @@
           </div>
         </div>
 
-        <!-- Panel completo (proyectos primario) -->
+        <!-- Paso intermedio: configuración de parámetros -->
+        <div id="cotiz-params-step" style="display:none">
+          <div class="cp-params">
+            <button class="cp-back-btn" onclick="volverDesdeParams()">&#8592; Volver</button>
+            <div class="cp-header-title" id="cps-header-title">—</div>
+            <div class="cp-params-actions">
+              <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
+              <button class="btn-nueva-cotiz" onclick="nuevaCotizacion()">+ Nueva</button>
+            </div>
+          </div>
+          <div class="cp-body">
+            <div class="cp-section" id="cps-params-grid"></div>
+            <div class="cps-submit-row">
+              <button class="btn-generar-cotiz" onclick="submitParamsStep()">Generar Cotización &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel de resultados -->
         <div id="cotiz-panel" style="display:none">
           <div class="cp-params">
-            <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
+            <button class="cp-back-btn" onclick="volverAParams()">&#8592; Volver</button>
             <div class="cp-header-title" id="cp-header-title">—</div>
             <div class="cp-params-actions">
               <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
@@ -441,7 +459,6 @@
             </div>
           </div>
           <div class="cp-body">
-            <div class="cp-section" id="cp-params-grid"></div>
             <div id="cp-results"></div>
           </div>
         </div>
