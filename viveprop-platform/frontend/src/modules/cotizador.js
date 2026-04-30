@@ -65,7 +65,8 @@ export function recalcCotizPanel() {
 }
 
 export function volverDesdeCotiz() {
-  const saved = _state ? {
+  const isSecundario = _state?.project?.id?.startsWith('sec-')
+  const saved = !isSecundario && _state ? {
     pid:      _state.project?.id,
     dp:       _state.depto?.dp,
     extraDps: (_state.secundarios ?? []).map(s => s.dp)
@@ -74,7 +75,7 @@ export function volverDesdeCotiz() {
   document.getElementById('cotiz-client-form').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-cascade').style.display = ''
-  window.openModule('pri')
+  window.openModule(isSecundario ? 'sec' : 'pri')
   if (saved?.pid) window.reopenWithUnit(saved.pid, saved.dp, saved.extraDps)
 }
 
@@ -428,7 +429,7 @@ function _sPlanPago(r) {
       <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
     </div>`
 
-  rows += `
+  if (r.reservaUF > 0.001) rows += `
     <div class="cp-plan-row cp-plan-sub">
       <span class="cp-plan-lbl">Reserva</span>
       <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
@@ -593,7 +594,7 @@ function _buildPrintDoc(r, params) {
 
   let planRows = ''
   planRows += `<tr><td><strong>Pie total</strong> ${_pct(r.piePct)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
-  planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+  if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
   if (r.upfrontUF > 0)
     planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
   if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
@@ -646,7 +647,7 @@ function _buildPrintDoc(r, params) {
       <div class="prd-meta-block">
         <div class="prd-meta-title">Proyecto</div>
         <div class="prd-meta-main">${H(project.nombre)}</div>
-        <div class="prd-meta-sub">${H(project.inmobiliaria)}${project.comuna ? ' · ' + H(project.comuna) : ''}</div>
+        <div class="prd-meta-sub">${[project.inmobiliaria && H(project.inmobiliaria), project.comuna && H(project.comuna)].filter(Boolean).join(' · ')}</div>
         <div class="prd-units-list">${unitLines}</div>
       </div>
       <div class="prd-meta-block">
