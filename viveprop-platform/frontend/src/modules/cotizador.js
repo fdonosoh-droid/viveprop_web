@@ -139,7 +139,6 @@ function _initClientForm() {
       if (uc.tel)      { const el = document.getElementById('ccf-tel');      if (el) el.value = uc.tel }
       if (uc.objetivo) { const el = document.getElementById('ccf-objetivo'); if (el) el.value = uc.objetivo }
     } catch {}
-    _recotizarMode = false
   }
 }
 
@@ -256,6 +255,7 @@ export function submitClientForm() {
   document.getElementById('cotiz-client-form').style.display = 'none'
   document.getElementById('cotiz-params-step').style.display = 'flex'
   _initParamsGrid(_state.parsedCC)
+  _recotizarMode = false
 }
 
 export function volverDesdeParams() {
@@ -365,10 +365,11 @@ function _initParamsGrid(parsedCC) {
 }
 
 function _loadArr() {
+  if (!_recotizarMode) return { arr1: '', arr2: '', arr3: '' }
   try {
     const s = JSON.parse(localStorage.getItem('_arriendos') || '{}')
-    return { arr1: s.arr1 || 450000, arr2: s.arr2 || 450000, arr3: s.arr3 || 450000 }
-  } catch { return { arr1: 450000, arr2: 450000, arr3: 450000 } }
+    return { arr1: s.arr1 ?? '', arr2: s.arr2 ?? '', arr3: s.arr3 ?? '' }
+  } catch { return { arr1: '', arr2: '', arr3: '' } }
 }
 
 // ── Lectura del formulario ────────────────────────────────────────────────────
