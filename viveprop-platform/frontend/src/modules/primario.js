@@ -497,3 +497,18 @@ export function pmCotizar() {
 }
 
 export function toggleDormPill(btn) { btn.classList.toggle('active'); priFilter(); }
+
+export function reopenWithUnit(pid, dp, extraDps = []) {
+  openProject(pid)
+  pmTab('units')
+  if (dp) {
+    selectProjUnit(dp)
+    if (extraDps.length) {
+      extraDps.forEach(edp => {
+        const cb = document.querySelector(`#pm-extras-list input[data-dp="${edp}"]`)
+        if (cb) cb.checked = true
+      })
+      pmUpdateTotal()
+    }
+  }
+}

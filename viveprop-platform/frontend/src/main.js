@@ -2,7 +2,7 @@ import { store } from './state/store.js';
 import { api } from './api/client.js';
 import { mcFilter, mcOpen, mcClose, mcSelect, mcRemove } from './components/filters.js';
 import { secInit, secFilter, secPage, setSecView, openDetail, openSecDetail, showDpPhoto, navDp, closeDetail, shareProperty, downloadPhotos, printFicha, openVideo, copyVideoLink, closeVideo } from './modules/secundario.js';
-import { priInit, priFilter, priPage, setPriView, openProject, closeProjModal, pmTab, renderCC, pmShowGalPhoto, pmGalNav, selectProjUnit, pmUpdateTotal, pmBack, pmCotizar, toggleDormPill } from './modules/primario.js';
+import { priInit, priFilter, priPage, setPriView, openProject, closeProjModal, pmTab, renderCC, pmShowGalPhoto, pmGalNav, selectProjUnit, pmUpdateTotal, pmBack, pmCotizar, toggleDormPill, reopenWithUnit } from './modules/primario.js';
 import { calcPerfil, searchFromPerfil, showBudgetBanner, clearBudget } from './modules/perfilador.js';
 import { cotizFromProp, syncPie, calcCotiz, recalcCotizPanel, volverDesdeCotiz, submitClientForm, formatRutInput, clearCCFError, printCotiz } from './modules/cotizador.js';
 
@@ -29,7 +29,7 @@ Object.assign(window, {
   priFilter, priPage, setPriView,
   openProject, closeProjModal, pmTab, renderCC,
   pmShowGalPhoto, pmGalNav,
-  selectProjUnit, pmUpdateTotal, pmBack, pmCotizar,
+  selectProjUnit, pmUpdateTotal, pmBack, pmCotizar, reopenWithUnit,
   // perfilador
   calcPerfil, searchFromPerfil, showBudgetBanner, clearBudget,
   // cotizador

@@ -70,11 +70,17 @@ export function recalcCotizPanel() {
 }
 
 export function volverDesdeCotiz() {
+  const saved = _state ? {
+    pid:      _state.project?.id,
+    dp:       _state.depto?.dp,
+    extraDps: (_state.secundarios ?? []).map(s => s.dp)
+  } : null
   _state = null
   document.getElementById('cotiz-client-form').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-basic').style.display = ''
   window.openModule('pri')
+  if (saved?.pid) window.reopenWithUnit(saved.pid, saved.dp, saved.extraDps)
 }
 
 // ── Inicialización del formulario de parámetros ───────────────────────────────
