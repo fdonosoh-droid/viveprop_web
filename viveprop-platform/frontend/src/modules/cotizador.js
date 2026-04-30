@@ -117,16 +117,20 @@ function _initClientForm() {
   if (obj) { obj.value = ''; obj.classList.remove('cp-input--err') }
   document.querySelectorAll('.ccf-err').forEach(el => { el.textContent = '' })
 
-  // Pre-rellenar corredor desde localStorage
-  try {
-    const saved = JSON.parse(localStorage.getItem('_corredor') || '{}')
-    if (saved.nombre) document.getElementById('ccf-cor-nombre').value = saved.nombre
-    if (saved.email)  document.getElementById('ccf-cor-email').value  = saved.email
-    if (saved.tel)    document.getElementById('ccf-cor-tel').value    = saved.tel
-  } catch {}
+  // Limpiar campos corredor (siempre para nueva cotización)
+  ;['ccf-cor-nombre', 'ccf-cor-email', 'ccf-cor-tel'].forEach(id => {
+    const el = document.getElementById(id)
+    if (el) { el.value = ''; el.classList.remove('cp-input--err') }
+  })
 
-  // Si es recotización, pre-rellenar datos del último cliente
+  // Si es recotización, pre-rellenar corredor Y datos del último cliente
   if (_recotizarMode) {
+    try {
+      const saved = JSON.parse(localStorage.getItem('_corredor') || '{}')
+      if (saved.nombre) document.getElementById('ccf-cor-nombre').value = saved.nombre
+      if (saved.email)  document.getElementById('ccf-cor-email').value  = saved.email
+      if (saved.tel)    document.getElementById('ccf-cor-tel').value    = saved.tel
+    } catch {}
     try {
       const uc = JSON.parse(localStorage.getItem('_ultimo_cliente') || '{}')
       if (uc.nombre)   { const el = document.getElementById('ccf-nombre');   if (el) el.value = uc.nombre }
@@ -260,6 +264,12 @@ export function volverDesdeParams() {
 }
 
 export function submitParamsStep() {
+  const n = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
+  try {
+    localStorage.setItem('_arriendos', JSON.stringify({
+      arr1: n('cpg-arriendo1'), arr2: n('cpg-arriendo2'), arr3: n('cpg-arriendo3'),
+    }))
+  } catch {}
   document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'flex'
   recalcCotizPanel()
@@ -347,11 +357,18 @@ function _initParamsGrid(parsedCC) {
         ${dd('Escenario 3 CAE', 'cpg-cae3', caeOpts, c3, v => v.toFixed(1) + '%')}
       </div>
       <div class="cp-form-row cp-form-row--3">
-        ${txt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', 450000)}
-        ${txt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', 450000)}
-        ${txt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', 450000)}
+        ${txt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', _loadArr().arr1)}
+        ${txt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', _loadArr().arr2)}
+        ${txt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', _loadArr().arr3)}
       </div>
     </div>`
+}
+
+function _loadArr() {
+  try {
+    const s = JSON.parse(localStorage.getItem('_arriendos') || '{}')
+    return { arr1: s.arr1 || 450000, arr2: s.arr2 || 450000, arr3: s.arr3 || 450000 }
+  } catch { return { arr1: 450000, arr2: 450000, arr3: 450000 } }
 }
 
 // ── Lectura del formulario ────────────────────────────────────────────────────
@@ -425,7 +442,8 @@ function _renderPanel(r, params) {
     _sValores(r, depto, secundarios) +
     _sPlanPago(r) +
     (r.pieCreditoDirectoUF > 0 ? _sCreditoDirecto(r) : '') +
-    _sCreditoHip(r, params.plazo)
+    _sCreditoHip(r, params.plazo) +
+    (_state.cliente?.objetivo === 'inversion' ? _sInversion(r) : '')
   _buildPrintDoc(r, params)
 }
 
@@ -614,6 +632,32 @@ function _sCreditoHip(r, plazoAnios) {
   </div>`
 }
 
+// ── Sección: Análisis de Inversión ────────────────────────────────────────────
+
+function _sInversion(r) {
+  const caes = r.escenarios.map(e => `CAE ${(e.cae * 100).toFixed(1).replace(/\.0$/, '')}%`)
+  const header = caes.map(c => `<th>${c}</th>`).join('')
+  const row = (lbl, vals) =>
+    `<tr><td>${lbl}</td>${vals.map(v => `<td>${v}</td>`).join('')}</tr>`
+  return `
+  <div class="cp-section">
+    <div class="cp-section-title">Análisis de Inversión &middot; 5 años</div>
+    <div class="cp-section-body">
+      <table class="cp-inv-tbl">
+        <thead><tr><th>Concepto</th>${header}</tr></thead>
+        <tbody>
+          ${row('Precio de venta año 5 ($)',  r.escenarios.map(() => fmt.pesos(r.precioVentaAnio5CLP)))}
+          ${row('Pie pagado ($)',              r.escenarios.map(() => fmt.pesos(r.piePagadoCLP)))}
+          ${row('Flujo acumulado ($)',         r.escenarios.map(e => fmt.pesos(e.flujoAcumuladoCLP)))}
+          ${row('Cap Rate anual',              r.escenarios.map(e => _pct(e.capRate)))}
+          ${row('ROI s/pie 5 años',            r.escenarios.map(e => _pct(e.roi5Anios)))}
+          ${row('ROI anual compuesto',         r.escenarios.map(e => _pct(e.roiAnual)))}
+        </tbody>
+      </table>
+    </div>
+  </div>`
+}
+
 // ── Documento imprimible ─────────────────────────────────────────────────────
 
 function _genCotizId() {
@@ -764,6 +808,27 @@ function _buildPrintDoc(r, params) {
         <tbody>${escRows}</tbody>
       </table>
     </div>
+
+    ${cliente.objetivo === 'inversion' ? `
+    <div class="prd-section">
+      <div class="prd-section-title">Análisis de Inversión · 5 años</div>
+      <table class="prd-inv-tbl">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            ${r.escenarios.map(e => `<th>CAE ${(e.cae*100).toFixed(1).replace(/\.0$/,'')}%</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Precio de venta año 5 ($)</td>${r.escenarios.map(() => `<td>${fmt.pesos(r.precioVentaAnio5CLP)}</td>`).join('')}</tr>
+          <tr><td>Pie pagado ($)</td>${r.escenarios.map(() => `<td>${fmt.pesos(r.piePagadoCLP)}</td>`).join('')}</tr>
+          <tr><td>Flujo acumulado ($)</td>${r.escenarios.map(e => `<td>${fmt.pesos(e.flujoAcumuladoCLP)}</td>`).join('')}</tr>
+          <tr><td>Cap Rate anual</td>${r.escenarios.map(e => `<td>${_pct(e.capRate)}</td>`).join('')}</tr>
+          <tr><td>ROI s/pie 5 años</td>${r.escenarios.map(e => `<td>${_pct(e.roi5Anios)}</td>`).join('')}</tr>
+          <tr><td>ROI anual compuesto</td>${r.escenarios.map(e => `<td>${_pct(e.roiAnual)}</td>`).join('')}</tr>
+        </tbody>
+      </table>
+    </div>` : ''}
 
     <div class="prd-footer">
       <div class="prd-corredor">

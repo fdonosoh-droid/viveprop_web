@@ -866,6 +866,17 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 .cp-esc-highlight td{color:var(--brand)!important;font-weight:600}
 .cp-esc-cae{font-size:13.5px;font-weight:700}
 .cp-esc-div{font-size:16px;font-weight:800;color:var(--g900)}
+
+/* Tabla análisis de inversión */
+.cp-inv-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.cp-inv-tbl thead tr{background:var(--brand)}
+.cp-inv-tbl thead th{
+  padding:9px 14px;text-align:right;font-size:12px;font-weight:700;color:#fff;letter-spacing:.2px;
+}
+.cp-inv-tbl thead th:first-child{text-align:left}
+.cp-inv-tbl tbody td{padding:9px 14px;border-bottom:1px solid var(--g100);color:var(--g700);text-align:right}
+.cp-inv-tbl tbody td:first-child{text-align:left;font-weight:500;color:var(--g900)}
+.cp-inv-tbl tbody tr:last-child td{border-bottom:none}
 .cp-esc-uf{font-size:12px;color:var(--g500)}
 
 /* ── Sprint 4: formulario parámetros editables ── */
@@ -1049,6 +1060,13 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
   .prd-tbl-total td{font-weight:700;background:#F9FAFB!important;border-top:1px solid #D1D5DB}
   .prd-tbl-aporte td{color:#065F46!important;background:#ECFDF5!important}
   .prd-esc-hl td{background:#EFF6FF!important;font-weight:600}
+  .prd-inv-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+  .prd-inv-tbl thead tr{background:#1A56DB!important}
+  .prd-inv-tbl thead th{padding:5px 8px;font-size:10px;font-weight:700;color:#fff!important;text-align:right}
+  .prd-inv-tbl thead th:first-child{text-align:left}
+  .prd-inv-tbl tbody td{padding:4px 8px;border-bottom:1px solid #F3F4F6;text-align:right}
+  .prd-inv-tbl tbody td:first-child{text-align:left;font-weight:500}
+  .prd-inv-tbl tbody tr:last-child td{border-bottom:none}
   .prd-hip-summary{display:flex;gap:16px;margin-bottom:8px;padding:8px 10px;background:#F9FAFB!important;border-radius:4px}
   .prd-hip-cell{display:flex;flex-direction:column;gap:1px}
   .prd-hip-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:#6B7280;font-weight:600}
