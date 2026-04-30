@@ -26,7 +26,7 @@ export function secInit() {
 
 export function secFilter() {
   if (!store.STOCK.length) return;
-  const q          = (document.getElementById('sec-search')?.value || '').toLowerCase();
+  const q          = (document.getElementById('sec-search')?.value || document.getElementById('sec-search-top')?.value || '').toLowerCase();
   const comunas    = mcGetSelected('sec');
   const pmin       = parseFloat(document.getElementById('sec-precio-min')?.value) || 0;
   const pmax       = parseFloat(document.getElementById('sec-precio-max')?.value) || 0;
@@ -329,7 +329,7 @@ function renderDetailContent(p, api) {
     </div>` : ''}
     ${buildingUnitsHTML(p)}
     <div class="detail-actions">
-      <button class="btn-cotiz-detail" onclick="closeDetail();cotizFromProp(${precio||0},'${H(p.condominio||'')} DP${H(p.dp||'')}')">📊 Cotizar</button>
+      <button class="btn-cotiz-detail" onclick="closeDetail();cotizSecProp('${H(p.id)}')">📊 Cotizar</button>
       ${p.video ? `<button class="btn-fotos" onclick="openVideo('${H(p.video)}')" style="background:#DC2626;color:#fff">▶ Ver video</button>` : ''}
       <button class="btn-fotos" style="background:var(--green)" onclick="shareProperty('${H(p.id)}')">📤 Compartir</button>
     </div>

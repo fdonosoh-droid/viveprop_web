@@ -30,7 +30,7 @@ export function priInit() {
 
 export function priFilter() {
   if (!store.PROJECTS.length) return;
-  const q          = (document.getElementById('pri-search')?.value || '').toLowerCase();
+  const q          = (document.getElementById('pri-search')?.value || document.getElementById('pri-search-top')?.value || '').toLowerCase();
   const comunas    = mcGetSelected('pri');
   const ent        = document.getElementById('pri-entrega')?.value || '';
   const pmin       = parseFloat(document.getElementById('pri-precio-min')?.value) || 0;
@@ -98,7 +98,8 @@ export function priRender() {
     const precios  = dispMain.map(u => u.precio_uf).filter(x => x > 0);
     const desde    = precios.length ? Math.min(...precios) : 0;
     const hasta    = precios.length ? Math.max(...precios) : 0;
-    const portada  = p.foto_portada || '';
+    const _portadaRaw = p.foto_portada || '';
+    const portada  = _portadaRaw && (() => { try { decodeURI(_portadaRaw); return _portadaRaw; } catch { return ''; } })();
     const tips     = [...new Set(dispMain.map(u => {
       const d = parseInt(u.dormitorios) || 0;
       return d === 0 ? 'Estudio' : d + 'D';

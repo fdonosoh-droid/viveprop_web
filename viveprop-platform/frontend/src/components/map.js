@@ -173,7 +173,8 @@ export function addPriMarker(p, coords) {
   const desde = precios.length ? Math.min(...precios) : 0;
   const hasta = precios.length ? Math.max(...precios) : 0;
   const tips = [...new Set(dispMain.map(u => { const d = parseInt(u.dormitorios) || 0; return d === 0 ? 'Estudio' : d + 'D'; }))].sort().slice(0,3).join(', ');
-  const portada = p.foto_portada || '';
+  const _portadaRaw = p.foto_portada || '';
+  const portada = _portadaRaw && (() => { try { decodeURI(_portadaRaw); return _portadaRaw; } catch { return ''; } })();
   const icon = L.divIcon({ className: '', html: `<div style="width:13px;height:13px;background:#F4545A;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.35)"></div>`, iconSize: [13,13], iconAnchor: [6,6] });
   const marker = L.marker(coords, { icon });
   const popup = `<div class="map-popup">

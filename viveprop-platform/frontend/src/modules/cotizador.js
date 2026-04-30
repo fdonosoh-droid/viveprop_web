@@ -721,6 +721,58 @@ export function printCotiz() {
   window.print()
 }
 
+export function cotizSecProp(propId) {
+  try {
+    const p = store.STOCK.find(x => x.id === propId)
+    if (!p) return
+
+    const precio_uf = parseFloat((p.precioSinBono || '0').replace(/\./g, '').replace(',', '.')) || 0
+
+    const project = {
+      id:           `sec-${propId}`,
+      nombre:       p.condominio || p.direccion || '—',
+      inmobiliaria: '',
+      comuna:       p.comuna || '',
+    }
+    const depto = {
+      dp:         p.dp || '—',
+      precio_uf,
+      tipologia:  p.tipologia || '',
+      disponible: true,
+    }
+    const parsedCC = {
+      descuentoDepto:     0,
+      descuentoAdicional: 0,
+      aporteInmobiliario: 0,
+      reservaCLP:         0,
+      reservaUF:          0,
+      cuotasPieN:         0,
+      upfrontPct:         0,
+      piePctDefault:      0.20,
+      pieConstPct:        0,
+      creditoDirectoPct:  0,
+      cuotonPct:          0,
+      tipoEntrega:        'Usada',
+      nota:               '',
+    }
+    const regla = getReglaInmobiliaria('')
+    _state = { project, depto, secundarios: [], parsedCC, regla, reservaCLP: 0, cliente: null }
+    _initClientForm()
+    document.getElementById('cotiz-cascade').style.display = 'none'
+    document.getElementById('cotiz-client-form').style.display = 'flex'
+    document.getElementById('cotiz-panel').style.display = 'none'
+    window.openModule('cotiz')
+  } catch (err) {
+    console.error('[Cotizador] Error en cotizSecProp:', err)
+    document.getElementById('cotiz-cascade').style.display = 'none'
+    document.getElementById('cotiz-client-form').style.display = 'none'
+    document.getElementById('cotiz-panel').style.display = 'flex'
+    window.openModule('cotiz')
+    document.getElementById('cp-results').innerHTML =
+      `<div style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:20px;color:#991B1B;font-family:monospace;font-size:13px;white-space:pre-wrap">${H(String(err))}</div>`
+  }
+}
+
 export function nuevaCotizacion() {
   _state = null
   _recotizarMode = false
