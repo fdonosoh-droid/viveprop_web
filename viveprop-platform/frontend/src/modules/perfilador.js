@@ -3,93 +3,184 @@ import { fmt } from '../utils/format.js';
 
 let _perfilMax = null;
 
-export function calcPerfil() {
-  const renta  = parseFloat(document.getElementById('p-renta').value) || 0;
-  const ahorro = parseFloat(document.getElementById('p-ahorro').value) || 0;
-  const deudas = parseFloat(document.getElementById('p-deudas').value) || 0;
-  const plazo  = parseFloat(document.getElementById('p-plazo').value) || 25;
-  const tasa   = parseFloat(document.getElementById('p-tasa').value) || 5;
-  const res    = document.getElementById('p-results');
-  document.getElementById('p-btns').style.display = 'none';
+// ── Motor de evaluación (portado de cotizador-web-mp/evaluation-engine.ts) ───
 
-  if (!renta) {
-    res.innerHTML = `<div class="empty-tool"><div class="ei">👤</div><p>Ingresa la renta líquida del cliente</p></div>`;
-    return;
-  }
-  const r = tasa / 100 / 12, n = plazo * 12;
-  const divMax = renta * 0.25 - deudas;
-  if (divMax <= 0) {
-    res.innerHTML = `<div class="warn-card">⚠️ Las deudas mensuales superan la capacidad de pago del 25% de la renta.</div>`;
-    return;
-  }
-  const factor = (Math.pow(1+r,n) - 1) / (r * Math.pow(1+r,n));
-  const creditoUF = divMax * factor / store.UF;
-  const ahorroUF  = ahorro / store.UF;
-  const precioMax = Math.min(creditoUF / 0.80, creditoUF + ahorroUF);
-  const pieReq    = precioMax * 0.20;
-  const pieFalta  = Math.max(0, pieReq - ahorroUF);
-  _perfilMax = precioMax;
+function _evaluar(data) {
+  const {
+    rentaLiquida = 0, ingresosVariables = 0, otrosIngresos = 0,
+    cuotasCreditos = 0, pagoTarjetas = 0, otrasDeudas = 0,
+    pieDisponible = 0, plazo = 25, tasa = 4.5, morosidad = false,
+  } = data
 
-  const plazos = [15, 20, 25, 30];
-  res.innerHTML = `<div class="perfil-card">
-    <div class="rc-hero">
-      <div class="rc-big">${fmt.uf(precioMax)}</div>
-      <div class="rc-lbl">Precio máximo de propiedad</div>
-      <div class="rc-pesos">${fmt.pesos(precioMax * store.UF)}</div>
-    </div>
-    <div class="rc-grid">
-      <div class="rc-cell"><span class="rcv">${fmt.pesos(divMax)}</span><span class="rcl">Dividendo máximo / mes</span></div>
-      <div class="rc-cell"><span class="rcv">${fmt.uf(creditoUF)}</span><span class="rcl">Crédito hipotecario máx.</span></div>
-      <div class="rc-cell"><span class="rcv">${fmt.uf(pieReq)}</span><span class="rcl">Pie requerido (20%)</span></div>
-      <div class="rc-cell ${pieFalta > 0 ? 'warn' : 'ok'}">
-        <span class="rcv">${pieFalta > 0 ? '⚠️ Faltan ' + fmt.uf(pieFalta) : '✅ Ahorro suficiente'}</span>
-        <span class="rcl">${fmt.uf(ahorroUF)} disponible</span>
-      </div>
-    </div>
-    <div class="rc-tbl-title">Simulación por plazo · Tasa ${tasa}% anual</div>
-    <table class="rctbl">
-      <thead><tr><th>Plazo</th><th>Dividendo/mes</th><th>Crédito máx.</th><th>Precio máx.</th></tr></thead>
-      <tbody>${plazos.map(py => {
-        const nn = py * 12;
-        const ff = (Math.pow(1+r,nn) - 1) / (r * Math.pow(1+r,nn));
-        const crd = divMax * ff / store.UF;
-        const pm  = Math.min(crd / 0.80, crd + ahorroUF);
-        return `<tr class="${py == plazo ? 'tr-hl' : ''}"><td>${py} años</td><td>${fmt.pesos(divMax)}</td><td>${fmt.uf(crd)}</td><td><strong>${fmt.uf(pm)}</strong></td></tr>`;
-      }).join('')}</tbody>
-    </table>
-  </div>`;
-  document.getElementById('p-btns').style.display = 'flex';
+  const ingresoEvaluable = rentaLiquida + ingresosVariables * 0.5 + otrosIngresos
+  const cargaSinHip      = cuotasCreditos + pagoTarjetas + otrasDeudas
+  const razones = []
+  let resultado = 'apto'
+
+  if (morosidad) {
+    resultado = 'no_apto'
+    razones.push('Presenta morosidades o protestos vigentes')
+  }
+
+  if (!ingresoEvaluable) {
+    return { resultado: 'no_apto', razones: ['Sin ingresos registrados'],
+      ingresoEvaluable: 0, cargaSinHip: 0, rciActual: 0,
+      dividendoMax: 0, creditoMax: 0, propMaxCLP: 0, propMaxUF: 0 }
+  }
+
+  const rciActual = cargaSinHip / ingresoEvaluable
+  if (rciActual > 0.50) {
+    resultado = 'no_apto'
+    razones.push(`Carga mensual actual (${(rciActual * 100).toFixed(0)}%) supera el 50% del ingreso evaluable`)
+  }
+
+  const divMax1    = ingresoEvaluable * 0.30
+  const divMax2    = ingresoEvaluable * 0.50 - cargaSinHip
+  const dividendoMax = Math.max(0, Math.min(divMax1, divMax2))
+
+  if (dividendoMax <= 0 && resultado === 'apto') {
+    resultado = 'no_apto'
+    razones.push('Sin capacidad de pago disponible para un dividendo')
+  }
+
+  if (!pieDisponible && resultado === 'apto') {
+    resultado = 'no_apto'
+    razones.push('Sin pie disponible registrado')
+  }
+
+  const divRatio    = ingresoEvaluable > 0 ? dividendoMax / ingresoEvaluable : 0
+  const cargaTotal  = ingresoEvaluable > 0 ? (cargaSinHip + dividendoMax) / ingresoEvaluable : 0
+  if (resultado === 'apto' && (divRatio > 0.25 || cargaTotal > 0.45)) {
+    resultado = 'apto_con_condiciones'
+    razones.push('Relación dividendo/ingreso en zona de tolerancia (25–30%)')
+  }
+
+  if (resultado === 'apto') razones.push('Cumple todos los criterios de evaluación')
+
+  const r      = tasa / 100 / 12
+  const n      = plazo * 12
+  const factor = r > 0 ? (1 - Math.pow(1 + r, -n)) / r : n
+  const creditoMax = dividendoMax * factor
+
+  const propMaxPorPie = pieDisponible > 0 ? pieDisponible / 0.20 : 0
+  const propMaxPorLtv = creditoMax / 0.80
+  const propMaxCLP    = propMaxPorPie > 0
+    ? Math.min(propMaxPorPie, propMaxPorLtv)
+    : propMaxPorLtv
+  const propMaxUF = store.UF > 0 ? propMaxCLP / store.UF : 0
+
+  return { resultado, razones, ingresoEvaluable, cargaSinHip, rciActual, dividendoMax, creditoMax, propMaxCLP, propMaxUF }
 }
 
+// ── Cálculo y render ─────────────────────────────────────────────────────────
+
+export function calcPerfil() {
+  const n = id => parseFloat(document.getElementById(id)?.value || '') || 0
+  const b = id => document.getElementById(id)?.checked || false
+
+  const data = {
+    rentaLiquida:      n('p-renta'),
+    ingresosVariables: n('p-variables'),
+    otrosIngresos:     n('p-otros-ing'),
+    cuotasCreditos:    n('p-cuotas'),
+    pagoTarjetas:      n('p-tarjetas'),
+    otrasDeudas:       n('p-otras-deudas'),
+    pieDisponible:     n('p-ahorro'),
+    plazo:             n('p-plazo') || 25,
+    tasa:              n('p-tasa')  || 4.5,
+    morosidad:         b('p-morosidad'),
+  }
+
+  const res  = document.getElementById('p-results')
+  const btns = document.getElementById('p-btns')
+  btns.style.display = 'none'
+
+  if (!data.rentaLiquida) {
+    res.innerHTML = `<div class="empty-tool"><div class="ei">👤</div><p>Ingresa la renta líquida del cliente para evaluar su capacidad</p></div>`
+    return
+  }
+
+  const ev = _evaluar(data)
+  _perfilMax = ev.resultado !== 'no_apto' && ev.propMaxUF > 0 ? ev.propMaxUF : null
+
+  const BADGE = {
+    apto:                 { cls: 'pf-badge--apto',   label: '✓ Apto' },
+    apto_con_condiciones: { cls: 'pf-badge--cond',   label: '⚠ Apto con condiciones' },
+    no_apto:              { cls: 'pf-badge--noapto',  label: '✗ No apto' },
+  }
+  const badge = BADGE[ev.resultado] || BADGE.no_apto
+  const pct   = v => (v * 100).toFixed(1).replace(/\.0$/, '') + '%'
+  const uf    = store.UF || 1
+
+  res.innerHTML = `
+  <div class="perfil-card">
+    <div class="pf-status-row">
+      <span class="pf-badge ${badge.cls}">${badge.label}</span>
+      <ul class="pf-razones">${ev.razones.map(r => `<li>${r}</li>`).join('')}</ul>
+    </div>
+    <div class="rc-hero">
+      <div class="rc-big">${ev.propMaxUF > 0 ? fmt.uf(ev.propMaxUF) : '—'}</div>
+      <div class="rc-lbl">Precio máximo de propiedad</div>
+      <div class="rc-pesos">${ev.propMaxCLP > 0 ? fmt.pesos(ev.propMaxCLP) : '—'}</div>
+    </div>
+    <div class="rc-grid">
+      <div class="rc-cell">
+        <span class="rcv">${fmt.pesos(ev.ingresoEvaluable)}</span>
+        <span class="rcl">Ingreso evaluable / mes</span>
+        <span class="rcp">Renta + 50% variables + otros</span>
+      </div>
+      <div class="rc-cell">
+        <span class="rcv">${fmt.pesos(ev.dividendoMax)}</span>
+        <span class="rcl">Dividendo máximo / mes</span>
+        <span class="rcp">${ev.ingresoEvaluable > 0 ? pct(ev.dividendoMax / ev.ingresoEvaluable) : '—'} del ingreso</span>
+      </div>
+      <div class="rc-cell">
+        <span class="rcv">${fmt.uf(ev.creditoMax / uf)}</span>
+        <span class="rcl">Crédito hipotecario máx.</span>
+        <span class="rcp">${fmt.pesos(ev.creditoMax)}</span>
+      </div>
+      <div class="rc-cell${ev.rciActual > 0.40 ? ' warn' : ''}">
+        <span class="rcv">${pct(ev.rciActual)}</span>
+        <span class="rcl">Carga actual sin hipoteca</span>
+        <span class="rcp">Límite: 50%</span>
+      </div>
+    </div>
+  </div>`
+
+  if (_perfilMax) btns.style.display = 'flex'
+}
+
+// ── Búsqueda desde perfilador ─────────────────────────────────────────────────
+
 export function searchFromPerfil(mod) {
-  if (!_perfilMax) return;
+  if (!_perfilMax) return
   if (mod === 'sec') {
-    window._secMaxUF = _perfilMax;
-    window.secFilter();
-    window.openModule('sec');
-    showBudgetBanner('sec');
+    window._secMaxUF = _perfilMax
+    window.secFilter()
+    window.openModule('sec')
+    showBudgetBanner('sec')
   } else {
-    window._priMaxUF = _perfilMax;
-    window.priFilter();
-    window.openModule('pri');
-    showBudgetBanner('pri');
+    window._priMaxUF = _perfilMax
+    window.priFilter()
+    window.openModule('pri')
+    showBudgetBanner('pri')
   }
 }
 
 export function showBudgetBanner(mod) {
-  document.getElementById('bb-' + mod)?.remove();
-  const b = document.createElement('div');
-  b.id = 'bb-' + mod;
-  b.className = 'filter-strip';
-  b.style.cssText = 'background:#FFFBEB;border-bottom:1px solid #FCD34D;';
-  b.innerHTML = `<span style="font-size:13px;color:#92400E">👤 Filtrando por presupuesto: <strong>${fmt.uf(_perfilMax)}</strong></span>
-    <button class="btn-clear-budget" onclick="clearBudget('${mod}')">✕ Limpiar filtro</button>`;
-  const m = document.getElementById('mod-' + mod);
-  m.insertBefore(b, m.querySelector('.filter-strip'));
+  document.getElementById('bb-' + mod)?.remove()
+  const b = document.createElement('div')
+  b.id = 'bb-' + mod
+  b.className = 'filter-strip'
+  b.style.cssText = 'background:#FFFBEB;border-bottom:1px solid #FCD34D;'
+  b.innerHTML = `<span style="font-size:13px;color:#92400E">👤 Presupuesto máximo: <strong>${fmt.uf(_perfilMax)}</strong></span>
+    <button class="btn-clear-budget" onclick="clearBudget('${mod}')">✕ Limpiar filtro</button>`
+  const m = document.getElementById('mod-' + mod)
+  m.insertBefore(b, m.querySelector('.filter-strip'))
 }
 
 export function clearBudget(mod) {
-  if (mod === 'sec') { window._secMaxUF = null; window.secFilter(); }
-  else               { window._priMaxUF = null; window.priFilter(); }
-  document.getElementById('bb-' + mod)?.remove();
+  if (mod === 'sec') { window._secMaxUF = null; window.secFilter() }
+  else               { window._priMaxUF = null; window.priFilter() }
+  document.getElementById('bb-' + mod)?.remove()
 }

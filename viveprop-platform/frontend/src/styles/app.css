@@ -958,6 +958,30 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
   .content-hdr{padding:8px 12px}
 }
 
+/* ── Cascade selector ── */
+.casc-shell{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:32px 24px;overflow-y:auto}
+.casc-card{background:#fff;border:1px solid var(--g200);border-radius:14px;padding:28px 28px 24px;width:100%;max-width:860px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.casc-card-hdr{margin-bottom:20px}
+.casc-card-title{font-size:18px;font-weight:800;color:var(--g900);margin-bottom:4px}
+.casc-card-sub{font-size:13px;color:var(--g500)}
+.casc-step-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g500);margin-bottom:14px}
+.casc-actions{display:flex;justify-content:flex-end;margin-top:20px}
+.btn-casc-continuar{background:var(--brand);color:#fff;border:none;border-radius:9px;padding:0 28px;height:40px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:background .15s}
+.btn-casc-continuar:disabled{background:var(--g300);cursor:not-allowed}
+.btn-casc-continuar:not(:disabled):hover{background:var(--brand-dark)}
+
+/* ── Perfilador: nuevos estilos ── */
+.pf-section-lbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g500);margin:14px 0 4px}
+.pf-hint{font-size:10px;font-weight:400;color:var(--g400);text-transform:none;letter-spacing:0}
+.pf-toggle-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g700);cursor:pointer;margin:10px 0 4px}
+.pf-status-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.pf-badge{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.pf-badge--apto{background:var(--green-l);color:var(--green)}
+.pf-badge--cond{background:var(--amber-l);color:var(--amber)}
+.pf-badge--noapto{background:var(--red-l);color:var(--red)}
+.pf-razones{font-size:12px;color:var(--g600);line-height:1.7;list-style:none;padding:0;margin:2px 0 0}
+.pf-razones li::before{content:"· ";color:var(--g400)}
+
 /* ── Sprint 5: botón imprimir ── */
 .btn-print-cotiz{
   height:32px;padding:0 14px;background:var(--brand);border:none;border-radius:7px;

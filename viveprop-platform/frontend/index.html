@@ -240,16 +240,33 @@
         <div class="tool-body">
           <div class="tool-form-wrap">
             <h2>Perfilador de Comprador</h2>
-            <p class="tdesc">Calcula la capacidad de compra basada en renta y ahorro del cliente.</p>
+            <p class="tdesc">Evalúa la capacidad de compra del cliente según ingresos, deudas y pie disponible.</p>
 
-            <div class="fg"><label>Renta líquida mensual</label>
+            <div class="pf-section-lbl">Ingresos mensuales</div>
+            <div class="fg"><label>Renta líquida</label>
               <div class="pfx"><i>$</i><input type="number" id="p-renta" placeholder="1.500.000" oninput="calcPerfil()"></div>
             </div>
-            <div class="fg"><label>Ahorro disponible (pie)</label>
-              <div class="pfx"><i>$</i><input type="number" id="p-ahorro" placeholder="10.000.000" oninput="calcPerfil()"></div>
+            <div class="fg"><label>Ingresos variables <span class="pf-hint">(se considera el 50%)</span></label>
+              <div class="pfx"><i>$</i><input type="number" id="p-variables" placeholder="300.000" oninput="calcPerfil()"></div>
             </div>
-            <div class="fg"><label>Otras deudas mensuales</label>
-              <div class="pfx"><i>$</i><input type="number" id="p-deudas" placeholder="0" oninput="calcPerfil()"></div>
+            <div class="fg"><label>Otras rentas <span class="pf-hint">(arriendos, pensiones)</span></label>
+              <div class="pfx"><i>$</i><input type="number" id="p-otros-ing" placeholder="0" oninput="calcPerfil()"></div>
+            </div>
+
+            <div class="pf-section-lbl">Deudas mensuales</div>
+            <div class="fg"><label>Cuotas de créditos</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-cuotas" placeholder="0" oninput="calcPerfil()"></div>
+            </div>
+            <div class="fg"><label>Tarjetas de crédito</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-tarjetas" placeholder="0" oninput="calcPerfil()"></div>
+            </div>
+            <div class="fg"><label>Otras obligaciones</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-otras-deudas" placeholder="0" oninput="calcPerfil()"></div>
+            </div>
+
+            <div class="pf-section-lbl">Pie y financiamiento</div>
+            <div class="fg"><label>Pie disponible</label>
+              <div class="pfx"><i>$</i><input type="number" id="p-ahorro" placeholder="10.000.000" oninput="calcPerfil()"></div>
             </div>
             <div class="fg-row">
               <div class="fg"><label>Plazo</label>
@@ -261,16 +278,21 @@
                 </select>
               </div>
               <div class="fg"><label>Tasa anual</label>
-                <input type="number" id="p-tasa" value="5.0" step="0.1" min="1" max="15" oninput="calcPerfil()">
+                <input type="number" id="p-tasa" value="4.5" step="0.1" min="1" max="15" oninput="calcPerfil()">
               </div>
             </div>
+            <label class="pf-toggle-row">
+              <input type="checkbox" id="p-morosidad" onchange="calcPerfil()">
+              Presenta morosidades o protestos vigentes
+            </label>
+
             <div class="search-btns" id="p-btns" style="display:none">
-              <button class="btn-sec" onclick="searchFromPerfil('sec')">🏢 Ver Secundario</button>
-              <button class="btn-pri" onclick="searchFromPerfil('pri')">🏗️ Ver Primario</button>
+              <button class="btn-sec" onclick="searchFromPerfil('sec')">🏢 Ver Usados</button>
+              <button class="btn-pri" onclick="searchFromPerfil('pri')">🏗️ Ver Nuevos</button>
             </div>
           </div>
           <div class="tool-results-wrap" id="p-results">
-            <div class="empty-tool"><div class="ei">👤</div><p>Ingresa la renta del cliente para calcular su perfil</p></div>
+            <div class="empty-tool"><div class="ei">👤</div><p>Ingresa la renta líquida del cliente para evaluar su capacidad</p></div>
           </div>
         </div>
       </div>
@@ -278,44 +300,43 @@
       <!-- ════ COTIZADOR ════ -->
       <div class="module" id="mod-cotiz">
 
-        <!-- Calculadora básica (acceso directo / fallback) -->
-        <div id="cotiz-basic" class="tool-body">
-          <div class="tool-form-wrap">
-            <h2>Cotizador</h2>
-            <p class="tdesc">Simula el financiamiento de cualquier propiedad.</p>
-
-            <div class="cprop-banner" id="c-prop-info" style="display:none"></div>
-
-            <div class="fg"><label>Precio (UF)</label>
-              <input type="number" id="c-precio" placeholder="3.500" oninput="calcCotiz()">
+        <!-- Selector de unidad en cascada (acceso directo al cotizador) -->
+        <div id="cotiz-cascade" class="casc-shell">
+          <div class="casc-card">
+            <div class="casc-card-hdr">
+              <div class="casc-card-title">Nueva Cotización</div>
+              <div class="casc-card-sub">Selecciona la propiedad a cotizar</div>
             </div>
-            <div class="fg">
-              <label>Pie — <span id="pie-lbl">20%</span></label>
-              <div class="pie-row">
-                <input type="range"  id="c-pie-r" min="10" max="50" value="20" oninput="syncPie('r')">
-                <input type="number" id="c-pie-n" value="20" min="10" max="50" class="pie-num fg input" step="1" oninput="syncPie('n')" style="border:1.5px solid var(--g200);border-radius:8px;height:38px;font-family:'Inter',sans-serif;font-size:14px;outline:none">
-                <span>%</span>
-              </div>
-            </div>
-            <div class="fg-row">
-              <div class="fg"><label>Plazo</label>
-                <select id="c-plazo" onchange="calcCotiz()">
-                  <option value="15">15 años</option>
-                  <option value="20">20 años</option>
-                  <option value="25" selected>25 años</option>
-                  <option value="30">30 años</option>
+            <div class="casc-step-label">1. Selecciona la unidad</div>
+            <div class="cp-form-row cp-form-row--4">
+              <div class="cp-fg">
+                <label class="cp-fg-lbl">Comuna</label>
+                <select id="casc-comuna" class="cp-input cp-select" onchange="cascUpdate('comuna')">
+                  <option value="">Selecciona comuna</option>
                 </select>
               </div>
-              <div class="fg"><label>Tasa anual</label>
-                <input type="number" id="c-tasa" value="5.0" step="0.1" min="1" max="15" oninput="calcCotiz()">
+              <div class="cp-fg">
+                <label class="cp-fg-lbl">Tipo de Entrega</label>
+                <select id="casc-entrega" class="cp-input cp-select" onchange="cascUpdate('entrega')" disabled>
+                  <option value="">Selecciona entrega</option>
+                </select>
+              </div>
+              <div class="cp-fg">
+                <label class="cp-fg-lbl">Inmobiliaria</label>
+                <select id="casc-inmob" class="cp-input cp-select" onchange="cascUpdate('inmob')" disabled>
+                  <option value="">Selecciona inmobiliaria</option>
+                </select>
+              </div>
+              <div class="cp-fg">
+                <label class="cp-fg-lbl">Proyecto</label>
+                <select id="casc-proyecto" class="cp-input cp-select" onchange="cascUpdate('proyecto')" disabled>
+                  <option value="">Selecciona proyecto</option>
+                </select>
               </div>
             </div>
-            <div class="fg"><label>Gastos comunes est. ($/mes)</label>
-              <input type="number" id="c-gc" placeholder="150.000" oninput="calcCotiz()">
+            <div class="casc-actions">
+              <button id="casc-continuar" class="btn-casc-continuar" onclick="cascContinuar()" disabled>Continuar →</button>
             </div>
-          </div>
-          <div class="tool-results-wrap" id="c-results">
-            <div class="empty-tool"><div class="ei">📊</div><p>Ingresa el precio de la propiedad para simular el financiamiento</p></div>
           </div>
         </div>
 
