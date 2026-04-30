@@ -10,42 +10,42 @@ let cotizLabel = ''; // para calculadora básica
 
 // ── Entrada principal desde primario.js ──────────────────────────────────────
 
-/**
- * Punto de entrada al hacer click en "Cotizar".
- * - Objeto: nueva ruta completa con panel
- * - Número: ruta legacy (calculadora básica)
- */
 export function cotizFromProp(arg, legacyLabel) {
   if (typeof arg === 'number') {
     _openBasicCalc(arg, legacyLabel)
     return
   }
 
-  const { project, depto, secundarios = [] } = arg
+  try {
+    const { project, depto, secundarios = [] } = arg
 
-  const cc       = store.CC_DATA[project.id] || null
-  const parsedCC = parseCCForCotizador(cc, project.inmobiliaria)
-  const regla    = getReglaInmobiliaria(project.inmobiliaria)
+    console.log('[Cotizador] cotizFromProp', { project, depto, secundarios })
 
-  const reservaCLP = parsedCC.reservaUF > 0
-    ? Math.round(parsedCC.reservaUF * store.UF)
-    : parsedCC.reservaCLP
+    const cc       = store.CC_DATA[project.id] || null
+    const parsedCC = parseCCForCotizador(cc, project.inmobiliaria)
+    const regla    = getReglaInmobiliaria(project.inmobiliaria)
 
-  _state = { project, depto, secundarios, parsedCC, regla, reservaCLP }
+    const reservaCLP = parsedCC.reservaUF > 0
+      ? Math.round(parsedCC.reservaUF * store.UF)
+      : parsedCC.reservaCLP
 
-  // Inicializar controles con valores del CC
-  const piePctInt = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
-  document.getElementById('cpanel-pie-r').value = piePctInt
-  document.getElementById('cpanel-pie-n').value = piePctInt
-  document.getElementById('cpanel-pie-lbl').textContent = piePctInt + '%'
-  document.getElementById('cpanel-plazo').value = PLAZO_DEFAULT
+    _state = { project, depto, secundarios, parsedCC, regla, reservaCLP }
 
-  // Mostrar panel
-  document.getElementById('cotiz-basic').style.display = 'none'
-  document.getElementById('cotiz-panel').style.display = 'flex'
-  window.openModule('cotiz')
+    _initParamsGrid(parsedCC)
 
-  recalcCotizPanel()
+    document.getElementById('cotiz-basic').style.display = 'none'
+    document.getElementById('cotiz-panel').style.display = 'flex'
+    window.openModule('cotiz')
+
+    recalcCotizPanel()
+  } catch (err) {
+    console.error('[Cotizador] Error en cotizFromProp:', err)
+    document.getElementById('cotiz-basic').style.display = 'none'
+    document.getElementById('cotiz-panel').style.display = 'flex'
+    window.openModule('cotiz')
+    document.getElementById('cp-results').innerHTML =
+      `<div style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:20px;color:#991B1B;font-family:monospace;font-size:13px;white-space:pre-wrap">${H(String(err))}\n\n${H(err.stack || '')}</div>`
+  }
 }
 
 // ── Recálculo reactivo ────────────────────────────────────────────────────────
@@ -53,23 +53,20 @@ export function cotizFromProp(arg, legacyLabel) {
 export function recalcCotizPanel() {
   if (!_state) return
 
-  const piePct     = (parseFloat(document.getElementById('cpanel-pie-n').value) || 12) / 100
-  const plazoAnios = parseFloat(document.getElementById('cpanel-plazo').value) || PLAZO_DEFAULT
-  const input      = _buildInput(piePct, plazoAnios)
-  const result     = calcularCotizacion(input)
+  try {
+    const params = _readParams()
+    const input  = _buildInput(params)
+    const result = calcularCotizacion(input)
 
-  console.log('[Cotizador] Input:', input)
-  console.log('[Cotizador] Resultado:', result)
+    console.log('[Cotizador] Input:', input)
+    console.log('[Cotizador] Resultado:', result)
 
-  _renderPanel(result, piePct, plazoAnios)
-}
-
-export function syncCPanelPie(src) {
-  const r = document.getElementById('cpanel-pie-r')
-  const n = document.getElementById('cpanel-pie-n')
-  if (src === 'r') n.value = r.value; else r.value = n.value
-  document.getElementById('cpanel-pie-lbl').textContent = (src === 'r' ? r : n).value + '%'
-  recalcCotizPanel()
+    _renderPanel(result, params)
+  } catch (err) {
+    console.error('[Cotizador] Error en recalcCotizPanel:', err)
+    document.getElementById('cp-results').innerHTML =
+      `<div style="background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:20px;color:#991B1B;font-family:monospace;font-size:13px;white-space:pre-wrap">${H(String(err))}\n\n${H(err.stack || '')}</div>`
+  }
 }
 
 export function volverDesdeCotiz() {
@@ -79,30 +76,103 @@ export function volverDesdeCotiz() {
   window.openModule('pri')
 }
 
-// ── Helpers internos ──────────────────────────────────────────────────────────
+// ── Inicialización del formulario de parámetros ───────────────────────────────
 
-function _buildInput(piePct, plazoAnios) {
-  const { parsedCC, regla, reservaCLP, depto, secundarios } = _state
+function _pct100(frac) {
+  return +((frac ?? 0) * 100).toFixed(2)
+}
+
+function _initParamsGrid(parsedCC) {
+  const pie     = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
+  const dcto    = _pct100((parsedCC.descuentoDepto ?? 0) + (parsedCC.descuentoAdicional ?? 0))
+  const aporte  = _pct100(parsedCC.aporteInmobiliario)
+  const cuotas  = parsedCC.cuotasPieN ?? 0
+  const piecst  = _pct100(parsedCC.pieConstPct)
+  const cuoton  = _pct100(parsedCC.cuotonPct)
+  const upfront = _pct100(parsedCC.upfrontPct)
+  const cdir    = _pct100(parsedCC.creditoDirectoPct)
+  const [c1, c2, c3] = CAE_OPTIONS.map(c => _pct100(c))
+
+  const cuotasLbl = `Cuotas pie${cuotas > 0 ? ` <span class="cp-fg-base">base ${cuotas}</span>` : ''}`
+  const cuotonLbl = `Cuotón %${cuoton === 0 ? ' <span class="cp-fg-noapl">no aplica</span>' : ''}`
+
+  const f = (lbl, id, val, min, max, step) =>
+    `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
+    `<input id="${id}" class="cp-input" type="number" min="${min}" max="${max}" step="${step}" value="${val}" onchange="recalcCotizPanel()"></div>`
+
+  document.getElementById('cp-params-grid').innerHTML = `
+    <div class="cp-section-title">Parámetros de cotización</div>
+    <div class="cp-params-body">
+      <div class="cp-form-row cp-form-row--4">
+        ${f('Pie %',           'cpg-pie',      pie,          0, 100, 1)}
+        ${f('Plazo (años)',    'cpg-plazo',    PLAZO_DEFAULT, 5,  30, 1)}
+        ${f('Dcto. depto %',  'cpg-dcto',     dcto,          0, 100, 0.1)}
+        ${f('Aporte inmob %', 'cpg-aporte',   aporte,        0, 100, 0.1)}
+      </div>
+      <div class="cp-form-row cp-form-row--4">
+        ${f(cuotasLbl,        'cpg-cuotas',   cuotas,  0,  48, 1)}
+        ${f('Pie const %',    'cpg-piecst',   piecst,  0, 100, 0.1)}
+        ${f(cuotonLbl,        'cpg-cuoton',   cuoton,  0, 100, 0.1)}
+        ${f('Upfront %',      'cpg-upfront',  upfront, 0, 100, 0.1)}
+      </div>
+      <div class="cp-form-row cp-form-row--3">
+        ${f('Crédito directo %',  'cpg-cdir',      cdir, 0, 100, 0.1)}
+        ${f('Plusvalía anual %',  'cpg-plusvalia',  2,   0,  20, 0.1)}
+        <div class="cp-fg"></div>
+      </div>
+      <div class="cp-form-row cp-form-row--3">
+        ${f('CAE escenario 1', 'cpg-cae1', c1, 0, 20, 0.1)}
+        ${f('CAE escenario 2', 'cpg-cae2', c2, 0, 20, 0.1)}
+        ${f('CAE escenario 3', 'cpg-cae3', c3, 0, 20, 0.1)}
+      </div>
+    </div>`
+}
+
+// ── Lectura del formulario ────────────────────────────────────────────────────
+
+function _readParams() {
+  const n = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
+  return {
+    pie:       n('cpg-pie')       || PIE_DEFAULT * 100,
+    plazo:     n('cpg-plazo')     || PLAZO_DEFAULT,
+    dcto:      n('cpg-dcto'),
+    aporte:    n('cpg-aporte'),
+    cuotas:    n('cpg-cuotas'),
+    piecst:    n('cpg-piecst'),
+    cuoton:    n('cpg-cuoton'),
+    upfront:   n('cpg-upfront'),
+    cdir:      n('cpg-cdir'),
+    plusvalia: n('cpg-plusvalia') || 2,
+    cae1:      n('cpg-cae1')     || 4,
+    cae2:      n('cpg-cae2')     || 4.5,
+    cae3:      n('cpg-cae3')     || 5,
+  }
+}
+
+// ── Construcción del input para calcularCotizacion ────────────────────────────
+
+function _buildInput(params) {
+  const { reservaCLP, regla, depto, secundarios } = _state
   return {
     precioListaDepto:          depto.precio_uf,
-    descuentoPct:              parsedCC.descuentoDepto,
-    descuentoAdicionalPct:     parsedCC.descuentoAdicional || 0,
-    bonoPiePct:                parsedCC.aporteInmobiliario,
+    descuentoPct:              params.dcto / 100,
+    descuentoAdicionalPct:     0,
+    bonoPiePct:                params.aporte / 100,
     reservaCLP,
     preciosConjuntos:          secundarios.map(s => s.precio_uf),
-    piePct,
-    upfrontPct:                parsedCC.upfrontPct || 0,
-    cuotasPieN:                parsedCC.cuotasPieN,
-    cuotonPct:                 parsedCC.cuotonPct || 0,
-    piePeriodoConstruccionPct: parsedCC.pieConstPct,
-    pieCreditoDirectoPct:      parsedCC.creditoDirectoPct,
-    plazoAnios,
-    tasasCAE:                  CAE_OPTIONS,
+    piePct:                    params.pie / 100,
+    upfrontPct:                params.upfront / 100,
+    cuotasPieN:                params.cuotas,
+    cuotonPct:                 params.cuoton / 100,
+    piePeriodoConstruccionPct: params.piecst / 100,
+    pieCreditoDirectoPct:      params.cdir / 100,
+    plazoAnios:                params.plazo,
+    tasasCAE:                  [params.cae1 / 100, params.cae2 / 100, params.cae3 / 100],
     valorUF:                   store.UF,
     tipoCalculoBono:           regla.tipoCalculoBono,
     pieConjuntosPct:           regla.pieConjuntosPct,
     arriendosMensualesCLP:     [0, 0, 0],
-    plusvaliaAnual:            0.02,
+    plusvaliaAnual:            params.plusvalia / 100,
   }
 }
 
@@ -113,7 +183,7 @@ function _pct(n) {
 
 // ── Render del panel ──────────────────────────────────────────────────────────
 
-function _renderPanel(r, piePct, plazoAnios) {
+function _renderPanel(r, params) {
   const { project, depto, secundarios } = _state
 
   const parts = [
@@ -122,11 +192,11 @@ function _renderPanel(r, piePct, plazoAnios) {
   ]
   document.getElementById('cp-header-title').textContent = parts.join(' + ')
 
-  document.getElementById('cp-body').innerHTML =
+  document.getElementById('cp-results').innerHTML =
     _sValores(r, depto, secundarios) +
     _sPlanPago(r) +
     (r.pieCreditoDirectoUF > 0 ? _sCreditoDirecto(r) : '') +
-    _sCreditoHip(r, plazoAnios)
+    _sCreditoHip(r, params.plazo)
 }
 
 // ── Sección: Valores ──────────────────────────────────────────────────────────

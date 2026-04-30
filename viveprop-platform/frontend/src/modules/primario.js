@@ -485,13 +485,15 @@ export function pmBack() {
 
 export function pmCotizar() {
   if (!_selectedUnit || !_currentProject) return;
+  const project    = _currentProject;
+  const depto      = _selectedUnit;
   const secundarios = [];
   document.querySelectorAll('#pm-extras-list input[type=checkbox]:checked').forEach(cb => {
-    const u = (_currentProject.unidades || []).find(x => x.dp === cb.dataset.dp);
+    const u = (project.unidades || []).find(x => x.dp === cb.dataset.dp);
     if (u) secundarios.push(u);
   });
   closeProjModal();
-  cotizFromProp({ project: _currentProject, depto: _selectedUnit, secundarios });
+  cotizFromProp({ project, depto, secundarios });
 }
 
 export function toggleDormPill(btn) { btn.classList.toggle('active'); priFilter(); }
