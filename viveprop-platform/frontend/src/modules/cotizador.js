@@ -29,18 +29,18 @@ export function cotizFromProp(arg, legacyLabel) {
       ? Math.round(parsedCC.reservaUF * store.UF)
       : parsedCC.reservaCLP
 
-    _state = { project, depto, secundarios, parsedCC, regla, reservaCLP }
+    _state = { project, depto, secundarios, parsedCC, regla, reservaCLP, cliente: null }
 
-    _initParamsGrid(parsedCC)
+    _initClientForm()
 
     document.getElementById('cotiz-basic').style.display = 'none'
-    document.getElementById('cotiz-panel').style.display = 'flex'
+    document.getElementById('cotiz-client-form').style.display = 'flex'
+    document.getElementById('cotiz-panel').style.display = 'none'
     window.openModule('cotiz')
-
-    recalcCotizPanel()
   } catch (err) {
     console.error('[Cotizador] Error en cotizFromProp:', err)
     document.getElementById('cotiz-basic').style.display = 'none'
+    document.getElementById('cotiz-client-form').style.display = 'none'
     document.getElementById('cotiz-panel').style.display = 'flex'
     window.openModule('cotiz')
     document.getElementById('cp-results').innerHTML =
@@ -71,6 +71,7 @@ export function recalcCotizPanel() {
 
 export function volverDesdeCotiz() {
   _state = null
+  document.getElementById('cotiz-client-form').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'none'
   document.getElementById('cotiz-basic').style.display = ''
   window.openModule('pri')
@@ -80,6 +81,156 @@ export function volverDesdeCotiz() {
 
 function _pct100(frac) {
   return +((frac ?? 0) * 100).toFixed(2)
+}
+
+// ── Formulario cliente/corredor ───────────────────────────────────────────────
+
+function _initClientForm() {
+  const { project, depto, secundarios } = _state
+
+  const parts = [
+    `${project.nombre} · DP ${depto.dp}${depto.tipologia ? ' ' + depto.tipologia : ''}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp}`)
+  ]
+  document.getElementById('ccf-header-title').textContent = parts.join(' + ')
+
+  const totalUF = depto.precio_uf + secundarios.reduce((s, u) => s + u.precio_uf, 0)
+  const lines = [
+    `DP ${depto.dp}${depto.tipologia ? ' — ' + depto.tipologia : ''} · ${fmt.uf2(depto.precio_uf)}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp} · ${fmt.uf2(s.precio_uf)}`)
+  ]
+  document.getElementById('ccf-prop-summary').innerHTML =
+    `<div class="ccf-prop-lines">${lines.map(l => `<div class="ccf-prop-line">${H(l)}</div>`).join('')}</div>` +
+    `<div class="ccf-prop-total">Total precio lista: <strong>${fmt.uf2(totalUF)}</strong></div>`
+
+  // Limpiar campos cliente
+  ;['ccf-nombre', 'ccf-rut', 'ccf-email', 'ccf-tel'].forEach(id => {
+    const el = document.getElementById(id)
+    if (el) { el.value = ''; el.classList.remove('cp-input--err') }
+  })
+  const obj = document.getElementById('ccf-objetivo')
+  if (obj) { obj.value = ''; obj.classList.remove('cp-input--err') }
+  document.querySelectorAll('.ccf-err').forEach(el => { el.textContent = '' })
+
+  // Pre-rellenar corredor desde localStorage
+  try {
+    const saved = JSON.parse(localStorage.getItem('_corredor') || '{}')
+    if (saved.nombre) document.getElementById('ccf-cor-nombre').value = saved.nombre
+    if (saved.email)  document.getElementById('ccf-cor-email').value  = saved.email
+    if (saved.tel)    document.getElementById('ccf-cor-tel').value    = saved.tel
+  } catch {}
+}
+
+function _validarRut(rut) {
+  const clean = rut.replace(/[.\s]/g, '').toUpperCase()
+  if (!/^\d{7,8}-?[0-9K]$/.test(clean)) return false
+  const normalized = clean.replace('-', '')
+  const body = normalized.slice(0, -1)
+  const dv   = normalized.slice(-1)
+  let sum = 0, mul = 2
+  for (let i = body.length - 1; i >= 0; i--) {
+    sum += parseInt(body[i]) * mul
+    mul = mul === 7 ? 2 : mul + 1
+  }
+  const r = 11 - (sum % 11)
+  const expected = r === 11 ? '0' : r === 10 ? 'K' : String(r)
+  return dv === expected
+}
+
+function _validarEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())
+}
+
+function _validarTelefono(tel) {
+  const clean = tel.replace(/[\s\-\(\)\.]/g, '')
+  return /^(\+?56)?9\d{8}$/.test(clean) || /^\+?56[2-9]\d{7}$/.test(clean)
+}
+
+function _setFieldError(id, msg) {
+  const el  = document.getElementById(id)
+  const err = document.getElementById(id + '-err')
+  if (el)  el.classList.toggle('cp-input--err', !!msg)
+  if (err) err.textContent = msg || ''
+}
+
+export function clearCCFError(id) {
+  _setFieldError(id, '')
+}
+
+export function formatRutInput(id) {
+  const el = document.getElementById(id)
+  if (!el) return
+  const raw = el.value.replace(/[^\dkK]/g, '').toUpperCase()
+  if (raw.length > 1) {
+    const body = raw.slice(0, -1)
+    const dv   = raw.slice(-1)
+    el.value   = body.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '-' + dv
+  }
+  _setFieldError(id, '')
+}
+
+export function submitClientForm() {
+  if (!_state) return
+
+  let ok = true
+  const val = id => (document.getElementById(id)?.value || '').trim()
+
+  const nombre = val('ccf-nombre')
+  if (nombre.length < 2) { _setFieldError('ccf-nombre', 'Ingresa el nombre completo'); ok = false }
+
+  const rut = val('ccf-rut')
+  if (!rut) {
+    _setFieldError('ccf-rut', 'Ingresa el RUT'); ok = false
+  } else if (!_validarRut(rut)) {
+    _setFieldError('ccf-rut', 'RUT inválido — verifica el dígito verificador'); ok = false
+  }
+
+  const email = val('ccf-email')
+  if (!email) {
+    _setFieldError('ccf-email', 'Ingresa el email'); ok = false
+  } else if (!_validarEmail(email)) {
+    _setFieldError('ccf-email', 'Formato de email inválido'); ok = false
+  }
+
+  const tel = val('ccf-tel')
+  if (!tel) {
+    _setFieldError('ccf-tel', 'Ingresa el teléfono'); ok = false
+  } else if (!_validarTelefono(tel)) {
+    _setFieldError('ccf-tel', 'Formato inválido — ej: +56 9 1234 5678'); ok = false
+  }
+
+  const objetivo = val('ccf-objetivo')
+  if (!objetivo) { _setFieldError('ccf-objetivo', 'Selecciona un objetivo'); ok = false }
+
+  const corNombre = val('ccf-cor-nombre')
+  if (corNombre.length < 2) { _setFieldError('ccf-cor-nombre', 'Ingresa el nombre del corredor'); ok = false }
+
+  const corEmail = val('ccf-cor-email')
+  if (!corEmail) {
+    _setFieldError('ccf-cor-email', 'Ingresa el email del corredor'); ok = false
+  } else if (!_validarEmail(corEmail)) {
+    _setFieldError('ccf-cor-email', 'Formato de email inválido'); ok = false
+  }
+
+  const corTel = val('ccf-cor-tel')
+  if (!corTel) {
+    _setFieldError('ccf-cor-tel', 'Ingresa el teléfono del corredor'); ok = false
+  } else if (!_validarTelefono(corTel)) {
+    _setFieldError('ccf-cor-tel', 'Formato inválido — ej: +56 9 1234 5678'); ok = false
+  }
+
+  if (!ok) return
+
+  try {
+    localStorage.setItem('_corredor', JSON.stringify({ nombre: corNombre, email: corEmail, tel: corTel }))
+  } catch {}
+
+  _state.cliente = { nombre, rut, email, tel, objetivo, corNombre, corEmail, corTel }
+
+  _initParamsGrid(_state.parsedCC)
+  document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-panel').style.display = 'flex'
+  recalcCotizPanel()
 }
 
 function _initParamsGrid(parsedCC) {

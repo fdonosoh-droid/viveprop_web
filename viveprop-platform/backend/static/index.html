@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-  <script type="module" crossorigin src="/assets/index-DWg76UeV.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BDqfoWMg.css">
+  <script type="module" crossorigin src="/assets/index-BycoSr1U.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-jtjCt8UC.css">
 </head>
 <body>
 <div class="app-shell">
@@ -317,6 +317,85 @@
           </div>
           <div class="tool-results-wrap" id="c-results">
             <div class="empty-tool"><div class="ei">📊</div><p>Ingresa el precio de la propiedad para simular el financiamiento</p></div>
+          </div>
+        </div>
+
+        <!-- Formulario cliente/corredor (paso previo al panel) -->
+        <div id="cotiz-client-form" style="display:none">
+          <div class="cp-params">
+            <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
+            <div class="cp-header-title" id="ccf-header-title">—</div>
+          </div>
+          <div class="cp-body">
+            <div class="ccf-wrap">
+              <div class="ccf-section">
+                <div class="ccf-section-num">1. Propiedad</div>
+                <div class="ccf-prop-summary" id="ccf-prop-summary"></div>
+              </div>
+              <div class="ccf-section">
+                <div class="ccf-section-num">2. Cliente y corredor</div>
+                <div class="ccf-sub">Datos del Cliente</div>
+                <div class="cp-form-row cp-form-row--2">
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Nombre completo *</label>
+                    <input id="ccf-nombre" class="cp-input" type="text" placeholder="Juan Pérez" oninput="clearCCFError('ccf-nombre')">
+                    <span class="ccf-err" id="ccf-nombre-err"></span>
+                  </div>
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">RUT *</label>
+                    <input id="ccf-rut" class="cp-input" type="text" placeholder="12.345.678-9" oninput="formatRutInput('ccf-rut')">
+                    <span class="ccf-err" id="ccf-rut-err"></span>
+                  </div>
+                </div>
+                <div class="cp-form-row cp-form-row--2">
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Email *</label>
+                    <input id="ccf-email" class="cp-input" type="text" placeholder="cliente@ejemplo.cl" oninput="clearCCFError('ccf-email')">
+                    <span class="ccf-err" id="ccf-email-err"></span>
+                  </div>
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Teléfono *</label>
+                    <input id="ccf-tel" class="cp-input" type="text" placeholder="+56 9 1234 5678" oninput="clearCCFError('ccf-tel')">
+                    <span class="ccf-err" id="ccf-tel-err"></span>
+                  </div>
+                </div>
+                <div class="cp-form-row cp-form-row--2">
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Objetivo de compra *</label>
+                    <select id="ccf-objetivo" class="cp-input cp-select" onchange="clearCCFError('ccf-objetivo')">
+                      <option value="">Selecciona objetivo</option>
+                      <option value="vivienda">Vivienda propia</option>
+                      <option value="inversion">Inversión / arriendo</option>
+                      <option value="segunda">Segunda vivienda</option>
+                      <option value="subsidio">Subsidio habitacional</option>
+                    </select>
+                    <span class="ccf-err" id="ccf-objetivo-err"></span>
+                  </div>
+                  <div class="cp-fg"></div>
+                </div>
+                <div class="ccf-sub">Corredor</div>
+                <div class="cp-form-row cp-form-row--3">
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Nombre del corredor *</label>
+                    <input id="ccf-cor-nombre" class="cp-input" type="text" placeholder="Tu nombre o nombre de la corredora" oninput="clearCCFError('ccf-cor-nombre')">
+                    <span class="ccf-err" id="ccf-cor-nombre-err"></span>
+                  </div>
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Email del corredor *</label>
+                    <input id="ccf-cor-email" class="cp-input" type="text" placeholder="corredor@ejemplo.cl" oninput="clearCCFError('ccf-cor-email')">
+                    <span class="ccf-err" id="ccf-cor-email-err"></span>
+                  </div>
+                  <div class="cp-fg">
+                    <label class="cp-fg-lbl">Teléfono del corredor *</label>
+                    <input id="ccf-cor-tel" class="cp-input" type="text" placeholder="+56 9 1234 5678" oninput="clearCCFError('ccf-cor-tel')">
+                    <span class="ccf-err" id="ccf-cor-tel-err"></span>
+                  </div>
+                </div>
+                <div class="ccf-actions">
+                  <button class="btn-ccf-submit" onclick="submitClientForm()">Generar cotización →</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
