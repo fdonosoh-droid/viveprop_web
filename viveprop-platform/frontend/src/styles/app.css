@@ -957,3 +957,50 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
   .gondola-wrap{padding:12px}
   .content-hdr{padding:8px 12px}
 }
+
+/* ── Sprint 5: botón imprimir ── */
+.btn-print-cotiz{
+  height:32px;padding:0 14px;background:var(--brand);border:none;border-radius:7px;
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:#fff;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;margin-left:auto;
+}
+.btn-print-cotiz:hover{background:var(--brand-dark)}
+#cotiz-print-doc{display:none}
+
+/* ── Sprint 5: @media print ── */
+@media print{
+  @page{margin:15mm 20mm}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .app-shell,#detail-modal,#video-modal,#proj-modal,#loading-overlay{display:none!important}
+  #cotiz-print-doc{display:block!important}
+  .prd-wrap{font-family:'Inter',sans-serif;font-size:11px;color:#111;max-width:800px;margin:0 auto}
+  .prd-header{display:flex;align-items:center;border-bottom:2px solid #1F2937;padding-bottom:10px;margin-bottom:14px}
+  .prd-logo{height:32px}
+  .prd-header-mid{flex:1;text-align:center;font-size:15px;font-weight:800;color:#1F2937;letter-spacing:1px}
+  .prd-cot-num{font-size:12px;font-weight:700;text-align:right}
+  .prd-cot-date{font-size:10px;color:#555;text-align:right}
+  .prd-meta-row{display:flex;gap:20px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #E5E7EB}
+  .prd-meta-block{flex:1}
+  .prd-meta-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#6B7280;margin-bottom:3px}
+  .prd-meta-main{font-size:13px;font-weight:700;margin-bottom:2px}
+  .prd-meta-sub{font-size:11px;color:#555;margin-bottom:1px}
+  .prd-meta-obj{font-size:11px;font-weight:600;color:#1F2937;margin-top:3px}
+  .prd-unit-line{font-size:11px;color:#374151;margin-bottom:1px}
+  .prd-section{margin-bottom:12px}
+  .prd-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#1F2937;border-bottom:1px solid #E5E7EB;padding-bottom:4px;margin-bottom:6px}
+  .prd-tbl{width:100%;border-collapse:collapse;font-size:11px}
+  .prd-tbl th{text-align:left;font-weight:600;color:#6B7280;font-size:10px;padding:3px 6px;border-bottom:1px solid #E5E7EB}
+  .prd-tbl td{padding:4px 6px;border-bottom:1px solid #F3F4F6}
+  .prd-tbl-sub td{padding-left:18px;color:#555}
+  .prd-tbl-total td{font-weight:700;background:#F9FAFB!important;border-top:1px solid #D1D5DB}
+  .prd-tbl-aporte td{color:#065F46!important;background:#ECFDF5!important}
+  .prd-esc-hl td{background:#EFF6FF!important;font-weight:600}
+  .prd-hip-summary{display:flex;gap:16px;margin-bottom:8px;padding:8px 10px;background:#F9FAFB!important;border-radius:4px}
+  .prd-hip-cell{display:flex;flex-direction:column;gap:1px}
+  .prd-hip-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:#6B7280;font-weight:600}
+  .prd-hip-val{font-size:13px;font-weight:700}
+  .prd-hip-sub{font-size:10px;color:#555}
+  .prd-footer{margin-top:14px;padding-top:10px;border-top:1px solid #E5E7EB}
+  .prd-corredor{font-size:11px;color:#374151;margin-bottom:6px}
+  .prd-disclaimer{font-size:9px;color:#9CA3AF;line-height:1.4}
+}

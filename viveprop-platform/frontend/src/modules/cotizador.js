@@ -227,6 +227,7 @@ export function submitClientForm() {
 
   _state.cliente = { nombre, rut, email, tel, objetivo, corNombre, corEmail, corTel }
 
+  _state.cotizId = _genCotizId()
   _initParamsGrid(_state.parsedCC)
   document.getElementById('cotiz-client-form').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'flex'
@@ -348,6 +349,7 @@ function _renderPanel(r, params) {
     _sPlanPago(r) +
     (r.pieCreditoDirectoUF > 0 ? _sCreditoDirecto(r) : '') +
     _sCreditoHip(r, params.plazo)
+  _buildPrintDoc(r, params)
 }
 
 // ── Sección: Valores ──────────────────────────────────────────────────────────
@@ -533,6 +535,173 @@ function _sCreditoHip(r, plazoAnios) {
       </table>
     </div>
   </div>`
+}
+
+// ── Documento imprimible ─────────────────────────────────────────────────────
+
+function _genCotizId() {
+  const year = new Date().getFullYear()
+  const key  = `_cotiz_counter_${year}`
+  const next = (parseInt(localStorage.getItem(key) || '0') + 1)
+  try { localStorage.setItem(key, String(next)) } catch {}
+  return `COT-${year}-${String(next).padStart(4, '0')}`
+}
+
+function _buildPrintDoc(r, params) {
+  const el = document.getElementById('cotiz-print-doc')
+  if (!el || !_state?.cliente) return
+
+  const { project, depto, secundarios, cliente, cotizId } = _state
+  const now     = new Date()
+  const dateStr = now.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' })
+  const OBJETIVO = { vivienda: 'Vivienda propia', inversion: 'Inversión / arriendo', segunda: 'Segunda vivienda', subsidio: 'Subsidio habitacional' }
+
+  const unitLines = [
+    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp} · ${fmt.uf2(depto.precio_uf)}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp} · ${fmt.uf2(s.precio_uf)}`)
+  ].map(l => `<div class="prd-unit-line">${H(l)}</div>`).join('')
+
+  const descTotal = r.precioListaDepto > 0 ? 1 - r.precioDescDepto / r.precioListaDepto : 0
+  const deptoRow  = `<tr>
+    <td>${H(String(depto.dp))}${depto.tipologia ? ' — ' + H(depto.tipologia) : ''}</td>
+    <td>${fmt.uf2(r.precioListaDepto)}</td>
+    <td>${descTotal > 0.0001 ? '−' + _pct(descTotal) : '—'}</td>
+    <td>${fmt.uf2(r.precioDescDepto)}</td>
+  </tr>`
+  const secRows = secundarios.map(s => `<tr>
+    <td>${s.tipologia ? H(s.tipologia) + ' ' : ''}DP ${H(String(s.dp))}</td>
+    <td>${fmt.uf2(s.precio_uf)}</td><td>—</td>
+    <td>${fmt.uf2(s.precio_uf)}</td>
+  </tr>`).join('')
+
+  let planRows = ''
+  planRows += `<tr><td><strong>Pie total</strong> ${_pct(r.piePct)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
+  planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+  if (r.upfrontUF > 0)
+    planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
+  if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
+    planRows += `<tr class="prd-tbl-sub"><td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td><td>${fmt.uf2(r.saldoPieUF)}</td><td>${fmt.pesos(r.saldoPieCLP)}</td></tr>`
+  if (r.piePeriodoConstruccionUF > 0) {
+    const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
+    planRows += `<tr><td>Pie período construcción ${_pct(pctConst)}</td><td>${fmt.uf2(r.piePeriodoConstruccionUF)}</td><td>${fmt.pesos(r.piePeriodoConstruccionCLP)}</td></tr>`
+  }
+  if (r.cuotonUF > 0)
+    planRows += `<tr><td>Cuotón</td><td>${fmt.uf2(r.cuotonUF)}</td><td>${fmt.pesos(r.cuotonCLP)}</td></tr>`
+  const pctTotalPie = r.valorVentaUF > 0 ? r.totalPieInmobUF / r.valorVentaUF : 0
+  planRows += `<tr class="prd-tbl-total"><td><strong>Total pie a inmobiliaria</strong> ${_pct(pctTotalPie)}</td><td>${fmt.uf2(r.totalPieInmobUF)}</td><td>${fmt.pesos(r.totalPieInmobUF * r.valorUF)}</td></tr>`
+  if (r.bonoPieUF > 0)
+    planRows += `<tr class="prd-tbl-aporte"><td>Aporte inmobiliaria ${_pct(r.aportePct)}</td><td>${fmt.uf2(r.bonoPieUF)}</td><td>${fmt.pesos(r.bonoPieUF * r.valorUF)}</td></tr>`
+
+  let cdirHtml = ''
+  if (r.pieCreditoDirectoUF > 0) {
+    const pctDir = r.valorVentaUF > 0 ? r.pieCreditoDirectoUF / r.valorVentaUF : 0
+    cdirHtml = `<div class="prd-section">
+      <div class="prd-section-title">Crédito Directo Inmobiliaria</div>
+      <table class="prd-tbl"><tbody>
+        <tr><td>Financiamiento directo ${_pct(pctDir)} × valor venta</td><td>${fmt.uf2(r.pieCreditoDirectoUF)}</td><td>${fmt.pesos(r.pieCreditoDirectoCLP)}</td></tr>
+      </tbody></table>
+    </div>`
+  }
+
+  const ltvPct  = r.tasacionUF > 0 ? r.creditoHipFinalUF / r.tasacionUF : 0
+  const escRows = r.escenarios.map((esc, i) => {
+    const rentaMin = esc.cuotaMensualCLP / 0.25
+    return `<tr${i === 1 ? ' class="prd-esc-hl"' : ''}>
+      <td>CAE ${(esc.cae * 100).toFixed(1).replace(/\.0$/, '')}%</td>
+      <td>${fmt.pesos(esc.cuotaMensualCLP)}</td>
+      <td>${fmt.uf2(esc.cuotaMensualUF)}</td>
+      <td>${fmt.pesos(rentaMin)}</td>
+    </tr>`
+  }).join('')
+
+  el.innerHTML = `
+  <div class="prd-wrap">
+    <div class="prd-header">
+      <img src="/images/logo.png" alt="ViveProp" class="prd-logo">
+      <div class="prd-header-mid">COTIZACIÓN</div>
+      <div class="prd-header-right">
+        <div class="prd-cot-num">${H(cotizId)}</div>
+        <div class="prd-cot-date">${dateStr}</div>
+      </div>
+    </div>
+
+    <div class="prd-meta-row">
+      <div class="prd-meta-block">
+        <div class="prd-meta-title">Proyecto</div>
+        <div class="prd-meta-main">${H(project.nombre)}</div>
+        <div class="prd-meta-sub">${H(project.inmobiliaria)}${project.comuna ? ' · ' + H(project.comuna) : ''}</div>
+        <div class="prd-units-list">${unitLines}</div>
+      </div>
+      <div class="prd-meta-block">
+        <div class="prd-meta-title">Cliente</div>
+        <div class="prd-meta-main">${H(cliente.nombre)}</div>
+        <div class="prd-meta-sub">RUT ${H(cliente.rut)}</div>
+        <div class="prd-meta-sub">${H(cliente.email)}</div>
+        <div class="prd-meta-sub">${H(cliente.tel)}</div>
+        <div class="prd-meta-obj">${OBJETIVO[cliente.objetivo] || H(cliente.objetivo)}</div>
+      </div>
+    </div>
+
+    <div class="prd-section">
+      <div class="prd-section-title">Valores</div>
+      <table class="prd-tbl">
+        <thead><tr><th>Unidad</th><th>Precio lista</th><th>Descuento</th><th>Valor venta</th></tr></thead>
+        <tbody>
+          ${deptoRow}${secRows}
+          <tr class="prd-tbl-total"><td>Total</td><td>${fmt.uf2(r.precioListaTotal)}</td><td></td><td>${fmt.uf2(r.valorVentaUF)} <small>(${fmt.pesos(r.valorVentaCLP)})</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prd-section">
+      <div class="prd-section-title">Plan de Pago</div>
+      <table class="prd-tbl">
+        <thead><tr><th>Concepto</th><th>UF</th><th>$</th></tr></thead>
+        <tbody>${planRows}</tbody>
+      </table>
+    </div>
+
+    ${cdirHtml}
+
+    <div class="prd-section">
+      <div class="prd-section-title">Crédito Hipotecario · ${params.plazo} años</div>
+      <div class="prd-hip-summary">
+        <div class="prd-hip-cell">
+          <span class="prd-hip-lbl">Tasación banco</span>
+          <span class="prd-hip-val">${fmt.uf2(r.tasacionUF)}</span>
+          <span class="prd-hip-sub">${fmt.pesos(r.tasacionCLP)}</span>
+        </div>
+        <div class="prd-hip-cell">
+          <span class="prd-hip-lbl">LTV</span>
+          <span class="prd-hip-val">${_pct(ltvPct)}</span>
+          <span class="prd-hip-sub">× tasación</span>
+        </div>
+        <div class="prd-hip-cell">
+          <span class="prd-hip-lbl">Crédito hipotecario</span>
+          <span class="prd-hip-val">${fmt.uf2(r.creditoHipFinalUF)}</span>
+          <span class="prd-hip-sub">${fmt.pesos(r.creditoHipFinalCLP)}</span>
+        </div>
+      </div>
+      <table class="prd-tbl">
+        <thead><tr><th>CAE</th><th>Dividendo/mes</th><th>Dividendo UF</th><th>Renta mínima</th></tr></thead>
+        <tbody>${escRows}</tbody>
+      </table>
+    </div>
+
+    <div class="prd-footer">
+      <div class="prd-corredor">
+        <strong>Corredor:</strong> ${H(cliente.corNombre)} · ${H(cliente.corEmail)} · ${H(cliente.corTel)}
+      </div>
+      <div class="prd-disclaimer">
+        Cotización referencial — no constituye oferta formal de venta. Valores UF calculados al ${dateStr} (1 UF = ${fmt.pesos(r.valorUF)}). Los dividendos son estimaciones según escenarios de tasa CAE indicados y pueden variar según condiciones del banco y perfil del solicitante.
+      </div>
+    </div>
+  </div>`
+}
+
+export function printCotiz() {
+  if (!_state?.cliente) return
+  window.print()
 }
 
 // ── Calculadora básica (fallback) ─────────────────────────────────────────────
