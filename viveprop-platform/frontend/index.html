@@ -277,7 +277,9 @@
 
       <!-- ════ COTIZADOR ════ -->
       <div class="module" id="mod-cotiz">
-        <div class="tool-body">
+
+        <!-- Calculadora básica (acceso directo / fallback) -->
+        <div id="cotiz-basic" class="tool-body">
           <div class="tool-form-wrap">
             <h2>Cotizador</h2>
             <p class="tdesc">Simula el financiamiento de cualquier propiedad.</p>
@@ -316,6 +318,35 @@
             <div class="empty-tool"><div class="ei">📊</div><p>Ingresa el precio de la propiedad para simular el financiamiento</p></div>
           </div>
         </div>
+
+        <!-- Panel completo (proyectos primario) -->
+        <div id="cotiz-panel" style="display:none">
+          <div class="cp-params">
+            <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
+            <div class="cp-header-title" id="cp-header-title">—</div>
+            <div class="cp-controls">
+              <div class="cp-ctrl-group">
+                <label>Pie</label>
+                <div class="cp-pie-row">
+                  <input type="range" id="cpanel-pie-r" min="5" max="50" value="12" oninput="syncCPanelPie('r')">
+                  <input type="number" id="cpanel-pie-n" value="12" min="5" max="50" step="1" oninput="syncCPanelPie('n')">
+                  <span id="cpanel-pie-lbl">12%</span>
+                </div>
+              </div>
+              <div class="cp-ctrl-group">
+                <label>Plazo</label>
+                <select id="cpanel-plazo" onchange="recalcCotizPanel()">
+                  <option value="15">15 años</option>
+                  <option value="20">20 años</option>
+                  <option value="25">25 años</option>
+                  <option value="30" selected>30 años</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="cp-body" class="cp-body"></div>
+        </div>
+
       </div>
 
     </main>

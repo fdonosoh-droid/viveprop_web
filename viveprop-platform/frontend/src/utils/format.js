@@ -9,6 +9,7 @@ export function parseNum(s) {
 export const fmt = {
   uf:    n => `UF ${(+n).toLocaleString('es-CL', {minimumFractionDigits:0, maximumFractionDigits:0})}`,
   uf1:   n => `UF ${(+n).toLocaleString('es-CL', {minimumFractionDigits:1, maximumFractionDigits:1})}`,
+  uf2:   n => `UF ${(+n).toLocaleString('es-CL', {minimumFractionDigits:2, maximumFractionDigits:2})}`,
   pesos: n => `$${Math.round(+n).toLocaleString('es-CL')}`,
 };
 
