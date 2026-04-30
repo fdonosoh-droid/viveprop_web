@@ -6,6 +6,7 @@ import { calcularCotizacion, getReglaInmobiliaria, PLAZO_DEFAULT, CAE_OPTIONS, P
 // ── Estado panel completo ─────────────────────────────────────────────────────
 
 let _state = null;   // { project, depto, secundarios, parsedCC, regla, reservaCLP }
+let _recotizarMode = false;
 
 // ── Entrada principal desde primario.js ──────────────────────────────────────
 
@@ -119,6 +120,19 @@ function _initClientForm() {
     if (saved.email)  document.getElementById('ccf-cor-email').value  = saved.email
     if (saved.tel)    document.getElementById('ccf-cor-tel').value    = saved.tel
   } catch {}
+
+  // Si es recotización, pre-rellenar datos del último cliente
+  if (_recotizarMode) {
+    try {
+      const uc = JSON.parse(localStorage.getItem('_ultimo_cliente') || '{}')
+      if (uc.nombre)   { const el = document.getElementById('ccf-nombre');   if (el) el.value = uc.nombre }
+      if (uc.rut)      { const el = document.getElementById('ccf-rut');      if (el) el.value = uc.rut }
+      if (uc.email)    { const el = document.getElementById('ccf-email');    if (el) el.value = uc.email }
+      if (uc.tel)      { const el = document.getElementById('ccf-tel');      if (el) el.value = uc.tel }
+      if (uc.objetivo) { const el = document.getElementById('ccf-objetivo'); if (el) el.value = uc.objetivo }
+    } catch {}
+    _recotizarMode = false
+  }
 }
 
 function _validarRut(rut) {
@@ -223,6 +237,9 @@ export function submitClientForm() {
 
   try {
     localStorage.setItem('_corredor', JSON.stringify({ nombre: corNombre, email: corEmail, tel: corTel }))
+  } catch {}
+  try {
+    localStorage.setItem('_ultimo_cliente', JSON.stringify({ nombre, rut, email, tel, objetivo }))
   } catch {}
 
   _state.cliente = { nombre, rut, email, tel, objetivo, corNombre, corEmail, corTel }
@@ -702,5 +719,25 @@ function _buildPrintDoc(r, params) {
 export function printCotiz() {
   if (!_state?.cliente) return
   window.print()
+}
+
+export function nuevaCotizacion() {
+  _state = null
+  _recotizarMode = false
+  document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-panel').style.display = 'none'
+  document.getElementById('cotiz-cascade').style.display = ''
+  window.cascReset()
+  window.openModule('cotiz')
+}
+
+export function recotizar() {
+  _state = null
+  _recotizarMode = true
+  document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-panel').style.display = 'none'
+  document.getElementById('cotiz-cascade').style.display = ''
+  window.cascReset()
+  window.openModule('cotiz')
 }
 

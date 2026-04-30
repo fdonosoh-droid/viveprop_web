@@ -961,9 +961,22 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 /* ── Cascade selector ── */
 .casc-shell{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:32px 24px;overflow-y:auto}
 .casc-card{background:#fff;border:1px solid var(--g200);border-radius:14px;padding:28px 28px 24px;width:100%;max-width:860px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.casc-card-hdr{margin-bottom:20px}
+.casc-card-hdr{margin-bottom:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .casc-card-title{font-size:18px;font-weight:800;color:var(--g900);margin-bottom:4px}
 .casc-card-sub{font-size:13px;color:var(--g500)}
+.cp-params-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto}
+.btn-nueva-cotiz{
+  height:32px;padding:0 14px;background:var(--brand);border:none;border-radius:7px;
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:#fff;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;
+}
+.btn-nueva-cotiz:hover{background:var(--brand-dark)}
+.btn-recotiz-sm{
+  height:32px;padding:0 14px;background:var(--g100);border:1px solid var(--g200);border-radius:7px;
+  font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:var(--g700);
+  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;
+}
+.btn-recotiz-sm:hover{background:var(--g200)}
 .casc-step-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--g500);margin-bottom:14px}
 .casc-actions{display:flex;justify-content:flex-end;margin-top:20px}
 .btn-casc-continuar{background:var(--brand);color:#fff;border:none;border-radius:9px;padding:0 28px;height:40px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:background .15s}
@@ -986,7 +999,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 .btn-print-cotiz{
   height:32px;padding:0 14px;background:var(--brand);border:none;border-radius:7px;
   font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;color:#fff;
-  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;margin-left:auto;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;
 }
 .btn-print-cotiz:hover{background:var(--brand-dark)}
 #cotiz-print-doc{display:none}

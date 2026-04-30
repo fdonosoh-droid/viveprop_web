@@ -304,8 +304,14 @@
         <div id="cotiz-cascade" class="casc-shell">
           <div class="casc-card">
             <div class="casc-card-hdr">
-              <div class="casc-card-title">Nueva Cotización</div>
-              <div class="casc-card-sub">Selecciona la propiedad a cotizar</div>
+              <div>
+                <div class="casc-card-title">Cotizador</div>
+                <div class="casc-card-sub">Selecciona la propiedad a cotizar</div>
+              </div>
+              <div class="cp-params-actions">
+                <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
+                <button class="btn-nueva-cotiz" onclick="nuevaCotizacion()">+ Nueva cotización</button>
+              </div>
             </div>
             <div class="casc-step-label">1. Selecciona la unidad</div>
             <div class="cp-form-row cp-form-row--4">
@@ -345,6 +351,10 @@
           <div class="cp-params">
             <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
             <div class="cp-header-title" id="ccf-header-title">—</div>
+            <div class="cp-params-actions">
+              <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
+              <button class="btn-nueva-cotiz" onclick="nuevaCotizacion()">+ Nueva</button>
+            </div>
           </div>
           <div class="cp-body">
             <div class="ccf-wrap">
@@ -424,7 +434,11 @@
           <div class="cp-params">
             <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
             <div class="cp-header-title" id="cp-header-title">—</div>
-            <button class="btn-print-cotiz" onclick="printCotiz()">🖨 Imprimir</button>
+            <div class="cp-params-actions">
+              <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
+              <button class="btn-nueva-cotiz" onclick="nuevaCotizacion()">+ Nueva</button>
+              <button class="btn-print-cotiz" onclick="printCotiz()">🖨 Imprimir</button>
+            </div>
           </div>
           <div class="cp-body">
             <div class="cp-section" id="cp-params-grid"></div>

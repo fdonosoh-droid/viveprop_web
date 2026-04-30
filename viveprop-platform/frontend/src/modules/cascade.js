@@ -77,3 +77,19 @@ export function cascContinuar() {
   window.openProject(pid)
   window.pmTab('units')
 }
+
+export function cascReset() {
+  const el = document.getElementById('casc-comuna')
+  if (el) el.value = ''
+  const set = (id, html, disabled) => {
+    const e = document.getElementById(id)
+    if (!e) return
+    e.innerHTML = html
+    e.disabled  = disabled
+  }
+  set('casc-entrega', '<option value="">Selecciona entrega</option>',       true)
+  set('casc-inmob',   '<option value="">Selecciona inmobiliaria</option>',  true)
+  set('casc-proyecto','<option value="">Selecciona proyecto</option>',      true)
+  const btn = document.getElementById('casc-continuar')
+  if (btn) btn.disabled = true
+}

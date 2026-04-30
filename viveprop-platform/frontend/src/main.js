@@ -4,8 +4,8 @@ import { mcFilter, mcOpen, mcClose, mcSelect, mcRemove } from './components/filt
 import { secInit, secFilter, secPage, setSecView, openDetail, openSecDetail, showDpPhoto, navDp, closeDetail, shareProperty, downloadPhotos, printFicha, openVideo, copyVideoLink, closeVideo } from './modules/secundario.js';
 import { priInit, priFilter, priPage, setPriView, openProject, closeProjModal, pmTab, renderCC, pmShowGalPhoto, pmGalNav, selectProjUnit, pmUpdateTotal, pmBack, pmCotizar, toggleDormPill, reopenWithUnit } from './modules/primario.js';
 import { calcPerfil, searchFromPerfil, showBudgetBanner, clearBudget } from './modules/perfilador.js';
-import { cotizFromProp, recalcCotizPanel, volverDesdeCotiz, submitClientForm, formatRutInput, clearCCFError, printCotiz } from './modules/cotizador.js';
-import { cascInit, cascUpdate, cascContinuar } from './modules/cascade.js';
+import { cotizFromProp, recalcCotizPanel, volverDesdeCotiz, submitClientForm, formatRutInput, clearCCFError, printCotiz, nuevaCotizacion, recotizar } from './modules/cotizador.js';
+import { cascInit, cascUpdate, cascContinuar, cascReset } from './modules/cascade.js';
 
 const TITLES = { sec: 'Stock Secundario', pri: 'Proyectos Nuevos', perfil: 'Perfilador', cotiz: 'Cotizador' };
 
@@ -37,8 +37,9 @@ Object.assign(window, {
   cotizFromProp,
   recalcCotizPanel, volverDesdeCotiz,
   submitClientForm, formatRutInput, clearCCFError, printCotiz,
+  nuevaCotizacion, recotizar,
   // cascade
-  cascUpdate, cascContinuar,
+  cascUpdate, cascContinuar, cascReset,
 });
 
 function openModule(m) {
