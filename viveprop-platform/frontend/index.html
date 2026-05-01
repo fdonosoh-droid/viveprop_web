@@ -19,12 +19,16 @@
   <!-- ══ SIDEBAR ══ -->
   <aside class="sidebar">
     <div class="sb-header">
-      <div class="sb-logo-wrap">
+      <div class="sb-logo-wrap" onclick="openModule('sec')" style="cursor:pointer" title="Ir al inicio">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
-      <div class="sb-logo-icon">
+      <div class="sb-logo-icon" onclick="openModule('sec')" style="cursor:pointer" title="Ir al inicio">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
+      <button class="sb-home-btn" onclick="openModule('sec')" title="Inicio">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        Inicio
+      </button>
     </div>
 
     <nav class="sb-nav">
