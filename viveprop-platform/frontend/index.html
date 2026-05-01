@@ -13,6 +13,9 @@
 <body>
 <div class="app-shell">
 
+  <!-- Overlay para drawer mobile -->
+  <div class="mob-filter-overlay" id="mob-filter-overlay" onclick="mobFilterClose()"></div>
+
   <!-- ══ SIDEBAR ══ -->
   <aside class="sidebar">
     <div class="sb-header">
@@ -47,6 +50,10 @@
 
     <!-- Filtros SECUNDARIO -->
     <div class="sbf-wrap" id="sbf-sec">
+      <div class="sbf-drawer-header">
+        <span class="sbf-drawer-title">Filtros</span>
+        <button class="sbf-drawer-close" onclick="mobFilterClose()">✕</button>
+      </div>
       <div class="sbf-section">Buscar</div>
       <input type="text" class="sbf-input" id="sec-search" placeholder="Edificio, dirección…" oninput="secFilter()">
 
@@ -99,6 +106,10 @@
 
     <!-- Filtros PRIMARIO -->
     <div class="sbf-wrap" id="sbf-pri" style="display:none">
+      <div class="sbf-drawer-header">
+        <span class="sbf-drawer-title">Filtros</span>
+        <button class="sbf-drawer-close" onclick="mobFilterClose()">✕</button>
+      </div>
       <div class="sbf-section">Buscar</div>
       <input type="text" class="sbf-input" id="pri-search" placeholder="Proyecto, inmobiliaria…" oninput="priFilter()">
 
@@ -159,11 +170,16 @@
 
     <!-- Top bar -->
     <header class="topbar">
+      <button class="mob-filter-btn" id="mob-filter-btn" onclick="mobFilterOpen()" aria-label="Filtros">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filtros
+      </button>
       <div class="tb-logo-wrap">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
       <div class="topbar-title" id="topbar-title">Stock Secundario</div>
       <div class="topbar-right">
+        <div class="mob-uf-chip" id="mob-uf-chip"></div>
         <div class="tb-pill" id="tb-stats">— disponibles · — total</div>
       </div>
     </header>

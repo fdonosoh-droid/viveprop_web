@@ -43,6 +43,7 @@ Object.assign(window, {
 });
 
 function openModule(m) {
+  mobFilterClose();
   document.querySelectorAll('.module').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.snav-btn').forEach(el => el.classList.remove('active'));
   document.getElementById('mod-' + m).classList.add('active');
@@ -52,6 +53,8 @@ function openModule(m) {
   const sbfPri = document.getElementById('sbf-pri');
   if (sbfSec) sbfSec.style.display = m === 'sec' ? '' : 'none';
   if (sbfPri) sbfPri.style.display = m === 'pri' ? '' : 'none';
+  const filterBtn = document.getElementById('mob-filter-btn');
+  if (filterBtn) filterBtn.style.display = (m === 'sec' || m === 'pri') ? '' : 'none';
 }
 
 // ── Keyboard shortcuts ──────────────────────────────────────────────────────
@@ -73,6 +76,24 @@ document.getElementById('proj-modal').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeProjModal();
 });
 
+// ── Mobile filter drawer ────────────────────────────────────────────────────
+function mobFilterOpen() {
+  document.querySelectorAll('.sbf-wrap').forEach(el => {
+    const hidden = el.style.display === 'none'
+    if (!hidden) el.classList.add('mob-open')
+  })
+  document.getElementById('mob-filter-overlay').classList.add('open')
+  document.body.classList.add('mob-filter-active')
+}
+
+function mobFilterClose() {
+  document.querySelectorAll('.sbf-wrap').forEach(el => el.classList.remove('mob-open'))
+  document.getElementById('mob-filter-overlay').classList.remove('open')
+  document.body.classList.remove('mob-filter-active')
+}
+
+Object.assign(window, { mobFilterOpen, mobFilterClose })
+
 // ── Bootstrap: load data then initialize modules ───────────────────────────
 async function bootstrap() {
   try {
@@ -93,7 +114,10 @@ async function bootstrap() {
     // Update sidebar UF display
     const ufVal  = document.getElementById('uf-val');
     const ufDate = document.getElementById('uf-date');
-    if (ufVal) ufVal.textContent = store.UF.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const ufFormatted = store.UF.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    if (ufVal) ufVal.textContent = ufFormatted;
+    const mobUf = document.getElementById('mob-uf-chip');
+    if (mobUf) mobUf.textContent = `UF $${ufFormatted}`;
     if (ufDate && ufRes.fecha) {
       const f = new Date(ufRes.fecha);
       ufDate.textContent = f.toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
