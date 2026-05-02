@@ -8,21 +8,28 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-  <script type="module" crossorigin src="/assets/index-BnS1-ig9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-5Tsaej3E.css">
+  <script type="module" crossorigin src="/assets/index-e2-IoRQ0.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CNSTpQZ9.css">
 </head>
 <body>
 <div class="app-shell">
 
+  <!-- Overlay para drawer mobile -->
+  <div class="mob-filter-overlay" id="mob-filter-overlay" onclick="mobFilterClose()"></div>
+
   <!-- ══ SIDEBAR ══ -->
   <aside class="sidebar">
     <div class="sb-header">
-      <div class="sb-logo-wrap">
+      <div class="sb-logo-wrap" onclick="openModule('sec')" style="cursor:pointer" title="Ir al inicio">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
-      <div class="sb-logo-icon">
+      <div class="sb-logo-icon" onclick="openModule('sec')" style="cursor:pointer" title="Ir al inicio">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
+      <button class="sb-home-btn" onclick="openModule('sec')" title="Inicio">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-6 7 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        Inicio
+      </button>
     </div>
 
     <nav class="sb-nav">
@@ -48,6 +55,10 @@
 
     <!-- Filtros SECUNDARIO -->
     <div class="sbf-wrap" id="sbf-sec">
+      <div class="sbf-drawer-header">
+        <span class="sbf-drawer-title">Filtros</span>
+        <button class="sbf-drawer-close" onclick="mobFilterClose()">✕</button>
+      </div>
       <div class="sbf-section">Buscar</div>
       <input type="text" class="sbf-input" id="sec-search" placeholder="Edificio, dirección…" oninput="secFilter()">
 
@@ -100,6 +111,10 @@
 
     <!-- Filtros PRIMARIO -->
     <div class="sbf-wrap" id="sbf-pri" style="display:none">
+      <div class="sbf-drawer-header">
+        <span class="sbf-drawer-title">Filtros</span>
+        <button class="sbf-drawer-close" onclick="mobFilterClose()">✕</button>
+      </div>
       <div class="sbf-section">Buscar</div>
       <input type="text" class="sbf-input" id="pri-search" placeholder="Proyecto, inmobiliaria…" oninput="priFilter()">
 
@@ -160,11 +175,16 @@
 
     <!-- Top bar -->
     <header class="topbar">
+      <button class="mob-filter-btn" id="mob-filter-btn" onclick="mobFilterOpen()" aria-label="Filtros">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filtros
+      </button>
       <div class="tb-logo-wrap">
         <img src="/images/logo.png" alt="ViveProp">
       </div>
       <div class="topbar-title" id="topbar-title">Stock Secundario</div>
       <div class="topbar-right">
+        <div class="mob-uf-chip" id="mob-uf-chip"></div>
         <div class="tb-pill" id="tb-stats">— disponibles · — total</div>
       </div>
     </header>
@@ -430,10 +450,28 @@
           </div>
         </div>
 
-        <!-- Panel completo (proyectos primario) -->
+        <!-- Paso intermedio: configuración de parámetros -->
+        <div id="cotiz-params-step" style="display:none">
+          <div class="cp-params">
+            <button class="cp-back-btn" onclick="volverDesdeParams()">&#8592; Volver</button>
+            <div class="cp-header-title" id="cps-header-title">—</div>
+            <div class="cp-params-actions">
+              <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
+              <button class="btn-nueva-cotiz" onclick="nuevaCotizacion()">+ Nueva</button>
+            </div>
+          </div>
+          <div class="cp-body">
+            <div class="cp-section" id="cps-params-grid"></div>
+            <div class="cps-submit-row">
+              <button class="btn-generar-cotiz" onclick="submitParamsStep()">Generar Cotización &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel de resultados -->
         <div id="cotiz-panel" style="display:none">
           <div class="cp-params">
-            <button class="cp-back-btn" onclick="volverDesdeCotiz()">&#8592; Volver</button>
+            <button class="cp-back-btn" onclick="volverAParams()">&#8592; Volver</button>
             <div class="cp-header-title" id="cp-header-title">—</div>
             <div class="cp-params-actions">
               <button class="btn-recotiz-sm" onclick="recotizar()">↩ Recotizar</button>
@@ -442,7 +480,6 @@
             </div>
           </div>
           <div class="cp-body">
-            <div class="cp-section" id="cp-params-grid"></div>
             <div id="cp-results"></div>
           </div>
         </div>
