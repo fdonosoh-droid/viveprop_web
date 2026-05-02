@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd viveprop-platform/frontend && npm install && npm run build",
+  "outputDirectory": "viveprop-platform/frontend/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

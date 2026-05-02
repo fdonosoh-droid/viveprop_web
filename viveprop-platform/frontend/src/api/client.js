@@ -1,4 +1,5 @@
-const BASE = '/api';
+// En producción (Vercel) usar VITE_API_URL. En local el proxy de Vite redirige /api → backend
+const BASE = (import.meta.env.VITE_API_URL ?? '') + '/api';
 
 async function apiFetch(path) {
   const r = await fetch(BASE + path);

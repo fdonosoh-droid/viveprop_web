@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 
+const isVercel = process.env.VERCEL === '1';
+
 export default defineConfig({
   root: '.',
   publicDir: 'public',
   build: {
-    outDir: '../backend/static',
+    outDir: isVercel ? 'dist' : '../backend/static',
     emptyOutDir: true,
   },
   server: {
