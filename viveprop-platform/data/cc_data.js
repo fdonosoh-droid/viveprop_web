@@ -1,4 +1,4 @@
-// Generado por cc_importer.py — 2026-04-29 13:19
+// Generado por excel_to_js.py — 2026-05-01 22:00
 // Proyectos con condiciones: 77
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
@@ -201,10 +201,6 @@ const CC_DATA = {
         "10%"
       ],
       [
-        "Dcto Adicional",
-        "2% SurOriente"
-      ],
-      [
         "Giftcard",
         "-"
       ],
@@ -231,6 +227,10 @@ const CC_DATA = {
       [
         "Mutuo UPAGO",
         "No"
+      ],
+      [
+        "Dcto Adicional",
+        "2% SurOriente"
       ]
     ],
     "nota": ""
@@ -1280,12 +1280,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1322,12 +1322,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1364,12 +1364,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1406,16 +1406,16 @@ const CC_DATA = {
         "18"
       ],
       [
-        "Fecha ult. cuota",
-        "30/09/2027"
-      ],
-      [
         "Getnet (cuotas)",
         "53 (17+36)"
       ],
       [
         "Alt. pie 10%",
         "En 53 cuotas (5% en 17 + 5% en 36):\n17 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/09/2027"
       ],
       [
         "Descuento RVC",
@@ -1452,16 +1452,16 @@ const CC_DATA = {
         "12"
       ],
       [
-        "Fecha ult. cuota",
-        "31/03/2027"
-      ],
-      [
         "Getnet (cuotas)",
         "47 (11+36)"
       ],
       [
         "Alt. pie 10%",
         "En 47 cuotas (5% en 11 + 5% en 36):\n11 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
+      ],
+      [
+        "Fecha ult. cuota",
+        "31/03/2027"
       ],
       [
         "Descuento RVC",
@@ -1498,12 +1498,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1540,12 +1540,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1582,16 +1582,16 @@ const CC_DATA = {
         "3"
       ],
       [
-        "Fecha ult. cuota",
-        "30/06/2026"
-      ],
-      [
         "Getnet (cuotas)",
         "38 (2+36)"
       ],
       [
         "Alt. pie 10%",
         "En 38 cuotas (3% en 2 + 7% en 36):\n2 cuota + 1 cuoton final con getnet hasta en 36 cuotas"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/06/2026"
       ],
       [
         "Descuento RVC",
@@ -1628,12 +1628,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1670,12 +1670,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1712,12 +1712,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1754,12 +1754,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1796,12 +1796,12 @@ const CC_DATA = {
         "1"
       ],
       [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
         "Alt. pie 10%",
         "Pago con TC en 36 cuotas precio contado con getnet"
+      ],
+      [
+        "Fecha ult. cuota",
+        "30/04/2026"
       ],
       [
         "Descuento RVC",
@@ -1838,16 +1838,16 @@ const CC_DATA = {
         "4"
       ],
       [
-        "Fecha ult. cuota",
-        "31/07/2026"
-      ],
-      [
         "Getnet (cuotas)",
         "39 (3+36)"
       ],
       [
         "Alt. pie 10%",
         "En 39 cuotas (5% en 3 + 5% en 36):\n3 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
+      ],
+      [
+        "Fecha ult. cuota",
+        "31/07/2026"
       ],
       [
         "Descuento RVC",
@@ -2224,14 +2224,6 @@ const CC_DATA = {
         "204.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "4to Trimestre 2027"
       ],
@@ -2240,12 +2232,20 @@ const CC_DATA = {
         "20 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/12/2027"
-      ],
-      [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/12/2027"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS  (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 38 CUOTAS: 7% LAS PRIMERAS 20 CUOTAS CON TOKU + 3% EN 18 CUOTAS C/TC  A LA ESCRITURA  + 10% 24D + 80% CH · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
@@ -2340,10 +2340,6 @@ const CC_DATA = {
         "229.000"
       ],
       [
-        "Contra promesa",
-        "7.5%"
-      ],
-      [
         "Fecha escrituración",
         "Inmediata"
       ],
@@ -2354,6 +2350,10 @@ const CC_DATA = {
       [
         "Descuento máximo",
         "15%"
+      ],
+      [
+        "Contra promesa",
+        "7.5%"
       ]
     ],
     "nota": "PROMOCION 12D · PLAN ESPECIAL PIE 7,5% CONTRA PROMESA - 7,5 CONTRA ESCRITURA 18 C/TC + 5% 12D + 80% CH · OPORTUNIDAD BX TANDEM UF550"
@@ -2370,10 +2370,6 @@ const CC_DATA = {
         "209.000"
       ],
       [
-        "Contra promesa",
-        "2%"
-      ],
-      [
         "Fecha escrituración",
         "Inmediata"
       ],
@@ -2384,6 +2380,10 @@ const CC_DATA = {
       [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "Contra promesa",
+        "2%"
       ]
     ],
     "nota": "PROMOCION 24D (5% BONO PIE Y 10% BONO PIE SUJETO A TASACIÓN) · PLAN ESPECIAL PIE EN HASTA 27 CUOTAS: 2% CP + 1,5% EN HASTA 3 CUOTAS TOKU  + CUOTON 6,5% EN 24 C/TC + 24D + 80% CHIP · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · SIN ARRIENDO GARANTIZADO 1,8% DESCTO ADIC · ARRIENDO GARANTIZADO 2 AÑOS SOBRE MERCADO (REVISAR VALORES QUE APLICAN)"
@@ -2400,16 +2400,16 @@ const CC_DATA = {
         "220.000"
       ],
       [
+        "Descuento máximo",
+        "23% / 27%"
+      ],
+      [
         "% cuotas const.",
         "Desde 1%"
       ],
       [
         "Contra promesa",
         "1era cuota"
-      ],
-      [
-        "Descuento máximo",
-        "23% / 27%"
       ]
     ],
     "nota": "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ - 23% Y 24% MAXIMO CON AG · PROMOCION \"DESDE PIE 0\": 10% BONO PIE - 90% CHIP  (VTAS SIN $ CP, PAGO COMISION CONTRA ESCRITURA) · VENTA CON 90% CHIP Y FINANCIAMIENTO 5% CREDITU ESTA SUJETA A PRE-APROBACIÓN BCO Y CREDITU · ELIGE PROMOCION ADICIONAL: BONO DESCTO 3%  ó 5% CREDITU 60 MESES S/COSTO ó ARRIENDO GARANTIZADO NORMAL  2 AÑOS. · DEPTOS 1D Y 2D UNID SELECCIONADAS PRECIO FINAL: UF2.190 (1D) y UF2.790 (2D) (VER DETALLE DEPTOS HOJA ANEXA) (NO ACUMULA CON OTRAS PROMOC)"
@@ -2426,14 +2426,6 @@ const CC_DATA = {
         "222.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -2442,12 +2434,20 @@ const CC_DATA = {
         "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ],
-      [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/03/2028"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
@@ -2464,14 +2464,6 @@ const CC_DATA = {
         "228.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -2480,12 +2472,20 @@ const CC_DATA = {
         "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ],
-      [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/03/2028"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS  (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · SIN ARRIENDO GARANTIZADO 2% DESCTO ADICIONAL · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN · ARRIENDO GARANTIZADO SOBRE MERCADO 2 AÑOS INCLUIDO EN DESCTO MAX (REVISAR CONDICIONES Y VALORES QUE APLICAN)"
@@ -2502,14 +2502,6 @@ const CC_DATA = {
         "230.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Trimestre 2028"
       ],
@@ -2518,12 +2510,20 @@ const CC_DATA = {
         "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ],
-      [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/03/2028"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
@@ -2540,14 +2540,6 @@ const CC_DATA = {
         "203.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "01/06/2028"
       ],
@@ -2556,12 +2548,20 @@ const CC_DATA = {
         "36 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/06/2028"
-      ],
-      [
         "Descuento máximo",
         "15% / 20% / 5%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/06/2028"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 54 CUOTAS: 7% EN 36 CUOTAS CON TOKU + 3% EN 18 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CH · 4 CUPOS ESTAC PARA DEPTOS 2D1B // 4 CUPOS BODEGA PARA DEPT 1D1B · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto · PLAN PAGO PIE LOCALES: 5% CP 15% EN CUOTAS - 5% C/E  - 75% CRED F Grales"
@@ -2578,14 +2578,6 @@ const CC_DATA = {
         "208.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 5%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "1er Semestre 2027"
       ],
@@ -2594,12 +2586,20 @@ const CC_DATA = {
         "21 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/12/2027"
-      ],
-      [
         "Descuento máximo",
         "20%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 5%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/12/2027"
       ]
     ],
     "nota": "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ · PLAN ESPECIAL PIE EN HASTA 45 CUOTAS: 5% EN 21 CUOTAS CON TOKU + 5% CON 24 CUOTAS C/TC  A LA ESCRITURA  + 10% 24D + 80% CH · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
@@ -2616,14 +2616,6 @@ const CC_DATA = {
         "211.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
         "Fecha escrituración",
         "2do semestre 2028"
       ],
@@ -2632,12 +2624,20 @@ const CC_DATA = {
         "37 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/03/2029"
-      ],
-      [
         "Descuento máximo",
         "10% / 15%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 7%"
+      ],
+      [
+        "Contra promesa",
+        "1era cuota"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/03/2029"
       ]
     ],
     "nota": "PROMOCION 24 DIVIDENDOS (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 55 CUOTAS:  7% EN 37 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CH"
@@ -2654,14 +2654,6 @@ const CC_DATA = {
         "235.000"
       ],
       [
-        "% cuotas const.",
-        "13%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
-      ],
-      [
         "Fecha escrituración",
         "1er Semestre 2028"
       ],
@@ -2672,6 +2664,14 @@ const CC_DATA = {
       [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "13%"
+      ],
+      [
+        "Contra promesa",
+        "2%"
       ]
     ],
     "nota": "PAGO DEL PIE: 2% PROMESA + 13% EN 20 CUOTAS + 5% C/E ó 15% EN 21 CUOTAS + 5% C/E ó 10% EN 21 CUOTAS + 10% C/E + 80% CH · (5% BONO PIE)"
@@ -2688,14 +2688,6 @@ const CC_DATA = {
         "202.000"
       ],
       [
-        "% cuotas const.",
-        "Desde 8%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
-      ],
-      [
         "Fecha escrituración",
         "1er Semestre 2026"
       ],
@@ -2704,12 +2696,20 @@ const CC_DATA = {
         "2 cuotas TOKU / ó 36 cuotas sin interés tarjeta crédito (máx 20% del precio)(GETNET)"
       ],
       [
-        "Fecha máx. cuota",
-        "01/04/2026"
-      ],
-      [
         "Descuento máximo",
         "10%"
+      ],
+      [
+        "% cuotas const.",
+        "Desde 8%"
+      ],
+      [
+        "Contra promesa",
+        "2%"
+      ],
+      [
+        "Fecha máx. cuota",
+        "01/04/2026"
       ]
     ],
     "nota": "PLAN ESPECIAL PIE EN HASTA 38 CUOTAS: 2%CP + 8% EN 2 CUOTAS TOKU + 10% EN 36 C/TC CE + 80% CH"

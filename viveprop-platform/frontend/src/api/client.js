@@ -1,18 +1,17 @@
-// En producción (Vercel) usar VITE_API_URL. En local el proxy de Vite redirige /api → backend
-const BASE = (import.meta.env.VITE_API_URL ?? '') + '/api';
-
-async function apiFetch(path) {
-  const r = await fetch(BASE + path);
-  if (!r.ok) throw new Error(`API ${path}: ${r.status}`);
+async function fetchJson(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`Fetch ${url}: ${r.status}`);
   return r.json();
 }
 
 export const api = {
-  stock:      () => apiFetch('/stock'),
-  projects:   () => apiFetch('/projects'),
-  cc:         () => apiFetch('/cc'),
-  uf:         () => apiFetch('/uf'),
-  geocodes:   () => apiFetch('/geocodes'),
-  priGeo:     () => apiFetch('/pri-geocodes'),
-  reloadData: () => fetch(BASE + '/data/reload', { method: 'POST' }).then(r => r.json()),
+  stock:      () => fetchJson('/data/stock.json'),
+  projects:   () => fetchJson('/data/projects.json'),
+  cc:         () => fetchJson('/data/cc.json'),
+  uf:         () => fetch('https://mindicador.cl/api/uf')
+                      .then(r => r.json())
+                      .then(d => ({ valor: d.serie[0].valor, fecha: d.serie[0].fecha.slice(0, 10) })),
+  geocodes:   () => fetchJson('/data/geocodes.json'),
+  priGeo:     () => fetchJson('/data/pri_geocodes.json'),
+  reloadData: () => Promise.resolve({ ok: true }),
 };

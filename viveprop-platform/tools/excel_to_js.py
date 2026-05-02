@@ -15,7 +15,9 @@ try:
 except ImportError:
     sys.exit("Falta openpyxl. Instalá con: pip install openpyxl")
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR   = Path(__file__).parent.parent / "data"
+PUBLIC_DIR = Path(__file__).parent.parent / "frontend" / "public" / "data"
+PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def read_sheet(ws):
@@ -64,6 +66,7 @@ def excel_to_stock():
 
     out = DATA_DIR / "stock.js"
     out.write_text(to_js("STOCK", stock, f"Propiedades: {len(stock)}"), encoding="utf-8")
+    (PUBLIC_DIR / "stock.json").write_text(json.dumps(stock, ensure_ascii=False), encoding="utf-8")
     print(f"  → {out}  ({len(stock)} propiedades)")
 
 
@@ -140,6 +143,7 @@ def excel_to_projects():
         to_js("PROJECTS", projects, f"Proyectos: {len(projects)} | Unidades: {total_u}"),
         encoding="utf-8",
     )
+    (PUBLIC_DIR / "projects.json").write_text(json.dumps(projects, ensure_ascii=False), encoding="utf-8")
     print(f"  → {out}  ({len(projects)} proyectos, {total_u} unidades)")
 
 
@@ -180,7 +184,28 @@ def excel_to_cc_data():
         to_js("CC_DATA", cc_data, f"Proyectos con condiciones: {len(cc_data)}"),
         encoding="utf-8",
     )
+    (PUBLIC_DIR / "cc.json").write_text(json.dumps(cc_data, ensure_ascii=False), encoding="utf-8")
     print(f"  → {out}  ({len(cc_data)} proyectos)")
+
+
+# ─── GEOCODES ─────────────────────────────────────────────────────────────────
+
+def copy_geocodes():
+    """Copia geocodes.js y pri_geocodes.js como JSON a public/data/."""
+    import re
+    for src_name, dst_name in [("geocodes.js", "geocodes.json"), ("pri_geocodes.js", "pri_geocodes.json")]:
+        src = DATA_DIR / src_name
+        if not src.exists():
+            print(f"  (omitido: {src_name} no encontrado)")
+            continue
+        text = src.read_text(encoding="utf-8")
+        text = "\n".join(l for l in text.split("\n") if not l.strip().startswith("//"))
+        text = re.sub(r"^\s*const\s+\w+\s*=\s*", "", text.strip())
+        if text.rstrip().endswith(";"):
+            text = text.rstrip()[:-1]
+        data = json.loads(text)
+        (PUBLIC_DIR / dst_name).write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        print(f"  → {PUBLIC_DIR / dst_name}  ({len(data)} entradas)")
 
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
@@ -189,4 +214,5 @@ if __name__ == "__main__":
     excel_to_stock()
     excel_to_projects()
     excel_to_cc_data()
-    print("\nListo. Recargá el navegador para ver los cambios.")
+    copy_geocodes()
+    print("\nListo. Archivos JSON en frontend/public/data/ — hacé push para actualizar Vercel.")
