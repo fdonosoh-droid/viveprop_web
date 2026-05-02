@@ -119,7 +119,27 @@ def process_project(p: dict, manifest: dict, stats: dict):
     tipologias = []
     pdfs      = []
 
-    for f in sorted(proj_folder.iterdir()):
+    all_files = sorted(proj_folder.iterdir())
+
+    # Identificar galería candidata para aplicar el corte DataBrokers.
+    # Los brochures de Databrokers siempre terminan con 2 páginas de contacto
+    # (Agendamiento Visitas + página de contacto) como últimos img*.jpg del PDF.
+    galeria_candidates = [
+        f for f in all_files
+        if f.is_file() and f.suffix.lower() in IMAGE_EXTS
+        and f.name != portada_name
+        and classify_file(f.stem) == "galeria"
+    ]
+    # Excluir las últimas 2 imágenes de galería solo si son brochures DataBrokers.
+    # Los brochures DataBrokers usan img\d+.jpg; proyectos RVC usan nombres hash.
+    DB_TAIL = 2
+    all_are_imgN = all(re.match(r'^img\d+$', f.stem, re.IGNORECASE) for f in galeria_candidates)
+    if all_are_imgN and len(galeria_candidates) > DB_TAIL:
+        galeria_valid = set(f.name for f in galeria_candidates[:-DB_TAIL])
+    else:
+        galeria_valid = set(f.name for f in galeria_candidates)
+
+    for f in all_files:
         if not f.is_file():
             continue
         ext = f.suffix.lower()
@@ -139,6 +159,8 @@ def process_project(p: dict, manifest: dict, stats: dict):
         kind = classify_file(stem)
 
         if kind == "galeria":
+            if f.name not in galeria_valid:
+                continue  # página DataBrokers — omitir
             dst_f = dst_proj / f.name
             shutil.copy2(f, dst_f)
             galeria.append(f"/photos/pri/{pid}/{f.name}")
