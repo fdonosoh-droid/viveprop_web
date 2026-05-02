@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-01 23:25
+// Generado por excel_to_js.py — 2026-05-01 23:33
 // Proyectos con condiciones: 77
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
