@@ -49,6 +49,16 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 }
 .sb-home-btn:hover{background:#e03540}
 
+.btn-cancelar-cotiz{
+  display:flex;align-items:center;gap:5px;
+  height:28px;padding:0 11px;
+  background:var(--coral);border:none;border-radius:7px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:#fff;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+  transition:background .12s;
+}
+.btn-cancelar-cotiz:hover{background:#e03540}
+
 .sb-section{
   padding:14px 14px 5px;
   font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;

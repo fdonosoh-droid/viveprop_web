@@ -66,6 +66,16 @@ export function recalcCotizPanel() {
   }
 }
 
+export function cancelarCotizacion() {
+  _state = null
+  _recotizarMode = false
+  document.getElementById('cotiz-client-form').style.display = 'none'
+  document.getElementById('cotiz-params-step').style.display = 'none'
+  document.getElementById('cotiz-panel').style.display = 'none'
+  document.getElementById('cotiz-cascade').style.display = ''
+  window.openModule('sec')
+}
+
 export function volverDesdeCotiz() {
   const isSecundario = _state?.project?.id?.startsWith('sec-')
   const saved = !isSecundario && _state ? {
