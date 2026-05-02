@@ -846,7 +846,7 @@ function _buildPrintDoc(r, params) {
         <strong>Corredor:</strong> ${H(cliente.corNombre)} · ${H(cliente.corEmail)} · ${H(cliente.corTel)}
       </div>
       <div class="prd-disclaimer">
-        Cotización referencial — no constituye oferta formal de venta. Valores UF calculados al ${dateStr} (1 UF = ${fmt.pesos(r.valorUF)}). Los dividendos son estimaciones según escenarios de tasa CAE indicados y pueden variar según condiciones del banco y perfil del solicitante.
+        Esta cotización es referencial y ha sido elaborada para apoyarte en la evaluación de esta oportunidad inmobiliaria, considerando las condiciones comerciales vigentes informadas por la inmobiliaria a la fecha de emisión. La información aquí contenida es de carácter referencial y puede experimentar variaciones en valores, beneficios o condiciones comerciales según lo que finalmente defina la inmobiliaria para cada caso. Asimismo, los montos expresados en UF están sujetos a la variación del índice oficial publicado por el Banco Central de Chile, y las condiciones de financiamiento hipotecario dependerán de la evaluación y aprobación de la entidad financiera respectiva. Cotización emitida el ${dateStr}.
       </div>
     </div>
   </div>`
