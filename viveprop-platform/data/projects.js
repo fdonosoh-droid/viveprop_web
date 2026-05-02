@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-01 22:00
+// Generado por excel_to_js.py — 2026-05-01 23:25
 // Proyectos: 84 | Unidades: 10623
 const PROJECTS = [
   {
@@ -11,6 +11,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "140",
@@ -52,6 +55,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/INGEVEC(13)/SANTOS OSSA (STO)/SantosOssa_Card1.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "22",
@@ -119,8 +125,33 @@ const PROJECTS = [
     "direccion": "Manuel Antonio Tocornal 670",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/TOCORNAL (TOC) ENTREGA INMEDIATA/img75.jpg",
+    "foto_portada": "/photos/pri/proj_tocornal.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_tocornal/img76.jpg",
+      "/photos/pri/proj_tocornal/img77.jpg",
+      "/photos/pri/proj_tocornal/img78.jpg",
+      "/photos/pri/proj_tocornal/img79.jpg",
+      "/photos/pri/proj_tocornal/img80.jpg",
+      "/photos/pri/proj_tocornal/img81.jpg",
+      "/photos/pri/proj_tocornal/img82.jpg",
+      "/photos/pri/proj_tocornal/img83.jpg",
+      "/photos/pri/proj_tocornal/img84.jpg",
+      "/photos/pri/proj_tocornal/img85.jpg",
+      "/photos/pri/proj_tocornal/img86.jpg",
+      "/photos/pri/proj_tocornal/img87.jpg",
+      "/photos/pri/proj_tocornal/img88.jpg",
+      "/photos/pri/proj_tocornal/img89.jpg",
+      "/photos/pri/proj_tocornal/img90.jpg",
+      "/photos/pri/proj_tocornal/img91.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Tocornal.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "106",
@@ -1518,8 +1549,41 @@ const PROJECTS = [
     "direccion": "Avenida Vicuña Mackenna 1796",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VICUÑA MACKENNA 1796 (ÑUB) ENTREGA INMEDIATA/1D, 1B-33MT2.jpg",
+    "foto_portada": "/photos/pri/proj_vicuna-mackenna-1796.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_vicuna-mackenna-1796/img82.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img83.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img86.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img87.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img94.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img95.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img96.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "2D, 1B 44Mt2",
+        "src": "/photos/pri/proj_vicuna-mackenna-1796/2D, 1B-44MT2.jpg"
+      },
+      {
+        "label": "2D, 2B 48Mt2",
+        "src": "/photos/pri/proj_vicuna-mackenna-1796/2D, 2B-48MT2.jpg"
+      },
+      {
+        "label": "2D, 2B 52Mt2",
+        "src": "/photos/pri/proj_vicuna-mackenna-1796/2D, 2B-52MT2.jpg"
+      },
+      {
+        "label": "2D, 2B — 58 m²",
+        "src": "/photos/pri/proj_vicuna-mackenna-1796/2D,2B-58MT2.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Ñuble.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "212",
@@ -1645,6 +1709,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Santa Elisa(1)-ENTREGA INMEDIATA-SANTA ELISA 129, LA CISTERNA/Imágenes/fachada.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "68",
@@ -1714,6 +1781,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Santa Elisa(1)-ENTREGA INMEDIATA-SANTA ELISA 129, LA CISTERNA/Imágenes/fachada.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "4",
@@ -1991,8 +2061,46 @@ const PROJECTS = [
     "direccion": "San Diego 2381",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/CENTENARIO 1 (FKR) ENTREGA INMEDIATA/1D,1B.jpg",
+    "foto_portada": "/photos/pri/proj_centenario-i.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_centenario-i/img75.jpg",
+      "/photos/pri/proj_centenario-i/img76.jpg",
+      "/photos/pri/proj_centenario-i/img77.jpg",
+      "/photos/pri/proj_centenario-i/img78.jpg",
+      "/photos/pri/proj_centenario-i/img79.jpg",
+      "/photos/pri/proj_centenario-i/img80.jpg",
+      "/photos/pri/proj_centenario-i/img81.jpg",
+      "/photos/pri/proj_centenario-i/img82.jpg",
+      "/photos/pri/proj_centenario-i/img83.jpg",
+      "/photos/pri/proj_centenario-i/img89.jpg",
+      "/photos/pri/proj_centenario-i/img90.jpg",
+      "/photos/pri/proj_centenario-i/img91.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "2D, 2B — 52 m²",
+        "src": "/photos/pri/proj_centenario-i/2D,2B-52MT2.jpg"
+      },
+      {
+        "label": "2D,2D 44Mt2",
+        "src": "/photos/pri/proj_centenario-i/2D,2D-44MT2.jpg"
+      },
+      {
+        "label": "2D,2D 50Mt2",
+        "src": "/photos/pri/proj_centenario-i/2D,2D-50MT2.jpg"
+      },
+      {
+        "label": "Estudio",
+        "src": "/photos/pri/proj_centenario-i/ESTUDIO.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Centenario I.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "",
@@ -2984,8 +3092,38 @@ const PROJECTS = [
     "direccion": "Bellavista 7150",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/BELLAVISTA (BEL) ENTREGA INMEDIATA/1D,1B.jpg",
+    "foto_portada": "/photos/pri/proj_bellavista.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_bellavista/img67.jpg",
+      "/photos/pri/proj_bellavista/img68.jpg",
+      "/photos/pri/proj_bellavista/img69.jpg",
+      "/photos/pri/proj_bellavista/img70.jpg",
+      "/photos/pri/proj_bellavista/img71.jpg",
+      "/photos/pri/proj_bellavista/img72.jpg",
+      "/photos/pri/proj_bellavista/img73.jpg",
+      "/photos/pri/proj_bellavista/img74.jpg",
+      "/photos/pri/proj_bellavista/img75.jpg",
+      "/photos/pri/proj_bellavista/img79.jpg",
+      "/photos/pri/proj_bellavista/img80.jpg",
+      "/photos/pri/proj_bellavista/img81.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_bellavista/2D,1B.jpg"
+      },
+      {
+        "label": "Estudio",
+        "src": "/photos/pri/proj_bellavista/ESTUDIO.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Bellavista.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1909",
@@ -3067,8 +3205,32 @@ const PROJECTS = [
     "direccion": "Froilán Roa 5746",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/FROILAN ROA (ROA) ENTREGA INMEDIATA/img71.jpg",
+    "foto_portada": "/photos/pri/proj_froilan-roa.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_froilan-roa/img72.jpg",
+      "/photos/pri/proj_froilan-roa/img73.jpg",
+      "/photos/pri/proj_froilan-roa/img74.jpg",
+      "/photos/pri/proj_froilan-roa/img75.jpg",
+      "/photos/pri/proj_froilan-roa/img76.jpg",
+      "/photos/pri/proj_froilan-roa/img77.jpg",
+      "/photos/pri/proj_froilan-roa/img78.jpg",
+      "/photos/pri/proj_froilan-roa/img79.jpg",
+      "/photos/pri/proj_froilan-roa/img80.jpg",
+      "/photos/pri/proj_froilan-roa/img81.jpg",
+      "/photos/pri/proj_froilan-roa/img82.jpg",
+      "/photos/pri/proj_froilan-roa/img83.jpg",
+      "/photos/pri/proj_froilan-roa/img84.jpg",
+      "/photos/pri/proj_froilan-roa/img85.jpg",
+      "/photos/pri/proj_froilan-roa/img86.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Froilan Roa.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "33",
@@ -3724,8 +3886,30 @@ const PROJECTS = [
     "direccion": "Los Alerces 3254",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/LOS ALERCES (ALE) ENTREGA INMEDIATA/img63.jpg",
+    "foto_portada": "/photos/pri/proj_los-alerces.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_los-alerces/img64.jpg",
+      "/photos/pri/proj_los-alerces/img65.jpg",
+      "/photos/pri/proj_los-alerces/img66.jpg",
+      "/photos/pri/proj_los-alerces/img67.jpg",
+      "/photos/pri/proj_los-alerces/img68.jpg",
+      "/photos/pri/proj_los-alerces/img69.jpg",
+      "/photos/pri/proj_los-alerces/img70.jpg",
+      "/photos/pri/proj_los-alerces/img71.jpg",
+      "/photos/pri/proj_los-alerces/img72.jpg",
+      "/photos/pri/proj_los-alerces/img73.jpg",
+      "/photos/pri/proj_los-alerces/img74.jpg",
+      "/photos/pri/proj_los-alerces/img75.jpg",
+      "/photos/pri/proj_los-alerces/img76.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Los Alerces.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "108",
@@ -3863,10 +4047,13 @@ const PROJECTS = [
     "direccion": "Av. Cinco 2951",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Alto Buzeta/IMAGENES/Brochure_Alto_Buzeta_pages-to-jpg-0001.jpg",
+    "foto_portada": "/photos/pri/proj_alto-buzeta-mt.jpg",
     "amenidades": [
       "E - 15"
     ],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "12",
@@ -7644,8 +7831,30 @@ const PROJECTS = [
     "direccion": "Avenida Vicuña Mackenna 7589",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VICUÑA MACKENNA 7589-PARTE 1 (VIC) 2DO SEMESTRE DE 2027/img63.jpg",
+    "foto_portada": "/photos/pri/proj_vicuna-mackenna-7589-i.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img64.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img65.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img66.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img67.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img68.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img69.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img70.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img71.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img72.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img73.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img74.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img75.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-i/img76.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Vicuña Mackenna 7589 Etapa I.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "205",
@@ -9183,8 +9392,30 @@ const PROJECTS = [
     "direccion": "Av. Fermín Vivaceta 864",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VIVACETA (VTA) 2DO SEMESTRE 2027/img63.jpg",
+    "foto_portada": "/photos/pri/proj_vivaceta.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_vivaceta/img64.jpg",
+      "/photos/pri/proj_vivaceta/img65.jpg",
+      "/photos/pri/proj_vivaceta/img66.jpg",
+      "/photos/pri/proj_vivaceta/img67.jpg",
+      "/photos/pri/proj_vivaceta/img68.jpg",
+      "/photos/pri/proj_vivaceta/img69.jpg",
+      "/photos/pri/proj_vivaceta/img70.jpg",
+      "/photos/pri/proj_vivaceta/img71.jpg",
+      "/photos/pri/proj_vivaceta/img72.jpg",
+      "/photos/pri/proj_vivaceta/img73.jpg",
+      "/photos/pri/proj_vivaceta/img74.jpg",
+      "/photos/pri/proj_vivaceta/img75.jpg",
+      "/photos/pri/proj_vivaceta/img76.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Vivaceta.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "114",
@@ -13438,8 +13669,29 @@ const PROJECTS = [
     "direccion": "Avenida Vicuña Mackenna 7589",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VICUÑA MACKENNA7589-PARTE 2 (VIC2) 2DO SEMESTRE 2027/img59.jpg",
+    "foto_portada": "/photos/pri/proj_vicuna-mackenna-7589-ii.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img60.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img61.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img62.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img63.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img64.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img65.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img66.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img67.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img68.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img69.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img70.jpg",
+      "/photos/pri/proj_vicuna-mackenna-7589-ii/img71.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Vicuña Mackenna 7589 Etapa II.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "216",
@@ -14949,8 +15201,16 @@ const PROJECTS = [
     "direccion": "Diagonal Paraguay 240",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/DIAGONAL PARAGUAY (DPY)/DP_Fachada_Vista_01.jpg",
+    "foto_portada": "/photos/pri/proj_diagonal-paraguay.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_DiagonalParaguay_2026.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "101",
@@ -15396,8 +15656,35 @@ const PROJECTS = [
     "direccion": "Camino los Ingleses 715",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VALLE LOS INGLESES (ING) ENTREGA INMEDIATA/img15.jpg",
+    "foto_portada": "/photos/pri/proj_valle-los-ingleses.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_valle-los-ingleses/img16.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img27.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img34.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img347.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img4.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img44.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img50.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img52.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img53.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img54.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img55.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img56.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img68.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img76.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img84.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img88.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img93.jpg",
+      "/photos/pri/proj_valle-los-ingleses/img97.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Valle Los Ingleses.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1804",
@@ -17019,8 +17306,45 @@ const PROJECTS = [
     "direccion": "Abdón Cifuentes 90",
     "entrega": "1er semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/ABDON CIFUENTES (ABD) ENTREGA INMEDIATA/1D,1B.jpg",
+    "foto_portada": "/photos/pri/proj_abdon-cifuentes.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_abdon-cifuentes/img70.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img75.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img76.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img77.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img78.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img79.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img80.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img81.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img82.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img83.jpg",
+      "/photos/pri/proj_abdon-cifuentes/img84.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "2D, 2B — 46 m²",
+        "src": "/photos/pri/proj_abdon-cifuentes/2D,2B-46MT2.jpg"
+      },
+      {
+        "label": "2D, 2B — 52 m²",
+        "src": "/photos/pri/proj_abdon-cifuentes/2D,2B-52MT2.jpg"
+      },
+      {
+        "label": "Estudio",
+        "src": "/photos/pri/proj_abdon-cifuentes/ESTUDIO.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers ABD.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "Brochure Databrokers Abdón Cifuentes.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "509",
@@ -18054,8 +18378,34 @@ const PROJECTS = [
     "direccion": "Avenida Manuel Rodríguez 701",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/DON IGNACIO (DOM) 2DO SEMESTRE 2028/img82.jpg",
+    "foto_portada": "/photos/pri/proj_don-ignacio.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_don-ignacio/img83.jpg",
+      "/photos/pri/proj_don-ignacio/img84.jpg",
+      "/photos/pri/proj_don-ignacio/img85.jpg",
+      "/photos/pri/proj_don-ignacio/img86.jpg",
+      "/photos/pri/proj_don-ignacio/img87.jpg",
+      "/photos/pri/proj_don-ignacio/img88.jpg",
+      "/photos/pri/proj_don-ignacio/img89.jpg",
+      "/photos/pri/proj_don-ignacio/img90.jpg",
+      "/photos/pri/proj_don-ignacio/img91.jpg",
+      "/photos/pri/proj_don-ignacio/img92.jpg",
+      "/photos/pri/proj_don-ignacio/img93.jpg",
+      "/photos/pri/proj_don-ignacio/img94.jpg",
+      "/photos/pri/proj_don-ignacio/img95.jpg",
+      "/photos/pri/proj_don-ignacio/img96.jpg",
+      "/photos/pri/proj_don-ignacio/img97.jpg",
+      "/photos/pri/proj_don-ignacio/img98.jpg",
+      "/photos/pri/proj_don-ignacio/img99.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Don Ignacio.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "105",
@@ -20629,8 +20979,30 @@ const PROJECTS = [
     "direccion": "Avenida Vicuña Mackenna poniente 6988",
     "entrega": "1er semestre 2029",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/LOS ALERCES (ALE) ENTREGA INMEDIATA/img63.jpg",
+    "foto_portada": "/photos/pri/proj_los-lilenes.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_los-lilenes/img64.jpg",
+      "/photos/pri/proj_los-lilenes/img65.jpg",
+      "/photos/pri/proj_los-lilenes/img66.jpg",
+      "/photos/pri/proj_los-lilenes/img67.jpg",
+      "/photos/pri/proj_los-lilenes/img68.jpg",
+      "/photos/pri/proj_los-lilenes/img69.jpg",
+      "/photos/pri/proj_los-lilenes/img70.jpg",
+      "/photos/pri/proj_los-lilenes/img71.jpg",
+      "/photos/pri/proj_los-lilenes/img72.jpg",
+      "/photos/pri/proj_los-lilenes/img73.jpg",
+      "/photos/pri/proj_los-lilenes/img74.jpg",
+      "/photos/pri/proj_los-lilenes/img75.jpg",
+      "/photos/pri/proj_los-lilenes/img76.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Los Alerces.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "101",
@@ -24254,8 +24626,30 @@ const PROJECTS = [
     "direccion": "Ecuador 420",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/CORONEL GODOY (GOD) 2DO SEMESTRE 2028/img63.jpg",
+    "foto_portada": "/photos/pri/proj_coronel-godoy.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_coronel-godoy/img64.jpg",
+      "/photos/pri/proj_coronel-godoy/img65.jpg",
+      "/photos/pri/proj_coronel-godoy/img66.jpg",
+      "/photos/pri/proj_coronel-godoy/img67.jpg",
+      "/photos/pri/proj_coronel-godoy/img68.jpg",
+      "/photos/pri/proj_coronel-godoy/img69.jpg",
+      "/photos/pri/proj_coronel-godoy/img70.jpg",
+      "/photos/pri/proj_coronel-godoy/img71.jpg",
+      "/photos/pri/proj_coronel-godoy/img72.jpg",
+      "/photos/pri/proj_coronel-godoy/img73.jpg",
+      "/photos/pri/proj_coronel-godoy/img74.jpg",
+      "/photos/pri/proj_coronel-godoy/img75.jpg",
+      "/photos/pri/proj_coronel-godoy/img76.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Coronel Godoy.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "103",
@@ -26523,6 +26917,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/INGEVEC(13)/NUEVA ESMERALDA (NES)/Fachada nueva esmeralda.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "1",
@@ -31632,6 +32029,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/INGEVEC(13)/VESPUCIO CAPITAL (VES)/fachada2.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "201",
@@ -33239,8 +33639,16 @@ const PROJECTS = [
     "direccion": "El Aromo 6725",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/EL AROMO (ARO)/ELA_Perspectiva_02.jpg",
+    "foto_portada": "/photos/pri/proj_el-aromo.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_ElAromo_2026.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "4",
@@ -35548,8 +35956,16 @@ const PROJECTS = [
     "direccion": "Brasil 1290",
     "entrega": "1er semestre 2029",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/BRASIL (BRA)/BB_Fachada_v01 (4K).jpg",
+    "foto_portada": "/photos/pri/proj_brasil.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Brasil_2026.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "218",
@@ -41763,8 +42179,16 @@ const PROJECTS = [
     "direccion": "Avenida España 422",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/TERRAZZO (TER)/GE_Fachada_Noche (3).jpg",
+    "foto_portada": "/photos/pri/proj_terrazzo.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Terrazzo%20(1).pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "",
@@ -48146,8 +48570,28 @@ const PROJECTS = [
     "direccion": "Av Manuel Antonia Matta 16",
     "entrega": "1er semestre 2029",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Ciudad Matta(5)-ENTREGA FUTURA-AV. MANUEL ANTONIO MATTA N°725, SANTIAGO/Ciudad Matta Fachada.jpg",
+    "foto_portada": "/photos/pri/proj_matta.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Ciudad Matta brochure correo.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "Ciudad Matta Mobile.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "EETT CIUDAD MATTA.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "Folleto Ciudad Matta.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "620",
@@ -50331,6 +50775,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "103",
@@ -52036,8 +52483,16 @@ const PROJECTS = [
     "direccion": "Oficial Agustín Almarza 126",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Caceres/Brochure_Caceres_portada.jpg",
+    "foto_portada": "/photos/pri/proj_caceres.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Caceres.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "6",
@@ -53337,8 +53792,16 @@ const PROJECTS = [
     "direccion": "General Mackenna 1133",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/General Mackenna/Brochure_General-Mackenna_portada.jpg",
+    "foto_portada": "/photos/pri/proj_general-mackenna.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_General-Mackenna.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1",
@@ -56710,9 +57173,17 @@ const PROJECTS = [
     "direccion": "Coronel Alvarado 2505",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Jardines de Alvarado/Brochure_Jardines_De_Alvarado_portada.jpg",
+    "foto_portada": "/photos/pri/proj_jardines-de-alvarado.jpg",
     "amenidades": [
       "E - 303"
+    ],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Jardines_De_Alvarado.pdf",
+        "path": ""
+      }
     ],
     "unidades": [
       {
@@ -60463,9 +60934,17 @@ const PROJECTS = [
     "direccion": "Mapocho 3935",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Mirador Mapocho/Brochure_Mirador_Mapocho_portada.jpg",
+    "foto_portada": "/photos/pri/proj_mirador-mapocho.jpg",
     "amenidades": [
       "E - 75 B"
+    ],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Mirador_Mapocho.pdf",
+        "path": ""
+      }
     ],
     "unidades": [
       {
@@ -62872,8 +63351,16 @@ const PROJECTS = [
     "direccion": "Pintor Cicarelli 288",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Pintor Cicarelli I/Brochure_Cicarelli_I_portada.jpg",
+    "foto_portada": "/photos/pri/proj_pintor-cicarelli-i-pc-i.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Cicarelli_I.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "2",
@@ -68527,8 +69014,16 @@ const PROJECTS = [
     "direccion": "Pintor Cicarelli 268",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Pintor Cicarelli II/Brochure_Cicarelli_II_portada.jpg",
+    "foto_portada": "/photos/pri/proj_pintor-cicarelli-ii.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Cicarelli_II.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "418",
@@ -69380,8 +69875,16 @@ const PROJECTS = [
     "direccion": "Chile España 8141",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Plaza Cervantes I y II/Brochure_Plaza_Cervantes-I-y-II_portada.jpg",
+    "foto_portada": "/photos/pri/proj_plaza-cervantes-i.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Plaza_Cervantes-I-y-II.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "4",
@@ -69715,8 +70218,16 @@ const PROJECTS = [
     "direccion": "Chile España 8141",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Plaza Cervantes I y II/Brochure_Plaza_Cervantes-I-y-II_portada.jpg",
+    "foto_portada": "/photos/pri/proj_plaza-cervantes-ii.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Plaza_Cervantes-I-y-II.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1",
@@ -70008,8 +70519,16 @@ const PROJECTS = [
     "direccion": "Américo Vespucio 1456",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Plaza Quilicura/Brochure_Plaza_Quilicura_portada.jpg",
+    "foto_portada": "/photos/pri/proj_plaza-quilicura.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Plaza_Quilicura.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "2",
@@ -71099,8 +71618,16 @@ const PROJECTS = [
     "direccion": "Serrano 53",
     "entrega": "1er semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Serrano/Brochure_Serrano_portada.jpg",
+    "foto_portada": "/photos/pri/proj_serrano-torre-a.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Serrano.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1",
@@ -77370,8 +77897,18 @@ const PROJECTS = [
     "direccion": "Av. Lo Espejo 01173",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/TRINIDAD RAMIREZ (TRR)/284af-tr-fachada-convierta-modal.jpg",
+    "foto_portada": "/photos/pri/proj_trinidad-iii.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_trinidad-iii/54535-92e6c-espacioscomunes-tr-convierta-quincho.jpg",
+      "/photos/pri/proj_trinidad-iii/581ae-tr-fachada-convierta-caracteristica.jpg",
+      "/photos/pri/proj_trinidad-iii/8598e-3c9be-espacioscomunes-tr-convierta-cowork2.jpg",
+      "/photos/pri/proj_trinidad-iii/c43ad-espacioscomunes-tr-convierta-hall2.jpg",
+      "/photos/pri/proj_trinidad-iii/d29a1-espacioscomunes-tr-convierta_sum3.jpg",
+      "/photos/pri/proj_trinidad-iii/edc70-5fb54-espacioscomunes-tr-convierta-gimnasio.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "32",
@@ -77495,8 +78032,16 @@ const PROJECTS = [
     "direccion": "Juana Atala De Hirmas 601",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Vista Costanera/Brochure_Vista_Costanera_portada.jpg",
+    "foto_portada": "/photos/pri/proj_vista-costanera.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Vista_Costanera.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "201",
@@ -78306,8 +78851,16 @@ const PROJECTS = [
     "direccion": "Las Heras Poniente 77",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Vista Llacolén/Brochure_Vista_Llacolen_portada.jpg",
+    "foto_portada": "/photos/pri/proj_vista-llacolen-a.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Vista_Llacolen.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "104",
@@ -82687,8 +83240,16 @@ const PROJECTS = [
     "direccion": "Las Heras Poniente 77",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Vista Llacolén/Brochure_Vista_Llacolen_portada.jpg",
+    "foto_portada": "/photos/pri/proj_vista-llacolen-b2.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Vista_Llacolen.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "405",
@@ -84282,8 +84843,16 @@ const PROJECTS = [
     "direccion": "Francisco Bilbao 85",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/Vista Reloncaví/Brochure_Vista_Reloncavi_portada.jpg",
+    "foto_portada": "/photos/pri/proj_vista-reloncavi.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure_Vista_Reloncavi.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "101",
@@ -86003,9 +86572,17 @@ const PROJECTS = [
     "direccion": "Baquedano 802",
     "entrega": "2do semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/MAESTRA INMOBILIARIA(15)/VistaMar/PRESENTACION-VISTAMAR-1_portada.jpg",
+    "foto_portada": "/photos/pri/proj_vistamar.jpg",
     "amenidades": [
       "E - 70"
+    ],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "PRESENTACION-VISTAMAR-1.pdf",
+        "path": ""
+      }
     ],
     "unidades": [
       {
@@ -90570,6 +91147,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "1",
@@ -95845,8 +96425,21 @@ const PROJECTS = [
     "direccion": "Pedro de la Barra 1732",
     "entrega": "2° Semestre 2026",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/PEDRO DE LA BARRA (PDB)/0647e-interiores-pdb-convierta-living2.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-pedro-de-la-barra.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-pedro-de-la-barra/13d74-eecc-pdb-convierta-gym.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/19084-eecc-pdb-convierta-sum.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/269a8-eecc-pdb-convierta-hall.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/3d952-eecc-pdb-convierta-cowork2.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/53a25-eecc-pdb-convierta-quinchos.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/659e3-perspectiva-pdb-convierta-fondo.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/6e13d-eecc-pdb-convierta-terraza.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/d7bda-interiores-pdb-convierta-dorm.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/e27bf-pdb-slide-nuevopilotos-desk.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "413",
@@ -98000,8 +98593,21 @@ const PROJECTS = [
     "direccion": "Coronel Souper 4438",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/FRANCISCO ZELADA TORRE A (FZA)/17daf-pilotos-fz-convierta-fondo-dorm2.jpg",
+    "foto_portada": "/photos/pri/proj_condominio-francisco-zelada-torre-a.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/1da89-eecc-fz-convierta-gym.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/409de-eecc-fz-convierta-sum.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/45b8b-eecc-fz-convierta-hall.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/9d745-pilotos-fz-convierta-fondo-living.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/9f87e-eecc-fz-convierta-cowork.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/a7766-fz-perspectiva-galeria-modal.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/d690d-eecc-fz-convierta-quincho.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/d86c3-pilotos-fz-convierta-fondo-terraza.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/ece77-fz-perspectiva-galeria-fondo.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "1212",
@@ -102059,8 +102665,23 @@ const PROJECTS = [
     "direccion": "Guillermo Mann 1751",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/GUILLERMO MANN (GUM)/6b5be-gm-fachada-convierta-galeria-modal.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-guillermo-mann.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-guillermo-mann/072bb-eecc-gm-convierta-salongourmet2.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/12234-eecc-gm-convierta-salongourmet6.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/7ec2f-eecc-gm-convierta-salongourmet1.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/870a7-gm-fachada-convierta-galeria-modal2.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/8dbc8-eecc-gm-convierta-salongourmet4.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/ba1d4-96a1c-slides-ultimos-deptos-gm-desk.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/c502c-eecc-gm-convierta-salongourmet5.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/d2a53-eecc-gm-convierta-salongourmet3.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/d81c1-gm-fachada-convierta-caracteristicas.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/d8bb8-gm-fachada-convierta-galeria-fondo2.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/f102d-gm-fachada-convierta-galeria-fondo.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "311",
@@ -102422,8 +103043,23 @@ const PROJECTS = [
     "direccion": "#N/A",
     "entrega": "#N/A",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/PARQUE MARANON TORRE A (PMA)/0cadb-exterior-parquemaranon-convierta-salaestudio.jpg",
+    "foto_portada": "/photos/pri/proj_parque-maranon-torre-a.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_parque-maranon-torre-a/15fe0-exterior-parquemaranon-convierta-sum.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/1d13b-perspectiva-pm-torrea-convierta-fondo.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/354f4-exterior-parquemaranon-convierta-quinchos2.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/45e7c-exterior-parquemaranon-convierta-accesos.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/570d0-exterior-parquemaranon-convierta-gym2.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/9d001-perspectiva-pm-torrea-convierta-modal.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/9e53b-exterior-parquemaranon-convierta-accesos2.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/a18e8-exterior-parquemaranon-convierta-sum2.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/ce6bf-exterior-parquemaranon-convierta-gym.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/d64ff-exterior-parquemaranon-convierta-quinchos.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/dd07a-perspectiva-pm-torrea-convierta-500x450.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "163",
@@ -103907,6 +104543,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "9",
@@ -104212,8 +104851,17 @@ const PROJECTS = [
     "direccion": "Av. Lo Espejo 145",
     "entrega": "2° Semestre 2025",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/PARQUE DEL SUR TORRE A (PSA)/1411f-pds-perspectiva-modal.jpg",
+    "foto_portada": "/photos/pri/proj_condominio-parque-del-sur-torre-a.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/2092d-pds-perspectiva-fondo.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/39b53-eecc-pds-convierta-sum4.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/7210c-eecc-pds-convierta-gym2.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/74b6f-eecc-pds-convierta-hall2.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/c6e06-eecc-pds-convierta-quincho3.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "211",
@@ -106271,6 +106919,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/RVC(4)/FRANCISCO ZELADA TORRE B (FZB)/0390a-persp-zelada.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "201",
@@ -109264,8 +109915,23 @@ const PROJECTS = [
     "direccion": "Coronel Souper 4438",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/CORONEL SOUPER (COS)/a66bc-cs-fachada-convierta-galeria-modal.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-coronel-souper.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-coronel-souper/0f797-slide-subsidio-rvc-desk.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/28bd3-pilotos-7.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/2b1c4-pilotos-10.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/3a27c-1920x518-3-100.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/3aeaf-cs-sum_portal-1920x518-198-kb-.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/68135-1920x518-2-100.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/6a56c-1920x518-1-100.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/7a369-1920x518-5-100.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/a979a-pilotos-8.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/d4027-cs-sum_portal-1920x518-2-197-kb-.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/ef339-cs-fachada-convierta-caracteristicas.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "306",
@@ -109291,8 +109957,18 @@ const PROJECTS = [
     "direccion": "Castillo Urizar 1845",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/CASTILLO URIZAR (CUR)/11cbe-exterior-cu-convierta-hall-modal.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-castillo-urizar.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-castillo-urizar/56b40-exterior-cu-convierta-gym-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/7fb76-cu-fachada-convierta-caracteristicas.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/81cb8-cu-fachada-convierta-galeria-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/9867e-exterior-cu-convierta-quincho-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/b758b-exterior-cu-convierta-sum3-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/cb606-exterior-cu-convierta-cowork-modal.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "229",
@@ -109346,8 +110022,18 @@ const PROJECTS = [
     "direccion": "Trinidad Ramirez 24",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/TRINIDAD RAMIREZ (TRR)/284af-tr-fachada-convierta-modal.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-trinidad-ramirez.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-trinidad-ramirez/54535-92e6c-espacioscomunes-tr-convierta-quincho.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/581ae-tr-fachada-convierta-caracteristica.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/8598e-3c9be-espacioscomunes-tr-convierta-cowork2.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/c43ad-espacioscomunes-tr-convierta-hall2.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/d29a1-espacioscomunes-tr-convierta_sum3.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/edc70-5fb54-espacioscomunes-tr-convierta-gimnasio.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "1111",
@@ -109443,8 +110129,23 @@ const PROJECTS = [
     "direccion": "Lia Aguirre 155",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/LIA AGUIRRE (LAG)/01285-la-fachada-convierta-galeria-fondo.jpg",
+    "foto_portada": "/photos/pri/proj_edificio-lia-aguirre.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_edificio-lia-aguirre/2c5ba-exteriores-la-fondo-convierta-fondo-cowork2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/5c4fd-exteriores-la-fondo-convierta-fondo-hallacceso2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/628d8-exteriores-la-fondo-convierta-fondo-sum1.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/784a5-exteriores-la-fondo-convierta-fondo-hallacceso.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/8e14b-exteriores-la-fondo-convierta-fondo-cowork.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/8e309-la-fachada-convierta-galeria-fondo2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/91fa1-exteriores-la-fondo-convierta-fondo-sum3.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/988df-la-fachada-convierta-caracsteristicas2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/b768f-exteriores-la-fondo-convierta-fondo-sum2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/c9e3d-la-fachada-convierta-galeria-modal.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/d62dc-la-fachada-convierta-galeria-modal2.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "403",
@@ -110044,8 +110745,42 @@ const PROJECTS = [
     "direccion": "Av. Blanca Estela 2239",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/BLANCA ESTELA 1 (BLAES1) ENTREGA INMEDIATA/img101.jpg",
+    "foto_portada": "/photos/pri/proj_blanca-estela-i-torre-a.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_blanca-estela-i-torre-a/img105.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img12.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img16.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img189.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img20.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img24.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img28.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img32.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img36.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img4.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img40.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img44.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img48.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img52.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img56.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img60.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img64.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img68.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img72.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img76.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img8.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img81.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img86.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img91.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-a/img96.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Blanca Estela.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "203",
@@ -110225,8 +110960,42 @@ const PROJECTS = [
     "direccion": "Av. Blanca Estela 2239",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/BLANCA ESTELA 1 (BLAES1) ENTREGA INMEDIATA/img101.jpg",
+    "foto_portada": "/photos/pri/proj_blanca-estela-i-torre-b.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_blanca-estela-i-torre-b/img105.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img12.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img16.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img189.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img20.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img24.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img28.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img32.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img36.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img4.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img40.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img44.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img48.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img52.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img56.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img60.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img64.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img68.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img72.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img76.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img8.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img81.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img86.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img91.jpg",
+      "/photos/pri/proj_blanca-estela-i-torre-b/img96.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Blanca Estela.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "94",
@@ -111106,8 +111875,41 @@ const PROJECTS = [
     "direccion": "Sendero Norte 50",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/RVC(4)/ALTO MARAÑON 3 (ALMAR3) ENTREGA INMEDIATA/img12.jpg",
+    "foto_portada": "/photos/pri/proj_alto-maranon-3.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_alto-maranon-3/img16.jpg",
+      "/photos/pri/proj_alto-maranon-3/img178.jpg",
+      "/photos/pri/proj_alto-maranon-3/img20.jpg",
+      "/photos/pri/proj_alto-maranon-3/img24.jpg",
+      "/photos/pri/proj_alto-maranon-3/img28.jpg",
+      "/photos/pri/proj_alto-maranon-3/img32.jpg",
+      "/photos/pri/proj_alto-maranon-3/img36.jpg",
+      "/photos/pri/proj_alto-maranon-3/img4.jpg",
+      "/photos/pri/proj_alto-maranon-3/img40.jpg",
+      "/photos/pri/proj_alto-maranon-3/img44.jpg",
+      "/photos/pri/proj_alto-maranon-3/img48.jpg",
+      "/photos/pri/proj_alto-maranon-3/img52.jpg",
+      "/photos/pri/proj_alto-maranon-3/img56.jpg",
+      "/photos/pri/proj_alto-maranon-3/img60.jpg",
+      "/photos/pri/proj_alto-maranon-3/img64.jpg",
+      "/photos/pri/proj_alto-maranon-3/img68.jpg",
+      "/photos/pri/proj_alto-maranon-3/img72.jpg",
+      "/photos/pri/proj_alto-maranon-3/img77.jpg",
+      "/photos/pri/proj_alto-maranon-3/img8.jpg",
+      "/photos/pri/proj_alto-maranon-3/img82.jpg",
+      "/photos/pri/proj_alto-maranon-3/img86.jpg",
+      "/photos/pri/proj_alto-maranon-3/img91.jpg",
+      "/photos/pri/proj_alto-maranon-3/img95.jpg",
+      "/photos/pri/proj_alto-maranon-3/img99.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers Alto Marañon 3.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "302",
@@ -111525,8 +112327,45 @@ const PROJECTS = [
     "direccion": "Isidoro Errazuriz 2315",
     "entrega": "2do semestre 2025",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/PLAY (VENTA EN VERDE)/img100.jpg",
+    "foto_portada": "/photos/pri/proj_play.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_play/img104.jpg",
+      "/photos/pri/proj_play/img108.jpg",
+      "/photos/pri/proj_play/img112.jpg",
+      "/photos/pri/proj_play/img12.jpg",
+      "/photos/pri/proj_play/img16.jpg",
+      "/photos/pri/proj_play/img194.jpg",
+      "/photos/pri/proj_play/img20.jpg",
+      "/photos/pri/proj_play/img24.jpg",
+      "/photos/pri/proj_play/img28.jpg",
+      "/photos/pri/proj_play/img32.jpg",
+      "/photos/pri/proj_play/img36.jpg",
+      "/photos/pri/proj_play/img4.jpg",
+      "/photos/pri/proj_play/img40.jpg",
+      "/photos/pri/proj_play/img44.jpg",
+      "/photos/pri/proj_play/img48.jpg",
+      "/photos/pri/proj_play/img52.jpg",
+      "/photos/pri/proj_play/img56.jpg",
+      "/photos/pri/proj_play/img60.jpg",
+      "/photos/pri/proj_play/img64.jpg",
+      "/photos/pri/proj_play/img68.jpg",
+      "/photos/pri/proj_play/img72.jpg",
+      "/photos/pri/proj_play/img76.jpg",
+      "/photos/pri/proj_play/img8.jpg",
+      "/photos/pri/proj_play/img80.jpg",
+      "/photos/pri/proj_play/img84.jpg",
+      "/photos/pri/proj_play/img88.jpg",
+      "/photos/pri/proj_play/img92.jpg",
+      "/photos/pri/proj_play/img96.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers PLAY.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "209",
@@ -113960,8 +114799,39 @@ const PROJECTS = [
     "direccion": "Avenida Ossa 480",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/FAM LA CISTERNA (ENTREGA INMEDIATA)/img12.jpg",
+    "foto_portada": "/photos/pri/proj_fam.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_fam/img157.jpg",
+      "/photos/pri/proj_fam/img16.jpg",
+      "/photos/pri/proj_fam/img20.jpg",
+      "/photos/pri/proj_fam/img24.jpg",
+      "/photos/pri/proj_fam/img28.jpg",
+      "/photos/pri/proj_fam/img32.jpg",
+      "/photos/pri/proj_fam/img36.jpg",
+      "/photos/pri/proj_fam/img4.jpg",
+      "/photos/pri/proj_fam/img40.jpg",
+      "/photos/pri/proj_fam/img44.jpg",
+      "/photos/pri/proj_fam/img48.jpg",
+      "/photos/pri/proj_fam/img52.jpg",
+      "/photos/pri/proj_fam/img56.jpg",
+      "/photos/pri/proj_fam/img60.jpg",
+      "/photos/pri/proj_fam/img64.jpg",
+      "/photos/pri/proj_fam/img68.jpg",
+      "/photos/pri/proj_fam/img72.jpg",
+      "/photos/pri/proj_fam/img76.jpg",
+      "/photos/pri/proj_fam/img8.jpg",
+      "/photos/pri/proj_fam/img80.jpg",
+      "/photos/pri/proj_fam/img84.jpg",
+      "/photos/pri/proj_fam/img88.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "FAM LA CISTERNA.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "",
@@ -114351,8 +115221,41 @@ const PROJECTS = [
     "direccion": "Avenida Vicuña Mackenna 8597",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/LINE (ENTREGA INMEDIATA)/img12.jpg",
+    "foto_portada": "/photos/pri/proj_line.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_line/img16.jpg",
+      "/photos/pri/proj_line/img169.jpg",
+      "/photos/pri/proj_line/img20.jpg",
+      "/photos/pri/proj_line/img24.jpg",
+      "/photos/pri/proj_line/img28.jpg",
+      "/photos/pri/proj_line/img32.jpg",
+      "/photos/pri/proj_line/img36.jpg",
+      "/photos/pri/proj_line/img4.jpg",
+      "/photos/pri/proj_line/img40.jpg",
+      "/photos/pri/proj_line/img44.jpg",
+      "/photos/pri/proj_line/img48.jpg",
+      "/photos/pri/proj_line/img52.jpg",
+      "/photos/pri/proj_line/img56.jpg",
+      "/photos/pri/proj_line/img60.jpg",
+      "/photos/pri/proj_line/img64.jpg",
+      "/photos/pri/proj_line/img68.jpg",
+      "/photos/pri/proj_line/img72.jpg",
+      "/photos/pri/proj_line/img76.jpg",
+      "/photos/pri/proj_line/img8.jpg",
+      "/photos/pri/proj_line/img80.jpg",
+      "/photos/pri/proj_line/img84.jpg",
+      "/photos/pri/proj_line/img88.jpg",
+      "/photos/pri/proj_line/img92.jpg",
+      "/photos/pri/proj_line/img96.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers LINE.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "",
@@ -114420,8 +115323,36 @@ const PROJECTS = [
     "direccion": "Avenida Rodrigo de Araya 1600",
     "entrega": "1er semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/PARQUE DE ARAYA( VENTA EN VERDE)/img12.jpg",
+    "foto_portada": "/photos/pri/proj_parque-de-araya-torre-poniente.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img138.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img16.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img20.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img24.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img28.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img32.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img36.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img4.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img40.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img44.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img48.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img52.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img56.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img60.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img64.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img68.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img72.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img76.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-poniente/img8.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers PARQUE DE ARAYA.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1105",
@@ -117317,8 +118248,45 @@ const PROJECTS = [
     "direccion": "Avenida Irarrazaval 2366",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/MIND (ENTREGA INMEDIATA)/img100.jpg",
+    "foto_portada": "/photos/pri/proj_mind.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_mind/img104.jpg",
+      "/photos/pri/proj_mind/img108.jpg",
+      "/photos/pri/proj_mind/img112.jpg",
+      "/photos/pri/proj_mind/img12.jpg",
+      "/photos/pri/proj_mind/img16.jpg",
+      "/photos/pri/proj_mind/img194.jpg",
+      "/photos/pri/proj_mind/img20.jpg",
+      "/photos/pri/proj_mind/img24.jpg",
+      "/photos/pri/proj_mind/img28.jpg",
+      "/photos/pri/proj_mind/img32.jpg",
+      "/photos/pri/proj_mind/img36.jpg",
+      "/photos/pri/proj_mind/img4.jpg",
+      "/photos/pri/proj_mind/img40.jpg",
+      "/photos/pri/proj_mind/img44.jpg",
+      "/photos/pri/proj_mind/img48.jpg",
+      "/photos/pri/proj_mind/img52.jpg",
+      "/photos/pri/proj_mind/img56.jpg",
+      "/photos/pri/proj_mind/img60.jpg",
+      "/photos/pri/proj_mind/img64.jpg",
+      "/photos/pri/proj_mind/img68.jpg",
+      "/photos/pri/proj_mind/img72.jpg",
+      "/photos/pri/proj_mind/img76.jpg",
+      "/photos/pri/proj_mind/img8.jpg",
+      "/photos/pri/proj_mind/img80.jpg",
+      "/photos/pri/proj_mind/img84.jpg",
+      "/photos/pri/proj_mind/img88.jpg",
+      "/photos/pri/proj_mind/img92.jpg",
+      "/photos/pri/proj_mind/img96.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers MIND.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "206",
@@ -117806,8 +118774,36 @@ const PROJECTS = [
     "direccion": "Avenida Rodrigo de Araya 1600",
     "entrega": "2do semestre 2026",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/PARQUE DE ARAYA( VENTA EN VERDE)/img12.jpg",
+    "foto_portada": "/photos/pri/proj_parque-de-araya-torre-oriente.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img138.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img16.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img20.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img24.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img28.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img32.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img36.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img4.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img40.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img44.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img48.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img52.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img56.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img60.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img64.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img68.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img72.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img76.jpg",
+      "/photos/pri/proj_parque-de-araya-torre-oriente/img8.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Databrokers PARQUE DE ARAYA.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "",
@@ -123813,6 +124809,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Barrio Cueto(3)-ENTREGA FUTURA(BONO PIE 10%)-CUETO 1218,SANTIAGO/logo cueto.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "103",
@@ -125534,6 +126533,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Ciudad Siete(3)-ENTREGA FUTURA(GASTO COMUN GRATIS POR UN AÑO)-AV SIETE 2965, CERRILLOS/Renders/15. Fachada Acceso.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "104",
@@ -128401,8 +129403,11 @@ const PROJECTS = [
     "direccion": "Buzeta 3944",
     "entrega": "2do Semestre 2025",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Ciudad Cerrillos(3)-ENTREGA FUTURA(ARRIENDO GARANTIZADO 2 AÑOS)-BUZETA 3944, CERRILLOS/Imágenes/c-cerrillos-render_0017_OGS_Render 02_Fachada_Alta.jpg",
+    "foto_portada": "/photos/pri/proj_ciudad-cerrillos.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "516",
@@ -128484,8 +129489,11 @@ const PROJECTS = [
     "direccion": "Avenida España 333",
     "entrega": "1er semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Ciudad Cerrillos(3)-ENTREGA FUTURA(ARRIENDO GARANTIZADO 2 AÑOS)-BUZETA 3944, CERRILLOS/Imágenes/c-cerrillos-render_0017_OGS_Render 02_Fachada_Alta.jpg",
+    "foto_portada": "/photos/pri/proj_ciudad-espana.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "110",
@@ -131549,8 +132557,11 @@ const PROJECTS = [
     "direccion": "Ladislao Errázuriz 2057",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Ciudad Lyon(2)-ENTREGA INMEDIATA-LADISLAO ERRAZURIZ 2057, PROVIDENCIA/Imágenes/c-lyon-render_0009_DEISA_LADISLAO ERRAZURZ_FACHADA.jpg",
+    "foto_portada": "/photos/pri/proj_ciudad-lyon.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "208",
@@ -132080,8 +133091,28 @@ const PROJECTS = [
     "direccion": "Av. Manuel Antonio Matta 725",
     "entrega": "1er Semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Ciudad Matta(5)-ENTREGA FUTURA-AV. MANUEL ANTONIO MATTA N°725, SANTIAGO/Ciudad Matta Fachada.jpg",
+    "foto_portada": "/photos/pri/proj_ciudad-matta.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Ciudad Matta brochure correo.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "Ciudad Matta Mobile.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "EETT CIUDAD MATTA.pdf",
+        "path": ""
+      },
+      {
+        "nombre": "Folleto Ciudad Matta.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "102",
@@ -133789,6 +134820,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/FUENZALIDA URREJOLA-ENTREGA FUTURA(Fuenzalida Urrejola 303, La Cisterna)/Renders/NEC2-EXTERIOR-0022-R03.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "101",
@@ -137890,6 +138924,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Garden Macul(3)-ENTREGA INMEDIATA-MACUL 2320, MACUL/Cocina_GM.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "63",
@@ -137973,6 +139010,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "111",
@@ -141542,6 +142582,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/MATERIAL MAPOCHO 2880-ENTREGA FUTURA(Mapocho 2880, Santiago)/Mapocho_Fachada.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "109",
@@ -144705,6 +145748,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Neo Florida(1)-INMEDIATA-ALONSO DE ERCILLA 7698, LA FLORIDA/Imagenes/FOTOS/ACTUALIZADAS 2025/DEPTO 201/IMG_5977.JPG",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "205",
@@ -145262,8 +146308,39 @@ const PROJECTS = [
     "direccion": "Gastón Despouy 8773",
     "entrega": "2do Semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/TOCTOC(5)/FAM LA CISTERNA (ENTREGA INMEDIATA)/img12.jpg",
+    "foto_portada": "/photos/pri/proj_nodo-la-cisterna.jpg",
     "amenidades": [],
+    "fotos": [
+      "/photos/pri/proj_nodo-la-cisterna/img157.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img16.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img20.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img24.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img28.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img32.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img36.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img4.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img40.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img44.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img48.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img52.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img56.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img60.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img64.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img68.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img72.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img76.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img8.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img80.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img84.jpg",
+      "/photos/pri/proj_nodo-la-cisterna/img88.jpg"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "FAM LA CISTERNA.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "201",
@@ -146985,6 +148062,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Status(2)-ENTREGA INMEDIATA(2 AÑOS DE ARRIENDO GARANTIZADO-ARTURO PRAT 376, SANTIAGO/Imágenes/Status-equipamiento_0000_TopDown.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "129",
@@ -147488,6 +148568,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Sueña Lincoyán(1)-ENTREGA INMEDIATA-LINCOYAN 1001, ÑUÑOA/Imágenes/imagenes-lincoyan-1890x1080_0009_LINCOYAN_FACHADA_DIA copia.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "110",
@@ -147599,6 +148682,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Sueña Marín(Sin stock)/imágenes/img-marin-1920-1080_0011_TOCORNAL_FACHADA.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "111",
@@ -147710,6 +148796,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Santa Elisa(1)-ENTREGA INMEDIATA-SANTA ELISA 129, LA CISTERNA/Imágenes/fachada.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "69",
@@ -147751,6 +148840,9 @@ const PROJECTS = [
     "descripcion": "",
     "foto_portada": "photos/primario/URMENETA(20)/Sueña Toesca(2)-ENTREGA INMEDIATA-TOESCA 2145, SANTIAGO/suena _toesca_logo.png",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "302",
@@ -148140,8 +149232,11 @@ const PROJECTS = [
     "direccion": "Av. Santa Leonor 741",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Alto Hurtado()-ENTREGA INMEDIATA(SANTA LEONOR 741, PADRE HURTADO)/Fotos pilotos/Casa D AH/AH_D_Fachada.jpg",
+    "foto_portada": "/photos/pri/proj_condominio-alto-hurtado-ii.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "2",
@@ -148601,8 +149696,11 @@ const PROJECTS = [
     "direccion": "Av. Santa Leonor 741",
     "entrega": "1er semestre 2028",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Alto Hurtado()-ENTREGA INMEDIATA(SANTA LEONOR 741, PADRE HURTADO)/Fotos pilotos/Casa D AH/AH_D_Fachada.jpg",
+    "foto_portada": "/photos/pri/proj_condominio-alto-hurtado-iii.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "1",
@@ -149398,8 +150496,11 @@ const PROJECTS = [
     "direccion": "Av. Santa Leonor 741",
     "entrega": "1er Trimestre 2026",
     "descripcion": "",
-    "foto_portada": "photos/primario/URMENETA(20)/Alto Hurtado()-ENTREGA INMEDIATA(SANTA LEONOR 741, PADRE HURTADO)/Fotos pilotos/Casa D AH/AH_D_Fachada.jpg",
+    "foto_portada": "/photos/pri/proj_porta-hurtado.jpg",
     "amenidades": [],
+    "fotos": [],
+    "tipologias": [],
+    "pdfs": [],
     "unidades": [
       {
         "dp": "10",

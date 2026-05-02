@@ -70,6 +70,37 @@ def excel_to_stock():
     print(f"  → {out}  ({len(stock)} propiedades)")
 
 
+# ─── FOTOS MANIFEST ───────────────────────────────────────────────────────────
+
+def merge_fotos_manifest(projects: list) -> None:
+    """
+    Lee frontend/public/data/fotos_pri.json (si existe) y enriquece cada
+    proyecto con foto_portada, fotos, tipologias y pdfs del manifest.
+    Se llama justo antes de serializar projects en excel_to_projects().
+    """
+    manifest_path = PUBLIC_DIR / "fotos_pri.json"
+    if not manifest_path.exists():
+        return  # manifest no generado aún — no hacer nada
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"  (advertencia: no pude leer fotos_pri.json — {e})")
+        return
+
+    merged = 0
+    for p in projects:
+        entry = manifest.get(p["id"])
+        if not entry:
+            continue
+        p["foto_portada"] = entry.get("portada", p["foto_portada"])
+        p["fotos"]        = entry.get("galeria", [])
+        p["tipologias"]   = entry.get("tipologias", [])
+        p["pdfs"]         = entry.get("pdfs", [])
+        merged += 1
+
+    print(f"  → fotos_pri.json: {merged} proyectos enriquecidos con fotos")
+
+
 # ─── PROJECTS ─────────────────────────────────────────────────────────────────
 
 def _safe_float(v):
@@ -134,8 +165,13 @@ def excel_to_projects():
             "descripcion":  str(val(p.get("descripcion"), "")),
             "foto_portada": str(val(p.get("foto_portada"), "")),
             "amenidades":   amenidades,
+            "fotos":        [],
+            "tipologias":   [],
+            "pdfs":         [],
             "unidades":     units,
         })
+
+    merge_fotos_manifest(projects)
 
     total_u = sum(len(p["unidades"]) for p in projects)
     out = DATA_DIR / "projects.js"

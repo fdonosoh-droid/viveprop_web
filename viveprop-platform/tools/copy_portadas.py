@@ -1,0 +1,208 @@
+"""
+copy_portadas.py — Copia fotos de proyectos primario a frontend/public/photos/pri/
+y genera frontend/public/data/fotos_pri.json con el manifest de fotos.
+
+Uso: python tools/copy_portadas.py
+"""
+import sys, re, json, shutil
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from pathlib import Path
+
+ROOT       = Path(__file__).parent.parent
+PHOTOS_SRC = ROOT / "photos" / "primario"
+DST_DIR    = ROOT / "frontend" / "public" / "photos" / "pri"
+MANIFEST   = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
+PROJECTS_JS = ROOT / "data" / "projects.js"
+
+
+# ─── Clasificadores de archivos ────────────────────────────────────────────────
+
+IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+PDF_EXTS   = {".pdf"}
+
+# Galería: img<dígitos>.* o hash alfanumérico de 5 chars seguido de guión (ej. 11cbe-...)
+RE_GALERIA = re.compile(r"^(img\d+|[0-9a-f]{5}-.+)$", re.IGNORECASE)
+
+# Tipología: empieza con dígito seguido de D (ej. 1D,1B.jpg, 2D,2B-52MT2.jpg)
+#            o contiene ESTUDIO (case insensitive)
+RE_TIPOLOGIA_DIGIT = re.compile(r"^\d+D[,\s]", re.IGNORECASE)
+RE_TIPOLOGIA_EST   = re.compile(r"ESTUDIO", re.IGNORECASE)
+
+
+def classify_file(stem: str) -> str:
+    """Devuelve 'galeria', 'tipologia' o 'otro' según el nombre base (sin extensión)."""
+    if RE_GALERIA.match(stem):
+        return "galeria"
+    if RE_TIPOLOGIA_DIGIT.match(stem) or RE_TIPOLOGIA_EST.search(stem):
+        return "tipologia"
+    return "otro"
+
+
+def tipologia_label(stem: str) -> str:
+    """
+    Convierte el nombre de archivo de tipología a una label legible.
+    Ejemplos:
+      ESTUDIO       → Estudio
+      1D,1B         → 1D, 1B
+      2D,2B-52MT2   → 2D, 2B — 52 m²
+      3D,2B-72MT2   → 3D, 2B — 72 m²
+    """
+    if RE_TIPOLOGIA_EST.match(stem):
+        return "Estudio"
+
+    # Patrón: XD,YB[-ZZMTn]
+    m = re.match(r"^(\d+D),(\d+B)(?:-(\d+MT\d+))?", stem, re.IGNORECASE)
+    if m:
+        dorms = m.group(1).upper()   # 1D
+        banos = m.group(2).upper()   # 1B
+        m2_raw = m.group(3)          # 52MT2 o None
+        base = f"{dorms}, {banos}"
+        if m2_raw:
+            # 52MT2 → 52 m²
+            m2_m = re.match(r"(\d+)MT\d+", m2_raw, re.IGNORECASE)
+            if m2_m:
+                base += f" — {m2_m.group(1)} m²"
+        return base
+
+    # Fallback: capitalizar
+    return stem.replace("_", " ").replace("-", " ").title()
+
+
+# ─── Leer projects.js ─────────────────────────────────────────────────────────
+
+def load_projects_js(path: Path) -> list[dict]:
+    """
+    Extrae los proyectos del archivo projects.js (const PROJECTS = [...]).
+    """
+    text = path.read_text(encoding="utf-8", errors="replace")
+    # Eliminar líneas de comentarios JS
+    text = "\n".join(l for l in text.split("\n") if not l.strip().startswith("//"))
+    # Quitar asignación const PROJECTS =
+    text = re.sub(r"^\s*const\s+\w+\s*=\s*", "", text.strip())
+    if text.rstrip().endswith(";"):
+        text = text.rstrip()[:-1]
+    return json.loads(text)
+
+
+# ─── Procesar un proyecto ─────────────────────────────────────────────────────
+
+def process_project(p: dict, manifest: dict, stats: dict):
+    pid         = p["id"]
+    foto_portada = p.get("foto_portada", "").strip()
+
+    if not foto_portada:
+        stats["sin_portada"] += 1
+        return
+
+    # Ruta local de la portada
+    portada_src = ROOT / foto_portada
+    if not portada_src.exists():
+        print(f"  [NO ENCONTRADA] {pid}: {foto_portada}")
+        stats["no_encontrada"] += 1
+        return
+
+    proj_folder = portada_src.parent   # carpeta del proyecto (fotos locales)
+    portada_name = portada_src.name
+    portada_ext  = portada_src.suffix.lower()
+
+    # ── Destinos ──────────────────────────────────────────────────────────────
+    dst_portada = DST_DIR / f"{pid}{portada_ext}"
+    dst_proj    = DST_DIR / pid
+    dst_proj.mkdir(parents=True, exist_ok=True)
+
+    # Copiar portada
+    shutil.copy2(portada_src, dst_portada)
+
+    # Escanear carpeta del proyecto
+    galeria   = []
+    tipologias = []
+    pdfs      = []
+
+    for f in sorted(proj_folder.iterdir()):
+        if not f.is_file():
+            continue
+        ext = f.suffix.lower()
+        stem = f.stem
+
+        if ext in PDF_EXTS:
+            pdfs.append({"nombre": f.name, "path": ""})
+            continue
+
+        if ext not in IMAGE_EXTS:
+            continue
+
+        if f.name == portada_name:
+            # La portada ya fue copiada arriba; no va en galería
+            continue
+
+        kind = classify_file(stem)
+
+        if kind == "galeria":
+            dst_f = dst_proj / f.name
+            shutil.copy2(f, dst_f)
+            galeria.append(f"/photos/pri/{pid}/{f.name}")
+
+        elif kind == "tipologia":
+            dst_f = dst_proj / f.name
+            shutil.copy2(f, dst_f)
+            tipologias.append({
+                "label": tipologia_label(stem),
+                "src":   f"/photos/pri/{pid}/{f.name}",
+            })
+        # else: 'otro' — ignorar (logos, docs, etc.)
+
+    manifest[pid] = {
+        "portada":   f"/photos/pri/{pid}{portada_ext}",
+        "galeria":   galeria,
+        "tipologias": tipologias,
+        "pdfs":      pdfs,
+    }
+
+    stats["ok"] += 1
+    n_gal = len(galeria)
+    n_tip = len(tipologias)
+    n_pdf = len(pdfs)
+    print(f"  [OK] {pid}: portada + {n_gal} galería + {n_tip} tipología + {n_pdf} PDF")
+
+
+# ─── Main ─────────────────────────────────────────────────────────────────────
+
+def main():
+    if not PROJECTS_JS.exists():
+        sys.exit(f"No encontré {PROJECTS_JS}")
+
+    DST_DIR.mkdir(parents=True, exist_ok=True)
+    (ROOT / "frontend" / "public" / "data").mkdir(parents=True, exist_ok=True)
+
+    print(f"Leyendo {PROJECTS_JS.name} ...")
+    projects = load_projects_js(PROJECTS_JS)
+    print(f"  {len(projects)} proyectos cargados")
+
+    # Deduplicar por id (pueden repetirse proyectos con misma carpeta de fotos)
+    seen_ids: set[str] = set()
+    manifest: dict = {}
+    stats = {"ok": 0, "sin_portada": 0, "no_encontrada": 0}
+
+    print(f"\nProcesando proyectos ...")
+    for p in projects:
+        pid = p.get("id", "")
+        if pid in seen_ids:
+            continue
+        seen_ids.add(pid)
+        process_project(p, manifest, stats)
+
+    # Guardar manifest
+    MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(f"\n─── Resumen ───────────────────────────────────────────")
+    print(f"  Proyectos procesados OK    : {stats['ok']}")
+    print(f"  Sin foto_portada (vacío)   : {stats['sin_portada']}")
+    print(f"  Carpeta no encontrada      : {stats['no_encontrada']}")
+    print(f"  Manifest generado          : {MANIFEST}")
+    print(f"  Fotos copiadas a           : {DST_DIR}")
+    print(f"────────────────────────────────────────────────────────")
+
+
+if __name__ == "__main__":
+    main()

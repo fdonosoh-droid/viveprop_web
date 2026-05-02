@@ -386,6 +386,26 @@ export function openProject(pid) {
       </a>`).join('')
     : '';
 
+  // Tipologías
+  const tipDiv = document.getElementById('pm-tipologias');
+  const tips = p.tipologias || [];
+  if (tipDiv) {
+    if (tips.length) {
+      tipDiv.style.display = '';
+      tipDiv.innerHTML = `
+        <div class="pm-tip-title">Plantas / Tipologías</div>
+        <div class="pm-tip-grid">
+          ${tips.map(t => `
+            <div class="pm-tip-item" onclick="pmShowTipologia('${t.src}','${H(t.label)}')">
+              <img src="${t.src}" alt="${H(t.label)}" loading="lazy">
+              <div class="pm-tip-label">${H(t.label)}</div>
+            </div>`).join('')}
+        </div>`;
+    } else {
+      tipDiv.style.display = 'none';
+    }
+  }
+
   const ccTab    = document.getElementById('pm-tab-cc');
   const hasCC    = store.CC_DATA[p.id];
   const hasCCFiles = getCCFiles(p.inmobiliaria).length > 0;
@@ -430,6 +450,30 @@ export function pmShowGalPhoto(i) {
 }
 
 export function pmGalNav(d) { pmShowGalPhoto(_pmGalIdx + d); }
+
+export function pmShowTipologia(src, label) {
+  // Si hay fotos de galería cargadas, añade la tipología al lightbox principal
+  if (_pmGalPhotos.length) {
+    const idx = _pmGalPhotos.indexOf(src);
+    if (idx !== -1) {
+      pmTab('gal');
+      pmShowGalPhoto(idx);
+      return;
+    }
+    // No está en galería: mostrar en lightbox temporal
+    pmTab('gal');
+    const img = document.getElementById('pm-gal-img');
+    if (img) {
+      img.src = src;
+      img.style.display = 'block';
+      const cnt = document.getElementById('pm-gal-counter');
+      if (cnt) cnt.style.display = 'none';
+    }
+  } else {
+    // Sin galería: abrir en nueva pestaña
+    window.open(src, '_blank', 'noopener');
+  }
+}
 
 export function closeProjModal() {
   document.getElementById('proj-modal').classList.remove('open');
