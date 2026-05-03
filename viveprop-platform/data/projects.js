@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-01 23:33
+// Generado por excel_to_js.py — 2026-05-03 19:04
 // Proyectos: 84 | Unidades: 10623
 const PROJECTS = [
   {
@@ -53,11 +53,42 @@ const PROJECTS = [
     "direccion": "Copiapó 801",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/SANTOS OSSA (STO)/SantosOssa_Card1.png",
+    "foto_portada": "/photos/pri/proj_santos-ossa.jpg",
     "amenidades": [],
-    "fotos": [],
-    "tipologias": [],
-    "pdfs": [],
+    "fotos": [
+      "/photos/pri/proj_santos-ossa/0.jpg",
+      "/photos/pri/proj_santos-ossa/10.jpg",
+      "/photos/pri/proj_santos-ossa/11.jpg",
+      "/photos/pri/proj_santos-ossa/16.jpg",
+      "/photos/pri/proj_santos-ossa/17.jpg",
+      "/photos/pri/proj_santos-ossa/18.jpg",
+      "/photos/pri/proj_santos-ossa/19.jpg",
+      "/photos/pri/proj_santos-ossa/2.jpg",
+      "/photos/pri/proj_santos-ossa/20.jpg",
+      "/photos/pri/proj_santos-ossa/8.jpg",
+      "/photos/pri/proj_santos-ossa/9.jpg",
+      "/photos/pri/proj_santos-ossa/SantosOssa_Card2-1.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_santos-ossa/1D,1B.jpg"
+      },
+      {
+        "label": "2D, 2B — 50 m²",
+        "src": "/photos/pri/proj_santos-ossa/2D,2B-50MT.jpg"
+      },
+      {
+        "label": "2D, 2B — 60 m²",
+        "src": "/photos/pri/proj_santos-ossa/2D,2B-60MT.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure_SantosOssa_.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "22",
@@ -26887,11 +26918,48 @@ const PROJECTS = [
     "direccion": "Esmeralda 6540",
     "entrega": "2do semestre 2027",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/NUEVA ESMERALDA (NES)/Fachada nueva esmeralda.png",
+    "foto_portada": "/photos/pri/proj_nueva-esmeralda.jpg",
     "amenidades": [],
-    "fotos": [],
-    "tipologias": [],
-    "pdfs": [],
+    "fotos": [
+      "/photos/pri/proj_nueva-esmeralda/cowork nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/gimnasio nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/gimnasio.png",
+      "/photos/pri/proj_nueva-esmeralda/habitacion.jpg",
+      "/photos/pri/proj_nueva-esmeralda/Hall de acceso nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/living.jpg",
+      "/photos/pri/proj_nueva-esmeralda/lounge terraza.jpg",
+      "/photos/pri/proj_nueva-esmeralda/quincho nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/quincho.jpg",
+      "/photos/pri/proj_nueva-esmeralda/recibos.jpg",
+      "/photos/pri/proj_nueva-esmeralda/salon gourmet nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/salon multiusos nueva esmeralda 1.png",
+      "/photos/pri/proj_nueva-esmeralda/salon multiusos nueva esmeralda.jpg",
+      "/photos/pri/proj_nueva-esmeralda/ubicacion.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "1D, 1B — 26 m²",
+        "src": "/photos/pri/proj_nueva-esmeralda/1D,1B-26MTS.jpg"
+      },
+      {
+        "label": "1D, 1B — 33 m²",
+        "src": "/photos/pri/proj_nueva-esmeralda/1D,1B-33MTS.jpg"
+      },
+      {
+        "label": "2D, 1B — 52 m²",
+        "src": "/photos/pri/proj_nueva-esmeralda/2D,1B-52MTS.jpg"
+      },
+      {
+        "label": "2D, 1B — 53 m²",
+        "src": "/photos/pri/proj_nueva-esmeralda/2D,1B-53MTS-MARIPOSA.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure_NuevaEsmeralda_2026.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "1",
@@ -31999,11 +32067,47 @@ const PROJECTS = [
     "direccion": "Vicuña Mackenna 7630",
     "entrega": "Inmediata",
     "descripcion": "",
-    "foto_portada": "photos/primario/INGEVEC(13)/VESPUCIO CAPITAL (VES)/fachada2.png",
+    "foto_portada": "/photos/pri/proj_vespucio-capital.jpg",
     "amenidades": [],
-    "fotos": [],
-    "tipologias": [],
-    "pdfs": [],
+    "fotos": [
+      "/photos/pri/proj_vespucio-capital/cocina.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc1.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc2.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc3.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc4.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc5.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc6.jpg",
+      "/photos/pri/proj_vespucio-capital/eecc7.png",
+      "/photos/pri/proj_vespucio-capital/eecc8.png",
+      "/photos/pri/proj_vespucio-capital/eecc9.png",
+      "/photos/pri/proj_vespucio-capital/gimnasio.jpg",
+      "/photos/pri/proj_vespucio-capital/lavanderia.jpg",
+      "/photos/pri/proj_vespucio-capital/living.jpg",
+      "/photos/pri/proj_vespucio-capital/piscina.png",
+      "/photos/pri/proj_vespucio-capital/quincho.jpg",
+      "/photos/pri/proj_vespucio-capital/salos juegos.jpg",
+      "/photos/pri/proj_vespucio-capital/ubicacion.jpg"
+    ],
+    "tipologias": [
+      {
+        "label": "1D, 1B — 40 m²",
+        "src": "/photos/pri/proj_vespucio-capital/1D,1B-40MTS.jpg"
+      },
+      {
+        "label": "2D, 1B — 44 m²",
+        "src": "/photos/pri/proj_vespucio-capital/2D,1B-44MTS.jpg"
+      },
+      {
+        "label": "2D, 2B — 54 m²",
+        "src": "/photos/pri/proj_vespucio-capital/2D,2B-54MTS.jpg"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure_VespucioCapital_2026.pdf",
+        "path": ""
+      }
+    ],
     "unidades": [
       {
         "dp": "201",

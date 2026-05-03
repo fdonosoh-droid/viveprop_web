@@ -31,36 +31,37 @@ RE_TIPOLOGIA_EST   = re.compile(r"ESTUDIO", re.IGNORECASE)
 
 
 def classify_file(stem: str) -> str:
-    """Devuelve 'galeria', 'tipologia' o 'otro' según el nombre base (sin extensión)."""
-    if RE_GALERIA.match(stem):
-        return "galeria"
+    """Devuelve 'galeria' o 'tipologia' según el nombre base (sin extensión).
+    Todo archivo de imagen que no sea tipología va a galería."""
     if RE_TIPOLOGIA_DIGIT.match(stem) or RE_TIPOLOGIA_EST.search(stem):
         return "tipologia"
-    return "otro"
+    return "galeria"
 
 
 def tipologia_label(stem: str) -> str:
     """
     Convierte el nombre de archivo de tipología a una label legible.
     Ejemplos:
-      ESTUDIO       → Estudio
-      1D,1B         → 1D, 1B
-      2D,2B-52MT2   → 2D, 2B — 52 m²
-      3D,2B-72MT2   → 3D, 2B — 72 m²
+      ESTUDIO              → Estudio
+      1D,1B                → 1D, 1B
+      2D,2B-50MT           → 2D, 2B — 50 m²
+      1D,1B-26MTS          → 1D, 1B — 26 m²
+      2D,2B-52MT2          → 2D, 2B — 52 m²
+      2D,1B-53MTS-MARIPOSA → 2D, 1B — 53 m²
     """
     if RE_TIPOLOGIA_EST.match(stem):
         return "Estudio"
 
-    # Patrón: XD,YB[-ZZMTn]
-    m = re.match(r"^(\d+D),(\d+B)(?:-(\d+MT\d+))?", stem, re.IGNORECASE)
+    # Patrón: XD,YB[-ZZMTn]  (acepta 52MT2, 50MT, 26MTS, 53MTS-MARIPOSA, etc.)
+    m = re.match(r"^(\d+D),(\d+B)(?:-(\d+MT\w*))?", stem, re.IGNORECASE)
     if m:
         dorms = m.group(1).upper()   # 1D
         banos = m.group(2).upper()   # 1B
-        m2_raw = m.group(3)          # 52MT2 o None
+        m2_raw = m.group(3)          # 52MT2 / 50MT / 26MTS o None
         base = f"{dorms}, {banos}"
         if m2_raw:
-            # 52MT2 → 52 m²
-            m2_m = re.match(r"(\d+)MT\d+", m2_raw, re.IGNORECASE)
+            # Extrae el número antes de MT
+            m2_m = re.match(r"(\d+)MT", m2_raw, re.IGNORECASE)
             if m2_m:
                 base += f" — {m2_m.group(1)} m²"
         return base
@@ -201,10 +202,18 @@ def main():
     projects = load_projects_js(PROJECTS_JS)
     print(f"  {len(projects)} proyectos cargados")
 
+    # Cargar manifest existente para preservar proyectos ya procesados
+    existing_manifest: dict = {}
+    if MANIFEST.exists():
+        try:
+            existing_manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
     # Deduplicar por id (pueden repetirse proyectos con misma carpeta de fotos)
     seen_ids: set[str] = set()
-    manifest: dict = {}
-    stats = {"ok": 0, "sin_portada": 0, "no_encontrada": 0}
+    manifest: dict = dict(existing_manifest)   # preservar entradas previas
+    stats = {"ok": 0, "sin_portada": 0, "no_encontrada": 0, "ya_en_manifest": 0}
 
     print(f"\nProcesando proyectos ...")
     for p in projects:
@@ -212,6 +221,12 @@ def main():
         if pid in seen_ids:
             continue
         seen_ids.add(pid)
+        # Si ya está en el manifest y foto_portada apunta a /photos/pri/ (ya procesado),
+        # no re-procesar — la entrada existente se mantiene del dict inicial.
+        fp = p.get("foto_portada", "").strip()
+        if pid in existing_manifest and fp.startswith("/photos/pri/"):
+            stats["ya_en_manifest"] += 1
+            continue
         process_project(p, manifest, stats)
 
     # Guardar manifest
@@ -219,8 +234,10 @@ def main():
 
     print(f"\n─── Resumen ───────────────────────────────────────────")
     print(f"  Proyectos procesados OK    : {stats['ok']}")
+    print(f"  Ya en manifest (omitidos)  : {stats['ya_en_manifest']}")
     print(f"  Sin foto_portada (vacío)   : {stats['sin_portada']}")
     print(f"  Carpeta no encontrada      : {stats['no_encontrada']}")
+    print(f"  Total en manifest          : {len(manifest)}")
     print(f"  Manifest generado          : {MANIFEST}")
     print(f"  Fotos copiadas a           : {DST_DIR}")
     print(f"────────────────────────────────────────────────────────")
