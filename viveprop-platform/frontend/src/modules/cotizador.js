@@ -17,7 +17,7 @@ export function cotizFromProp(arg) {
     console.log('[Cotizador] cotizFromProp', { project, depto, secundarios })
 
     const cc       = store.CC_DATA[project.id] || null
-    const parsedCC = parseCCForCotizador(cc, project.inmobiliaria)
+    const parsedCC = parseCCForCotizador(cc, project.inmobiliaria, depto)
     const regla    = getReglaInmobiliaria(project.inmobiliaria)
 
     const reservaCLP = parsedCC.reservaUF > 0

@@ -58,7 +58,7 @@ function camposMap(cc) {
  * - piePctDefault = null: el cotizador debe usar PIE_DEFAULT del motor
  * - aporteInmobiliario URMENETA: extraído de la nota cuando no hay campo estándar
  */
-export function parseCCForCotizador(cc, inmobiliaria) {
+export function parseCCForCotizador(cc, inmobiliaria, depto = null) {
   const cm  = camposMap(cc)
   const key = (inmobiliaria || '').toUpperCase()
 
@@ -98,12 +98,28 @@ export function parseCCForCotizador(cc, inmobiliaria) {
 
   // ── MAESTRA ────────────────────────────────────────────────────────────────
   // piePctDefault = Upfront + Pie en cuotas (total pie = ambas partes)
+  // Dcto Adicional es condicional: "3% 3D" solo aplica a unidades de 3 dormitorios
   if (key.includes('MAESTRA')) {
     const upfrontPct     = parsePct(cm['Upfront'])
     const pieEnCuotasPct = parsePct(cm['Pie en cuotas'])
+
+    // Evaluar descuento adicional según tipología de la unidad
+    // Formatos reconocidos: "3% 3D", "2% 1D", "2% 2D (36m2)" — patrón: {pct}% {n}D
+    let descuentoAdicional = 0
+    const adicRaw = cm['Dcto Adicional'] || ''
+    const adicM   = adicRaw.match(/(\d+(?:[.,]\d+)?)\s*%\s*(\d+)\s*D/i)
+    if (adicM) {
+      const reqDorms  = parseInt(adicM[2])
+      const unitDorms = parseInt(depto?.dormitorios) || 0
+      if (unitDorms === reqDorms) {
+        descuentoAdicional = parseFloat(adicM[1].replace(',', '.')) / 100
+      }
+    }
+
     return {
       ...defaults,
-      descuentoDepto:     parsePct(cm['Descuento Base']) + parsePct(cm['Dcto Adicional']),
+      descuentoDepto:     parsePct(cm['Descuento Base']),
+      descuentoAdicional,
       aporteInmobiliario: parsePct(cm['Certificado Pago']),
       upfrontPct,
       piePctDefault:      upfrontPct + pieEnCuotasPct || null,
