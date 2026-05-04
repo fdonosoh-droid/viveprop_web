@@ -95,10 +95,24 @@ function mobFilterClose() {
 Object.assign(window, { mobFilterOpen, mobFilterClose })
 
 // ── Bootstrap: load data then initialize modules ───────────────────────────
+function applyUF(ufRes) {
+  store.UF = ufRes.valor ?? store.UF;
+  const ufFormatted = store.UF.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const ufVal  = document.getElementById('uf-val');
+  const ufDate = document.getElementById('uf-date');
+  const mobUf  = document.getElementById('mob-uf-chip');
+  if (ufVal)  ufVal.textContent  = ufFormatted;
+  if (mobUf)  mobUf.textContent  = `UF $${ufFormatted}`;
+  if (ufDate && ufRes.fecha) {
+    const f = new Date(ufRes.fecha);
+    ufDate.textContent = f.toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
+  }
+}
+
 async function bootstrap() {
+  // Datos locales críticos — nunca deben fallar
   try {
-    const [ufRes, stockRes, projectsRes, ccRes, geoRes, priGeoRes] = await Promise.all([
-      api.uf(),
+    const [stockRes, projectsRes, ccRes, geoRes, priGeoRes] = await Promise.all([
       api.stock(),
       api.projects(),
       api.cc(),
@@ -106,28 +120,13 @@ async function bootstrap() {
       api.priGeo(),
     ]);
 
-    store.UF       = ufRes.valor ?? store.UF;
     store.STOCK    = stockRes ?? [];
     store.PROJECTS = projectsRes ?? [];
     store.CC_DATA  = ccRes ?? {};
 
-    // Update sidebar UF display
-    const ufVal  = document.getElementById('uf-val');
-    const ufDate = document.getElementById('uf-date');
-    const ufFormatted = store.UF.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    if (ufVal) ufVal.textContent = ufFormatted;
-    const mobUf = document.getElementById('mob-uf-chip');
-    if (mobUf) mobUf.textContent = `UF $${ufFormatted}`;
-    if (ufDate && ufRes.fecha) {
-      const f = new Date(ufRes.fecha);
-      ufDate.textContent = f.toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
-    }
-
-    // Merge geocodes into in-memory cache
     if (geoRes)    Object.assign(store._GC, geoRes);
     if (priGeoRes) Object.assign(store._GC, priGeoRes);
 
-    // Also pull any cached coords from localStorage
     try {
       const lc = JSON.parse(localStorage.getItem('_geo_cache') || '{}');
       Object.assign(store._GC, lc);
@@ -136,6 +135,9 @@ async function bootstrap() {
   } catch (err) {
     console.error('Bootstrap data load failed:', err);
   }
+
+  // UF es una API externa — no debe bloquear la carga si falla
+  api.uf().then(applyUF).catch(err => console.warn('UF API no disponible:', err));
 
   secInit();
   priInit();
