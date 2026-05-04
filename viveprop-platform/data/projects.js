@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-03 19:04
+// Generado por excel_to_js.py — 2026-05-04 15:34
 // Proyectos: 84 | Unidades: 10623
 const PROJECTS = [
   {
