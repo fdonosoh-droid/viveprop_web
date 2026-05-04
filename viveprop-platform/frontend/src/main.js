@@ -4,7 +4,7 @@ import { mcFilter, mcOpen, mcClose, mcSelect, mcRemove } from './components/filt
 import { secInit, secFilter, secPage, setSecView, openDetail, openSecDetail, showDpPhoto, navDp, closeDetail, shareProperty, downloadPhotos, printFicha, openVideo, copyVideoLink, closeVideo } from './modules/secundario.js';
 import { priInit, priFilter, priPage, setPriView, openProject, closeProjModal, pmTab, renderCC, pmShowGalPhoto, pmGalNav, pmShowTipologia, selectProjUnit, pmUpdateTotal, pmBack, pmCotizar, toggleDormPill, reopenWithUnit } from './modules/primario.js';
 import { calcPerfil, searchFromPerfil, showBudgetBanner, clearBudget } from './modules/perfilador.js';
-import { cotizFromProp, cotizSecProp, recalcCotizPanel, volverDesdeCotiz, volverDesdeParams, submitParamsStep, volverAParams, submitClientForm, formatRutInput, clearCCFError, printCotiz, nuevaCotizacion, recotizar, cancelarCotizacion } from './modules/cotizador.js';
+import { cotizFromProp, cotizSecProp, recalcCotizPanel, volverDesdeCotiz, volverDesdeParams, submitParamsStep, volverAParams, submitClientForm, formatRutInput, formatTelInput, formatCLPInput, clearCCFError, printCotiz, nuevaCotizacion, recotizar, cancelarCotizacion } from './modules/cotizador.js';
 import { cascInit, cascUpdate, cascContinuar, cascReset } from './modules/cascade.js';
 
 const TITLES = { sec: 'Stock Secundario', pri: 'Proyectos Nuevos', perfil: 'Perfilador', cotiz: 'Cotizador' };
@@ -36,7 +36,7 @@ Object.assign(window, {
   // cotizador
   cotizFromProp, cotizSecProp,
   recalcCotizPanel, volverDesdeCotiz, volverDesdeParams, submitParamsStep, volverAParams,
-  submitClientForm, formatRutInput, clearCCFError, printCotiz,
+  submitClientForm, formatRutInput, formatTelInput, formatCLPInput, clearCCFError, printCotiz,
   nuevaCotizacion, recotizar, cancelarCotizacion,
   // cascade
   cascUpdate, cascContinuar, cascReset,

@@ -188,6 +188,29 @@ export function clearCCFError(id) {
   _setFieldError(id, '')
 }
 
+export function formatTelInput(id) {
+  const el = document.getElementById(id)
+  if (!el) return
+  let d = el.value.replace(/\D/g, '')
+  if (d.startsWith('56') && d.length > 9) d = d.slice(2)
+  d = d.slice(0, 9)
+  let v = ''
+  if (d.length > 0) {
+    v = '+56' + d.slice(0, 1)
+    if (d.length > 1) v += ' ' + d.slice(1, 5)
+    if (d.length > 5) v += ' ' + d.slice(5, 9)
+  }
+  el.value = v
+  _setFieldError(id, '')
+}
+
+export function formatCLPInput(id) {
+  const el = document.getElementById(id)
+  if (!el) return
+  const digits = el.value.replace(/\D/g, '')
+  el.value = digits ? '$' + parseInt(digits, 10).toLocaleString('es-CL') : ''
+}
+
 export function formatRutInput(id) {
   const el = document.getElementById(id)
   if (!el) return
@@ -274,10 +297,10 @@ export function volverDesdeParams() {
 }
 
 export function submitParamsStep() {
-  const n = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
+  const clp = id => { const raw = (document.getElementById(id)?.value || '').replace(/\D/g, ''); return parseInt(raw, 10) || 0 }
   try {
     localStorage.setItem('_arriendos', JSON.stringify({
-      arr1: n('cpg-arriendo1'), arr2: n('cpg-arriendo2'), arr3: n('cpg-arriendo3'),
+      arr1: clp('cpg-arriendo1'), arr2: clp('cpg-arriendo2'), arr3: clp('cpg-arriendo3'),
     }))
   } catch {}
   document.getElementById('cotiz-params-step').style.display = 'none'
@@ -330,6 +353,11 @@ function _initParamsGrid(parsedCC) {
   const txt = (lbl, id, val) =>
     `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
     `<input id="${id}" class="cp-input" type="number" min="0" step="any" value="${val}"></div>`
+  const arrTxt = (lbl, id, val) => {
+    const disp = val ? '$' + Number(val).toLocaleString('es-CL') : ''
+    return `<div class="cp-fg"><label class="cp-fg-lbl">${lbl}</label>` +
+      `<input id="${id}" class="cp-input" type="text" value="${disp}" oninput="formatCLPInput('${id}')" placeholder="$0"></div>`
+  }
 
   const cuotasLbl = `Cuotas Pie${cuotas > 0 ? ` <span class="cp-fg-base">base ${cuotas}</span>` : ''}`
   const cuotonLbl = `Cuotón %${cuoton === 0 ? ' <span class="cp-fg-noapl">no aplica</span>' : ''}`
@@ -367,9 +395,9 @@ function _initParamsGrid(parsedCC) {
         ${dd('Escenario 3 CAE', 'cpg-cae3', caeOpts, c3, v => v.toFixed(1) + '%')}
       </div>
       <div class="cp-form-row cp-form-row--3">
-        ${txt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', _loadArr().arr1)}
-        ${txt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', _loadArr().arr2)}
-        ${txt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', _loadArr().arr3)}
+        ${arrTxt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', _loadArr().arr1)}
+        ${arrTxt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', _loadArr().arr2)}
+        ${arrTxt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', _loadArr().arr3)}
       </div>
     </div>`
 }
@@ -385,7 +413,8 @@ function _loadArr() {
 // ── Lectura del formulario ────────────────────────────────────────────────────
 
 function _readParams() {
-  const n = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
+  const n   = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
+  const clp = id => { const raw = (document.getElementById(id)?.value || '').replace(/\D/g, ''); return parseInt(raw, 10) || 0 }
   return {
     pie:       n('cpg-pie')       || PIE_DEFAULT * 100,
     plazo:     n('cpg-plazo')     || PLAZO_DEFAULT,
@@ -400,9 +429,9 @@ function _readParams() {
     cae1:      n('cpg-cae1')     || 4,
     cae2:      n('cpg-cae2')     || 4.5,
     cae3:      n('cpg-cae3')     || 5,
-    arriendo1: n('cpg-arriendo1'),
-    arriendo2: n('cpg-arriendo2'),
-    arriendo3: n('cpg-arriendo3'),
+    arriendo1: clp('cpg-arriendo1'),
+    arriendo2: clp('cpg-arriendo2'),
+    arriendo3: clp('cpg-arriendo3'),
   }
 }
 
