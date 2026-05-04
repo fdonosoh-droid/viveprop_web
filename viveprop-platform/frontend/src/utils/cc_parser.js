@@ -44,6 +44,42 @@ function camposMap(cc) {
   return map
 }
 
+// ── TOCTOC: descuento con tramos por tipología ────────────────────────────────
+// Soporta "25% 1D+1B/Estudio   20% en el resto" (múltiples porcentajes en el campo)
+// Si hay un solo porcentaje lo devuelve directamente.
+function _parseToctocDescuento(raw, depto) {
+  if (!raw) return 0
+  const str = String(raw).trim()
+
+  // Ubicar todas las posiciones donde aparece un porcentaje
+  const pctRe = /(\d+(?:[.,]\d+)?)\s*%/g
+  const hits = []
+  let m
+  while ((m = pctRe.exec(str)) !== null) {
+    hits.push({ pct: parseFloat(m[1].replace(',', '.')) / 100, end: m.index + m[0].length })
+  }
+
+  if (hits.length <= 1) return hits.length ? hits[0].pct : 0
+
+  // Múltiples tramos: extraer condición de cada uno
+  const unitDorms = parseInt(depto?.dormitorios) || 0
+  let defaultPct  = hits[hits.length - 1].pct  // último porcentaje como fallback
+
+  for (let i = 0; i < hits.length; i++) {
+    const condEnd  = i + 1 < hits.length ? str.indexOf(String(Math.round(hits[i + 1].pct * 100)), hits[i].end) : str.length
+    const cond     = str.slice(hits[i].end, condEnd)
+
+    if (/en el resto|resto/i.test(cond)) { defaultPct = hits[i].pct; continue }
+
+    const hasEstudio = /estudio/i.test(cond)
+    const dormNums   = [...cond.matchAll(/(\d+)\s*D\b/gi)].map(x => parseInt(x[1]))
+
+    if ((hasEstudio && unitDorms === 0) || dormNums.includes(unitDorms)) return hits[i].pct
+  }
+
+  return defaultPct
+}
+
 // ── Función principal ─────────────────────────────────────────────────────────
 
 /**
@@ -145,14 +181,14 @@ export function parseCCForCotizador(cc, inmobiliaria, depto = null) {
 
   // ── TOCTOC ─────────────────────────────────────────────────────────────────
   // Reserva siempre en UF (ej: "10 UF") → reservaUF; cotizador convierte a CLP
-  // "Descuento autorizado" puede tener múltiples tipologías → toma el primero
+  // "Descuento autorizado" puede tener múltiples tramos: "25% 1D+1B/Estudio  20% en el resto"
   if (key.includes('TOCTOC') || key.includes('TOC TOC')) {
     const montoRes = cm['Monto Reserva'] || ''
     const esUF     = /uf/i.test(montoRes)
     const pieMin   = parsePct(cm['Pie minimo %'])
     return {
       ...defaults,
-      descuentoDepto: parsePct(cm['Descuento autorizado']),
+      descuentoDepto: _parseToctocDescuento(cm['Descuento autorizado'], depto),
       reservaCLP:     esUF ? 0 : parseCLP(montoRes),
       reservaUF:      esUF ? parseUFAmt(montoRes) : 0,
       piePctDefault:  pieMin || null,
