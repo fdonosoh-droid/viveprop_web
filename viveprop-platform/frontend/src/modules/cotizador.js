@@ -188,20 +188,17 @@ export function clearCCFError(id) {
   _setFieldError(id, '')
 }
 
+// Llamar en onblur — formatea al perder el foco, no mientras se escribe
 export function formatTelInput(id) {
   const el = document.getElementById(id)
-  if (!el) return
+  if (!el || !el.value.trim()) return
   let d = el.value.replace(/\D/g, '')
+  // Quitar código de país 56 si el usuario lo incluyó
   if (d.startsWith('56') && d.length > 9) d = d.slice(2)
+  // Mínimo 8 dígitos para formatear
+  if (d.length < 8) return
   d = d.slice(0, 9)
-  let v = ''
-  if (d.length > 0) {
-    v = '+56' + d.slice(0, 1)
-    if (d.length > 1) v += ' ' + d.slice(1, 5)
-    if (d.length > 5) v += ' ' + d.slice(5, 9)
-  }
-  el.value = v
-  _setFieldError(id, '')
+  el.value = '+56' + d[0] + ' ' + d.slice(1, 5) + ' ' + d.slice(5)
 }
 
 export function formatCLPInput(id) {
