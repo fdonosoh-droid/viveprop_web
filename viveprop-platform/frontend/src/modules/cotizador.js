@@ -295,11 +295,20 @@ export function volverDesdeParams() {
 
 export function submitParamsStep() {
   const clp = id => { const raw = (document.getElementById(id)?.value || '').replace(/\D/g, ''); return parseInt(raw, 10) || 0 }
-  try {
-    localStorage.setItem('_arriendos', JSON.stringify({
-      arr1: clp('cpg-arriendo1'), arr2: clp('cpg-arriendo2'), arr3: clp('cpg-arriendo3'),
-    }))
-  } catch {}
+
+  if (_state?.cliente?.objetivo === 'inversion') {
+    const arr1 = clp('cpg-arriendo1')
+    const arr2 = clp('cpg-arriendo2')
+    const arr3 = clp('cpg-arriendo3')
+    const errEl = document.getElementById('cpg-arriendo-err')
+    if (!arr1 || !arr2 || !arr3) {
+      if (errEl) errEl.style.display = ''
+      return
+    }
+    if (errEl) errEl.style.display = 'none'
+    try { localStorage.setItem('_arriendos', JSON.stringify({ arr1, arr2, arr3 })) } catch {}
+  }
+
   document.getElementById('cotiz-params-step').style.display = 'none'
   document.getElementById('cotiz-panel').style.display = 'flex'
   recalcCotizPanel()
@@ -365,6 +374,9 @@ function _initParamsGrid(parsedCC) {
   const plazoOpts = [5, 10, 15, 20, 25, 30]
   const caeOpts   = [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0]
 
+  const isInversion = _state.cliente?.objetivo === 'inversion'
+  const savedArr = _loadArr()
+
   document.getElementById('cps-params-grid').innerHTML = `
     <div class="cp-section-title">Configuración de cotización</div>
     <p class="cps-nota">Los campos en gris se leen desde condiciones comerciales y no son editables.</p>
@@ -391,11 +403,14 @@ function _initParamsGrid(parsedCC) {
         ${dd('Escenario 2 CAE', 'cpg-cae2', caeOpts, c2, v => v.toFixed(1) + '%')}
         ${dd('Escenario 3 CAE', 'cpg-cae3', caeOpts, c3, v => v.toFixed(1) + '%')}
       </div>
-      <div class="cp-form-row cp-form-row--3">
-        ${arrTxt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', _loadArr().arr1)}
-        ${arrTxt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', _loadArr().arr2)}
-        ${arrTxt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', _loadArr().arr3)}
+      ${isInversion ? `
+      <div class="cp-form-row cp-form-row--3" id="cpg-arriendo-row">
+        ${arrTxt('Arriendo est. Esc. 1 ($/mes)', 'cpg-arriendo1', savedArr.arr1)}
+        ${arrTxt('Arriendo est. Esc. 2 ($/mes)', 'cpg-arriendo2', savedArr.arr2)}
+        ${arrTxt('Arriendo est. Esc. 3 ($/mes)', 'cpg-arriendo3', savedArr.arr3)}
       </div>
+      <div id="cpg-arriendo-err" style="display:none;color:#991B1B;font-size:12px;padding:2px 0 4px 4px">Ingresa los arriendos estimados para los 3 escenarios</div>
+      ` : ''}
     </div>`
 }
 
