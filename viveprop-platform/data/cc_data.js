@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-03 19:04
+// Generado por excel_to_js.py — 2026-05-04 15:34
 // Proyectos con condiciones: 77
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
@@ -287,19 +287,43 @@ const CC_DATA = {
     "nota": ""
   },
   "proj_alto-buzeta-mt": {
-    "titulo": "Alto Buzeta",
+    "titulo": "Alto Buzeta (MT)",
     "campos": [
       [
         "ENTREGA",
-        "09/02/2026"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,2%"
+        "Cerrillos"
       ],
       [
         "Descuento Base",
-        "22.22%"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Creditú"
+      ],
+      [
+        "Dcto Adicional",
+        "3% 3D"
       ]
     ],
     "nota": ""
@@ -309,49 +333,47 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "27/02/2024"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,8%"
+        "Rancagua"
       ],
       [
         "Descuento Base",
-        "2.17"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
       ]
     ],
     "nota": ""
   },
   "proj_jardines-de-alvarado": {
-    "titulo": "Jardines de Alvarado",
-    "campos": [
-      [
-        "ENTREGA",
-        "15/02/2023"
-      ],
-      [
-        "COMUNA",
-        "0,8%"
-      ],
-      [
-        "Descuento Base",
-        "3.21"
-      ]
-    ],
+    "titulo": "Jardines de Alvarado: solo tipología 3D1B (con descuento máximo de venta de 10%)",
+    "campos": [],
     "nota": ""
   },
   "proj_mirador-mapocho": {
-    "titulo": "Mirador Mapocho",
-    "campos": [
-      [
-        "ENTREGA",
-        "08/05/2024"
-      ],
-      [
-        "Descuento Base",
-        "Vivienda Social"
-      ]
-    ],
+    "titulo": "Mirador Mapocho: solo tipología 1D1B (con descuento máximo de venta de 10%)",
+    "campos": [],
     "nota": ""
   },
   "proj_pintor-cicarelli-ii": {
@@ -359,15 +381,35 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "06/07/2023"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,8%"
+        "San Joaquín"
       ],
       [
         "Descuento Base",
-        "2.81"
+        "13%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
       ]
     ],
     "nota": ""
@@ -377,15 +419,35 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "03/04/2023"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,8%"
+        "La Cisterna"
       ],
       [
         "Descuento Base",
-        "3.07"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
       ]
     ],
     "nota": ""
@@ -395,35 +457,42 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "03/04/2023"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,8%"
+        "La Cisterna"
       ],
       [
         "Descuento Base",
-        "3.07"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
       ]
     ],
     "nota": ""
   },
   "proj_plaza-quilicura": {
-    "titulo": "Plaza Quilicura",
-    "campos": [
-      [
-        "ENTREGA",
-        "24/02/2023"
-      ],
-      [
-        "COMUNA",
-        "0,8%"
-      ],
-      [
-        "Descuento Base",
-        "3.18"
-      ]
-    ],
+    "titulo": "Plaza Quilicura: Se deben vender todos los departamentos con estacionamiento de manera obligatoria; Estacionamientos bajan a UF 250 (Precio anterior UF 290)",
+    "campos": [],
     "nota": ""
   },
   "proj_trinidad-iii": {
@@ -431,35 +500,42 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "31/12/2021"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,8%"
+        "La Cisterna"
       ],
       [
         "Descuento Base",
-        "4.33"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
       ]
     ],
     "nota": ""
   },
   "proj_vista-costanera": {
-    "titulo": "Vista Costanera",
-    "campos": [
-      [
-        "ENTREGA",
-        "14/09/2022"
-      ],
-      [
-        "COMUNA",
-        "0,8%"
-      ],
-      [
-        "Descuento Base",
-        "3.62"
-      ]
-    ],
+    "titulo": "Vista Costanera: Bajan los estacionamientos a 2 x UF 500",
+    "campos": [],
     "nota": ""
   },
   "proj_vista-reloncavi": {
@@ -467,15 +543,39 @@ const CC_DATA = {
     "campos": [
       [
         "ENTREGA",
-        "26/11/2024"
+        "Inmediata"
       ],
       [
         "COMUNA",
-        "0,2%"
+        "Puerto Montt"
       ],
       [
         "Descuento Base",
-        "1.43"
+        "10%"
+      ],
+      [
+        "Giftcard",
+        "GOP"
+      ],
+      [
+        "Pie en cuotas",
+        "10%"
+      ],
+      [
+        "UPAGO Cuotas",
+        "60"
+      ],
+      [
+        "Certificado Pago",
+        "10%"
+      ],
+      [
+        "Mutuo UPAGO",
+        "Max 10%"
+      ],
+      [
+        "Dcto Adicional",
+        "2% 3D"
       ]
     ],
     "nota": ""

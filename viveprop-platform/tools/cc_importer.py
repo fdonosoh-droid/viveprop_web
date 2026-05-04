@@ -155,6 +155,7 @@ def parse_maestra(ws, by_name_inmob, by_norm):
         name = _v(row, 1)
         if not name or not isinstance(name, str): continue
         name = name.strip()
+        if name == 'PROYECTO': break   # segunda tabla (ej: Fecha Ingreso CBR)
         if _is_skip_str(name): continue
 
         pids = find_pids(name, 'MAESTRA', by_name_inmob, by_norm)
