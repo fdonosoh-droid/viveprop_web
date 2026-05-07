@@ -8,6 +8,7 @@ import sys, re, json, shutil
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT       = Path(__file__).parent.parent
 PHOTOS_SRC = ROOT / "photos" / "primario"
@@ -147,7 +148,9 @@ def process_project(p: dict, manifest: dict, stats: dict):
         stem = f.stem
 
         if ext in PDF_EXTS:
-            pdfs.append({"nombre": f.name, "path": ""})
+            dst_pdf = dst_proj / f.name
+            shutil.copy2(f, dst_pdf)
+            pdfs.append({"nombre": f.name, "path": f"/photos/pri/{pid}/{quote(f.name)}"})
             continue
 
         if ext not in IMAGE_EXTS:

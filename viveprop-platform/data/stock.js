@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-04 15:34
+// Generado por excel_to_js.py — 2026-05-06 21:31
 // Propiedades: 995
 const STOCK = [
   {

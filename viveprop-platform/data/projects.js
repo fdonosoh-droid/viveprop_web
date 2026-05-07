@@ -1,4 +1,4 @@
-// Generado por excel_to_js.py — 2026-05-04 15:34
+// Generado por excel_to_js.py — 2026-05-06 21:31
 // Proyectos: 84 | Unidades: 10623
 const PROJECTS = [
   {
@@ -86,7 +86,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_SantosOssa_.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_santos-ossa/Brochure_SantosOssa_.pdf"
       }
     ],
     "unidades": [
@@ -178,7 +178,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Tocornal.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_tocornal/Brochure%20Databrokers%20Tocornal.pdf"
       }
     ],
     "unidades": [
@@ -1608,7 +1608,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Ñuble.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vicuna-mackenna-1796/Brochure%20Databrokers%20%C3%91uble.pdf"
       }
     ],
     "unidades": [
@@ -2123,7 +2123,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Centenario I.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_centenario-i/Brochure%20Databrokers%20Centenario%20I.pdf"
       }
     ],
     "unidades": [
@@ -3249,7 +3249,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Froilan Roa.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_froilan-roa/Brochure%20Databrokers%20Froilan%20Roa.pdf"
       }
     ],
     "unidades": [
@@ -3926,7 +3926,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Los Alerces.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_los-alerces/Brochure%20Databrokers%20Los%20Alerces.pdf"
       }
     ],
     "unidades": [
@@ -7869,7 +7869,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Vicuña Mackenna 7589 Etapa I.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vicuna-mackenna-7589-i/Brochure%20Databrokers%20Vicu%C3%B1a%20Mackenna%207589%20Etapa%20I.pdf"
       }
     ],
     "unidades": [
@@ -9428,7 +9428,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Vivaceta.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vivaceta/Brochure%20Databrokers%20Vivaceta.pdf"
       }
     ],
     "unidades": [
@@ -13702,7 +13702,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Vicuña Mackenna 7589 Etapa II.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vicuna-mackenna-7589-ii/Brochure%20Databrokers%20Vicu%C3%B1a%20Mackenna%207589%20Etapa%20II.pdf"
       }
     ],
     "unidades": [
@@ -15221,7 +15221,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_DiagonalParaguay_2026.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_diagonal-paraguay/Brochure_DiagonalParaguay_2026.pdf"
       }
     ],
     "unidades": [
@@ -15693,7 +15693,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Valle Los Ingleses.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_valle-los-ingleses/Brochure%20Databrokers%20Valle%20Los%20Ingleses.pdf"
       }
     ],
     "unidades": [
@@ -17347,7 +17347,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers ABD.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_abdon-cifuentes/Brochure%20Databrokers%20ABD.pdf"
       },
       {
         "nombre": "Brochure Databrokers Abdón Cifuentes.pdf",
@@ -18410,7 +18410,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Don Ignacio.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_don-ignacio/Brochure%20Databrokers%20Don%20Ignacio.pdf"
       }
     ],
     "unidades": [
@@ -21005,7 +21005,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Los Alerces.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_los-lilenes/Brochure%20Databrokers%20Los%20Alerces.pdf"
       }
     ],
     "unidades": [
@@ -24650,7 +24650,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Coronel Godoy.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_coronel-godoy/Brochure%20Databrokers%20Coronel%20Godoy.pdf"
       }
     ],
     "unidades": [
@@ -26957,7 +26957,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_NuevaEsmeralda_2026.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_nueva-esmeralda/Brochure_NuevaEsmeralda_2026.pdf"
       }
     ],
     "unidades": [
@@ -32105,7 +32105,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_VespucioCapital_2026.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vespucio-capital/Brochure_VespucioCapital_2026.pdf"
       }
     ],
     "unidades": [
@@ -33722,7 +33722,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_ElAromo_2026.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_el-aromo/Brochure_ElAromo_2026.pdf"
       }
     ],
     "unidades": [
@@ -36039,7 +36039,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Brasil_2026.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_brasil/Brochure_Brasil_2026.pdf"
       }
     ],
     "unidades": [
@@ -42262,7 +42262,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Terrazzo%20(1).pdf",
-        "path": ""
+        "path": "/photos/pri/proj_terrazzo/Brochure_Terrazzo%2520%281%29.pdf"
       }
     ],
     "unidades": [
@@ -48653,19 +48653,19 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Ciudad Matta brochure correo.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_matta/Ciudad%20Matta%20brochure%20correo.pdf"
       },
       {
         "nombre": "Ciudad Matta Mobile.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_matta/Ciudad%20Matta%20Mobile.pdf"
       },
       {
         "nombre": "EETT CIUDAD MATTA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_matta/EETT%20CIUDAD%20MATTA.pdf"
       },
       {
         "nombre": "Folleto Ciudad Matta.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_matta/Folleto%20Ciudad%20Matta.pdf"
       }
     ],
     "unidades": [
@@ -52566,7 +52566,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Caceres.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_caceres/Brochure_Caceres.pdf"
       }
     ],
     "unidades": [
@@ -53875,7 +53875,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_General-Mackenna.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_general-mackenna/Brochure_General-Mackenna.pdf"
       }
     ],
     "unidades": [
@@ -57258,7 +57258,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Jardines_De_Alvarado.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_jardines-de-alvarado/Brochure_Jardines_De_Alvarado.pdf"
       }
     ],
     "unidades": [
@@ -61019,7 +61019,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Mirador_Mapocho.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_mirador-mapocho/Brochure_Mirador_Mapocho.pdf"
       }
     ],
     "unidades": [
@@ -63434,7 +63434,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Cicarelli_I.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_pintor-cicarelli-i-pc-i/Brochure_Cicarelli_I.pdf"
       }
     ],
     "unidades": [
@@ -69097,7 +69097,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Cicarelli_II.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_pintor-cicarelli-ii/Brochure_Cicarelli_II.pdf"
       }
     ],
     "unidades": [
@@ -69958,7 +69958,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Plaza_Cervantes-I-y-II.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_plaza-cervantes-i/Brochure_Plaza_Cervantes-I-y-II.pdf"
       }
     ],
     "unidades": [
@@ -70301,7 +70301,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Plaza_Cervantes-I-y-II.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_plaza-cervantes-ii/Brochure_Plaza_Cervantes-I-y-II.pdf"
       }
     ],
     "unidades": [
@@ -70602,7 +70602,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Plaza_Quilicura.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_plaza-quilicura/Brochure_Plaza_Quilicura.pdf"
       }
     ],
     "unidades": [
@@ -71701,7 +71701,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Serrano.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_serrano-torre-a/Brochure_Serrano.pdf"
       }
     ],
     "unidades": [
@@ -78114,7 +78114,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Vista_Costanera.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vista-costanera/Brochure_Vista_Costanera.pdf"
       }
     ],
     "unidades": [
@@ -78933,7 +78933,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Vista_Llacolen.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vista-llacolen-a/Brochure_Vista_Llacolen.pdf"
       }
     ],
     "unidades": [
@@ -83322,7 +83322,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Vista_Llacolen.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vista-llacolen-b2/Brochure_Vista_Llacolen.pdf"
       }
     ],
     "unidades": [
@@ -84925,7 +84925,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure_Vista_Reloncavi.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vista-reloncavi/Brochure_Vista_Reloncavi.pdf"
       }
     ],
     "unidades": [
@@ -86656,7 +86656,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "PRESENTACION-VISTAMAR-1.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_vistamar/PRESENTACION-VISTAMAR-1.pdf"
       }
     ],
     "unidades": [
@@ -110842,7 +110842,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Blanca Estela.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_blanca-estela-i-torre-a/Brochure%20Databrokers%20Blanca%20Estela.pdf"
       }
     ],
     "unidades": [
@@ -111055,7 +111055,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Blanca Estela.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_blanca-estela-i-torre-b/Brochure%20Databrokers%20Blanca%20Estela.pdf"
       }
     ],
     "unidades": [
@@ -111967,7 +111967,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers Alto Marañon 3.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_alto-maranon-3/Brochure%20Databrokers%20Alto%20Mara%C3%B1on%203.pdf"
       }
     ],
     "unidades": [
@@ -112421,7 +112421,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers PLAY.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_play/Brochure%20Databrokers%20PLAY.pdf"
       }
     ],
     "unidades": [
@@ -114885,7 +114885,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "FAM LA CISTERNA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_fam/FAM%20LA%20CISTERNA.pdf"
       }
     ],
     "unidades": [
@@ -115307,7 +115307,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers LINE.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_line/Brochure%20Databrokers%20LINE.pdf"
       }
     ],
     "unidades": [
@@ -115402,7 +115402,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers PARQUE DE ARAYA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_parque-de-araya-torre-poniente/Brochure%20Databrokers%20PARQUE%20DE%20ARAYA.pdf"
       }
     ],
     "unidades": [
@@ -118334,7 +118334,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers MIND.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_mind/Brochure%20Databrokers%20MIND.pdf"
       }
     ],
     "unidades": [
@@ -118849,7 +118849,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Brochure Databrokers PARQUE DE ARAYA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_parque-de-araya-torre-oriente/Brochure%20Databrokers%20PARQUE%20DE%20ARAYA.pdf"
       }
     ],
     "unidades": [
@@ -133146,19 +133146,19 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "Ciudad Matta brochure correo.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_ciudad-matta/Ciudad%20Matta%20brochure%20correo.pdf"
       },
       {
         "nombre": "Ciudad Matta Mobile.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_ciudad-matta/Ciudad%20Matta%20Mobile.pdf"
       },
       {
         "nombre": "EETT CIUDAD MATTA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_ciudad-matta/EETT%20CIUDAD%20MATTA.pdf"
       },
       {
         "nombre": "Folleto Ciudad Matta.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_ciudad-matta/Folleto%20Ciudad%20Matta.pdf"
       }
     ],
     "unidades": [
@@ -146384,7 +146384,7 @@ const PROJECTS = [
     "pdfs": [
       {
         "nombre": "FAM LA CISTERNA.pdf",
-        "path": ""
+        "path": "/photos/pri/proj_nodo-la-cisterna/FAM%20LA%20CISTERNA.pdf"
       }
     ],
     "unidades": [
