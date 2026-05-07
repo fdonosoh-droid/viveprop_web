@@ -1,0 +1,56 @@
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": 365,
+      "nombre": "878",
+      "direccion": "Raulí 596",
+      "condominio": "Raulí",
+      "ciudad": "Santiago",
+      "piso": 20,
+      "orientacion": "Norte",
+      "superficie": null,
+      "m2_utiles": "33.00",
+      "m2_terraza": "2.00",
+      "tipo": "Departamento",
+      "tipologia": "1D1B",
+      "plano_tipo_id": null,
+      "for_sale": true,
+      "unidad": "2015",
+      "youtube_video_id": "",
+      "video_url": null,
+      "retorno": 3.29,
+      "monto_estimado": "2581,00",
+      "arriendo": "285000",
+      "m2_uf": 78.21,
+      "entorno": null,
+      "terminaciones": null,
+      "fecha_disponible_venta": null,
+      "inmobiliaria": null,
+      "anio_construccion": 2006,
+      "unitggcc": {
+        "property_id": 365,
+        "monto": 65000,
+        "metodo_calculo": "1",
+        "fecha_calculo": "2026-05-07T08:20:34.000000Z"
+      },
+      "valor_uf": "40240.14",
+      "banios": 1,
+      "dormitorios": 1,
+      "hijos": [],
+      "espacios": null,
+      "descripcion": "Correo comité: comitecondominiorauli@gmail.com",
+      "listings": null,
+      "fotos": [
+        "https://d1lperdm2273ra.cloudfront.net/buildings/147/thumbs/1000_CC7F298E-9D76-B28F-8798-F75170B81B89ap_r596_308_19.03.2021_015.jpg"
+      ],
+      "fotos_originales": [
+        "https://assetplan-backoffice.s3.amazonaws.com/buildings/147/thumbs/original_CC7F298E-9D76-B28F-8798-F75170B81B89ap_r596_308_19.03.2021_015.jpg",
+        "https://assetplan-backoffice.s3.amazonaws.com/buildingtypologies/79/thumbs/original_A3739393-560B-0417-E5D7-658377C7B7A4-60403.07.2024001.jpg"
+      ],
+      "building_finishes": null,
+      "url_video": "",
+      "estacionamientos": 0,
+      "bodegas": 0,
+      "ggcc": 65000
+    }
