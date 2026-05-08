@@ -1241,6 +1241,20 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 }
 .btn-generar-cotiz:hover{background:var(--brand-dark)}
 
+/* ── Modal selección impresión ── */
+#cotiz-print-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9000;align-items:center;justify-content:center}
+#cotiz-print-modal.open{display:flex}
+.cpm-dialog{background:#fff;border-radius:14px;padding:28px 24px 20px;width:440px;max-width:90vw;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.cpm-title{font-size:16px;font-weight:700;color:#111;margin-bottom:20px;text-align:center}
+.cpm-options{display:flex;gap:12px;margin-bottom:18px}
+.cpm-option{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;border:2px solid #E5E7EB;border-radius:10px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s}
+.cpm-option:hover{border-color:#4F46E5;background:#F5F3FF}
+.cpm-opt-icon{font-size:28px;line-height:1}
+.cpm-opt-name{font-size:14px;font-weight:700;color:#111}
+.cpm-opt-desc{font-size:11px;color:#6B7280;text-align:center;line-height:1.4}
+.cpm-cancel{display:block;width:100%;padding:9px;border:none;background:none;color:#6B7280;font-size:13px;cursor:pointer;border-radius:8px}
+.cpm-cancel:hover{background:#F3F4F6}
+
 /* ── Sprint 5: @media print ── */
 @media print{
   @page{margin:15mm 20mm}
@@ -1284,4 +1298,8 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
   .prd-footer{margin-top:14px;padding-top:10px;border-top:1px solid #E5E7EB}
   .prd-corredor{font-size:11px;color:#374151;margin-bottom:6px}
   .prd-disclaimer{font-size:9px;color:#9CA3AF;line-height:1.4}
+  /* resumen */
+  #cotiz-print-modal{display:none!important}
+  .prd-res-tbl th.ta-r,.prd-res-tbl td.ta-r{text-align:right}
+  .prd-res-tbl td:first-child{font-size:12px}
 }

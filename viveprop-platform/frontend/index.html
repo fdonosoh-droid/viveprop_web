@@ -625,5 +625,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="/src/main.js"></script>
 <div id="cotiz-print-doc"></div>
+
+<!-- Modal selección versión impresión -->
+<div id="cotiz-print-modal" onclick="if(event.target===this)closePrintModal()">
+  <div class="cpm-dialog">
+    <div class="cpm-title">¿Qué versión imprimir?</div>
+    <div class="cpm-options">
+      <button class="cpm-option" onclick="printCotizMode('completo')">
+        <div class="cpm-opt-icon">📄</div>
+        <div class="cpm-opt-name">Completo</div>
+        <div class="cpm-opt-desc">Valores · plan de pie · crédito hipotecario · escenarios CAE</div>
+      </button>
+      <button class="cpm-option" onclick="printCotizMode('resumen')">
+        <div class="cpm-opt-icon">📋</div>
+        <div class="cpm-opt-name">Resumen</div>
+        <div class="cpm-opt-desc">Unidades · pie total · crédito hipotecario</div>
+      </button>
+    </div>
+    <button class="cpm-cancel" onclick="closePrintModal()">Cancelar</button>
+  </div>
+</div>
 </body>
 </html>

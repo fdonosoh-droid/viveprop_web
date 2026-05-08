@@ -5,8 +5,10 @@ import { calcularCotizacion, getReglaInmobiliaria, PLAZO_DEFAULT, CAE_OPTIONS, P
 
 // ── Estado panel completo ─────────────────────────────────────────────────────
 
-let _state = null;   // { project, depto, secundarios, parsedCC, regla, reservaCLP }
+let _state       = null;   // { project, depto, secundarios, parsedCC, regla, reservaCLP }
 let _recotizarMode = false;
+let _lastR       = null
+let _lastParams  = null
 
 // ── Entrada principal desde primario.js ──────────────────────────────────────
 
@@ -721,6 +723,8 @@ function _genCotizId() {
 }
 
 function _buildPrintDoc(r, params) {
+  _lastR = r
+  _lastParams = params
   const el = document.getElementById('cotiz-print-doc')
   if (!el || !_state?.cliente) return
 
@@ -893,9 +897,132 @@ function _buildPrintDoc(r, params) {
   </div>`
 }
 
+function _buildPrintDocResumen(r) {
+  const el = document.getElementById('cotiz-print-doc')
+  if (!el || !_state?.cliente || !r) return
+
+  const { project, depto, secundarios, cliente, cotizId } = _state
+  const now     = new Date()
+  const dateStr = now.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' })
+  const OBJETIVO = { vivienda: 'Vivienda propia', inversion: 'Inversión / arriendo', segunda: 'Segunda vivienda', subsidio: 'Subsidio habitacional' }
+
+  const unitLines = [
+    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp} · ${fmt.uf2(depto.precio_uf)}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp} · ${fmt.uf2(s.precio_uf)}`)
+  ].map(l => `<div class="prd-unit-line">${H(l)}</div>`).join('')
+
+  const deptoLabel = `${H(String(depto.dp))}${depto.tipologia ? ' (' + H(depto.tipologia) + ')' : ''}`
+  const deptoRow = `<tr>
+    <td>${deptoLabel}</td>
+    <td class="ta-r">${fmt.uf2(r.precioDescDepto)}</td>
+    <td class="ta-r">${fmt.pesos(r.precioDescDepto * r.valorUF)}</td>
+  </tr>`
+  const secRows = secundarios.map(s => `<tr>
+    <td>${s.tipologia ? H(s.tipologia) + ' ' : ''}DP ${H(String(s.dp))}</td>
+    <td class="ta-r">${fmt.uf2(s.precio_uf)}</td>
+    <td class="ta-r">${fmt.pesos(s.precio_uf * r.valorUF)}</td>
+  </tr>`).join('')
+
+  const totalUF   = r.valorVentaUF
+  const reservaUF = r.reservaUF
+  const chUF      = r.creditoHipFinalUF
+  const pieUF     = Math.max(0, totalUF - reservaUF - chUF)
+  const _pct2     = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
+
+  el.innerHTML = `
+  <div class="prd-wrap">
+    <div class="prd-header">
+      <img src="/images/logo.png" alt="ViveProp" class="prd-logo">
+      <div class="prd-header-mid">COTIZACIÓN</div>
+      <div class="prd-header-right">
+        <div class="prd-cot-num">${H(cotizId)}</div>
+        <div class="prd-cot-date">${dateStr}</div>
+      </div>
+    </div>
+
+    <div class="prd-meta-row">
+      <div class="prd-meta-block">
+        <div class="prd-meta-title">Proyecto</div>
+        <div class="prd-meta-main">${H(project.nombre)}</div>
+        <div class="prd-meta-sub">${[project.inmobiliaria && H(project.inmobiliaria), project.comuna && H(project.comuna)].filter(Boolean).join(' · ')}</div>
+        <div class="prd-units-list">${unitLines}</div>
+      </div>
+      <div class="prd-meta-block">
+        <div class="prd-meta-title">Cliente</div>
+        <div class="prd-meta-main">${H(cliente.nombre)}</div>
+        <div class="prd-meta-sub">RUT ${H(cliente.rut)}</div>
+        <div class="prd-meta-sub">${H(cliente.email)}</div>
+        <div class="prd-meta-sub">${H(cliente.tel)}</div>
+        <div class="prd-meta-obj">${OBJETIVO[cliente.objetivo] || H(cliente.objetivo)}</div>
+      </div>
+    </div>
+
+    <div class="prd-section">
+      <div class="prd-section-title">Valores</div>
+      <table class="prd-tbl prd-res-tbl">
+        <thead><tr><th>Unidad</th><th class="ta-r">UF</th><th class="ta-r">$</th></tr></thead>
+        <tbody>
+          ${deptoRow}${secRows}
+          <tr class="prd-tbl-total">
+            <td><strong>Total</strong></td>
+            <td class="ta-r"><strong>${fmt.uf2(totalUF)}</strong></td>
+            <td class="ta-r"><strong>${fmt.pesos(totalUF * r.valorUF)}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prd-section">
+      <table class="prd-tbl prd-res-tbl">
+        <thead><tr><th>Concepto</th><th class="ta-r">UF</th><th class="ta-r">%</th><th class="ta-r">$</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Reserva</td>
+            <td class="ta-r">${fmt.uf2(reservaUF)}</td>
+            <td class="ta-r">${_pct2(reservaUF)}</td>
+            <td class="ta-r">${fmt.pesos(reservaUF * r.valorUF)}</td>
+          </tr>
+          <tr>
+            <td>Pie</td>
+            <td class="ta-r">${fmt.uf2(pieUF)}</td>
+            <td class="ta-r">${_pct2(pieUF)}</td>
+            <td class="ta-r">${fmt.pesos(pieUF * r.valorUF)}</td>
+          </tr>
+          <tr class="prd-tbl-total">
+            <td><strong>Crédito Hipotecario</strong></td>
+            <td class="ta-r"><strong>${fmt.uf2(chUF)}</strong></td>
+            <td class="ta-r">${_pct2(chUF)}</td>
+            <td class="ta-r"><strong>${fmt.pesos(chUF * r.valorUF)}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prd-footer">
+      <div class="prd-corredor">
+        <strong>Corredor:</strong> ${H(cliente.corNombre)} · ${H(cliente.corEmail)} · ${H(cliente.corTel)}
+      </div>
+      <div class="prd-disclaimer">
+        Esta cotización es referencial y ha sido elaborada para apoyarte en la evaluación de esta oportunidad inmobiliaria, considerando las condiciones comerciales vigentes informadas por la inmobiliaria a la fecha de emisión. La información aquí contenida es de carácter referencial y puede experimentar variaciones en valores, beneficios o condiciones comerciales según lo que finalmente defina la inmobiliaria para cada caso. Asimismo, los montos expresados en UF están sujetos a la variación del índice oficial publicado por el Banco Central de Chile, y las condiciones de financiamiento hipotecario dependerán de la evaluación y aprobación de la entidad financiera respectiva. Cotización emitida el ${dateStr}.
+      </div>
+    </div>
+  </div>`
+}
+
 export function printCotiz() {
   if (!_state?.cliente) return
-  window.print()
+  document.getElementById('cotiz-print-modal').style.display = 'flex'
+}
+
+export function closePrintModal() {
+  document.getElementById('cotiz-print-modal').style.display = 'none'
+}
+
+export function printCotizMode(mode) {
+  closePrintModal()
+  if (mode === 'resumen') _buildPrintDocResumen(_lastR)
+  else _buildPrintDoc(_lastR, _lastParams)
+  requestAnimationFrame(() => window.print())
 }
 
 export function cotizSecProp(propId) {
