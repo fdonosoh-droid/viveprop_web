@@ -48,13 +48,12 @@ def to_js(var_name, data, comment=""):
     return "\n".join(lines) + "\n"
 
 
-# ─── STOCK ────────────────────────────────────────────────────────────────────
+# ─── STOCK (OBSOLETO — reemplazado por tools/gsheet_to_stock.py) ──────────────
 
 def excel_to_stock():
-    src = DATA_DIR / "stock.xlsx"
-    if not src.exists():
-        sys.exit(f"No encontré {src}. Primero corré js_to_excel.py")
-    print("Generando stock.js ...")
+    # Stock secundario ya no se genera desde Excel.
+    # Usar: python tools/gsheet_to_stock.py
+    print("  (stock: omitido — usar gsheet_to_stock.py)")
 
     wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
     rows = read_sheet(wb["Stock"])
@@ -247,7 +246,7 @@ def copy_geocodes():
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    excel_to_stock()
+    excel_to_stock()      # obsoleto — solo imprime aviso
     excel_to_projects()
     excel_to_cc_data()
     copy_geocodes()
