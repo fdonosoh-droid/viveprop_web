@@ -1,2817 +1,1467 @@
-// Generado por excel_to_js.py — 2026-05-06 21:31
+// Generado por cc_importer.py — 2026-05-08 10:14
 // Proyectos con condiciones: 77
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
     "titulo": "Vista Llacolén B2",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.028"
-      ],
-      [
-        "COMUNA",
-        "Concepción"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "-"
-      ],
-      [
-        "Upfront",
-        "2%"
-      ],
-      [
-        "Pie en cuotas",
-        "8%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "21"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 21,
+    "upfrontPct": 2.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.028",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_vista-llacolen-a": {
     "titulo": "Vista Llacolén A",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.029"
-      ],
-      [
-        "COMUNA",
-        "Concepción"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "-"
-      ],
-      [
-        "Upfront",
-        "2%"
-      ],
-      [
-        "Pie en cuotas",
-        "8%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "34"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 34,
+    "upfrontPct": 2.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.029",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_serrano-torre-a": {
     "titulo": "SERRANO TORRE A",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.028"
-      ],
-      [
-        "COMUNA",
-        "Puerto Montt"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "-"
-      ],
-      [
-        "Upfront",
-        "2%"
-      ],
-      [
-        "Pie en cuotas",
-        "8%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "21"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 21,
+    "upfrontPct": 2.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.028",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_general-mackenna": {
     "titulo": "General Mackenna",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.029"
-      ],
-      [
-        "COMUNA",
-        "Temuco"
-      ],
-      [
-        "Descuento Base",
-        "15%"
-      ],
-      [
-        "Giftcard",
-        "500.000"
-      ],
-      [
-        "Upfront",
-        "1%"
-      ],
-      [
-        "Pie en cuotas",
-        "9%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "35"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 35,
+    "upfrontPct": 1.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.029",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_vistamar": {
     "titulo": "Vistamar",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.029"
-      ],
-      [
-        "COMUNA",
-        "Coquimbo"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "-"
-      ],
-      [
-        "Upfront",
-        "2%"
-      ],
-      [
-        "Pie en cuotas",
-        "8%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "34"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ],
-      [
-        "Dcto Adicional",
-        "2% SurOriente"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 2.0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 34,
+    "upfrontPct": 2.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.029",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_distrito-centro": {
     "titulo": "Distrito Centro",
-    "campos": [
-      [
-        "ENTREGA",
-        "2.029"
-      ],
-      [
-        "COMUNA",
-        "Chillán"
-      ],
-      [
-        "Descuento Base",
-        "15%"
-      ],
-      [
-        "Giftcard",
-        "500.000"
-      ],
-      [
-        "Upfront",
-        "1%"
-      ],
-      [
-        "Pie en cuotas",
-        "9%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "36"
-      ],
-      [
-        "Cuota desde",
-        "UF 7,0"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "No"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 36,
+    "upfrontPct": 1.0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2.029",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_pintor-cicarelli-i-pc-i": {
     "titulo": "Pintor Cicarelli I: solo tipología 3D1B (con descuento máximo de venta de 10%)",
-    "campos": [],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_alto-buzeta-mt": {
     "titulo": "Alto Buzeta (MT)",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "Cerrillos"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Creditú"
-      ],
-      [
-        "Dcto Adicional",
-        "3% 3D"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 3.0,
+    "descuentoAdicionalCond": "3D",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_caceres": {
     "titulo": "Cáceres",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "Rancagua"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_jardines-de-alvarado": {
     "titulo": "Jardines de Alvarado: solo tipología 3D1B (con descuento máximo de venta de 10%)",
-    "campos": [],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_mirador-mapocho": {
     "titulo": "Mirador Mapocho: solo tipología 1D1B (con descuento máximo de venta de 10%)",
-    "campos": [],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_pintor-cicarelli-ii": {
     "titulo": "Pintor Cicarelli II",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "San Joaquín"
-      ],
-      [
-        "Descuento Base",
-        "13%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 13.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_plaza-cervantes-i": {
     "titulo": "Plaza Cervantes I",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "La Cisterna"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_plaza-cervantes-ii": {
     "titulo": "Plaza Cervantes II",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "La Cisterna"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_plaza-quilicura": {
     "titulo": "Plaza Quilicura: Se deben vender todos los departamentos con estacionamiento de manera obligatoria; Estacionamientos bajan a UF 250 (Precio anterior UF 290)",
-    "campos": [],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_trinidad-iii": {
     "titulo": "Trinidad III",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "La Cisterna"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_vista-costanera": {
     "titulo": "Vista Costanera: Bajan los estacionamientos a 2 x UF 500",
-    "campos": [],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_vista-reloncavi": {
     "titulo": "Vista Reloncaví",
-    "campos": [
-      [
-        "ENTREGA",
-        "Inmediata"
-      ],
-      [
-        "COMUNA",
-        "Puerto Montt"
-      ],
-      [
-        "Descuento Base",
-        "10%"
-      ],
-      [
-        "Giftcard",
-        "GOP"
-      ],
-      [
-        "Pie en cuotas",
-        "10%"
-      ],
-      [
-        "UPAGO Cuotas",
-        "60"
-      ],
-      [
-        "Certificado Pago",
-        "10%"
-      ],
-      [
-        "Mutuo UPAGO",
-        "Max 10%"
-      ],
-      [
-        "Dcto Adicional",
-        "2% 3D"
-      ]
-    ],
+    "inmobiliaria": "MAESTRA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 2.0,
+    "descuentoAdicionalCond": "3D",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 60,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_vicuna-mackenna-1796": {
     "titulo": "Vicuña Mackenna 1796 (ÑUB)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses\nGift Card de $200.000 por escritura en unidad principal y de $300.000 por unidad principal + estacionamiento y bodega"
   },
   "proj_tocornal": {
     "titulo": "Tocornal (TOC)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "15%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 15.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses\nVenta de depto + estacionamiento + bodega con gift card para el broker de $1.000.000"
   },
   "proj_santos-ossa": {
     "titulo": "Santos Ossa (OSSA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "5%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 5.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "No aplica a beneficios DFL2\nCrédito en hasta 36 cuotas. Gift Card de $1.000.000 para el broker"
   },
   "proj_los-alerces": {
     "titulo": "Los Alerces (ALE)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas\n1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses\nGift Card de $200.000 por escritura en unidad principal y de $300.000 por unidad principal + estacionamiento y bodega"
   },
   "proj_bellavista": {
     "titulo": "Bellavista (BEL)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "15%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 15.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses\nGift Card de $200.000 por escritura en unidad principal y de $300.000 por unidad principal + estacionamiento y bodega"
   },
   "proj_froilan-roa": {
     "titulo": "Froilan Roa (ROA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "15%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 15.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_centenario-i": {
     "titulo": "Centenario I (FRK)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "18%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Cuotón",
-        "2%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 18.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 2.0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "1er arriendo sin comisión de corretaje o 3 meses de administración asegurada contratando plan black por 18 meses"
   },
   "proj_valle-los-ingleses": {
     "titulo": "Valle los Ingleses (ING)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "20%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 20.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega inmediata",
+    "descuentoRegla": "",
     "nota": "No aplica a beneficios DFL2"
   },
   "proj_vespucio-capital": {
     "titulo": "Vespucio Capital (VESP)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Entrega Inmediata"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "1"
-      ],
-      [
-        "Pie crédito s/int.",
-        "10%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 0,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 10.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "",
     "nota": "Crédito y arriendo garantizado en paralaleo hasta el 30/06/2031)\nPara aprobaciones al 90% el 10% de aporte se debe usar OBLIGATORIAMENTE como descuento\nGift card de $100.000 en caso de financiamiento con BCI o Santander"
   },
   "proj_vivaceta": {
     "titulo": "Vivaceta (VTA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "4%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "18"
-      ],
-      [
-        "Pie período const.",
-        "5%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 4.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 17,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 5.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_vicuna-mackenna-7589-i": {
     "titulo": "Vicuña Mackenna 7589 (VIC y VIC2)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "9%"
-      ],
-      [
-        "Cuotas pie",
-        "21"
-      ],
-      [
-        "Pie período const.",
-        "6%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 9.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 6.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_vicuna-mackenna-7589-ii": {
     "titulo": "Vicuña Mackenna 7589 (VIC y VIC2)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "9%"
-      ],
-      [
-        "Cuotas pie",
-        "21"
-      ],
-      [
-        "Pie período const.",
-        "6%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 9.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 6.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_diagonal-paraguay": {
     "titulo": "Diagonal Paraguay (DP)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "5%"
-      ],
-      [
-        "Cuotas pie",
-        "21"
-      ],
-      [
-        "Pie período const.",
-        "15%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 5.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 15.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_abdon-cifuentes": {
     "titulo": "Abdón Cifuentes (ABD)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "1er semestre 2028"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "9%"
-      ],
-      [
-        "Cuotas pie",
-        "26"
-      ],
-      [
-        "Pie período const.",
-        "6%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 9.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 25,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 6.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "1er semestre 2028",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_don-ignacio": {
     "titulo": "Don Ignacio (DOM)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2028"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "9%"
-      ],
-      [
-        "Cuotas pie",
-        "31"
-      ],
-      [
-        "Pie período const.",
-        "6%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 9.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 30,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 6.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2028",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_los-lilenes": {
     "titulo": "Los Lilenes (LEN)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "1er semestre 2029"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "7%"
-      ],
-      [
-        "Cuotas pie",
-        "34"
-      ],
-      [
-        "Pie período const.",
-        "8%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 7.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 33,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 8.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "1er semestre 2029",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_coronel-godoy": {
     "titulo": "Coronel Godoy (GOD)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2028"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "15%"
-      ],
-      [
-        "Cuotas pie",
-        "21"
-      ],
-      [
-        "Pie período const.",
-        "3%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "2%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 15.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.0,
+    "creditoDirectoPct": 2.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2028",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 12 cuotas"
   },
   "proj_nueva-esmeralda": {
     "titulo": "Nueva Esmeralda (NES)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Aporte inmobiliario",
-        "13%"
-      ],
-      [
-        "Cuotas pie",
-        "21"
-      ],
-      [
-        "Pie período const.",
-        "3.5%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "3.5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 13.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 3.5,
+    "creditoDirectoPct": 3.5,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 24 cuotas"
   },
   "proj_brasil": {
     "titulo": "Brasil (BRA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "1er semestre 2029"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "10%"
-      ],
-      [
-        "Cuotas pie",
-        "31"
-      ],
-      [
-        "Pie período const.",
-        "5%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 30,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 5.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "1er semestre 2029",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_terrazzo": {
     "titulo": "Terrazzo (TER)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2028"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "8%"
-      ],
-      [
-        "Cuotas pie",
-        "31"
-      ],
-      [
-        "Pie período const.",
-        "7%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 8.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 30,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2028",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_el-aromo": {
     "titulo": "El Aromo (ARO)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "2do semestre 2027"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "1%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "11%"
-      ],
-      [
-        "Cuotas pie",
-        "20"
-      ],
-      [
-        "Pie período const.",
-        "4%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 1.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 11.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 19,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 4.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "2do semestre 2027",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_matta": {
     "titulo": "Matta (MAT)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "1er semestre 2029"
-      ],
-      [
-        "Reserva",
-        "100.000"
-      ],
-      [
-        "Dcto. depto.",
-        "2%"
-      ],
-      [
-        "Aporte inmobiliario",
-        "8%"
-      ],
-      [
-        "Cuotas pie",
-        "36"
-      ],
-      [
-        "Pie período const.",
-        "7%"
-      ],
-      [
-        "Pie crédito s/int.",
-        "5%"
-      ],
-      [
-        "Productos secundarios",
-        "1 a 1"
-      ]
-    ],
+    "inmobiliaria": "INGEVEC",
+    "descuentoDepto": 2.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 8.0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 35,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 5.0,
+    "cuotonPct": 0,
+    "tipoEntrega": "1er semestre 2029",
+    "descuentoRegla": "",
     "nota": "Crédito en hasta 36 cuotas"
   },
   "proj_condominio-parque-del-sur-torre-a": {
     "titulo": "Condominio Parque del Sur torre A",
-    "campos": [
-      [
-        "Comuna",
-        "La Cisterna"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "10%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "Estacionamientos desde 2D2B en adelante y Bodega disponible desde 2D1B en adelante, Deptos (202,203,207,208,209) van con Anexo 60 Dias"
   },
   "proj_edificio-castillo-urizar": {
     "titulo": "Edificio Castillo Urizar",
-    "campos": [
-      [
-        "Comuna",
-        "Ñuñoa"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "1. Estacionamiento y bodega obligatoria \n2. Depto 1110 no va con subsidio a la tasa \n3.Anexo 60 dias para todas las unidades"
   },
   "proj_edificio-coronel-souper": {
     "titulo": "Edificio Coronel Souper",
-    "campos": [
-      [
-        "Comuna",
-        "Estación Central"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "1. Sin estacionamientos ni bodegas disponibles\n2.Anexo 60 dias para todas las unidades"
   },
   "proj_condominio-francisco-zelada-torre-a": {
     "titulo": "Edificio Francisco Zelada Torre A",
-    "campos": [
-      [
-        "Comuna",
-        "Estación Central"
-      ],
-      [
-        "Tipo entrega",
-        "Futura"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Pre Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "18"
-      ],
-      [
-        "Getnet (cuotas)",
-        "53 (17+36)"
-      ],
-      [
-        "Alt. pie 10%",
-        "En 53 cuotas (5% en 17 + 5% en 36):\n17 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/09/2027"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Arriendo Asegurado 24m, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 18,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "Estacionamiento solo para 2D/2B\n Bodega 2D/1B en adelante"
   },
   "proj_condominio-francisco-zelada-torre-b": {
     "titulo": "Edificio Francisco Zelada Torre B",
-    "campos": [
-      [
-        "Comuna",
-        "Estación Central"
-      ],
-      [
-        "Tipo entrega",
-        "Futura"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Pre Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "12"
-      ],
-      [
-        "Getnet (cuotas)",
-        "47 (11+36)"
-      ],
-      [
-        "Alt. pie 10%",
-        "En 47 cuotas (5% en 11 + 5% en 36):\n11 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
-      ],
-      [
-        "Fecha ult. cuota",
-        "31/03/2027"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Arriendo Asegurado 24m, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 12,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "Estacionamiento y bodega solo para 2D/1B en adelante"
   },
   "proj_edificio-guillermo-mann": {
     "titulo": "Edificio Guillermo Mann",
-    "campos": [
-      [
-        "Comuna",
-        "Ñuñoa"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "6 Dividendos Gratis, Arriendo Asegurado 24m, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "1. Bodega y Estacionamiento obligatorio para departamentos 302-511-811\n2. Depto 302 va amoblado y 311 sala de ventas.\n3. Anexo de 60 días en todas las unidades"
   },
   "proj_edificio-lia-aguirre": {
     "titulo": "Edificio Lia Aguirre",
-    "campos": [
-      [
-        "Comuna",
-        "La Florida"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "6 Dividendos Gratis, Arriendo Asegurado 24m, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "1. Estacionamiento y bodega obligatoria\n2. Depto 209,210, 211,305 van con Anexo 60 Dias.\n3. Deptos 209,210,211 van con decoración.\n4. Deptos 903,1303,1305,1505 van con anexo de 90 días."
   },
   "proj_edificio-pedro-de-la-barra": {
     "titulo": "Edificio Pedro de la Barra",
-    "campos": [
-      [
-        "Comuna",
-        "Santiago"
-      ],
-      [
-        "Tipo entrega",
-        "Futura"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Pre Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "3"
-      ],
-      [
-        "Getnet (cuotas)",
-        "38 (2+36)"
-      ],
-      [
-        "Alt. pie 10%",
-        "En 38 cuotas (3% en 2 + 7% en 36):\n2 cuota + 1 cuoton final con getnet hasta en 36 cuotas"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/06/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "6 Dividendos Gratis, Arriendo Asegurado 24m, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 3,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "Estacionamiento y Bodega solo para  2D/ 2B \nDeptos (306, 308, 309, 311) van con Anexo 60 Dias"
   },
   "proj_edificio-trinidad-ramirez": {
     "titulo": "Edificio Trinidad Ramirez",
-    "campos": [
-      [
-        "Comuna",
-        "La Cisterna"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "Estacionamiento debe ser vendido junto con la ultima unidad disponible\n2. Bodega obligatoria.\n3. Anexo de 60 días para todas las unidades"
   },
   "proj_alto-maranon-3": {
     "titulo": "Alto Marañon 3",
-    "campos": [
-      [
-        "Comuna",
-        "Viña del Mar"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "No se puede vender Estacionamiento ni bodegas por separado // Estacionamientos solo para 3D2B // Depto. 204 con anexo 60 dias"
   },
   "proj_blanca-estela-i-torre-a": {
     "titulo": "Edificio Blanca Estela Torre A",
-    "campos": [
-      [
-        "Comuna",
-        "Concon"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "No se puede vender mas de un estacionamiento por departamento"
   },
   "proj_blanca-estela-i-torre-b": {
     "titulo": "Edificio Blanca Estela Torre B",
-    "campos": [
-      [
-        "Comuna",
-        "Concon"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "GOP Gratis, Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "No se puede vender mas de un estacionamiento por departamento"
   },
   "proj_edificio-parque-urbano": {
     "titulo": "Edificio Parque Urbano oficinas",
-    "campos": [
-      [
-        "Comuna",
-        "Viña del Mar"
-      ],
-      [
-        "Tipo entrega",
-        "Inmediata"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "1"
-      ],
-      [
-        "Alt. pie 10%",
-        "Pago con TC en 36 cuotas precio contado con getnet"
-      ],
-      [
-        "Fecha ult. cuota",
-        "30/04/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "GOP Gratis, 6 Dividendos Gratis, 24 Dividendos, Crédito Directo"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "Estacionamiento y Bodega Obligatoria"
   },
   "proj_parque-maranon-torre-a": {
     "titulo": "Parque Marañon Torre A",
-    "campos": [
-      [
-        "Comuna",
-        "Viña del Mar"
-      ],
-      [
-        "Tipo entrega",
-        "Futura"
-      ],
-      [
-        "Pie mínimo",
-        "10% o lo que no financie el Banco"
-      ],
-      [
-        "Financiamiento",
-        "Aprobación"
-      ],
-      [
-        "Cuotas prog.",
-        "4"
-      ],
-      [
-        "Getnet (cuotas)",
-        "39 (3+36)"
-      ],
-      [
-        "Alt. pie 10%",
-        "En 39 cuotas (5% en 3 + 5% en 36):\n3 cuotas + 1 cuoton final con getnet hasta en 36 cuotas"
-      ],
-      [
-        "Fecha ult. cuota",
-        "31/07/2026"
-      ],
-      [
-        "Descuento RVC",
-        "6%"
-      ],
-      [
-        "Promociones",
-        "Crédito Directo, Knockit"
-      ]
-    ],
+    "inmobiliaria": "RVC",
+    "descuentoDepto": 6.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 100000,
+    "reservaUF": 0,
+    "cuotasPieN": 4,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "Estacionamiento y Bodega Obligatoria // Segunda Bodega 50 % de descuento"
   },
   "proj_play": {
     "titulo": "Play",
-    "campos": [
-      [
-        "Estado",
-        "Entrega Inmediata"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Aprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "15%"
-      ],
-      [
-        "Cuotas",
-        "1"
-      ],
-      [
-        "Monto Contra promesa",
-        "UF 50"
-      ],
-      [
-        "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 24 cuotas sin intereses)"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "30/04/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Obligatorio (Excepción para estudio y 1D+1B)"
-      ],
-      [
-        "Condición Bodegas",
-        "No obligatorio"
-      ],
-      [
-        "Descuento autorizado",
-        "25% 1D+1D/Estudio                                                20% en el resto"
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 25.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 15.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "25% 1D+1D/Estudio                                                20% en el resto",
     "nota": ""
   },
   "proj_fam": {
     "titulo": "Fam",
-    "campos": [
-      [
-        "Estado",
-        "Entrega Inmediata"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Aprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "10%"
-      ],
-      [
-        "Cuotas",
-        "1"
-      ],
-      [
-        "Monto Contra promesa",
-        "UF 50"
-      ],
-      [
-        "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "30/04/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Obligatorio"
-      ],
-      [
-        "Condición Bodegas",
-        "Obligatorio"
-      ],
-      [
-        "Descuento autorizado",
-        "20% deptos y est."
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 20.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_line": {
     "titulo": "Line",
-    "campos": [
-      [
-        "Estado",
-        "Entrega Inmediata"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Aprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "10%"
-      ],
-      [
-        "Cuotas",
-        "1"
-      ],
-      [
-        "Monto Contra promesa",
-        "UF 50"
-      ],
-      [
-        "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "30/04/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Obligatorio"
-      ],
-      [
-        "Condición Bodegas",
-        "Modelo C Obligatorio"
-      ],
-      [
-        "Descuento autorizado",
-        "15% deptos"
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_mind": {
     "titulo": "Mind",
-    "campos": [
-      [
-        "Estado",
-        "Entrega Inmediata"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Aprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "10%"
-      ],
-      [
-        "Cuotas",
-        "1"
-      ],
-      [
-        "Monto Contra promesa",
-        "UF 50"
-      ],
-      [
-        "Forma de pago cuotas",
-        "* Toku                                                                                                                                                                               *Getnet (hasta 36 cuotas sin intereses)"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "30/04/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Solo estos deptos 714/1701/1801 tienen derecho a estacionamiento"
-      ],
-      [
-        "Condición Bodegas",
-        "2D+2B Opcional /                  1D+1B No tiene derecho"
-      ],
-      [
-        "Descuento autorizado",
-        "10%"
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 10.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_parque-de-araya-torre-poniente": {
     "titulo": "PDA Torre Poniente",
-    "campos": [
-      [
-        "Estado",
-        "Entrega Inmediata"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Aprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "15%"
-      ],
-      [
-        "Cuotas",
-        "1"
-      ],
-      [
-        "Monto Contra promesa",
-        "UF 50"
-      ],
-      [
-        "Forma de pago cuotas",
-        "Toku"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "30/04/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Estudio No tiene derecho"
-      ],
-      [
-        "Condición Bodegas",
-        "Obligatorio"
-      ],
-      [
-        "Descuento autorizado",
-        "10%"
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": 15.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Entrega Inmediata",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_parque-de-araya-torre-oriente": {
     "titulo": "PDA Torre Oriente",
-    "campos": [
-      [
-        "Estado",
-        "Venta en Verde"
-      ],
-      [
-        "Pre/Aprobación bancaria",
-        "Preaprobación"
-      ],
-      [
-        "Monto Reserva",
-        "10 UF"
-      ],
-      [
-        "Pie minimo %",
-        "15%"
-      ],
-      [
-        "Cuotas",
-        "8"
-      ],
-      [
-        "Monto Contra promesa",
-        "Pago de la primera cuota"
-      ],
-      [
-        "Forma de pago cuotas",
-        "Toku"
-      ],
-      [
-        "Fecha máxima de pago pie",
-        "31/12/2026"
-      ],
-      [
-        "Condición Estacionamientos",
-        "Obligatorio"
-      ],
-      [
-        "Condición Bodegas",
-        "Obligatorio"
-      ],
-      [
-        "Descuento autorizado",
-        "5%"
-      ]
-    ],
+    "inmobiliaria": "TOCTOC",
+    "descuentoDepto": 5.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 0,
+    "reservaUF": 10.0,
+    "cuotasPieN": 8,
+    "upfrontPct": 0,
+    "piePctDefault": 15.0,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Venta en Verde",
+    "descuentoRegla": "",
     "nota": ""
   },
   "proj_status": {
     "titulo": "STATUS, Stgo. Centro (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "249.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas TOKU / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "27%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 27.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 249000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D (10% BONO PIE Y 36D (15% DE BONO PIE) (sujeto a valor tasación bco) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · ULTIMOS DEPTOS DISP: 129 · VENTA OBLIGADA ESTAC Y BOD · ESTACIONAMIENTOS: 10% DESCTO · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
   },
   "proj_suena-marin": {
     "titulo": "SUEÑA MARIN, Stgo. Centro (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "218.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas TOKU / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "17.4% / 20%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 17.4,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 218000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D  (10% BONO PIE) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · ULTIMOS 2 DEPTOS DISPONIBLES: 111 - 820 · VTA OBLIGADA BODEGA · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto · PROMOCION 24D (10% BONO PIE)"
   },
   "proj_nodo-la-cisterna": {
     "titulo": "NODO LA CISTERNA,  La Cisterna (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "204.000"
-      ],
-      [
-        "Fecha escrituración",
-        "4to Trimestre 2027"
-      ],
-      [
-        "N° cuotas const.",
-        "20 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/12/2027"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 204000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS  (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 38 CUOTAS: 7% LAS PRIMERAS 20 CUOTAS CON TOKU + 3% EN 18 CUOTAS C/TC  A LA ESCRITURA  + 10% 24D + 80% CH · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_suena-lincoyan": {
     "titulo": "SUEÑA LINCOYAN, Ñuñoa (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "219.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15% / 18%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 219000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · ULTIMO DEPTO DISPONIBLE: 110 · 2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto · OPORTUNIDAD LOCALES DISPONIBLES (CORRESP A SV)"
   },
   "proj_suena-toesca": {
     "titulo": "SUEÑA TOESCA, Stgo (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "226.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas  / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15% / 20% / 24%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 226000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D (10% BONO PIE) hasta 48D (20% BONO PIE) (APLICA PARA UNID SEGÚN TASACION) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · VTA OBLIGADA BODEGA · PLAN MAS CUOTAS: HASTA 5% EN 12 DOCUMENTADAS CON PAGARÉ POST ESCRITURA · 2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
   },
   "proj_neoflorida-3": {
     "titulo": "NEO FLORIDA III. La florida (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "233.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas / ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "18% / 23%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 18.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 233000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D(10 % BONO PIE  Y 36D 15% BONO PIE) (sujeto a valor tasación bco) · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · VTA OBLIGADA BODEGA y ESTAC · 2 AÑOS ARRIENDO GARANTIZADO -resta 2,5% descto"
   },
   "proj_ciudad-lyon": {
     "titulo": "CIUDAD LYON, Providencia (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "229.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 cuotas /ó 18 cuotas sin interés tarjeta crédito (máx 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15%"
-      ],
-      [
-        "Contra promesa",
-        "7.5%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 229000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 12D · PLAN ESPECIAL PIE 7,5% CONTRA PROMESA - 7,5 CONTRA ESCRITURA 18 C/TC + 5% 12D + 80% CH · OPORTUNIDAD BX TANDEM UF550"
   },
   "proj_ciudad-cerrillos": {
     "titulo": "CIUDAD CERRILLOS, Cerrillos  (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Inmediata"
-      ],
-      [
-        "Valor reserva",
-        "209.000"
-      ],
-      [
-        "Fecha escrituración",
-        "Inmediata"
-      ],
-      [
-        "N° cuotas const.",
-        "1 a 3 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 5.0,
+    "reservaCLP": 209000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Inmediata",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24D (5% BONO PIE Y 10% BONO PIE SUJETO A TASACIÓN) · PLAN ESPECIAL PIE EN HASTA 27 CUOTAS: 2% CP + 1,5% EN HASTA 3 CUOTAS TOKU  + CUOTON 6,5% EN 24 C/TC + 24D + 80% CHIP · CREDITU: 5% RESTA 2% DESCTO  // 10% RESTA 4% DESCTO · SIN ARRIENDO GARANTIZADO 1,8% DESCTO ADIC · ARRIENDO GARANTIZADO 2 AÑOS SOBRE MERCADO (REVISAR VALORES QUE APLICAN)"
   },
   "proj_barrio-cueto": {
     "titulo": "BARRIO CUETO, Stgo (ORMUZ)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "PROXIMA ENTREGA"
-      ],
-      [
-        "Valor reserva",
-        "220.000"
-      ],
-      [
-        "Descuento máximo",
-        "23% / 27%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 1%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 23.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 220000,
+    "reservaUF": 0,
+    "cuotasPieN": 1,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 1.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "PROXIMA ENTREGA",
+    "descuentoRegla": "",
     "nota": "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ - 23% Y 24% MAXIMO CON AG · PROMOCION \"DESDE PIE 0\": 10% BONO PIE - 90% CHIP  (VTAS SIN $ CP, PAGO COMISION CONTRA ESCRITURA) · VENTA CON 90% CHIP Y FINANCIAMIENTO 5% CREDITU ESTA SUJETA A PRE-APROBACIÓN BCO Y CREDITU · ELIGE PROMOCION ADICIONAL: BONO DESCTO 3%  ó 5% CREDITU 60 MESES S/COSTO ó ARRIENDO GARANTIZADO NORMAL  2 AÑOS. · DEPTOS 1D Y 2D UNID SELECCIONADAS PRECIO FINAL: UF2.190 (1D) y UF2.790 (2D) (VER DETALLE DEPTOS HOJA ANEXA) (NO ACUMULA CON OTRAS PROMOC)"
   },
   "proj_ciudad-matta": {
     "titulo": "CIUDAD MATTA, Santiago (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "222.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "N° cuotas const.",
-        "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 222000,
+    "reservaUF": 0,
+    "cuotasPieN": 23,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_ciudad-espana": {
     "titulo": "CIUDAD ESPAÑA, Santiago (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "228.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "N° cuotas const.",
-        "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 228000,
+    "reservaUF": 0,
+    "cuotasPieN": 23,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS  (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · SIN ARRIENDO GARANTIZADO 2% DESCTO ADICIONAL · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN · ARRIENDO GARANTIZADO SOBRE MERCADO 2 AÑOS INCLUIDO EN DESCTO MAX (REVISAR CONDICIONES Y VALORES QUE APLICAN)"
   },
   "proj_ciudad-siete": {
     "titulo": "CIUDAD SIETE, Cerrillos (DEISA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "230.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Trimestre 2028"
-      ],
-      [
-        "N° cuotas const.",
-        "23 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/03/2028"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 230000,
+    "reservaUF": 0,
+    "cuotasPieN": 23,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 41 CUOTAS: 7% LAS PRIMERAS 23 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA + 10% 24D + 80% CREDITO · PROMOCIÓN 1 AÑO DE GASTOS COMUNES GRATIS - NO RESTA DESCTO - REVISAR VALORES QUE APLICAN"
   },
   "proj_mapocho-2880": {
     "titulo": "MAPOCHO 2880, Santiago (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "203.000"
-      ],
-      [
-        "Fecha escrituración",
-        "01/06/2028"
-      ],
-      [
-        "N° cuotas const.",
-        "36 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "15% / 20% / 5%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/06/2028"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 15.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 203000,
+    "reservaUF": 0,
+    "cuotasPieN": 36,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS · PLAN ESPECIAL PIE EN HASTA 54 CUOTAS: 7% EN 36 CUOTAS CON TOKU + 3% EN 18 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CH · 4 CUPOS ESTAC PARA DEPTOS 2D1B // 4 CUPOS BODEGA PARA DEPT 1D1B · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto · PLAN PAGO PIE LOCALES: 5% CP 15% EN CUOTAS - 5% C/E  - 75% CRED F Grales"
   },
   "proj_fuenzalida-urrejola-303": {
     "titulo": "FUENZALIDA URREJOLA 303, La Cisterna (Inmob. Lugano)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "208.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Semestre 2027"
-      ],
-      [
-        "N° cuotas const.",
-        "21 cuotas TOKU / ó 24 cuotas sin interés tarejta crédito (max 20% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "20%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 5%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/12/2027"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 20.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 208000,
+    "reservaUF": 0,
+    "cuotasPieN": 21,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 5.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "BONO PIE 10% - ASOCIADO A FIRMA PAGARÉ · PLAN ESPECIAL PIE EN HASTA 45 CUOTAS: 5% EN 21 CUOTAS CON TOKU + 5% CON 24 CUOTAS C/TC  A LA ESCRITURA  + 10% 24D + 80% CH · 2 AÑOS ARRIENDO GARANTIZADO - resta 2,5% descto"
   },
   "proj_jmc-608": {
     "titulo": "JMC 608, SANTIAGO (SANTOLAYA)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "211.000"
-      ],
-      [
-        "Fecha escrituración",
-        "2do semestre 2028"
-      ],
-      [
-        "N° cuotas const.",
-        "37 cuotas TOKU / ó 18 cuotas sin interés tarejta crédito (max 15% del precio)"
-      ],
-      [
-        "Descuento máximo",
-        "10% / 15%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 7%"
-      ],
-      [
-        "Contra promesa",
-        "1era cuota"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/03/2029"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 10.0,
+    "reservaCLP": 211000,
+    "reservaUF": 0,
+    "cuotasPieN": 37,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 7.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PROMOCION 24 DIVIDENDOS (10% BONO PIE) · PLAN ESPECIAL PIE EN HASTA 55 CUOTAS:  7% EN 37 CUOTAS CON TOKU + 3% CON 18 CUOTAS C/TC A LA ESCRITURA  + 10% 24D + 80% CH"
   },
   "proj_condominio-alto-hurtado-ii": {
     "titulo": "ALTO HURTADO ET 3, Padre Hurtado  (70W)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Futura"
-      ],
-      [
-        "Valor reserva",
-        "235.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Semestre 2028"
-      ],
-      [
-        "N° cuotas const.",
-        "20 cuotas TOKU / ó 36 cuotas sin interés tarjeta crédito (máx 20% del precio)(GETNET)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "13%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 5.0,
+    "reservaCLP": 235000,
+    "reservaUF": 0,
+    "cuotasPieN": 20,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 13.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Futura",
+    "descuentoRegla": "",
     "nota": "PAGO DEL PIE: 2% PROMESA + 13% EN 20 CUOTAS + 5% C/E ó 15% EN 21 CUOTAS + 5% C/E ó 10% EN 21 CUOTAS + 10% C/E + 80% CH · (5% BONO PIE)"
   },
   "proj_porta-hurtado": {
     "titulo": "PORTA HURTADO, Padre Hurtado  (70W)",
-    "campos": [
-      [
-        "Tipo de entrega",
-        "Pronta Entrega"
-      ],
-      [
-        "Valor reserva",
-        "202.000"
-      ],
-      [
-        "Fecha escrituración",
-        "1er Semestre 2026"
-      ],
-      [
-        "N° cuotas const.",
-        "2 cuotas TOKU / ó 36 cuotas sin interés tarjeta crédito (máx 20% del precio)(GETNET)"
-      ],
-      [
-        "Descuento máximo",
-        "10%"
-      ],
-      [
-        "% cuotas const.",
-        "Desde 8%"
-      ],
-      [
-        "Contra promesa",
-        "2%"
-      ],
-      [
-        "Fecha máx. cuota",
-        "01/04/2026"
-      ]
-    ],
+    "inmobiliaria": "URMENETA",
+    "descuentoDepto": 10.0,
+    "descuentoAdicional": 0,
+    "descuentoAdicionalCond": "",
+    "aporteInmobiliario": 0,
+    "reservaCLP": 202000,
+    "reservaUF": 0,
+    "cuotasPieN": 2,
+    "upfrontPct": 0,
+    "piePctDefault": null,
+    "pieConstPct": 8.0,
+    "creditoDirectoPct": 0,
+    "cuotonPct": 0,
+    "tipoEntrega": "Pronta Entrega",
+    "descuentoRegla": "",
     "nota": "PLAN ESPECIAL PIE EN HASTA 38 CUOTAS: 2%CP + 8% EN 2 CUOTAS TOKU + 10% EN 36 C/TC CE + 80% CH"
   }
 };

@@ -182,13 +182,13 @@ def excel_to_projects():
     print(f"  → {out}  ({len(projects)} proyectos, {total_u} unidades)")
 
 
-# ─── CC_DATA ──────────────────────────────────────────────────────────────────
+# ─── CC_DATA (OBSOLETO — reemplazado por tools/cc_importer.py) ───────────────
 
 def excel_to_cc_data():
-    src = DATA_DIR / "cc_data.xlsx"
-    if not src.exists():
-        sys.exit(f"No encontré {src}. Primero corré js_to_excel.py")
-    print("Generando cc_data.js ...")
+    # CC ya no se genera desde cc_data.xlsx.
+    # Usar: python tools/cc_importer.py  (lee data/condiciones_cc_unified.xlsx)
+    print("  (cc_data: omitido — usar cc_importer.py)")
+    return
 
     wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
     rows = read_sheet(wb["Condiciones"])
