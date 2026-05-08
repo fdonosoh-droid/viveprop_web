@@ -1,6 +1,17 @@
 @echo off
 echo Actualizando condiciones comerciales...
 cd /d "C:\AI\viveprop_web\viveprop-platform"
+
+echo [1/2] Sincronizando desde condiciones comerciales.xlsx...
+C:\Python314\python.exe tools\cc_sync.py
+if %errorlevel% neq 0 (
+    echo ERROR en cc_sync.py
+    pause
+    exit /b 1
+)
+echo.
+
+echo [2/2] Generando cc.json...
 C:\Python314\python.exe tools\cc_importer.py
 if %errorlevel% neq 0 (
     echo ERROR al generar cc.json
