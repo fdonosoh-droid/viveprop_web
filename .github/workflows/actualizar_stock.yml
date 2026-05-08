@@ -5,6 +5,9 @@ on:
     - cron: "0 9 * * *"   # 06:00 AM Chile (UTC-3)
   workflow_dispatch:        # permite ejecución manual desde GitHub
 
+permissions:
+  contents: write
+
 jobs:
   actualizar:
     runs-on: ubuntu-latest
