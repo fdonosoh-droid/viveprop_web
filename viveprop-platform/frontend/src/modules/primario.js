@@ -502,7 +502,7 @@ export function selectProjUnit(dp) {
     extrasList.innerHTML = extras.map((e, i) => `
       <label class="extra-row" onclick="pmUpdateTotal()">
         <input type="checkbox" value="${e.precio_uf}" data-idx="${i}" data-dp="${H(e.dp)}" data-label="${H(e.tipologia)} DP ${H(e.dp)}">
-        <span class="extra-label">${H(e.tipologia)} — DP ${H(e.dp)}</span>
+        <span class="extra-label">${H(e.tipologia)} — ${H(e.dp)}</span>
         <span class="extra-price">${fmt.uf(e.precio_uf)}</span>
       </label>`).join('');
   } else {
