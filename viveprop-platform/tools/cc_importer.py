@@ -13,7 +13,7 @@ Formato de entrada: data/condiciones_cc_unified.xlsx
 Para generar condiciones_cc_unified.xlsx por primera vez:
   python tools/migrar_cc_a_unified.py
 """
-import json, sys
+import json, sys, urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -23,6 +23,21 @@ try:
     import openpyxl
 except ImportError:
     sys.exit("Falta openpyxl. Instalá con: pip install openpyxl")
+
+# ── UF actual ─────────────────────────────────────────────────────────────────
+
+def fetch_uf() -> float:
+    """Obtiene el valor de la UF del día desde mindicador.cl."""
+    url = "https://mindicador.cl/api/uf"
+    try:
+        with urllib.request.urlopen(url, timeout=8) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        valor = data["serie"][0]["valor"]
+        print(f"  UF al {data['serie'][0]['fecha'][:10]}: ${valor:,.2f}")
+        return float(valor)
+    except Exception as e:
+        print(f"  Aviso: no se pudo obtener UF ({e}) — se usará UF=37.000 como fallback")
+        return 37000.0
 
 ROOT     = Path(__file__).parent.parent
 SRC      = ROOT / "data/condiciones_cc_unified.xlsx"
@@ -72,6 +87,10 @@ def main():
         sys.exit("ERROR: no encontré fila de encabezados con 'proyecto_id'")
 
     headers = [str(h).strip() if h else "" for h in rows[header_idx]]
+
+    # Obtener UF solo si hay proyectos con reserva en UF
+    uf_value = None
+
     cc_out  = {}
     sin_id  = 0
 
@@ -85,8 +104,18 @@ def main():
         pie_default = _f(r.get("pie_pct_default"))  # None = usar PIE_DEFAULT del motor
 
         # Campos donde 0 es un valor válido — no usar "or default"
-        v_cuotas = _i(r.get("cuotas_pie_n"))
-        v_clp    = _i(r.get("reserva_clp"))
+        v_cuotas  = _i(r.get("cuotas_pie_n"))
+        v_clp     = _i(r.get("reserva_clp"))
+        v_reserva_uf = _f(r.get("reserva_uf")) or 0
+
+        # Reserva en UF → convertir a CLP con UF del día
+        if v_reserva_uf > 0:
+            if uf_value is None:
+                print("Obteniendo UF actual...")
+                uf_value = fetch_uf()
+            reserva_clp = round(v_reserva_uf * uf_value)
+        else:
+            reserva_clp = v_clp if v_clp is not None else 100000
 
         cc_out[pid] = {
             "titulo":                _s(r.get("titulo")),
@@ -95,8 +124,8 @@ def main():
             "descuentoAdicional":    _f(r.get("descuento_adicional"))     or 0,
             "descuentoAdicionalCond":_s(r.get("descuento_adicional_cond")),
             "aporteInmobiliario":    _f(r.get("aporte_inmobiliaria"))     or 0,
-            "reservaCLP":            v_clp    if v_clp    is not None else 100000,
-            "reservaUF":             _f(r.get("reserva_uf"))              or 0,
+            "reservaCLP":            reserva_clp,
+            "reservaUF":             v_reserva_uf,
             "cuotasPieN":            v_cuotas if v_cuotas is not None else 1,
             "upfrontPct":            _f(r.get("upfront_pct"))             or 0,
             "piePctDefault":         pie_default,
