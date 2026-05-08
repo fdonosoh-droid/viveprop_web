@@ -132,6 +132,17 @@ def safe_int(v):
     except (TypeError, ValueError):
         return 0
 
+def clean_dp(v):
+    """Convierte '219.0' → '219', deja strings no numéricos intactos."""
+    s = val(v)
+    try:
+        f = float(s)
+        if f == int(f):
+            return str(int(f))
+    except (ValueError, TypeError):
+        pass
+    return s
+
 # ── 1. Leer datos estáticos desde projects.xlsx ───────────────────────────────
 
 def load_static_projects():
@@ -220,7 +231,7 @@ def load_access_data():
         estado    = val(r.get("ESTADO STOCK"))
         disponible = estado.lower() in ESTADOS_DISPONIBLE
         unidad = {
-            "dp":          val(r.get("NUMERO UNIDAD")),
+            "dp":          clean_dp(r.get("NUMERO UNIDAD")),
             "tipologia":   val(r.get("PROGRAMA")),
             "piso":        safe_int(r.get("PISO PRODUCTO")),
             "m2_interior": safe_float(r.get("SUPERFICIE UTIL")),
@@ -260,7 +271,7 @@ def load_units_from_excel():
         disponible = bool(disponible_raw) if disponible_raw is not None else True
         estado = str(r.get("estado") or "Disponible").strip()
         unidad = {
-            "dp":          str(r.get("dp") or ""),
+            "dp":          clean_dp(r.get("dp")),
             "tipologia":   str(r.get("tipologia") or ""),
             "piso":        safe_int(r.get("piso")),
             "m2_interior": safe_float(r.get("m2_interior")),
