@@ -54,6 +54,7 @@ def excel_to_stock():
     # Stock secundario ya no se genera desde Excel.
     # Usar: python tools/gsheet_to_stock.py
     print("  (stock: omitido — usar gsheet_to_stock.py)")
+    return
 
     wb = openpyxl.load_workbook(src, read_only=True, data_only=True)
     rows = read_sheet(wb["Stock"])
