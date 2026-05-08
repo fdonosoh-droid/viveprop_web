@@ -52,21 +52,23 @@ viveprop-platform/
 │       └── uf_cache.py       # UF con cache 1h
 ├── data/
 │   ├── projects.xlsx         # Proyectos y unidades (~10.600 unidades, 84 proyectos)
-│   ├── cc_data.xlsx          # Condiciones comerciales — generado por cc_importer
-│   ├── condiciones comerciales.xlsx  # Fuente maestra (5 inmobiliarias)
-│   └── *.js                  # Snapshots para carga rápida
+│   ├── condiciones_cc_unified.xlsx  # Fuente maestra CC (1 fila/proyecto, slug como clave)
+│   └── *.js                  # Snapshots para carga rápida (cc_data.js, stock.js…)
 ├── frontend/src/
 │   ├── modules/
 │   │   ├── secundario.js     # Mercado secundario
 │   │   ├── primario.js       # Proyectos nuevos
 │   │   ├── perfilador.js     # Perfilador de clientes
-│   │   └── cotizador.js      # Cotizador (en desarrollo)
+│   │   └── cotizador.js      # Cotizador integrado (flujo 3 pasos, imprimible)
 │   └── components/           # Mapa · Filtros
 ├── tools/
-│   ├── cc_importer.py        # Genera cc_data.xlsx + cc_data.js desde fuente maestra
-│   ├── excel_to_js.py
-│   └── js_to_excel.py
-└── Docs/                     # Cotizaciones de referencia
+│   ├── cc_importer.py        # Lee condiciones_cc_unified.xlsx → cc.json + cc_data.js
+│   ├── excel_to_js.py        # Genera projects.json desde projects.xlsx
+│   ├── gsheet_to_stock.py    # Descarga stock secundario desde Google Sheets → stock.json
+│   └── js_to_excel.py        # Exporta projects.json a projects.xlsx (edición)
+├── tasks/
+│   └── actualizar_cc.bat     # Doble-click: regenera cc.json y hace commit+push
+└── Docs/                     # Cotizaciones de referencia + INSTRUCCIONES_ACTUALIZACIONES.docx
 ```
 
 ### API
@@ -83,14 +85,23 @@ viveprop-platform/
 
 ### Actualizar condiciones comerciales
 
+**Opción rápida (recomendada):**
+```bat
+tasks\actualizar_cc.bat
+```
+Doble-click desde el Explorador de Windows: regenera `cc.json`, hace commit y push a Vercel.
+
+**Manual:**
 ```bash
 # Desde viveprop-platform/
 python tools/cc_importer.py
 ```
 
-Lee `data/condiciones comerciales.xlsx` (hojas: `CC MAESTRA`, `CC INGEVEC`, `CC RVC`, `TOC TOC`, `CC URMENETA`) y regenera `cc_data.xlsx` + `cc_data.js`. Reiniciar backend para aplicar.
+Lee `data/condiciones_cc_unified.xlsx` (un archivo, una fila por proyecto, slug como clave) y regenera `frontend/public/data/cc.json` + `data/cc_data.js`. Para proyectos con reserva en UF (TOCTOC), convierte automáticamente a CLP con el valor UF del día (mindicador.cl).
 
-Resultado esperado: ~77 proyectos con condiciones (18 MAESTRA + 22 INGEVEC + 14 RVC + 6 TOCTOC + 17 URMENETA).
+Resultado esperado: ~77 proyectos con condiciones.
+
+> Para editar condiciones: abrir `data/condiciones_cc_unified.xlsx` directamente — columnas: `proyecto_id`, `inmobiliaria`, `descuento_depto` (%), `aporte_inmobiliaria` (%), `reserva_uf`, `cuotas_pie_n`, etc.
 
 ### Requisitos
 
@@ -189,12 +200,14 @@ Plataforma unificada que integra:
 - Mercado primario con condiciones comerciales en tiempo real
 - Pipeline de condiciones comerciales (`cc_importer.py`) que lee el archivo maestro Excel con 5 inmobiliarias (MAESTRA, INGEVEC, RVC, TOCTOC, URMENETA) y genera los datos para el frontend automáticamente
 - Perfilador de clientes
-- Cotizador de unidades (en desarrollo)
+- Cotizador de unidades integrado (flujo 3 pasos, condiciones por proyecto, documento imprimible)
 
 **Pipeline cc_importer — decisiones técnicas**
-- Normalización de nombres con fuzzy matching (word overlap) para mapear proyectos entre la planilla de condiciones y el catálogo de proyectos
-- Lógica diferenciada por inmobiliaria: RVC usa bloques por zona con discount extraído del campo BROKER; INGEVEC aplica aporte sobre precio lista pre-descuento; URMENETA agrega descuentos por tipología; TOCTOC con detección dinámica de columna header
-- Proyecto `Vicuña Mackenna 7589` manejado con sentinel `__split__` para separar Torre I y Torre II desde una fila combinada en el fuente
+- Fuente única `condiciones_cc_unified.xlsx`: un formato normalizado con el slug del proyecto como clave (`proj_xxx`), eliminando el fuzzy matching anterior.
+- Los porcentajes se almacenan como números directos (10 = 10%) en todas las columnas.
+- `cc.json` resultante es un mapa `{ [slug]: { descuentoDepto, aporteInmobiliario, reservaCLP, cuotasPieN, ... } }` consumido directamente por `cc_parser.js` sin lógica por inmobiliaria.
+- Reservas en UF (TOCTOC) se convierten a CLP en tiempo de ejecución del script usando la UF del día desde mindicador.cl.
+- El descuento adicional condicional por tipología se almacena como `descuentoAdicionalCond` (ej: "3D" = solo aplica a 3 dormitorios) y se evalúa en el frontend.
 
 **Reglas de cálculo del cotizador (validadas contra cotización real COT-2026-0001)**
 - `Pie período const.` y `Crédito Directo`: base = valor de venta total (depto ajustado + secundarios)
@@ -212,7 +225,7 @@ Los archivos de datos no se versionan en producción. Estructura esperada:
 | Archivo | Descripción |
 |---------|-------------|
 | `viveprop-platform/data/projects.xlsx` | Catálogo de proyectos y unidades |
-| `viveprop-platform/data/condiciones comerciales.xlsx` | Condiciones por inmobiliaria (fuente maestra) |
+| `viveprop-platform/data/condiciones_cc_unified.xlsx` | Condiciones comerciales unificadas (1 fila/proyecto) |
 | `cotizador-web-mp/INPUT_FILES.xlsx` | Stock + condiciones + UF + reglas (cotizador MP) |
 
 ---

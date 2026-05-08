@@ -3,7 +3,7 @@
 <!-- META_START -->
 | Campo | Valor |
 |---|---|
-| **Última actualización** | <!-- LAST_UPDATED -->2026-04-16<!-- /LAST_UPDATED --> |
+| **Última actualización** | <!-- LAST_UPDATED -->2026-05-08<!-- /LAST_UPDATED --> |
 | **Último commit** | <!-- COMMIT_HASH -->53552f6<!-- /COMMIT_HASH --> — <!-- COMMIT_MSG -->Incorpora validación RUT módulo 11 Chile<!-- /COMMIT_MSG --> |
 | **Branch** | <!-- BRANCH -->main<!-- /BRANCH --> |
 | **Progreso general** | <!-- PROGRESS -->Etapas 0–7 completadas · Módulo Perfilamiento completo · Mejoras post-lanzamiento M1–M49 aplicadas<!-- /PROGRESS --> |

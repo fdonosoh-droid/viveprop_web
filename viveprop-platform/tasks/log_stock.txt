@@ -1,0 +1,7 @@
+Descargando stock desde Google Sheets...
+  Aviso: 1 propiedad(es) sin ID (link no reconocido):
+    Edificio Apostol Santiago — dpto 203-2
+  970 propiedades escritas
+  → C:\AI\viveprop_web\viveprop-platform\frontend\public\data\stock.json
+  → C:\AI\viveprop_web\viveprop-platform\data\stock.js
+Listo.

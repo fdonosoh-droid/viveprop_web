@@ -1,8 +1,10 @@
-# Integración Cotizador — viveprop-platform
+# Cotizador — viveprop-platform
+
+> **Estado:** Implementado y en producción. Flujo completo: selección → condiciones → cotización imprimible.
 
 ## Contexto
 
-El cotizador se integra al módulo **Proyectos Nuevos** de viveprop-platform. El flujo visual ya existe en `primario.js` (selección de unidad + secundarios + botón "Cotizar"). Lo que se construye es el motor de cálculo, el puente de datos y el panel de resultados.
+El cotizador está integrado al módulo **Proyectos Nuevos** de viveprop-platform. Desde `primario.js` (selección de unidad + secundarios + botón "Cotizar") se lanza el flujo de 3 pasos que produce una cotización imprimible con datos del cliente, plan de pie y crédito hipotecario.
 
 ### Referencia de cálculo validada
 
@@ -20,11 +22,11 @@ Cotización real: `Docs/cotizacion-COT-2026-0001.pdf`
 
 | Dato | Fuente | Disponibilidad |
 |------|--------|---------------|
-| Proyectos y unidades | `PROJECTS` (projects.js) | ✅ En memoria |
-| Condiciones comerciales | `CC_DATA` (cc_data.js) | ✅ En memoria |
-| Valor UF | `store.UF` (GET /api/uf) | ✅ En memoria |
-| Reglas por inmobiliaria | Constante JS hardcodeada | A crear en Sprint 1 |
-| Parámetros del motor | Constante JS hardcodeada | A crear en Sprint 1 |
+| Proyectos y unidades | `PROJECTS` (projects.js → projects.json) | ✅ En memoria |
+| Condiciones comerciales | `cc.json` (generado por `cc_importer.py` desde `condiciones_cc_unified.xlsx`) | ✅ En memoria |
+| Valor UF | `store.UF` (GET /api/uf → mindicador.cl, cache 1h) | ✅ En memoria |
+| Reglas por inmobiliaria | `PARAMETROS_CALCULO` en `calc_cotizador.js` | ✅ Implementado |
+| Parámetros del motor | `PARAMETROS_CALCULO` en `calc_cotizador.js` | ✅ Implementado |
 
 ### Flujo de datos
 
@@ -53,20 +55,20 @@ Click "Cotizar" (primario.js)
 
 ### Archivos involucrados
 
-| Archivo | Acción |
+| Archivo | Estado |
 |---------|--------|
-| `frontend/src/utils/calc_cotizador.js` | CREAR — motor de cálculo (portado de cotizador-web-mp) |
-| `frontend/src/utils/cc_parser.js` | CREAR — parseCCForCotizador() para 5 inmobiliarias |
-| `frontend/src/modules/cotizador.js` | REESCRIBIR — reemplaza la calculadora básica actual |
-| `frontend/src/modules/primario.js` | MODIFICAR — pmCotizar() pasa objeto completo |
-| `frontend/index.html` | MODIFICAR — agregar sección y HTML del panel cotizador |
-| `frontend/src/styles/app.css` | MODIFICAR — estilos del panel cotizador |
+| `frontend/src/utils/calc_cotizador.js` | ✅ Motor de cálculo (PMT, pie, tasación, escenarios CAE) |
+| `frontend/src/utils/cc_parser.js` | ✅ `parseCCForCotizador()` — ruta genérica, sin branches por inmobiliaria |
+| `frontend/src/modules/cotizador.js` | ✅ Flujo 3 pasos: selección datos cliente → parámetros → impresión |
+| `frontend/src/modules/primario.js` | ✅ `pmCotizar()` pasa `{ project, depto, secundarios }` |
+| `frontend/index.html` | ✅ Sección `#cotiz-panel` con todos los sub-paneles |
+| `frontend/src/styles/app.css` | ✅ Estilos del panel cotizador |
 
 ---
 
-## Sprints
+## Implementación (referencia de sprints completados)
 
-### Sprint 1 — Motor de cálculo · ½ día
+### Sprint 1 — Motor de cálculo ✅
 **Objetivo:** El motor produce números correctos verificados contra COT-2026-0001.
 
 **Tareas:**
@@ -108,39 +110,37 @@ calcularCotizacion({
 
 ---
 
-### Sprint 2 — Puente de datos · ½ día
-**Objetivo:** CC_DATA alimenta correctamente el motor.
+### Sprint 2 — Puente de datos ✅
+**Objetivo:** `cc.json` alimenta correctamente el motor.
 
-**Tareas:**
-1. Crear `frontend/src/utils/cc_parser.js` con función `parseCCForCotizador(cc, seleccion)`
-2. Implementar mapeos para las 5 inmobiliarias:
+`parseCCForCotizador(cc, depto, inmobiliaria)` en `cc_parser.js` usa una **ruta genérica** — no hay branches por inmobiliaria. El formato unificado de `cc.json` normaliza todos los campos a números directos divididos entre 100 al consumirlos:
 
-| Inmobiliaria | Campo CC → InputCotizacion |
+| Campo cc.json | → InputCotizacion |
 |---|---|
-| **INGEVEC** | `Dcto. depto.` → descuentoPct · `Aporte inmobiliario` → bonoPiePct (base: precio lista depto) · `Reserva` → reservaCLP · `Cuotas pie` → cuotasPieN · `Pie período const.` → piePeriodoConstruccionPct · `Pie crédito s/int.` → pieCreditoDirectoPct |
-| **MAESTRA** | `Descuento Base` + `Dcto Adicional` → descuentoPct · `Certificado Pago` → bonoPiePct · `Pie en cuotas` → cuotasPieN · `Upfront` → upfrontPct |
-| **RVC** | `Descuento RVC` → descuentoPct · `Pie mínimo` → piePct base · `Cuotas prog.` → cuotasPieN |
-| **TOCTOC** | `Descuento autorizado` → descuentoPct · `Monto Reserva` → reservaCLP · `Pie minimo %` → piePct base · `Cuotas` → cuotasPieN |
-| **URMENETA** | `Descuento máximo` → descuentoPct · `Valor reserva` → reservaCLP · `% cuotas const.` → piePeriodoConstruccionPct · `N° cuotas const.` → cuotasPieN |
+| `descuentoDepto / 100` | → `descuentoPct` |
+| `descuentoAdicional / 100` | → `descuentoAdicionalPct` (condicional por `descuentoAdicionalCond`) |
+| `aporteInmobiliario / 100` | → `bonoPiePct` |
+| `reservaCLP` | → `reservaCLP` |
+| `cuotasPieN` | → `cuotasPieN` |
+| `upfrontPct / 100` | → `upfrontPct` |
+| `piePctDefault / 100` | → `piePct` base (o `PIE_DEFAULT` si null) |
+| `pieConstPct / 100` | → `piePeriodoConstruccionPct` |
+| `creditoDirectoPct / 100` | → `pieCreditoDirectoPct` |
+| `cuotonPct / 100` | → `cuotonPct` |
+| `descuentoRegla` | → procesado por `_parseTieredDescuento()` (descuentos escalonados TOCTOC) |
 
-3. Modificar `pmCotizar()` en `primario.js`:
+El descuento adicional condicional se evalúa contra `depto.dormitorios`:
 ```js
-// Antes
-cotizFromProp(total, labels.join(' + '))
-
-// Después
-cotizFromProp({
-  project:     _currentProject,
-  depto:       _selectedUnit,
-  secundarios: [...checkboxesChecked]
-})
+// cc.descuentoAdicionalCond = "3D" → solo aplica si dormitorios === 3
+if (cc.descuentoAdicionalCond && depto) {
+  const m = String(cc.descuentoAdicionalCond).match(/^(\d+)D$/i)
+  if (m && parseInt(depto.dormitorios) !== parseInt(m[1])) descuentoAdicional = 0
+}
 ```
-
-**Criterio de aceptación:** Click "Cotizar" en cualquier proyecto INGEVEC → consola muestra `InputCotizacion` con valores numéricos correctos.
 
 ---
 
-### Sprint 3 — Panel UI base · 1 día
+### Sprint 3 — Panel UI base ✅
 **Objetivo:** Panel visible con resultados reales.
 
 **Estructura HTML del panel:**
@@ -168,7 +168,7 @@ cotizFromProp({
 
 ---
 
-### Sprint 4 — Condiciones comerciales editables · ½ día
+### Sprint 4 — Condiciones comerciales editables ✅
 **Objetivo:** El corredor puede ajustar condiciones antes de presentar.
 
 **Tareas:**
@@ -182,7 +182,7 @@ cotizFromProp({
 
 ---
 
-### Sprint 5 — Documento imprimible · 1 día
+### Sprint 5 — Documento imprimible ✅
 **Objetivo:** Generar documento entregable al cliente.
 
 **Tareas:**
@@ -195,7 +195,7 @@ cotizFromProp({
 
 ---
 
-### Sprint 6 — Pulido e integración · ½ día
+### Sprint 6 — Pulido e integración ✅
 **Objetivo:** Flujo sin fricciones, listo para uso en producción.
 
 **Tareas:**
@@ -269,15 +269,13 @@ const PARAMETROS_CALCULO = {
 
 ## Resumen de tiempos
 
-| Sprint | Descripción | Estimado |
-|--------|-------------|---------|
-| 1 | Motor de cálculo | ½ día |
-| 2 | Puente CC_DATA → motor | ½ día |
-| 3 | Panel UI base | 1 día |
-| 4 | CC editables + reactivo | ½ día |
-| 5 | Documento imprimible | 1 día |
-| 6 | Pulido + integración | ½ día |
-| **Total** | | **~4 días** |
+| Sprint | Descripción | Estado |
+|--------|-------------|--------|
+| 1 | Motor de cálculo | ✅ |
+| 2 | Puente cc.json → motor | ✅ |
+| 3 | Panel UI base | ✅ |
+| 4 | CC editables + reactivo | ✅ |
+| 5 | Documento imprimible | ✅ |
+| 6 | Pulido + integración | ✅ |
 
-**MVP funcional (Sprints 1–3):** 2 días · cotizador con números correctos y panel visible
-**Versión completa (Sprints 1–5):** 3,5 días · incluye documento entregable al cliente
+**Cotizador completo y en producción desde 2026-05.**

@@ -1,5 +1,5 @@
-// Generado por gsheet_to_stock.py — 2026-05-08 10:24
-// Propiedades: 969
+// Generado por gsheet_to_stock.py — 2026-05-08 10:50
+// Propiedades: 970
 const STOCK = [
   {
     "op": "46312",
@@ -22149,6 +22149,29 @@ const STOCK = [
     "video": "",
     "oportunidad": "",
     "id": "527725"
+  },
+  {
+    "op": "80156",
+    "condominio": "Parque Yungay",
+    "direccion": "Poeta Pedro Prado 1681",
+    "comuna": "Quinta Normal",
+    "dp": "54-7",
+    "tipologia": "2D1B",
+    "orientacion": "P",
+    "est": "",
+    "bod": "",
+    "m2interior": "46,75",
+    "m2total": "49,75",
+    "m2terraza": "3,00",
+    "anio": "2005",
+    "estado": "#N/A",
+    "rango": "UF0 a UF1999.-",
+    "precioSinBono": "1.518,30",
+    "bonoPct": 10,
+    "bonoUF": "168,7",
+    "video": "",
+    "oportunidad": "",
+    "id": "529972"
   },
   {
     "op": "22237",
