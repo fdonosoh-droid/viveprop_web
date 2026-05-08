@@ -923,11 +923,8 @@ function _buildPrintDocResumen(r) {
     <td class="ta-r">${fmt.pesos(s.precio_uf * r.valorUF)}</td>
   </tr>`).join('')
 
-  const totalUF   = r.valorVentaUF
-  const reservaUF = r.reservaUF
-  const chUF      = r.creditoHipFinalUF
-  const pieUF     = Math.max(0, totalUF - reservaUF - chUF)
-  const _pct2     = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
+  const totalUF = r.valorVentaUF
+  const _pct2   = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
 
   el.innerHTML = `
   <div class="prd-wrap">
@@ -977,22 +974,46 @@ function _buildPrintDocResumen(r) {
         <thead><tr><th>Concepto</th><th class="ta-r">UF</th><th class="ta-r">%</th><th class="ta-r">$</th></tr></thead>
         <tbody>
           <tr>
+            <td><strong>Pie total</strong> ${_pct(r.piePct)}</td>
+            <td class="ta-r">${fmt.uf2(r.pieTotalUF)}</td>
+            <td class="ta-r">${_pct2(r.pieTotalUF)}</td>
+            <td class="ta-r">${fmt.pesos(r.pieTotalUF * r.valorUF)}</td>
+          </tr>
+          ${r.reservaUF > 0.001 ? `<tr class="prd-tbl-sub">
             <td>Reserva</td>
-            <td class="ta-r">${fmt.uf2(reservaUF)}</td>
-            <td class="ta-r">${_pct2(reservaUF)}</td>
-            <td class="ta-r">${fmt.pesos(reservaUF * r.valorUF)}</td>
+            <td class="ta-r">${fmt.uf2(r.reservaUF)}</td>
+            <td class="ta-r">${_pct2(r.reservaUF)}</td>
+            <td class="ta-r">${fmt.pesos(r.reservaUF * r.valorUF)}</td>
+          </tr>` : ''}
+          ${r.cuotasPieN > 0 && r.saldoPieUF > 0 ? `<tr class="prd-tbl-sub">
+            <td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td>
+            <td class="ta-r">${fmt.uf2(r.saldoPieUF)}</td>
+            <td class="ta-r">${_pct2(r.saldoPieUF)}</td>
+            <td class="ta-r">${fmt.pesos(r.saldoPieCLP)}</td>
+          </tr>` : ''}
+          ${r.piePeriodoConstruccionUF > 0 ? `<tr>
+            <td>Pie período construcción ${_pct(r.piePeriodoConstruccionUF / totalUF)}</td>
+            <td class="ta-r">${fmt.uf2(r.piePeriodoConstruccionUF)}</td>
+            <td class="ta-r">${_pct2(r.piePeriodoConstruccionUF)}</td>
+            <td class="ta-r">${fmt.pesos(r.piePeriodoConstruccionCLP)}</td>
+          </tr>` : ''}
+          <tr class="prd-tbl-total">
+            <td><strong>Total pie a inmobiliaria</strong> ${_pct(totalUF > 0 ? r.totalPieInmobUF / totalUF : 0)}</td>
+            <td class="ta-r"><strong>${fmt.uf2(r.totalPieInmobUF)}</strong></td>
+            <td class="ta-r">${_pct2(r.totalPieInmobUF)}</td>
+            <td class="ta-r"><strong>${fmt.pesos(r.totalPieInmobUF * r.valorUF)}</strong></td>
           </tr>
-          <tr>
-            <td>Pie</td>
-            <td class="ta-r">${fmt.uf2(pieUF)}</td>
-            <td class="ta-r">${_pct2(pieUF)}</td>
-            <td class="ta-r">${fmt.pesos(pieUF * r.valorUF)}</td>
-          </tr>
+          ${r.bonoPieUF > 0 ? `<tr class="prd-tbl-aporte">
+            <td>Aporte inmobiliaria ${_pct(r.aportePct)}</td>
+            <td class="ta-r">${fmt.uf2(r.bonoPieUF)}</td>
+            <td class="ta-r">${_pct2(r.bonoPieUF)}</td>
+            <td class="ta-r">${fmt.pesos(r.bonoPieUF * r.valorUF)}</td>
+          </tr>` : ''}
           <tr class="prd-tbl-total">
             <td><strong>Crédito Hipotecario</strong></td>
-            <td class="ta-r"><strong>${fmt.uf2(chUF)}</strong></td>
-            <td class="ta-r">${_pct2(chUF)}</td>
-            <td class="ta-r"><strong>${fmt.pesos(chUF * r.valorUF)}</strong></td>
+            <td class="ta-r"><strong>${fmt.uf2(r.creditoHipFinalUF)}</strong></td>
+            <td class="ta-r">${_pct2(r.creditoHipFinalUF)}</td>
+            <td class="ta-r"><strong>${fmt.pesos(r.creditoHipFinalUF * r.valorUF)}</strong></td>
           </tr>
         </tbody>
       </table>
