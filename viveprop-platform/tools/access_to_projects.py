@@ -187,8 +187,31 @@ def load_access_data():
     # Unidades desde query
     cur.execute("SELECT * FROM STOCK_MP_VIVEPROP_WEB")
     cols2 = [c[0] for c in cur.description]
+    all_rows = cur.fetchall()
+
+    # Validar calidad de los datos: si PRECIO LISTA es 0 en más del 80% de las filas
+    # o PROGRAMA contiene solo números → Access tiene fórmulas rotas.
+    def _looks_numeric(s):
+        try:
+            float(str(s).replace(",", "."))
+            return True
+        except (ValueError, TypeError):
+            return False
+
+    if all_rows:
+        sample = all_rows[:min(30, len(all_rows))]
+        rows_dicts = [dict(zip(cols2, r)) for r in sample]
+        precio_cero = sum(1 for r in rows_dicts if safe_float(r.get("PRECIO LISTA")) == 0)
+        programa_numerico = sum(1 for r in rows_dicts if _looks_numeric(r.get("PROGRAMA")))
+        if precio_cero > len(sample) * 0.8 or programa_numerico > len(sample) * 0.5:
+            conn.close()
+            print(f"  AVISO: Access devuelve datos inválidos "
+                  f"(PRECIO LISTA=0 en {precio_cero}/{len(sample)} filas, "
+                  f"PROGRAMA numérico en {programa_numerico}/{len(sample)})")
+            return access_projs, None  # None indica fallback a Excel
+
     units_by_proj = {}
-    for row in cur.fetchall():
+    for row in all_rows:
         r = dict(zip(cols2, row))
         nemo = val(r.get("NEMOTECNICO"))
         pid  = NEMO_MAP.get(nemo)
@@ -215,7 +238,48 @@ def load_access_data():
     conn.close()
     return access_projs, units_by_proj
 
-# ── 3. Leer fotos desde fotos_pri.json ───────────────────────────────────────
+# ── 3. Fallback: leer unidades desde projects.xlsx ────────────────────────────
+
+def load_units_from_excel():
+    """Fallback cuando Access devuelve datos corruptos. Lee la hoja Unidades de projects.xlsx."""
+    print("  Usando fallback: leyendo unidades desde projects.xlsx ...")
+    wb = openpyxl.load_workbook(PROJECTS_XLSX, read_only=True, data_only=True)
+    ws = wb["Unidades"]
+    rows = list(ws.iter_rows(values_only=True))
+    wb.close()
+    if not rows:
+        return {}
+    headers = [str(h) if h is not None else "" for h in rows[0]]
+    units_by_proj = {}
+    for row in rows[1:]:
+        r = dict(zip(headers, row))
+        pid = str(r.get("proyecto_id") or "").strip()
+        if not pid:
+            continue
+        disponible_raw = r.get("disponible")
+        disponible = bool(disponible_raw) if disponible_raw is not None else True
+        estado = str(r.get("estado") or "Disponible").strip()
+        unidad = {
+            "dp":          str(r.get("dp") or ""),
+            "tipologia":   str(r.get("tipologia") or ""),
+            "piso":        safe_int(r.get("piso")),
+            "m2_interior": safe_float(r.get("m2_interior")),
+            "m2_terraza":  safe_float(r.get("m2_terraza")),
+            "m2_total":    safe_float(r.get("m2_total")),
+            "orientacion": str(r.get("orientacion") or ""),
+            "dormitorios": str(r.get("dormitorios") or ""),
+            "banos":       str(r.get("banos") or ""),
+            "precio_uf":   safe_float(r.get("precio_uf")),
+            "disponible":  disponible,
+            "estado":      estado,
+        }
+        units_by_proj.setdefault(pid, []).append(unidad)
+    total = sum(len(v) for v in units_by_proj.values())
+    print(f"  {len(units_by_proj)} proyectos con {total} unidades (desde Excel)")
+    return units_by_proj
+
+
+# ── 4. Leer fotos desde fotos_pri.json ───────────────────────────────────────
 
 def load_fotos():
     if not FOTOS_JSON.exists():
@@ -288,7 +352,11 @@ if __name__ == "__main__":
     print("Conectando a Access...")
     access_projs, units_by_proj = load_access_data()
     print(f"  {len(access_projs)} proyectos con datos en Access")
-    print(f"  {sum(len(u) for u in units_by_proj.values())} unidades cargadas")
+    if units_by_proj is None:
+        print("  Fallback activo: Access devolvió datos inválidos.")
+        units_by_proj = load_units_from_excel()
+    else:
+        print(f"  {sum(len(u) for u in units_by_proj.values())} unidades cargadas desde Access")
 
     print("Leyendo fotos_pri.json...")
     fotos = load_fotos()
