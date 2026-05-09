@@ -386,22 +386,18 @@ function _initParamsGrid(parsedCC) {
     <div class="cp-params-body">
       <div class="cp-form-row cp-form-row--4">
         ${locked('Descuento (%)',          'cpg-dcto',    dcto)}
-        ${locked('Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
+        ${locked(isUsada ? 'Aporte Vendedor (%)' : 'Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
         ${dd('% de Pie',    'cpg-pie',    pieOpts,    pie,    v => v + '%')}
         ${isUsada
           ? locked('Cuotas Pie', 'cpg-cuotas', 1)
           : dd(cuotasLbl, 'cpg-cuotas', cuotasOpts, cuotas, v => v === 0 ? 'Sin cuotas' : v + ' cuotas')}
       </div>
-      <div class="cp-form-row cp-form-row--4">
+      ${!isUsada ? `<div class="cp-form-row cp-form-row--4">
         ${locked('Pie Construcción (%)',  'cpg-piecst', piecst)}
-        ${isUsada
-          ? locked('Cuotón %', 'cpg-cuoton', 0)
-          : dd(cuotonLbl, 'cpg-cuoton', cuotonOpts, cuoton, v => v + '%')}
+        ${dd(cuotonLbl, 'cpg-cuoton', cuotonOpts, cuoton, v => v + '%')}
         ${locked('Crédito Directo (%)',   'cpg-cdir',   cdir)}
-        ${isUsada
-          ? locked('Upfront Promesa (%)', 'cpg-upfront', 0)
-          : txt('Upfront Promesa (%)', 'cpg-upfront', upfront)}
-      </div>
+        ${txt('Upfront Promesa (%)', 'cpg-upfront', upfront)}
+      </div>` : ''}
       <div class="cp-form-row cp-form-row--3">
         ${txt('Plusvalía anual (%)', 'cpg-plusvalia', 2)}
         ${dd('Plazo', 'cpg-plazo', plazoOpts, PLAZO_DEFAULT, v => v + ' años')}
