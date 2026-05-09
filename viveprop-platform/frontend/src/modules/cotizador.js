@@ -376,8 +376,9 @@ function _initParamsGrid(parsedCC) {
   const plazoOpts = [5, 10, 15, 20, 25, 30]
   const caeOpts   = [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0]
 
+  const isUsada     = _state.project.id.startsWith('sec-')
   const isInversion = _state.cliente?.objetivo === 'inversion'
-  const savedArr = _loadArr()
+  const savedArr    = _loadArr()
 
   document.getElementById('cps-params-grid').innerHTML = `
     <div class="cp-section-title">Configuración de cotización</div>
@@ -387,13 +388,19 @@ function _initParamsGrid(parsedCC) {
         ${locked('Descuento (%)',          'cpg-dcto',    dcto)}
         ${locked('Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
         ${dd('% de Pie',    'cpg-pie',    pieOpts,    pie,    v => v + '%')}
-        ${dd(cuotasLbl,     'cpg-cuotas', cuotasOpts, cuotas, v => v === 0 ? 'Sin cuotas' : v + ' cuotas')}
+        ${isUsada
+          ? locked('Cuotas Pie', 'cpg-cuotas', 1)
+          : dd(cuotasLbl, 'cpg-cuotas', cuotasOpts, cuotas, v => v === 0 ? 'Sin cuotas' : v + ' cuotas')}
       </div>
       <div class="cp-form-row cp-form-row--4">
         ${locked('Pie Construcción (%)',  'cpg-piecst', piecst)}
-        ${dd(cuotonLbl, 'cpg-cuoton', cuotonOpts, cuoton, v => v + '%')}
+        ${isUsada
+          ? locked('Cuotón %', 'cpg-cuoton', 0)
+          : dd(cuotonLbl, 'cpg-cuoton', cuotonOpts, cuoton, v => v + '%')}
         ${locked('Crédito Directo (%)',   'cpg-cdir',   cdir)}
-        ${txt('Upfront Promesa (%)', 'cpg-upfront', upfront)}
+        ${isUsada
+          ? locked('Upfront Promesa (%)', 'cpg-upfront', 0)
+          : txt('Upfront Promesa (%)', 'cpg-upfront', upfront)}
       </div>
       <div class="cp-form-row cp-form-row--3">
         ${txt('Plusvalía anual (%)', 'cpg-plusvalia', 2)}
@@ -1039,10 +1046,10 @@ export function cotizSecProp(propId) {
     const parsedCC = {
       descuentoDepto:     0,
       descuentoAdicional: 0,
-      aporteInmobiliario: 0,
+      aporteInmobiliario: (p.bonoPct || 0) / 100,
       reservaCLP:         0,
       reservaUF:          0,
-      cuotasPieN:         0,
+      cuotasPieN:         1,
       upfrontPct:         0,
       piePctDefault:      0.20,
       pieConstPct:        0,
