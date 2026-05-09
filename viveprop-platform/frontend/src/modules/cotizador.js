@@ -322,7 +322,6 @@ export function volverAParams() {
 }
 
 function _initParamsGrid(parsedCC) {
-  const pie     = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
   const dcto    = _pct100((parsedCC.descuentoDepto ?? 0) + (parsedCC.descuentoAdicional ?? 0))
   const aporte  = _pct100(parsedCC.aporteInmobiliario)
   const cuotas  = parsedCC.cuotasPieN ?? 0
@@ -331,6 +330,9 @@ function _initParamsGrid(parsedCC) {
   const upfront = _pct100(parsedCC.upfrontPct)
   const cdir    = _pct100(parsedCC.creditoDirectoPct)
   const [c1, c2, c3] = CAE_OPTIONS.map(c => _pct100(c))
+  const isUsada     = _state.project.id.startsWith('sec-')
+  const pieBase  = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
+  const pie      = isUsada ? pieBase : Math.max(0, pieBase - aporte)
 
   // Set title in params step header
   const { project, depto, secundarios } = _state
@@ -376,7 +378,6 @@ function _initParamsGrid(parsedCC) {
   const plazoOpts = [5, 10, 15, 20, 25, 30]
   const caeOpts   = [3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0]
 
-  const isUsada     = _state.project.id.startsWith('sec-')
   const isInversion = _state.cliente?.objetivo === 'inversion'
   const savedArr    = _loadArr()
 
