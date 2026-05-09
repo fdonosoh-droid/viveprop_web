@@ -332,7 +332,7 @@ function _initParamsGrid(parsedCC) {
   const [c1, c2, c3] = CAE_OPTIONS.map(c => _pct100(c))
   const isUsada  = _state.project.id.startsWith('sec-')
   const pieBase  = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
-  const pie      = isUsada ? pieBase : Math.max(0, Math.round(PIE_DEFAULT * 100) - aporte)
+  const pie      = isUsada ? pieBase : Math.max(0, 20 - aporte)
 
   // Set title in params step header
   const { project, depto, secundarios } = _state
