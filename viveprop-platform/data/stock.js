@@ -1,4 +1,4 @@
-// Generado por gsheet_to_stock.py — 2026-05-09 10:04
+// Generado por gsheet_to_stock.py — 2026-05-10 10:13
 // Propiedades: 968
 const STOCK = [
   {
