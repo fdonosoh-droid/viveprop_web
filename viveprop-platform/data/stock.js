@@ -1,4 +1,4 @@
-// Generado por gsheet_to_stock.py — 2026-05-12 11:21
+// Generado por gsheet_to_stock.py — 2026-05-13 11:29
 // Propiedades: 969
 const STOCK = [
   {
@@ -2800,9 +2800,9 @@ const STOCK = [
     "anio": "2018",
     "estado": "Arrendado",
     "rango": "UF2000 a UF2499.-",
-    "precioSinBono": "1.681,82",
-    "bonoPct": 18,
-    "bonoUF": "369,18",
+    "precioSinBono": "1.640,80",
+    "bonoPct": 20,
+    "bonoUF": "410,2",
     "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/D253525E-507F-8839-6968-FEE62B085DDE1713804961227-476765.mp4",
     "oportunidad": "Oportunidad",
     "id": "476765"
