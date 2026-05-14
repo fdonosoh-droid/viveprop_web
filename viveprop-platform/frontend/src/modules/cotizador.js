@@ -332,7 +332,12 @@ function _initParamsGrid(parsedCC) {
   const [c1, c2, c3] = CAE_OPTIONS.map(c => _pct100(c))
   const isUsada  = _state.project.id.startsWith('sec-')
   const pieBase  = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
-  const pie      = isUsada ? pieBase : Math.max(0, 20 - aporte)
+  const isMaestra = _state?.regla?.tipoCalculoBono === 'maestra'
+  const pie = isUsada
+    ? pieBase
+    : isMaestra
+      ? Math.max(0, 20 - aporte)
+      : (parsedCC.piePctDefault != null ? Math.round(parsedCC.piePctDefault * 100) : 20)
 
   // Set title in params step header
   const { project, depto, secundarios } = _state
@@ -558,9 +563,10 @@ function _sValores(r, depto, secundarios) {
 function _sPlanPago(r) {
   let rows = ''
 
+  const _piePctEfectivo = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
   rows += `
     <div class="cp-plan-row">
-      <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(r.piePct)}</span></span>
+      <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctEfectivo)}</span></span>
       <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
     </div>`
 
@@ -756,7 +762,8 @@ function _buildPrintDoc(r, params) {
   </tr>`).join('')
 
   let planRows = ''
-  planRows += `<tr><td><strong>Pie total</strong> ${_pct(r.piePct)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
+  const _piePctEf = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
+  planRows += `<tr><td><strong>Pie total</strong> ${_pct(_piePctEf)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
   if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
   if (r.upfrontUF > 0)
     planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
@@ -928,7 +935,7 @@ function _buildPrintDocResumen(r) {
   </tr>`).join('')
 
   const totalUF    = r.valorVentaUF
-  const pieResumenUF = r.pieTotalUF + (r.bonoPieUF || 0)
+  const pieResumenUF = r.pieTotalUF
   const _pct2      = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
 
   el.innerHTML = `
