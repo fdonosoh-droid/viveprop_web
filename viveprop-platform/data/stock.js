@@ -1,4 +1,4 @@
-// Generado por gsheet_to_stock.py — 2026-05-13 11:29
+// Generado por gsheet_to_stock.py — 2026-05-14 11:12
 // Propiedades: 969
 const STOCK = [
   {
@@ -11272,29 +11272,6 @@ const STOCK = [
     "id": "215402"
   },
   {
-    "op": "50732",
-    "condominio": "Sol Oriente",
-    "direccion": "Av. Macul 2301",
-    "comuna": "Macul",
-    "dp": "908-B",
-    "tipologia": "2D2B",
-    "orientacion": "N",
-    "est": "",
-    "bod": "221",
-    "m2interior": "47,00",
-    "m2total": "49,50",
-    "m2terraza": "2,50",
-    "anio": "2007",
-    "estado": "Arrendado",
-    "rango": "UF2500 a UF2999.-",
-    "precioSinBono": "2.284,80",
-    "bonoPct": 20,
-    "bonoUF": "571,2",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/B6FF2F52-38DC-EA9C-6CC5-FD4F724024218BA5792D-4A43-2DD1-2626-AB823A884B341717700251309-476629.mp4",
-    "oportunidad": "Oportunidad",
-    "id": "476629"
-  },
-  {
     "op": "45734",
     "condominio": "Viña Manquehue",
     "direccion": "Vicuña Mackenna 2289",
@@ -12213,29 +12190,6 @@ const STOCK = [
     "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/57489500-7D9E-9BF0-4896-0D74A5217CD51707413158772-472926.mp4",
     "oportunidad": "",
     "id": "472926"
-  },
-  {
-    "op": "40808",
-    "condominio": "Zone",
-    "direccion": "Placilla 046",
-    "comuna": "Estación Central",
-    "dp": "707",
-    "tipologia": "2D1B",
-    "orientacion": "O",
-    "est": "",
-    "bod": "47 y 109",
-    "m2interior": "38,53",
-    "m2total": "41,00",
-    "m2terraza": "2,47",
-    "anio": "2021",
-    "estado": "Arrendado",
-    "rango": "UF2000 a UF2499.-",
-    "precioSinBono": "2.350,00",
-    "bonoPct": 0,
-    "bonoUF": "0",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/7A4B4FD6-B3BA-D4B7-2EF2-6F1D57253F831676295063793-459813.mp4",
-    "oportunidad": "",
-    "id": "459813"
   },
   {
     "op": "SYG751",
@@ -22287,5 +22241,51 @@ const STOCK = [
     "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/B8ABBE51-7BEB-83BD-9BD3-32022247724D1719446515884-480007.mp4",
     "oportunidad": "",
     "id": "480007"
+  },
+  {
+    "op": "56235",
+    "condominio": "Consistorial",
+    "direccion": "Serafín Zamora 22 - Av. Vicuña Mackenna Pte. 7244",
+    "comuna": "La Florida",
+    "dp": "2606-A",
+    "tipologia": "Estudio",
+    "orientacion": "Poniente",
+    "est": "",
+    "bod": "",
+    "m2interior": "26,00",
+    "m2total": "26,00",
+    "m2terraza": "0,00",
+    "anio": "",
+    "estado": "#N/A",
+    "rango": "UF0 a UF1999.-",
+    "precioSinBono": "1.950,00",
+    "bonoPct": 0,
+    "bonoUF": "0",
+    "video": "",
+    "oportunidad": "",
+    "id": "500848"
+  },
+  {
+    "op": "80157",
+    "condominio": "Acción Vespucio Oriente",
+    "direccion": "Av. Américo Vespucio 4451",
+    "comuna": "Macul",
+    "dp": "1308",
+    "tipologia": "1D1B",
+    "orientacion": "N",
+    "est": "21",
+    "bod": "51",
+    "m2interior": "30,00",
+    "m2total": "33,50",
+    "m2terraza": "3,50",
+    "anio": "2019",
+    "estado": "#N/A",
+    "rango": "UF2500 a UF2999.-",
+    "precioSinBono": "2.603,70",
+    "bonoPct": 10,
+    "bonoUF": "289,3",
+    "video": "",
+    "oportunidad": "",
+    "id": "529974"
   }
 ];
