@@ -1,5 +1,5 @@
-# Claude Code settings (local only)
-.claude/
+# Claude Code — solo settings locales (API keys, permisos de máquina)
+.claude/settings.local.json
 
 # OS
 .DS_Store
