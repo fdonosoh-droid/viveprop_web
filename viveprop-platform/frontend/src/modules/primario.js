@@ -40,6 +40,7 @@ export function priFilter() {
   const priEst     = document.getElementById('pri-est')?.checked || false;
   const priBod     = document.getElementById('pri-bod')?.checked || false;
   priMaxUF         = window._priMaxUF || null;
+  const needsBonoPie = window._perfilNeedsBonoPie || false;
 
   priFilt = store.PROJECTS.filter(p => {
     let disp = (p.unidades || []).filter(u => u.disponible && !isExtra(u.tipologia));
@@ -61,6 +62,7 @@ export function priFilter() {
     if (pmin && desde < pmin) return false;
     if (pmax && desde > pmax) return false;
     if (priMaxUF && !disp.some(u => u.precio_uf <= priMaxUF)) return false;
+    if (needsBonoPie && !(store.CC_DATA[p.id]?.aporteInmobiliario > 0)) return false;
     return true;
   });
   priPg = 1;

@@ -2,6 +2,7 @@ import { store } from '../state/store.js';
 import { fmt } from '../utils/format.js';
 
 let _perfilMax = null;
+let _perfilNeedsBonoPie = false;
 
 // ── Motor de evaluación (portado de cotizador-web-mp/evaluation-engine.ts) ───
 
@@ -24,6 +25,7 @@ function _evaluar(data) {
 
   if (!ingresoEvaluable) {
     return { resultado: 'no_apto', razones: ['Sin ingresos registrados'],
+      sinPie: !pieDisponible,
       ingresoEvaluable: 0, cargaSinHip: 0, rciActual: 0,
       dividendoMax: 0, creditoMax: 0, propMaxCLP: 0, propMaxUF: 0 }
   }
@@ -41,11 +43,6 @@ function _evaluar(data) {
   if (dividendoMax <= 0 && resultado === 'apto') {
     resultado = 'no_apto'
     razones.push('Sin capacidad de pago disponible para un dividendo')
-  }
-
-  if (!pieDisponible && resultado === 'apto') {
-    resultado = 'no_apto'
-    razones.push('Sin pie disponible registrado')
   }
 
   const divRatio    = ingresoEvaluable > 0 ? dividendoMax / ingresoEvaluable : 0
@@ -69,7 +66,7 @@ function _evaluar(data) {
     : propMaxPorLtv
   const propMaxUF = store.UF > 0 ? propMaxCLP / store.UF : 0
 
-  return { resultado, razones, ingresoEvaluable, cargaSinHip, rciActual, dividendoMax, creditoMax, propMaxCLP, propMaxUF }
+  return { resultado, razones, sinPie: !pieDisponible, ingresoEvaluable, cargaSinHip, rciActual, dividendoMax, creditoMax, propMaxCLP, propMaxUF }
 }
 
 // ── Cálculo y render ─────────────────────────────────────────────────────────
@@ -102,6 +99,7 @@ export function calcPerfil() {
 
   const ev = _evaluar(data)
   _perfilMax = ev.resultado !== 'no_apto' && ev.propMaxUF > 0 ? ev.propMaxUF : null
+  _perfilNeedsBonoPie = ev.sinPie || false
 
   const BADGE = {
     apto:                 { cls: 'pf-badge--apto',   label: '✓ Apto' },
@@ -116,6 +114,7 @@ export function calcPerfil() {
   <div class="perfil-card">
     <div class="pf-status-row">
       <span class="pf-badge ${badge.cls}">${badge.label}</span>
+      ${ev.sinPie ? `<span class="pf-badge pf-badge--sinpie">⚠ Sin pie en efectivo — se mostrarán proyectos con bono pie</span>` : ''}
       <ul class="pf-razones">${ev.razones.map(r => `<li>${r}</li>`).join('')}</ul>
     </div>
     <div class="rc-hero">
@@ -154,6 +153,7 @@ export function calcPerfil() {
 
 export function searchFromPerfil(mod) {
   if (!_perfilMax) return
+  window._perfilNeedsBonoPie = _perfilNeedsBonoPie
   if (mod === 'sec') {
     window._secMaxUF = _perfilMax
     window.secFilter()
@@ -173,13 +173,14 @@ export function showBudgetBanner(mod) {
   b.id = 'bb-' + mod
   b.className = 'filter-strip'
   b.style.cssText = 'background:#FFFBEB;border-bottom:1px solid #FCD34D;'
-  b.innerHTML = `<span style="font-size:13px;color:#92400E">👤 Presupuesto máximo: <strong>${fmt.uf(_perfilMax)}</strong></span>
+  b.innerHTML = `<span style="font-size:13px;color:#92400E">👤 Presupuesto máximo: <strong>${fmt.uf(_perfilMax)}</strong>${_perfilNeedsBonoPie ? ' · Mostrando solo proyectos con bono pie' : ''}</span>
     <button class="btn-clear-budget" onclick="clearBudget('${mod}')">✕ Limpiar filtro</button>`
   const m = document.getElementById('mod-' + mod)
   m.insertBefore(b, m.querySelector('.filter-strip'))
 }
 
 export function clearBudget(mod) {
+  window._perfilNeedsBonoPie = false
   if (mod === 'sec') { window._secMaxUF = null; window.secFilter() }
   else               { window._priMaxUF = null; window.priFilter() }
   document.getElementById('bb-' + mod)?.remove()

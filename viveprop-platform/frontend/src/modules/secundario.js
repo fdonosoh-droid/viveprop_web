@@ -39,6 +39,7 @@ export function secFilter() {
   const checkedVals = cbAll.filter(c => c.checked).map(c => c.value);
   const allChecked  = checkedVals.length === cbAll.length;
   const secMaxUF    = window._secMaxUF || null;
+  const needsBonoPie = window._perfilNeedsBonoPie || false;
 
   secFilt = store.STOCK.filter(p => {
     if (q && !`${p.condominio||''} ${p.direccion||''} ${p.comuna||''}`.toLowerCase().includes(q)) return false;
@@ -54,6 +55,7 @@ export function secFilter() {
     if (pmin && uf < pmin) return false;
     if (pmax && uf > pmax) return false;
     if (secMaxUF && uf > secMaxUF) return false;
+    if (needsBonoPie && !(p.bonoPct > 0)) return false;
     return true;
   });
   secPg = 1;
