@@ -1,5 +1,5 @@
-// Generado por gsheet_to_stock.py — 2026-05-15 11:20
-// Propiedades: 971
+// Generado por gsheet_to_stock.py — 2026-05-16 10:13
+// Propiedades: 970
 const STOCK = [
   {
     "op": "SYG1122",
@@ -20677,29 +20677,6 @@ const STOCK = [
     "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/EA358111-1FA5-6E17-D496-C60A7A8CC3071000302425.mp4",
     "oportunidad": "",
     "id": "99241"
-  },
-  {
-    "op": "42930",
-    "condominio": "Milán San Miguel",
-    "direccion": "Milán 1242",
-    "comuna": "San Miguel",
-    "dp": "404",
-    "tipologia": "2D2B",
-    "orientacion": "SP",
-    "est": "46",
-    "bod": "25",
-    "m2interior": "51,26",
-    "m2total": "60,00",
-    "m2terraza": "8,74",
-    "anio": "2022",
-    "estado": "Lista para arrendar",
-    "rango": "UF3500 a UF3999.-",
-    "precioSinBono": "3.650,00",
-    "bonoPct": 0,
-    "bonoUF": "0",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/3A1EDE4F-8C1E-3236-0A27-55DC89B804381679595771294-461610.mp4",
-    "oportunidad": "",
-    "id": "461610"
   },
   {
     "op": "13160",
