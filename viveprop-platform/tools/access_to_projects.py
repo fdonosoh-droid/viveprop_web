@@ -13,9 +13,10 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 # ── Configuración ─────────────────────────────────────────────────────────────
 
-ACCDB    = r"H:\Mi unidad\Viveprop\00 - DDBB_AGENCIA\STOCK MERCADO PRIMARIO\STOCK MP.accdb"
-ROOT     = Path(__file__).parent.parent
+ACCDB         = r"H:\Mi unidad\Viveprop\00 - DDBB_AGENCIA\STOCK MERCADO PRIMARIO\STOCK MP.accdb"
+ROOT          = Path(__file__).parent.parent
 PROJECTS_XLSX = ROOT / "data" / "projects.xlsx"
+STOCK_MP_XLSX = ROOT / "data" / "Stock_MP.xlsx"
 FOTOS_JSON    = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
 OUT_JSON      = ROOT / "frontend" / "public" / "data" / "projects.json"
 OUT_JS        = ROOT / "data" / "projects.js"
@@ -220,45 +221,34 @@ def load_access_data():
             "entrega":   val(r.get("PERIODO ENTREGA")),
         }
 
-    # Unidades desde query
-    try:
-        cur.execute("SELECT * FROM STOCK_MP_VIVEPROP_WEB")
-        cols2 = [c[0] for c in cur.description]
-        all_rows = cur.fetchall()
-    except Exception as e:
-        conn.close()
-        print(f"  AVISO: Error al ejecutar query STOCK_MP_VIVEPROP_WEB ({e}). Activando fallback a Excel.")
-        return access_projs, None
+    conn.close()
 
-    # Validar calidad de los datos: si PRECIO LISTA es 0 en más del 80% de las filas
-    # o PROGRAMA contiene solo números → Access tiene fórmulas rotas.
-    def _looks_numeric(s):
-        try:
-            float(str(s).replace(",", "."))
-            return True
-        except (ValueError, TypeError):
-            return False
+    # Unidades desde Stock_MP.xlsx (fuente directa, sin depender de query Access)
+    units_by_proj = load_units_from_stock_mp()
+    return access_projs, units_by_proj
 
-    if all_rows:
-        sample = all_rows[:min(30, len(all_rows))]
-        rows_dicts = [dict(zip(cols2, r)) for r in sample]
-        precio_cero = sum(1 for r in rows_dicts if safe_float(r.get("PRECIO LISTA")) == 0)
-        programa_numerico = sum(1 for r in rows_dicts if _looks_numeric(r.get("PROGRAMA")))
-        if precio_cero > len(sample) * 0.8 or programa_numerico > len(sample) * 0.5:
-            conn.close()
-            print(f"  AVISO: Access devuelve datos inválidos "
-                  f"(PRECIO LISTA=0 en {precio_cero}/{len(sample)} filas, "
-                  f"PROGRAMA numérico en {programa_numerico}/{len(sample)})")
-            return access_projs, None  # None indica fallback a Excel
+# ── 3. Leer unidades desde Stock_MP.xlsx ─────────────────────────────────────
 
+def load_units_from_stock_mp():
+    """Lee todas las unidades desde la hoja Stock de Stock_MP.xlsx."""
+    print(f"  Leyendo unidades desde Stock_MP.xlsx ...")
+    wb = openpyxl.load_workbook(STOCK_MP_XLSX, read_only=True, data_only=True)
+    ws = wb["Stock"]
+    rows = list(ws.iter_rows(values_only=True))
+    wb.close()
+    if not rows:
+        return {}
+    headers = [str(h) if h is not None else "" for h in rows[0]]
     units_by_proj = {}
-    for row in all_rows:
-        r = dict(zip(cols2, row))
+    skipped = 0
+    for row in rows[1:]:
+        r = dict(zip(headers, row))
         nemo = val(r.get("NEMOTECNICO"))
         pid  = NEMO_MAP.get(nemo)
         if not pid:
+            skipped += 1
             continue
-        estado    = val(r.get("ESTADO STOCK"))
+        estado     = val(r.get("ESTADO STOCK"))
         disponible = estado.lower() in ESTADOS_DISPONIBLE
         unidad = {
             "dp":          clean_dp(r.get("NUMERO UNIDAD")),
@@ -275,11 +265,12 @@ def load_access_data():
             "estado":      estado,
         }
         units_by_proj.setdefault(pid, []).append(unidad)
+    total = sum(len(u) for u in units_by_proj.values())
+    print(f"  {total} unidades cargadas desde Stock_MP.xlsx ({skipped} sin mapeo NEMO)")
+    return units_by_proj
 
-    conn.close()
-    return access_projs, units_by_proj
 
-# ── 3. Fallback: leer unidades desde projects.xlsx ────────────────────────────
+# ── 4. Fallback: leer unidades desde projects.xlsx ────────────────────────────
 
 def load_units_from_excel():
     """Fallback cuando Access devuelve datos corruptos. Lee la hoja Unidades de projects.xlsx."""
@@ -390,14 +381,9 @@ if __name__ == "__main__":
     static = load_static_projects()
     print(f"  {len(static)} proyectos cargados")
 
-    print("Conectando a Access...")
+    print("Conectando a Access (metadatos de proyectos)...")
     access_projs, units_by_proj = load_access_data()
     print(f"  {len(access_projs)} proyectos con datos en Access")
-    if units_by_proj is None:
-        print("  Fallback activo: Access devolvió datos inválidos.")
-        units_by_proj = load_units_from_excel()
-    else:
-        print(f"  {sum(len(u) for u in units_by_proj.values())} unidades cargadas desde Access")
 
     print("Leyendo fotos_pri.json...")
     fotos = load_fotos()
@@ -418,7 +404,7 @@ if __name__ == "__main__":
         for pid in sin_access:
             print(f"    {pid}")
     if sin_unidades:
-        print(f"\n  Aviso: {len(sin_unidades)} proyectos sin unidades en Access:")
+        print(f"\n  Aviso: {len(sin_unidades)} proyectos sin unidades en Stock_MP.xlsx:")
         for pid in sin_unidades:
             print(f"    {pid}")
 
