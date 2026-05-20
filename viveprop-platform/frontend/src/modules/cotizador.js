@@ -337,7 +337,7 @@ function _initParamsGrid(parsedCC) {
     ? pieBase
     : isMaestra
       ? Math.max(0, 20 - aporte)
-      : (parsedCC.piePctDefault != null ? Math.round(parsedCC.piePctDefault * 100) : 20)
+      : Math.max(0, (parsedCC.piePctDefault != null ? Math.round(parsedCC.piePctDefault * 100) : 20) - aporte)
 
   // Set title in params step header
   const { project, depto, secundarios } = _state
@@ -442,8 +442,18 @@ function _loadArr() {
 function _readParams() {
   const n   = id => { const v = parseFloat(document.getElementById(id)?.value); return isNaN(v) ? 0 : v }
   const clp = id => { const raw = (document.getElementById(id)?.value || '').replace(/\D/g, ''); return parseInt(raw, 10) || 0 }
+  // Fallback pie: mismo valor que _initParamsGrid calcula para este proyecto.
+  // PIE_DEFAULT (12%) era inconsistente: con bono >= 12% daba pieTotalComprador = 0.
+  const _isMaestra = _state?.regla?.tipoCalculoBono === 'maestra'
+  const _isUsada   = _state?.project?.id?.startsWith('sec-')
+  const _aporte    = n('cpg-aporte')
+  const _pieFallback = _isUsada
+    ? Math.round((_state?.parsedCC?.piePctDefault ?? PIE_DEFAULT) * 100)
+    : _isMaestra
+      ? Math.max(0, 20 - _aporte)
+      : Math.max(0, (_state?.parsedCC?.piePctDefault != null ? Math.round(_state.parsedCC.piePctDefault * 100) : 20) - _aporte)
   return {
-    pie:       n('cpg-pie')       || PIE_DEFAULT * 100,
+    pie:       n('cpg-pie')       || _pieFallback,
     plazo:     n('cpg-plazo')     || PLAZO_DEFAULT,
     dcto:      n('cpg-dcto'),
     aporte:    n('cpg-aporte'),
@@ -474,8 +484,8 @@ function _buildInput(params) {
     bonoPiePct:                params.aporte / 100,
     reservaCLP,
     preciosConjuntos:          secundarios.map(s => s.precio_uf),
-    // For usadas: piePct means buyer's own contribution; total bank requirement = buyer% + bono%
-    piePct:                    isUsada ? (params.pie + params.aporte) / 100 : params.pie / 100,
+    // Selector siempre = bolsillo del comprador; total banco = pie + bono (excepto MAESTRA que lo calcula diferente)
+    piePct:                    regla.tipoCalculoBono === 'maestra' ? params.pie / 100 : (params.pie + params.aporte) / 100,
     upfrontPct:                params.upfront / 100,
     cuotasPieN:                params.cuotas,
     cuotonPct:                 params.cuoton / 100,
