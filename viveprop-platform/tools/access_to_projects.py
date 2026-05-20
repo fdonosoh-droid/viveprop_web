@@ -5,7 +5,7 @@ y genera projects.json para el programa.
 Uso: python tools/access_to_projects.py
      (correr después de actualizar datos en Access)
 """
-import sys, json, re, openpyxl, pyodbc
+import sys, json, re, openpyxl
 from pathlib import Path
 from datetime import datetime
 
@@ -196,36 +196,31 @@ def load_static_projects():
 
 # ── 2. Leer datos dinámicos desde Access ──────────────────────────────────────
 
-def load_access_data():
-    conn_str = rf"DRIVER={{Microsoft Access Driver (*.mdb, *.accdb)}};DBQ={ACCDB};"
-    try:
-        conn = pyodbc.connect(conn_str)
-    except Exception as e:
-        sys.exit(f"No se pudo conectar a Access: {e}")
+def load_stock_mp_data():
+    """Lee proyectos y unidades directamente desde Stock_MP.xlsx."""
+    wb = openpyxl.load_workbook(STOCK_MP_XLSX, read_only=True, data_only=True)
 
-    cur = conn.cursor()
-
-    # Proyectos: datos dinámicos (entrega, comuna, dirección)
-    cur.execute("SELECT NEMOTECNICO, COMUNA, DIRECCION, [TIPO ENTREGA], [PERIODO ENTREGA] FROM PROYECTOS")
-    cols = [c[0] for c in cur.description]
-    access_projs = {}
-    for row in cur.fetchall():
-        r = dict(zip(cols, row))
+    # Hoja proyectos → metadatos (comuna, dirección, entrega)
+    ws_proy = wb["proyectos"]
+    rows_proy = list(ws_proy.iter_rows(values_only=True))
+    headers_proy = [str(h) if h is not None else "" for h in rows_proy[0]]
+    stock_projs = {}
+    for row in rows_proy[1:]:
+        r = dict(zip(headers_proy, row))
         nemo = val(r.get("NEMOTECNICO"))
         pid  = NEMO_MAP.get(nemo)
         if not pid:
             continue
-        access_projs[pid] = {
+        stock_projs[pid] = {
             "comuna":    val(r.get("COMUNA")),
             "direccion": val(r.get("DIRECCION")),
             "entrega":   val(r.get("PERIODO ENTREGA")),
         }
 
-    conn.close()
+    wb.close()
 
-    # Unidades desde Stock_MP.xlsx (fuente directa, sin depender de query Access)
     units_by_proj = load_units_from_stock_mp()
-    return access_projs, units_by_proj
+    return stock_projs, units_by_proj
 
 # ── 3. Leer unidades desde Stock_MP.xlsx ─────────────────────────────────────
 
@@ -381,16 +376,16 @@ if __name__ == "__main__":
     static = load_static_projects()
     print(f"  {len(static)} proyectos cargados")
 
-    print("Conectando a Access (metadatos de proyectos)...")
-    access_projs, units_by_proj = load_access_data()
-    print(f"  {len(access_projs)} proyectos con datos en Access")
+    print("Leyendo Stock_MP.xlsx (proyectos y unidades)...")
+    stock_projs, units_by_proj = load_stock_mp_data()
+    print(f"  {len(stock_projs)} proyectos con metadatos")
 
     print("Leyendo fotos_pri.json...")
     fotos = load_fotos()
     print(f"  {len(fotos)} proyectos con fotos")
 
     print("Fusionando y generando projects.json...")
-    projects, sin_access, sin_unidades = build_projects(static, access_projs, units_by_proj, fotos)
+    projects, sin_meta, sin_unidades = build_projects(static, stock_projs, units_by_proj, fotos)
 
     write_outputs(projects)
 
@@ -399,9 +394,9 @@ if __name__ == "__main__":
     print(f"  → {OUT_JSON}")
     print(f"  → {OUT_JS}")
 
-    if sin_access:
-        print(f"\n  Aviso: {len(sin_access)} proyectos sin datos en Access (se mantienen con datos anteriores):")
-        for pid in sin_access:
+    if sin_meta:
+        print(f"\n  Aviso: {len(sin_meta)} proyectos sin metadatos en Stock_MP.xlsx (se usan datos de projects.xlsx):")
+        for pid in sin_meta:
             print(f"    {pid}")
     if sin_unidades:
         print(f"\n  Aviso: {len(sin_unidades)} proyectos sin unidades en Stock_MP.xlsx:")
