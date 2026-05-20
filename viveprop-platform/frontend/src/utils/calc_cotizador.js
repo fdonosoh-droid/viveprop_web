@@ -184,12 +184,10 @@ export function calcularCotizacion(input) {
   } else {
     // INGEVEC, URMENETA, DEFAULT:
     // Bono sobre precio desc del depto. Pie calculado sobre precio lista (no sobre base inflada).
-    // Tasación = precioDesc × (1 + bonoPct) + conjuntos (el bono infla la tasación bancaria).
+    // Tasación = valorVenta (precio lista con descuento, sin inflar por bono).
     // pieTotalDepto ya está clampeado a 0 si bonoPct >= piePct.
     bonoPieUF          = bonoPieUF_early
-    tasacionUFfinal    = bonoPiePct > 0
-      ? Math.round((valorCompraDepto + precioListaOtros) * 100) / 100
-      : valorVentaUF
+    tasacionUFfinal    = Math.round(valorVentaUF * 100) / 100
     saldoAporteInmobUF = bonoPieUF
     aportePct          = precioDescDepto > 0 ? bonoPieUF / precioDescDepto : 0
     pieCreditoHipUF    = Math.round((pieTotalUF + bonoPieUF + piePeriodoConstruccionUF + cuotonUF) * 100) / 100
