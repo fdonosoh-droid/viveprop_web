@@ -9,12 +9,13 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from pathlib import Path
 from urllib.parse import quote
+import openpyxl
 
-ROOT       = Path(__file__).parent.parent
-PHOTOS_SRC = ROOT / "photos" / "primario"
-DST_DIR    = ROOT / "frontend" / "public" / "photos" / "pri"
-MANIFEST   = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
-PROJECTS_JS = ROOT / "data" / "projects.js"
+ROOT          = Path(__file__).parent.parent
+PHOTOS_SRC    = ROOT / "photos" / "primario"
+DST_DIR       = ROOT / "frontend" / "public" / "photos" / "pri"
+MANIFEST      = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
+PROJECTS_XLSX = ROOT / "data" / "projects.xlsx"
 
 
 # ─── Clasificadores de archivos ────────────────────────────────────────────────
@@ -71,20 +72,23 @@ def tipologia_label(stem: str) -> str:
     return stem.replace("_", " ").replace("-", " ").title()
 
 
-# ─── Leer projects.js ─────────────────────────────────────────────────────────
+# ─── Leer projects.xlsx ───────────────────────────────────────────────────────
 
-def load_projects_js(path: Path) -> list[dict]:
-    """
-    Extrae los proyectos del archivo projects.js (const PROJECTS = [...]).
-    """
-    text = path.read_text(encoding="utf-8", errors="replace")
-    # Eliminar líneas de comentarios JS
-    text = "\n".join(l for l in text.split("\n") if not l.strip().startswith("//"))
-    # Quitar asignación const PROJECTS =
-    text = re.sub(r"^\s*const\s+\w+\s*=\s*", "", text.strip())
-    if text.rstrip().endswith(";"):
-        text = text.rstrip()[:-1]
-    return json.loads(text)
+def load_projects_xlsx(path: Path) -> list[dict]:
+    """Lee id y foto_portada desde la hoja Proyectos de projects.xlsx."""
+    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+    ws = wb["Proyectos"]
+    rows = list(ws.iter_rows(values_only=True))
+    wb.close()
+    headers = [str(h).strip() if h is not None else "" for h in rows[0]]
+    projects = []
+    for row in rows[1:]:
+        r = dict(zip(headers, row))
+        pid = str(r.get("id", "") or "").strip()
+        fp  = str(r.get("foto_portada", "") or "").strip()
+        if pid:
+            projects.append({"id": pid, "foto_portada": fp})
+    return projects
 
 
 # ─── Procesar un proyecto ─────────────────────────────────────────────────────
@@ -195,14 +199,14 @@ def process_project(p: dict, manifest: dict, stats: dict):
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    if not PROJECTS_JS.exists():
-        sys.exit(f"No encontré {PROJECTS_JS}")
+    if not PROJECTS_XLSX.exists():
+        sys.exit(f"No encontré {PROJECTS_XLSX}")
 
     DST_DIR.mkdir(parents=True, exist_ok=True)
     (ROOT / "frontend" / "public" / "data").mkdir(parents=True, exist_ok=True)
 
-    print(f"Leyendo {PROJECTS_JS.name} ...")
-    projects = load_projects_js(PROJECTS_JS)
+    print(f"Leyendo {PROJECTS_XLSX.name} ...")
+    projects = load_projects_xlsx(PROJECTS_XLSX)
     print(f"  {len(projects)} proyectos cargados")
 
     # Cargar manifest existente para preservar proyectos ya procesados

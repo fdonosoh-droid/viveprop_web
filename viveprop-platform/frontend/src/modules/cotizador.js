@@ -423,6 +423,10 @@ function _initParamsGrid(parsedCC) {
       <div id="cpg-arriendo-err" style="display:none;color:#991B1B;font-size:12px;padding:2px 0 4px 4px">Ingresa los arriendos estimados para los 3 escenarios</div>
       ` : ''}
     </div>`
+
+  // Force select values programmatically in case selected attribute is ignored
+  const pieEl = document.getElementById('cpg-pie')
+  if (pieEl) pieEl.value = String(pie)
 }
 
 function _loadArr() {
@@ -462,6 +466,7 @@ function _readParams() {
 
 function _buildInput(params) {
   const { reservaCLP, regla, depto, secundarios } = _state
+  const isUsada = _state.project.id.startsWith('sec-')
   return {
     precioListaDepto:          depto.precio_uf,
     descuentoPct:              params.dcto / 100,
@@ -469,7 +474,8 @@ function _buildInput(params) {
     bonoPiePct:                params.aporte / 100,
     reservaCLP,
     preciosConjuntos:          secundarios.map(s => s.precio_uf),
-    piePct:                    params.pie / 100,
+    // For usadas: piePct means buyer's own contribution; total bank requirement = buyer% + bono%
+    piePct:                    isUsada ? (params.pie + params.aporte) / 100 : params.pie / 100,
     upfrontPct:                params.upfront / 100,
     cuotasPieN:                params.cuotas,
     cuotonPct:                 params.cuoton / 100,
@@ -562,64 +568,88 @@ function _sValores(r, depto, secundarios) {
 
 function _sPlanPago(r) {
   let rows = ''
+  const isUsada = _state?.project?.id?.startsWith('sec-')
 
   const _piePctEfectivo = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
-  rows += `
-    <div class="cp-plan-row">
-      <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctEfectivo)}</span></span>
-      <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
-    </div>`
 
-  if (r.reservaUF > 0.001) rows += `
-    <div class="cp-plan-row cp-plan-sub">
-      <span class="cp-plan-lbl">Reserva</span>
-      <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
-    </div>`
+  if (!isUsada) {
+    if (r.pieTotalUF > 0) {
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctEfectivo)}</span></span>
+          <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
+        </div>`
 
-  if (r.upfrontUF > 0) {
-    rows += `
-      <div class="cp-plan-row cp-plan-sub">
-        <span class="cp-plan-lbl">Upfront a la promesa <span class="cp-plan-pct">${_pct(r.upfrontPct)}</span></span>
-        <span class="cp-plan-val">${fmt.uf2(r.upfrontUF)}<small>${fmt.pesos(r.upfrontUF * r.valorUF)}</small></span>
-      </div>`
-  }
+      if (r.reservaUF > 0.001) rows += `
+        <div class="cp-plan-row cp-plan-sub">
+          <span class="cp-plan-lbl">Reserva</span>
+          <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
+        </div>`
 
-  if (r.cuotasPieN > 0 && r.saldoPieUF > 0) {
-    rows += `
-      <div class="cp-plan-row cp-plan-sub">
-        <span class="cp-plan-lbl">Saldo pie &mdash; ${r.cuotasPieN} cuotas &times; ${fmt.uf2(r.valorCuotaPieUF)}/mes</span>
-        <span class="cp-plan-val">${fmt.uf2(r.saldoPieUF)}<small>${fmt.pesos(r.saldoPieCLP)}</small></span>
-      </div>`
-  }
+      if (r.upfrontUF > 0) rows += `
+        <div class="cp-plan-row cp-plan-sub">
+          <span class="cp-plan-lbl">Upfront a la promesa <span class="cp-plan-pct">${_pct(r.upfrontPct)}</span></span>
+          <span class="cp-plan-val">${fmt.uf2(r.upfrontUF)}<small>${fmt.pesos(r.upfrontUF * r.valorUF)}</small></span>
+        </div>`
 
-  if (r.piePeriodoConstruccionUF > 0) {
-    const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
-    rows += `
-      <div class="cp-plan-row">
-        <span class="cp-plan-lbl">Pie período construcción <span class="cp-plan-pct">${_pct(pctConst)}</span></span>
-        <span class="cp-plan-val">${fmt.uf2(r.piePeriodoConstruccionUF)}<small>${fmt.pesos(r.piePeriodoConstruccionCLP)}</small></span>
-      </div>`
-  }
+      if (r.cuotasPieN > 0 && r.saldoPieUF > 0) rows += `
+        <div class="cp-plan-row cp-plan-sub">
+          <span class="cp-plan-lbl">Saldo pie &mdash; ${r.cuotasPieN} cuotas &times; ${fmt.uf2(r.valorCuotaPieUF)}/mes</span>
+          <span class="cp-plan-val">${fmt.uf2(r.saldoPieUF)}<small>${fmt.pesos(r.saldoPieCLP)}</small></span>
+        </div>`
 
-  if (r.cuotonUF > 0) {
-    rows += `
-      <div class="cp-plan-row">
-        <span class="cp-plan-lbl">Cuotón</span>
-        <span class="cp-plan-val">${fmt.uf2(r.cuotonUF)}<small>${fmt.pesos(r.cuotonCLP)}</small></span>
-      </div>`
+    } else if (r.bonoPieUF > 0) {
+      // Pie cubierto 100% por aporte inmobiliaria — mostrar monto efectivo para que sea visible
+      const _piePctAporte = r.valorVentaUF > 0 ? r.pieCreditoHipUF / r.valorVentaUF : 0
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctAporte)}</span></span>
+          <span class="cp-plan-val">${fmt.uf2(r.pieCreditoHipUF)}<small>${fmt.pesos(r.pieCreditoHipUF * r.valorUF)}</small></span>
+        </div>`
+
+      if (r.reservaUF > 0.001) rows += `
+        <div class="cp-plan-row cp-plan-sub">
+          <span class="cp-plan-lbl">Reserva</span>
+          <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
+        </div>`
+
+    } else if (r.reservaUF > 0.001) {
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl">Reserva</span>
+          <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
+        </div>`
+    }
+
+    if (r.piePeriodoConstruccionUF > 0) {
+      const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl">Pie período construcción <span class="cp-plan-pct">${_pct(pctConst)}</span></span>
+          <span class="cp-plan-val">${fmt.uf2(r.piePeriodoConstruccionUF)}<small>${fmt.pesos(r.piePeriodoConstruccionCLP)}</small></span>
+        </div>`
+    }
+
+    if (r.cuotonUF > 0) {
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl">Cuotón</span>
+          <span class="cp-plan-val">${fmt.uf2(r.cuotonUF)}<small>${fmt.pesos(r.cuotonCLP)}</small></span>
+        </div>`
+    }
   }
 
   const pctTotalPie = r.valorVentaUF > 0 ? r.totalPieInmobUF / r.valorVentaUF : 0
   rows += `
     <div class="cp-plan-row cp-plan-total">
-      <span class="cp-plan-lbl cp-plan-lbl--total">Total pie a inmobiliaria <span class="cp-plan-pct">${_pct(pctTotalPie)}</span></span>
+      <span class="cp-plan-lbl cp-plan-lbl--total">${isUsada ? 'Total pie a Vendedor' : 'Total pie a inmobiliaria'} <span class="cp-plan-pct">${_pct(pctTotalPie)}</span></span>
       <span class="cp-plan-val cp-plan-val--total">${fmt.uf2(r.totalPieInmobUF)}<small>${fmt.pesos(r.totalPieInmobUF * r.valorUF)}</small></span>
     </div>`
 
   if (r.bonoPieUF > 0) {
     rows += `
       <div class="cp-plan-row cp-plan-aporte">
-        <span class="cp-plan-lbl cp-plan-lbl--aporte">Aporte inmobiliaria <span class="cp-plan-pct">${_pct(r.aportePct)}</span></span>
+        <span class="cp-plan-lbl cp-plan-lbl--aporte">${isUsada ? 'Aporte Vendedor' : 'Aporte inmobiliaria'} <span class="cp-plan-pct">${_pct(r.aportePct)}</span></span>
         <span class="cp-plan-val cp-plan-val--aporte">${fmt.uf2(r.bonoPieUF)}<small>${fmt.pesos(r.bonoPieUF * r.valorUF)}</small></span>
       </div>`
   }
@@ -744,8 +774,8 @@ function _buildPrintDoc(r, params) {
   const OBJETIVO = { vivienda: 'Vivienda propia', inversion: 'Inversión / arriendo', segunda: 'Segunda vivienda', subsidio: 'Subsidio habitacional' }
 
   const unitLines = [
-    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp} · ${fmt.uf2(depto.precio_uf)}`,
-    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp} · ${fmt.uf2(s.precio_uf)}`)
+    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp}`)
   ].map(l => `<div class="prd-unit-line">${H(l)}</div>`).join('')
 
   const descTotal = r.precioListaDepto > 0 ? 1 - r.precioDescDepto / r.precioListaDepto : 0
@@ -761,24 +791,31 @@ function _buildPrintDoc(r, params) {
     <td>${fmt.uf2(s.precio_uf)}</td>
   </tr>`).join('')
 
+  const isUsada = _state?.project?.id?.startsWith('sec-')
   let planRows = ''
   const _piePctEf = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
-  planRows += `<tr><td><strong>Pie total</strong> ${_pct(_piePctEf)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
-  if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
-  if (r.upfrontUF > 0)
-    planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
-  if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
-    planRows += `<tr class="prd-tbl-sub"><td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td><td>${fmt.uf2(r.saldoPieUF)}</td><td>${fmt.pesos(r.saldoPieCLP)}</td></tr>`
-  if (r.piePeriodoConstruccionUF > 0) {
-    const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
-    planRows += `<tr><td>Pie período construcción ${_pct(pctConst)}</td><td>${fmt.uf2(r.piePeriodoConstruccionUF)}</td><td>${fmt.pesos(r.piePeriodoConstruccionCLP)}</td></tr>`
+  if (!isUsada) {
+    if (r.pieTotalUF > 0) {
+      planRows += `<tr><td><strong>Pie total</strong> ${_pct(_piePctEf)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
+      if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+      if (r.upfrontUF > 0)
+        planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
+      if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
+        planRows += `<tr class="prd-tbl-sub"><td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td><td>${fmt.uf2(r.saldoPieUF)}</td><td>${fmt.pesos(r.saldoPieCLP)}</td></tr>`
+    } else if (r.reservaUF > 0.001) {
+      planRows += `<tr><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+    }
+    if (r.piePeriodoConstruccionUF > 0) {
+      const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
+      planRows += `<tr><td>Pie período construcción ${_pct(pctConst)}</td><td>${fmt.uf2(r.piePeriodoConstruccionUF)}</td><td>${fmt.pesos(r.piePeriodoConstruccionCLP)}</td></tr>`
+    }
+    if (r.cuotonUF > 0)
+      planRows += `<tr><td>Cuotón</td><td>${fmt.uf2(r.cuotonUF)}</td><td>${fmt.pesos(r.cuotonCLP)}</td></tr>`
   }
-  if (r.cuotonUF > 0)
-    planRows += `<tr><td>Cuotón</td><td>${fmt.uf2(r.cuotonUF)}</td><td>${fmt.pesos(r.cuotonCLP)}</td></tr>`
   const pctTotalPie = r.valorVentaUF > 0 ? r.totalPieInmobUF / r.valorVentaUF : 0
-  planRows += `<tr class="prd-tbl-total"><td><strong>Total pie a inmobiliaria</strong> ${_pct(pctTotalPie)}</td><td>${fmt.uf2(r.totalPieInmobUF)}</td><td>${fmt.pesos(r.totalPieInmobUF * r.valorUF)}</td></tr>`
+  planRows += `<tr class="prd-tbl-total"><td><strong>${isUsada ? 'Total pie a Vendedor' : 'Total pie a inmobiliaria'}</strong> ${_pct(pctTotalPie)}</td><td>${fmt.uf2(r.totalPieInmobUF)}</td><td>${fmt.pesos(r.totalPieInmobUF * r.valorUF)}</td></tr>`
   if (r.bonoPieUF > 0)
-    planRows += `<tr class="prd-tbl-aporte"><td>Aporte inmobiliaria ${_pct(r.aportePct)}</td><td>${fmt.uf2(r.bonoPieUF)}</td><td>${fmt.pesos(r.bonoPieUF * r.valorUF)}</td></tr>`
+    planRows += `<tr class="prd-tbl-aporte"><td>${isUsada ? 'Aporte Vendedor' : 'Aporte inmobiliaria'} ${_pct(r.aportePct)}</td><td>${fmt.uf2(r.bonoPieUF)}</td><td>${fmt.pesos(r.bonoPieUF * r.valorUF)}</td></tr>`
 
   let cdirHtml = ''
   if (r.pieCreditoDirectoUF > 0) {
@@ -918,8 +955,8 @@ function _buildPrintDocResumen(r) {
   const OBJETIVO = { vivienda: 'Vivienda propia', inversion: 'Inversión / arriendo', segunda: 'Segunda vivienda', subsidio: 'Subsidio habitacional' }
 
   const unitLines = [
-    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp} · ${fmt.uf2(depto.precio_uf)}`,
-    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp} · ${fmt.uf2(s.precio_uf)}`)
+    `${depto.tipologia ? depto.tipologia + ' ' : ''}DP ${depto.dp}`,
+    ...secundarios.map(s => `${s.tipologia ? s.tipologia + ' ' : ''}DP ${s.dp}`)
   ].map(l => `<div class="prd-unit-line">${H(l)}</div>`).join('')
 
   const deptoLabel = `${H(String(depto.dp))}${depto.tipologia ? ' (' + H(depto.tipologia) + ')' : ''}`
@@ -934,9 +971,12 @@ function _buildPrintDocResumen(r) {
     <td class="ta-r">${fmt.pesos(s.precio_uf * r.valorUF)}</td>
   </tr>`).join('')
 
-  const totalUF    = r.valorVentaUF
-  const pieResumenUF = r.pieTotalUF
+  const totalUF    = r.tasacionUF
+  const pieResumenUF = r.pieCreditoHipUF
   const _pct2      = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
+  // Pie% se calcula sobre precio de venta (no tasación) para que coincida con el aporte de la CC
+  const _piePctBase = r.valorVentaUF > 0 ? r.valorVentaUF : totalUF
+  const _pct2pie   = v => _piePctBase > 0 ? (v / _piePctBase * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
 
   el.innerHTML = `
   <div class="prd-wrap">
@@ -967,34 +1007,25 @@ function _buildPrintDocResumen(r) {
     </div>
 
     <div class="prd-section">
-      <div class="prd-section-title">Valores</div>
-      <table class="prd-tbl prd-res-tbl">
-        <thead><tr><th>Unidad</th><th class="ta-r">UF</th><th class="ta-r">$</th></tr></thead>
-        <tbody>
-          ${deptoRow}${secRows}
-          <tr class="prd-tbl-total">
-            <td><strong>Total</strong></td>
-            <td class="ta-r"><strong>${fmt.uf2(totalUF)}</strong></td>
-            <td class="ta-r"><strong>${fmt.pesos(totalUF * r.valorUF)}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="prd-section">
       <table class="prd-tbl prd-res-tbl">
         <thead><tr><th>Concepto</th><th class="ta-r">UF</th><th class="ta-r">%</th><th class="ta-r">$</th></tr></thead>
         <tbody>
           <tr>
+            <td><strong>Valores</strong></td>
+            <td class="ta-r"><strong>${fmt.uf2(totalUF)}</strong></td>
+            <td class="ta-r">100,00%</td>
+            <td class="ta-r"><strong>${fmt.pesos(totalUF * r.valorUF)}</strong></td>
+          </tr>
+          <tr>
             <td><strong>Pie</strong></td>
             <td class="ta-r"><strong>${fmt.uf2(pieResumenUF)}</strong></td>
-            <td class="ta-r">${_pct2(pieResumenUF)}</td>
+            <td class="ta-r">${_pct2pie(pieResumenUF)}</td>
             <td class="ta-r"><strong>${fmt.pesos(pieResumenUF * r.valorUF)}</strong></td>
           </tr>
           <tr class="prd-tbl-total">
             <td><strong>Crédito Hipotecario</strong></td>
             <td class="ta-r"><strong>${fmt.uf2(r.creditoHipFinalUF)}</strong></td>
-            <td class="ta-r">${_pct2(totalUF - pieResumenUF)}</td>
+            <td class="ta-r">${_pct2(r.creditoHipFinalUF)}</td>
             <td class="ta-r"><strong>${fmt.pesos(r.creditoHipFinalUF * r.valorUF)}</strong></td>
           </tr>
         </tbody>

@@ -5,7 +5,7 @@ y genera projects.json para el programa.
 Uso: python tools/access_to_projects.py
      (correr después de actualizar datos en Access)
 """
-import sys, json, re, openpyxl, pyodbc
+import sys, json, re, openpyxl
 from pathlib import Path
 from datetime import datetime
 
@@ -13,9 +13,10 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 # ── Configuración ─────────────────────────────────────────────────────────────
 
-ACCDB    = r"H:\Mi unidad\Viveprop\00 - DDBB_AGENCIA\STOCK MERCADO PRIMARIO\STOCK MP.accdb"
-ROOT     = Path(__file__).parent.parent
+ACCDB         = r"H:\Mi unidad\Viveprop\00 - DDBB_AGENCIA\STOCK MERCADO PRIMARIO\STOCK MP.accdb"
+ROOT          = Path(__file__).parent.parent
 PROJECTS_XLSX = ROOT / "data" / "projects.xlsx"
+STOCK_MP_XLSX = ROOT / "data" / "Stock_MP.xlsx"
 FOTOS_JSON    = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
 OUT_JSON      = ROOT / "frontend" / "public" / "data" / "projects.json"
 OUT_JS        = ROOT / "data" / "projects.js"
@@ -105,6 +106,31 @@ NEMO_MAP = {
     "Porta Hurtado":                          "proj_porta-hurtado",
     "CONDOMINIO FRANCISCO ZELADA TORRE a":    "proj_condominio-francisco-zelada-torre-a",
     "CONDOMINIO FRANCISCO ZELADA TORRE B":    "proj_condominio-francisco-zelada-torre-b",
+    # EUROCORP
+    "Alameda 4719":                                "proj_alameda-4719",
+    "Alto Irarrazaval":                            "proj_alto-irarrazaval",
+    "Diagonal Vicuña":                             "proj_diagonal-vicuna",
+    "Edificio Ambar Urbano":                       "proj_edificio-ambar-urbano",
+    "Edificio Don Pepe 154":                       "proj_edificio-don-pepe-154",
+    "Edificio Mapocho 3521 Edificio A":            "proj_edificio-mapocho-3521-edificio-a",
+    "Edificio Plaza de Lourdes":                   "proj_edificio-plaza-de-lourdes",
+    "Edificio Vitro":                              "proj_edificio-vitro",
+    "Entre Vicuñas":                               "proj_entre-vicunas",
+    "Froilan Roa 5731 Torre Norte":                "proj_froilan-roa-5731-torre-norte",
+    "Froilán Roa 5731":                            "proj_froilan-roa-5731",
+    "Guillermo Mann 1401":                         "proj_guillermo-mann-1401",
+    "Independencia 4745":                          "proj_independencia-4745",
+    "Jose Pedro Alessandri 1498":                  "proj_jose-pedro-alessandri-1498",
+    "Lazo 1350":                                   "proj_lazo-1350",
+    "Lira 254":                                    "proj_lira-254",
+    "Mapocho 3521":                                "proj_mapocho-3521",
+    "Mirador Irarrazaval":                         "proj_mirador-irarrazaval",
+    "Nova Parque":                                 "proj_nova-parque",
+    "Nueva Andres Bello 1826":                     "proj_nueva-andres-bello-1826",
+    "Rosas 1444":                                  "proj_rosas-1444",
+    "Santa Elena 1670":                            "proj_santa-elena-1670",
+    "Santa Elena 1670 MBI":                        "proj_santa-elena-1670-mbi",
+    "Vicuña SPA":                                  "proj_vicuna-mackenna-1432",
     # Sin match en Access aún (agregar cuando se carguen en Access):
     # "???": "proj_parque-maranon-torre-a",
     # "???": "proj_suena-santa-elisa",
@@ -170,65 +196,54 @@ def load_static_projects():
 
 # ── 2. Leer datos dinámicos desde Access ──────────────────────────────────────
 
-def load_access_data():
-    conn_str = rf"DRIVER={{Microsoft Access Driver (*.mdb, *.accdb)}};DBQ={ACCDB};"
-    try:
-        conn = pyodbc.connect(conn_str)
-    except Exception as e:
-        sys.exit(f"No se pudo conectar a Access: {e}")
+def load_stock_mp_data():
+    """Lee proyectos y unidades directamente desde Stock_MP.xlsx."""
+    wb = openpyxl.load_workbook(STOCK_MP_XLSX, read_only=True, data_only=True)
 
-    cur = conn.cursor()
-
-    # Proyectos: datos dinámicos (entrega, comuna, dirección)
-    cur.execute("SELECT NEMOTECNICO, COMUNA, DIRECCION, [TIPO ENTREGA], [PERIODO ENTREGA] FROM PROYECTOS")
-    cols = [c[0] for c in cur.description]
-    access_projs = {}
-    for row in cur.fetchall():
-        r = dict(zip(cols, row))
+    # Hoja proyectos → metadatos (comuna, dirección, entrega)
+    ws_proy = wb["proyectos"]
+    rows_proy = list(ws_proy.iter_rows(values_only=True))
+    headers_proy = [str(h) if h is not None else "" for h in rows_proy[0]]
+    stock_projs = {}
+    for row in rows_proy[1:]:
+        r = dict(zip(headers_proy, row))
         nemo = val(r.get("NEMOTECNICO"))
         pid  = NEMO_MAP.get(nemo)
         if not pid:
             continue
-        access_projs[pid] = {
+        stock_projs[pid] = {
             "comuna":    val(r.get("COMUNA")),
             "direccion": val(r.get("DIRECCION")),
             "entrega":   val(r.get("PERIODO ENTREGA")),
         }
 
-    # Unidades desde query
-    cur.execute("SELECT * FROM STOCK_MP_VIVEPROP_WEB")
-    cols2 = [c[0] for c in cur.description]
-    all_rows = cur.fetchall()
+    wb.close()
 
-    # Validar calidad de los datos: si PRECIO LISTA es 0 en más del 80% de las filas
-    # o PROGRAMA contiene solo números → Access tiene fórmulas rotas.
-    def _looks_numeric(s):
-        try:
-            float(str(s).replace(",", "."))
-            return True
-        except (ValueError, TypeError):
-            return False
+    units_by_proj = load_units_from_stock_mp()
+    return stock_projs, units_by_proj
 
-    if all_rows:
-        sample = all_rows[:min(30, len(all_rows))]
-        rows_dicts = [dict(zip(cols2, r)) for r in sample]
-        precio_cero = sum(1 for r in rows_dicts if safe_float(r.get("PRECIO LISTA")) == 0)
-        programa_numerico = sum(1 for r in rows_dicts if _looks_numeric(r.get("PROGRAMA")))
-        if precio_cero > len(sample) * 0.8 or programa_numerico > len(sample) * 0.5:
-            conn.close()
-            print(f"  AVISO: Access devuelve datos inválidos "
-                  f"(PRECIO LISTA=0 en {precio_cero}/{len(sample)} filas, "
-                  f"PROGRAMA numérico en {programa_numerico}/{len(sample)})")
-            return access_projs, None  # None indica fallback a Excel
+# ── 3. Leer unidades desde Stock_MP.xlsx ─────────────────────────────────────
 
+def load_units_from_stock_mp():
+    """Lee todas las unidades desde la hoja Stock de Stock_MP.xlsx."""
+    print(f"  Leyendo unidades desde Stock_MP.xlsx ...")
+    wb = openpyxl.load_workbook(STOCK_MP_XLSX, read_only=True, data_only=True)
+    ws = wb["Stock"]
+    rows = list(ws.iter_rows(values_only=True))
+    wb.close()
+    if not rows:
+        return {}
+    headers = [str(h) if h is not None else "" for h in rows[0]]
     units_by_proj = {}
-    for row in all_rows:
-        r = dict(zip(cols2, row))
+    skipped = 0
+    for row in rows[1:]:
+        r = dict(zip(headers, row))
         nemo = val(r.get("NEMOTECNICO"))
         pid  = NEMO_MAP.get(nemo)
         if not pid:
+            skipped += 1
             continue
-        estado    = val(r.get("ESTADO STOCK"))
+        estado     = val(r.get("ESTADO STOCK"))
         disponible = estado.lower() in ESTADOS_DISPONIBLE
         unidad = {
             "dp":          clean_dp(r.get("NUMERO UNIDAD")),
@@ -245,11 +260,12 @@ def load_access_data():
             "estado":      estado,
         }
         units_by_proj.setdefault(pid, []).append(unidad)
+    total = sum(len(u) for u in units_by_proj.values())
+    print(f"  {total} unidades cargadas desde Stock_MP.xlsx ({skipped} sin mapeo NEMO)")
+    return units_by_proj
 
-    conn.close()
-    return access_projs, units_by_proj
 
-# ── 3. Fallback: leer unidades desde projects.xlsx ────────────────────────────
+# ── 4. Fallback: leer unidades desde projects.xlsx ────────────────────────────
 
 def load_units_from_excel():
     """Fallback cuando Access devuelve datos corruptos. Lee la hoja Unidades de projects.xlsx."""
@@ -360,21 +376,16 @@ if __name__ == "__main__":
     static = load_static_projects()
     print(f"  {len(static)} proyectos cargados")
 
-    print("Conectando a Access...")
-    access_projs, units_by_proj = load_access_data()
-    print(f"  {len(access_projs)} proyectos con datos en Access")
-    if units_by_proj is None:
-        print("  Fallback activo: Access devolvió datos inválidos.")
-        units_by_proj = load_units_from_excel()
-    else:
-        print(f"  {sum(len(u) for u in units_by_proj.values())} unidades cargadas desde Access")
+    print("Leyendo Stock_MP.xlsx (proyectos y unidades)...")
+    stock_projs, units_by_proj = load_stock_mp_data()
+    print(f"  {len(stock_projs)} proyectos con metadatos")
 
     print("Leyendo fotos_pri.json...")
     fotos = load_fotos()
     print(f"  {len(fotos)} proyectos con fotos")
 
     print("Fusionando y generando projects.json...")
-    projects, sin_access, sin_unidades = build_projects(static, access_projs, units_by_proj, fotos)
+    projects, sin_meta, sin_unidades = build_projects(static, stock_projs, units_by_proj, fotos)
 
     write_outputs(projects)
 
@@ -383,12 +394,12 @@ if __name__ == "__main__":
     print(f"  → {OUT_JSON}")
     print(f"  → {OUT_JS}")
 
-    if sin_access:
-        print(f"\n  Aviso: {len(sin_access)} proyectos sin datos en Access (se mantienen con datos anteriores):")
-        for pid in sin_access:
+    if sin_meta:
+        print(f"\n  Aviso: {len(sin_meta)} proyectos sin metadatos en Stock_MP.xlsx (se usan datos de projects.xlsx):")
+        for pid in sin_meta:
             print(f"    {pid}")
     if sin_unidades:
-        print(f"\n  Aviso: {len(sin_unidades)} proyectos sin unidades en Access:")
+        print(f"\n  Aviso: {len(sin_unidades)} proyectos sin unidades en Stock_MP.xlsx:")
         for pid in sin_unidades:
             print(f"    {pid}")
 

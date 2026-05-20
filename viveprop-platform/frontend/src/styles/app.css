@@ -1213,6 +1213,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 .pf-badge--apto{background:var(--green-l);color:var(--green)}
 .pf-badge--cond{background:var(--amber-l);color:var(--amber)}
 .pf-badge--noapto{background:var(--red-l);color:var(--red)}
+.pf-badge--sinpie{background:#FFF7ED;color:#C2410C;font-weight:600;white-space:normal;font-size:11px}
 .pf-razones{font-size:12px;color:var(--g600);line-height:1.7;list-style:none;padding:0;margin:2px 0 0}
 .pf-razones li::before{content:"· ";color:var(--g400)}
 
