@@ -117,6 +117,25 @@ NAME_TO_SLUG = {
     'mind':                                         'proj_mind',
     'pda torre poniente':                           'proj_parque-de-araya-torre-poniente',
     'pda torre oriente':                            'proj_parque-de-araya-torre-oriente',
+    # EUROCORP
+    'santa elena 1670 mbi':                         'proj_santa-elena-1670-mbi',
+    'vicuna mackenna 1432':                         'proj_vicuna-mackenna-1432',
+    'mapocho torre a y b':                          ['proj_mapocho-3521', 'proj_edificio-mapocho-3521-edificio-a'],
+    'rosas 1444':                                   'proj_rosas-1444',
+    'guillermo mann':                               'proj_guillermo-mann-1401',
+    'independencia 4745':                           'proj_independencia-4745',
+    'jose pedro alessandri':                        'proj_jose-pedro-alessandri-1498',
+    'vitro':                                        'proj_edificio-vitro',
+    'froilan roa 5731 – ts y tn':              ['proj_froilan-roa-5731', 'proj_froilan-roa-5731-torre-norte'],
+    'diagonal vicuna torre norte':                  'proj_diagonal-vicuna',
+    'diagonal vicuna torre sur':                    'proj_diagonal-vicuna',
+    'entre vicunas':                                'proj_entre-vicunas',
+    'don pepe 2':                                   'proj_edificio-don-pepe-154',
+    'plaza de lourdes':                             'proj_edificio-plaza-de-lourdes',
+    'mirador irarrazaval':                          'proj_mirador-irarrazaval',
+    'alto irarrazaval':                             'proj_alto-irarrazaval',
+    'ambar':                                        'proj_edificio-ambar-urbano',
+    'nova parque':                                  'proj_nova-parque',
     # URMENETA
     'status, stgo. centro (santolaya)':             'proj_status',
     'suena marin, stgo. centro (santolaya)':        'proj_suena-marin',
@@ -478,6 +497,48 @@ def parse_urmeneta(rows):
     _finalize()
     return results
 
+# ── Parser: CC EURO ──────────────────────────────────────────────────────────
+# Cols (header fila 0, idx 0): [idx(0), Proyecto(1), Comuna(2), Fecha Escrit.(3),
+#   reserva_clp(4), dcto_depto(5), aporte_inmobiliaria(6), cuotas_pie_n(7),
+#   pie_const_pct(8), cuoton_pct(9), credito_directo_pct(10), prod_sec(11), nota(12)]
+
+def parse_euro(rows):
+    results = []
+    for row in rows[1:]:
+        if not isinstance(col(row, 0), (int, float)):
+            continue
+
+        nombre = sv(col(row, 1))
+        if not nombre:
+            continue
+
+        slugs = slugs_list(nombre, 'CC EURO')
+        if not slugs:
+            continue
+
+        tipo = sv(col(row, 3)) or ''
+        cuotas_raw = safe_int(col(row, 7))
+        if cuotas_raw == 1 and 'inmediata' in tipo.lower():
+            cuotas_raw = 0
+
+        base = {
+            'inmobiliaria':        'EUROCORP',
+            'titulo':              nombre,
+            'descuento_depto':     pct(col(row, 5)),
+            'aporte_inmobiliaria': pct(col(row, 6)),
+            'reserva_clp':         safe_int(col(row, 4)),
+            'cuotas_pie_n':        cuotas_raw,
+            'pie_const_pct':       pct(col(row, 8)),
+            'cuoton_pct':          pct(col(row, 9)),
+            'credito_directo_pct': pct(col(row, 10)),
+            'tipo_entrega':        tipo or None,
+            'nota':                sv(col(row, 12)),
+        }
+        for slug in slugs:
+            results.append({'proyecto_id': slug, **base})
+    return results
+
+
 # ── Load / merge / write ──────────────────────────────────────────────────────
 
 def load_existing():
@@ -544,6 +605,7 @@ if __name__ == '__main__':
         ('CC RVC',      parse_rvc,      False),
         ('TOC TOC',     parse_toctoc,   False),
         ('CC URMENETA', parse_urmeneta, True),
+        ('CC EURO',     parse_euro,     False),
     ]:
         try:
             parsed = parser(sheet_rows(sh_name, full))
