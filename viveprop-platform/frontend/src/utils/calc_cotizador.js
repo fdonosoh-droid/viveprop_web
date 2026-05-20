@@ -136,7 +136,7 @@ export function calcularCotizacion(input) {
 
   const pieTotalDeptoUF = tipoCalculoBono === 'maestra'
     ? Math.round(precioDescDepto * piePct * 100) / 100
-    : Math.round((valorCompraDepto * piePct - bonoPieUF_early) * 100) / 100
+    : Math.max(0, Math.round((precioDescDepto * piePct - bonoPieUF_early) * 100) / 100)
   const pieTotalConjuntosUF = Math.round(precioListaOtros * PIE_CONJ * 100) / 100
   const pieTotalUF          = pieTotalDeptoUF + pieTotalConjuntosUF
 
@@ -183,17 +183,16 @@ export function calcularCotizacion(input) {
 
   } else {
     // INGEVEC, URMENETA, DEFAULT:
-    // Bono sobre precio desc del depto (no sobre lista ni sobre conjuntos).
-    // valorCompra = precioDescDepto × (1 + bonoPct) + conjuntos
-    // CH = valorCompra - pieTotalReq = valorCompra × (1 - piePct)
-    // Garantía: pieTotalUF + CH = valorVentaUF
+    // Bono sobre precio desc del depto. Pie calculado sobre precio lista (no sobre base inflada).
+    // Tasación = precioDesc × (1 + bonoPct) + conjuntos (el bono infla la tasación bancaria).
+    // pieTotalDepto ya está clampeado a 0 si bonoPct >= piePct.
     bonoPieUF          = bonoPieUF_early
     tasacionUFfinal    = bonoPiePct > 0
       ? Math.round((valorCompraDepto + precioListaOtros) * 100) / 100
       : valorVentaUF
     saldoAporteInmobUF = bonoPieUF
-    aportePct          = tasacionUFfinal > 0 ? bonoPieUF / tasacionUFfinal : 0
-    pieCreditoHipUF    = Math.round((pieTotalUF + bonoPieUF) * 100) / 100
+    aportePct          = precioDescDepto > 0 ? bonoPieUF / precioDescDepto : 0
+    pieCreditoHipUF    = Math.round((pieTotalUF + bonoPieUF + piePeriodoConstruccionUF + cuotonUF) * 100) / 100
     creditoHipFinalUF  = Math.round((tasacionUFfinal - pieCreditoHipUF) * 100) / 100
   }
 

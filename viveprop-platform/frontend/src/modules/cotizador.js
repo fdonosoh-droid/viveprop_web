@@ -564,31 +564,37 @@ function _sPlanPago(r) {
   let rows = ''
 
   const _piePctEfectivo = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
-  rows += `
-    <div class="cp-plan-row">
-      <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctEfectivo)}</span></span>
-      <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
-    </div>`
 
-  if (r.reservaUF > 0.001) rows += `
-    <div class="cp-plan-row cp-plan-sub">
-      <span class="cp-plan-lbl">Reserva</span>
-      <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
-    </div>`
-
-  if (r.upfrontUF > 0) {
+  if (r.pieTotalUF > 0) {
     rows += `
+      <div class="cp-plan-row">
+        <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctEfectivo)}</span></span>
+        <span class="cp-plan-val">${fmt.uf2(r.pieTotalUF)}<small>${fmt.pesos(r.pieTotalUF * r.valorUF)}</small></span>
+      </div>`
+
+    if (r.reservaUF > 0.001) rows += `
+      <div class="cp-plan-row cp-plan-sub">
+        <span class="cp-plan-lbl">Reserva</span>
+        <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
+      </div>`
+
+    if (r.upfrontUF > 0) rows += `
       <div class="cp-plan-row cp-plan-sub">
         <span class="cp-plan-lbl">Upfront a la promesa <span class="cp-plan-pct">${_pct(r.upfrontPct)}</span></span>
         <span class="cp-plan-val">${fmt.uf2(r.upfrontUF)}<small>${fmt.pesos(r.upfrontUF * r.valorUF)}</small></span>
       </div>`
-  }
 
-  if (r.cuotasPieN > 0 && r.saldoPieUF > 0) {
-    rows += `
+    if (r.cuotasPieN > 0 && r.saldoPieUF > 0) rows += `
       <div class="cp-plan-row cp-plan-sub">
         <span class="cp-plan-lbl">Saldo pie &mdash; ${r.cuotasPieN} cuotas &times; ${fmt.uf2(r.valorCuotaPieUF)}/mes</span>
         <span class="cp-plan-val">${fmt.uf2(r.saldoPieUF)}<small>${fmt.pesos(r.saldoPieCLP)}</small></span>
+      </div>`
+
+  } else if (r.reservaUF > 0.001) {
+    rows += `
+      <div class="cp-plan-row">
+        <span class="cp-plan-lbl">Reserva</span>
+        <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
       </div>`
   }
 
@@ -763,12 +769,16 @@ function _buildPrintDoc(r, params) {
 
   let planRows = ''
   const _piePctEf = r.valorVentaUF > 0 ? r.pieTotalUF / r.valorVentaUF : 0
-  planRows += `<tr><td><strong>Pie total</strong> ${_pct(_piePctEf)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
-  if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
-  if (r.upfrontUF > 0)
-    planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
-  if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
-    planRows += `<tr class="prd-tbl-sub"><td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td><td>${fmt.uf2(r.saldoPieUF)}</td><td>${fmt.pesos(r.saldoPieCLP)}</td></tr>`
+  if (r.pieTotalUF > 0) {
+    planRows += `<tr><td><strong>Pie total</strong> ${_pct(_piePctEf)}</td><td>${fmt.uf2(r.pieTotalUF)}</td><td>${fmt.pesos(r.pieTotalUF * r.valorUF)}</td></tr>`
+    if (r.reservaUF > 0.001) planRows += `<tr class="prd-tbl-sub"><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+    if (r.upfrontUF > 0)
+      planRows += `<tr class="prd-tbl-sub"><td>Upfront ${_pct(r.upfrontPct)}</td><td>${fmt.uf2(r.upfrontUF)}</td><td>${fmt.pesos(r.upfrontUF * r.valorUF)}</td></tr>`
+    if (r.cuotasPieN > 0 && r.saldoPieUF > 0)
+      planRows += `<tr class="prd-tbl-sub"><td>Saldo pie — ${r.cuotasPieN} cuotas × ${fmt.uf2(r.valorCuotaPieUF)}/mes</td><td>${fmt.uf2(r.saldoPieUF)}</td><td>${fmt.pesos(r.saldoPieCLP)}</td></tr>`
+  } else if (r.reservaUF > 0.001) {
+    planRows += `<tr><td>Reserva</td><td>${fmt.uf2(r.reservaUF)}</td><td>${fmt.pesos(r.reservaUF * r.valorUF)}</td></tr>`
+  }
   if (r.piePeriodoConstruccionUF > 0) {
     const pctConst = r.valorVentaUF > 0 ? r.piePeriodoConstruccionUF / r.valorVentaUF : 0
     planRows += `<tr><td>Pie período construcción ${_pct(pctConst)}</td><td>${fmt.uf2(r.piePeriodoConstruccionUF)}</td><td>${fmt.pesos(r.piePeriodoConstruccionCLP)}</td></tr>`
