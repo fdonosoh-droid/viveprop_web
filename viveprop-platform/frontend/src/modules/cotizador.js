@@ -598,6 +598,21 @@ function _sPlanPago(r) {
           <span class="cp-plan-val">${fmt.uf2(r.saldoPieUF)}<small>${fmt.pesos(r.saldoPieCLP)}</small></span>
         </div>`
 
+    } else if (r.bonoPieUF > 0) {
+      // Pie cubierto 100% por aporte inmobiliaria — mostrar monto efectivo para que sea visible
+      const _piePctAporte = r.valorVentaUF > 0 ? r.pieCreditoHipUF / r.valorVentaUF : 0
+      rows += `
+        <div class="cp-plan-row">
+          <span class="cp-plan-lbl"><strong>Pie total</strong> <span class="cp-plan-pct">${_pct(_piePctAporte)}</span></span>
+          <span class="cp-plan-val">${fmt.uf2(r.pieCreditoHipUF)}<small>${fmt.pesos(r.pieCreditoHipUF * r.valorUF)}</small></span>
+        </div>`
+
+      if (r.reservaUF > 0.001) rows += `
+        <div class="cp-plan-row cp-plan-sub">
+          <span class="cp-plan-lbl">Reserva</span>
+          <span class="cp-plan-val">${fmt.uf2(r.reservaUF)}<small>${fmt.pesos(r.reservaUF * r.valorUF)}</small></span>
+        </div>`
+
     } else if (r.reservaUF > 0.001) {
       rows += `
         <div class="cp-plan-row">
@@ -959,6 +974,9 @@ function _buildPrintDocResumen(r) {
   const totalUF    = r.tasacionUF
   const pieResumenUF = r.pieCreditoHipUF
   const _pct2      = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
+  // Pie% se calcula sobre precio de venta (no tasación) para que coincida con el aporte de la CC
+  const _piePctBase = r.valorVentaUF > 0 ? r.valorVentaUF : totalUF
+  const _pct2pie   = v => _piePctBase > 0 ? (v / _piePctBase * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
 
   el.innerHTML = `
   <div class="prd-wrap">
@@ -1001,7 +1019,7 @@ function _buildPrintDocResumen(r) {
           <tr>
             <td><strong>Pie</strong></td>
             <td class="ta-r"><strong>${fmt.uf2(pieResumenUF)}</strong></td>
-            <td class="ta-r">${_pct2(pieResumenUF)}</td>
+            <td class="ta-r">${_pct2pie(pieResumenUF)}</td>
             <td class="ta-r"><strong>${fmt.pesos(pieResumenUF * r.valorUF)}</strong></td>
           </tr>
           <tr class="prd-tbl-total">
