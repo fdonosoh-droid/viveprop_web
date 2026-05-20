@@ -28,11 +28,19 @@
   "proj_vicuna-mackenna-1796": {
     "portada": "/photos/pri/proj_vicuna-mackenna-1796.jpg",
     "galeria": [
+      "/photos/pri/proj_vicuna-mackenna-1796/CARACTERISITCAS.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/EDIFICIO.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/ESPACIOS COMUNES 02.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/ESPACIOS COMUNES.jpg",
       "/photos/pri/proj_vicuna-mackenna-1796/img82.jpg",
       "/photos/pri/proj_vicuna-mackenna-1796/img83.jpg",
       "/photos/pri/proj_vicuna-mackenna-1796/img86.jpg",
       "/photos/pri/proj_vicuna-mackenna-1796/img87.jpg",
-      "/photos/pri/proj_vicuna-mackenna-1796/img94.jpg"
+      "/photos/pri/proj_vicuna-mackenna-1796/img94.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img95.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/img96.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/STUDIO.jpg",
+      "/photos/pri/proj_vicuna-mackenna-1796/UBICACION.jpg"
     ],
     "tipologias": [
       {
@@ -108,9 +116,7 @@
       "/photos/pri/proj_bellavista/img71.jpg",
       "/photos/pri/proj_bellavista/img72.jpg",
       "/photos/pri/proj_bellavista/img73.jpg",
-      "/photos/pri/proj_bellavista/img74.jpg",
-      "/photos/pri/proj_bellavista/img75.jpg",
-      "/photos/pri/proj_bellavista/img79.jpg"
+      "/photos/pri/proj_bellavista/img74.jpg"
     ],
     "tipologias": [
       {
@@ -124,8 +130,8 @@
     ],
     "pdfs": [
       {
-        "nombre": "Brochure Databrokers Bellavista.pdf",
-        "path": ""
+        "nombre": "Brochure_Bellavista_Julio.pdf",
+        "path": "/photos/pri/proj_bellavista/Brochure_Bellavista_Julio.pdf"
       }
     ]
   },
@@ -179,7 +185,20 @@
   },
   "proj_alto-buzeta-mt": {
     "portada": "/photos/pri/proj_alto-buzeta-mt.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0002.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0003.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0004.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0005.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0006.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0007.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0008.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0009.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0010.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0011.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0012.jpg",
+      "/photos/pri/proj_alto-buzeta-mt/Brochure_Alto_Buzeta_pages-to-jpg-0013.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
@@ -253,7 +272,13 @@
   },
   "proj_diagonal-paraguay": {
     "portada": "/photos/pri/proj_diagonal-paraguay.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_diagonal-paraguay/02_SALON GOURMET.jpg",
+      "/photos/pri/proj_diagonal-paraguay/03_COWORK.jpg",
+      "/photos/pri/proj_diagonal-paraguay/04_GYM V1.jpg",
+      "/photos/pri/proj_diagonal-paraguay/06_QUINCHO.jpg",
+      "/photos/pri/proj_diagonal-paraguay/08_LAUNDRY.jpg"
+    ],
     "tipologias": [],
     "pdfs": [
       {
@@ -299,9 +324,7 @@
       "/photos/pri/proj_abdon-cifuentes/img77.jpg",
       "/photos/pri/proj_abdon-cifuentes/img78.jpg",
       "/photos/pri/proj_abdon-cifuentes/img79.jpg",
-      "/photos/pri/proj_abdon-cifuentes/img80.jpg",
-      "/photos/pri/proj_abdon-cifuentes/img81.jpg",
-      "/photos/pri/proj_abdon-cifuentes/img82.jpg"
+      "/photos/pri/proj_abdon-cifuentes/img80.jpg"
     ],
     "tipologias": [
       {
@@ -321,10 +344,6 @@
       {
         "nombre": "Brochure Databrokers ABD.pdf",
         "path": "/photos/pri/proj_abdon-cifuentes/Brochure%20Databrokers%20ABD.pdf"
-      },
-      {
-        "nombre": "Brochure Databrokers Abdón Cifuentes.pdf",
-        "path": ""
       }
     ]
   },
@@ -403,7 +422,11 @@
   },
   "proj_el-aromo": {
     "portada": "/photos/pri/proj_el-aromo.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_el-aromo/LA_Hall_v01.jpg",
+      "/photos/pri/proj_el-aromo/LA_Piscina_v01.jpg",
+      "/photos/pri/proj_el-aromo/LA_Quincho_v01.jpg"
+    ],
     "tipologias": [],
     "pdfs": [
       {
@@ -414,7 +437,12 @@
   },
   "proj_brasil": {
     "portada": "/photos/pri/proj_brasil.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_brasil/Gimnasio Brasil-8.jpg",
+      "/photos/pri/proj_brasil/Hall de acceso Brasil-8.jpg",
+      "/photos/pri/proj_brasil/Piscina Brasil-8.jpg",
+      "/photos/pri/proj_brasil/Quinchos Brasil-8.jpg"
+    ],
     "tipologias": [],
     "pdfs": [
       {
@@ -425,7 +453,11 @@
   },
   "proj_terrazzo": {
     "portada": "/photos/pri/proj_terrazzo.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_terrazzo/Render Aéreo_Terrazzo (1).jpg",
+      "/photos/pri/proj_terrazzo/Render Piscina_Terrazzo (2).jpg",
+      "/photos/pri/proj_terrazzo/Render Quincho_Terrazzo (1).jpg"
+    ],
     "tipologias": [],
     "pdfs": [
       {
@@ -570,11 +602,12 @@
   "proj_trinidad-iii": {
     "portada": "/photos/pri/proj_trinidad-iii.jpg",
     "galeria": [
-      "/photos/pri/proj_trinidad-iii/284af-tr-fachada-convierta-modal.jpg",
       "/photos/pri/proj_trinidad-iii/54535-92e6c-espacioscomunes-tr-convierta-quincho.jpg",
       "/photos/pri/proj_trinidad-iii/581ae-tr-fachada-convierta-caracteristica.jpg",
       "/photos/pri/proj_trinidad-iii/8598e-3c9be-espacioscomunes-tr-convierta-cowork2.jpg",
-      "/photos/pri/proj_trinidad-iii/c43ad-espacioscomunes-tr-convierta-hall2.jpg"
+      "/photos/pri/proj_trinidad-iii/c43ad-espacioscomunes-tr-convierta-hall2.jpg",
+      "/photos/pri/proj_trinidad-iii/d29a1-espacioscomunes-tr-convierta_sum3.jpg",
+      "/photos/pri/proj_trinidad-iii/edc70-5fb54-espacioscomunes-tr-convierta-gimnasio.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -637,14 +670,15 @@
   "proj_edificio-pedro-de-la-barra": {
     "portada": "/photos/pri/proj_edificio-pedro-de-la-barra.jpg",
     "galeria": [
-      "/photos/pri/proj_edificio-pedro-de-la-barra/0647e-interiores-pdb-convierta-living2.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/13d74-eecc-pdb-convierta-gym.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/19084-eecc-pdb-convierta-sum.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/269a8-eecc-pdb-convierta-hall.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/3d952-eecc-pdb-convierta-cowork2.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/53a25-eecc-pdb-convierta-quinchos.jpg",
       "/photos/pri/proj_edificio-pedro-de-la-barra/659e3-perspectiva-pdb-convierta-fondo.jpg",
-      "/photos/pri/proj_edificio-pedro-de-la-barra/6e13d-eecc-pdb-convierta-terraza.jpg"
+      "/photos/pri/proj_edificio-pedro-de-la-barra/6e13d-eecc-pdb-convierta-terraza.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/d7bda-interiores-pdb-convierta-dorm.jpg",
+      "/photos/pri/proj_edificio-pedro-de-la-barra/e27bf-pdb-slide-nuevopilotos-desk.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -652,14 +686,15 @@
   "proj_condominio-francisco-zelada-torre-a": {
     "portada": "/photos/pri/proj_condominio-francisco-zelada-torre-a.jpg",
     "galeria": [
-      "/photos/pri/proj_condominio-francisco-zelada-torre-a/17daf-pilotos-fz-convierta-fondo-dorm2.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/1da89-eecc-fz-convierta-gym.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/409de-eecc-fz-convierta-sum.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/45b8b-eecc-fz-convierta-hall.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/9d745-pilotos-fz-convierta-fondo-living.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/9f87e-eecc-fz-convierta-cowork.jpg",
       "/photos/pri/proj_condominio-francisco-zelada-torre-a/a7766-fz-perspectiva-galeria-modal.jpg",
-      "/photos/pri/proj_condominio-francisco-zelada-torre-a/d690d-eecc-fz-convierta-quincho.jpg"
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/d690d-eecc-fz-convierta-quincho.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/d86c3-pilotos-fz-convierta-fondo-terraza.jpg",
+      "/photos/pri/proj_condominio-francisco-zelada-torre-a/ece77-fz-perspectiva-galeria-fondo.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -669,14 +704,15 @@
     "galeria": [
       "/photos/pri/proj_edificio-guillermo-mann/072bb-eecc-gm-convierta-salongourmet2.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/12234-eecc-gm-convierta-salongourmet6.jpg",
-      "/photos/pri/proj_edificio-guillermo-mann/6b5be-gm-fachada-convierta-galeria-modal.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/7ec2f-eecc-gm-convierta-salongourmet1.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/870a7-gm-fachada-convierta-galeria-modal2.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/8dbc8-eecc-gm-convierta-salongourmet4.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/ba1d4-96a1c-slides-ultimos-deptos-gm-desk.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/c502c-eecc-gm-convierta-salongourmet5.jpg",
       "/photos/pri/proj_edificio-guillermo-mann/d2a53-eecc-gm-convierta-salongourmet3.jpg",
-      "/photos/pri/proj_edificio-guillermo-mann/d81c1-gm-fachada-convierta-caracteristicas.jpg"
+      "/photos/pri/proj_edificio-guillermo-mann/d81c1-gm-fachada-convierta-caracteristicas.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/d8bb8-gm-fachada-convierta-galeria-fondo2.jpg",
+      "/photos/pri/proj_edificio-guillermo-mann/f102d-gm-fachada-convierta-galeria-fondo.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -684,7 +720,6 @@
   "proj_parque-maranon-torre-a": {
     "portada": "/photos/pri/proj_parque-maranon-torre-a.jpg",
     "galeria": [
-      "/photos/pri/proj_parque-maranon-torre-a/0cadb-exterior-parquemaranon-convierta-salaestudio.jpg",
       "/photos/pri/proj_parque-maranon-torre-a/15fe0-exterior-parquemaranon-convierta-sum.jpg",
       "/photos/pri/proj_parque-maranon-torre-a/1d13b-perspectiva-pm-torrea-convierta-fondo.jpg",
       "/photos/pri/proj_parque-maranon-torre-a/354f4-exterior-parquemaranon-convierta-quinchos2.jpg",
@@ -693,7 +728,9 @@
       "/photos/pri/proj_parque-maranon-torre-a/9d001-perspectiva-pm-torrea-convierta-modal.jpg",
       "/photos/pri/proj_parque-maranon-torre-a/9e53b-exterior-parquemaranon-convierta-accesos2.jpg",
       "/photos/pri/proj_parque-maranon-torre-a/a18e8-exterior-parquemaranon-convierta-sum2.jpg",
-      "/photos/pri/proj_parque-maranon-torre-a/ce6bf-exterior-parquemaranon-convierta-gym.jpg"
+      "/photos/pri/proj_parque-maranon-torre-a/ce6bf-exterior-parquemaranon-convierta-gym.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/d64ff-exterior-parquemaranon-convierta-quinchos.jpg",
+      "/photos/pri/proj_parque-maranon-torre-a/dd07a-perspectiva-pm-torrea-convierta-500x450.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -701,10 +738,11 @@
   "proj_condominio-parque-del-sur-torre-a": {
     "portada": "/photos/pri/proj_condominio-parque-del-sur-torre-a.jpg",
     "galeria": [
-      "/photos/pri/proj_condominio-parque-del-sur-torre-a/1411f-pds-perspectiva-modal.jpg",
       "/photos/pri/proj_condominio-parque-del-sur-torre-a/2092d-pds-perspectiva-fondo.jpg",
       "/photos/pri/proj_condominio-parque-del-sur-torre-a/39b53-eecc-pds-convierta-sum4.jpg",
-      "/photos/pri/proj_condominio-parque-del-sur-torre-a/7210c-eecc-pds-convierta-gym2.jpg"
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/7210c-eecc-pds-convierta-gym2.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/74b6f-eecc-pds-convierta-hall2.jpg",
+      "/photos/pri/proj_condominio-parque-del-sur-torre-a/c6e06-eecc-pds-convierta-quincho3.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -720,8 +758,9 @@
       "/photos/pri/proj_edificio-coronel-souper/68135-1920x518-2-100.jpg",
       "/photos/pri/proj_edificio-coronel-souper/6a56c-1920x518-1-100.jpg",
       "/photos/pri/proj_edificio-coronel-souper/7a369-1920x518-5-100.jpg",
-      "/photos/pri/proj_edificio-coronel-souper/a66bc-cs-fachada-convierta-galeria-modal.jpg",
-      "/photos/pri/proj_edificio-coronel-souper/a979a-pilotos-8.jpg"
+      "/photos/pri/proj_edificio-coronel-souper/a979a-pilotos-8.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/d4027-cs-sum_portal-1920x518-2-197-kb-.jpg",
+      "/photos/pri/proj_edificio-coronel-souper/ef339-cs-fachada-convierta-caracteristicas.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -729,11 +768,12 @@
   "proj_edificio-castillo-urizar": {
     "portada": "/photos/pri/proj_edificio-castillo-urizar.jpg",
     "galeria": [
-      "/photos/pri/proj_edificio-castillo-urizar/11cbe-exterior-cu-convierta-hall-modal.jpg",
       "/photos/pri/proj_edificio-castillo-urizar/56b40-exterior-cu-convierta-gym-modal.jpg",
       "/photos/pri/proj_edificio-castillo-urizar/7fb76-cu-fachada-convierta-caracteristicas.jpg",
       "/photos/pri/proj_edificio-castillo-urizar/81cb8-cu-fachada-convierta-galeria-modal.jpg",
-      "/photos/pri/proj_edificio-castillo-urizar/9867e-exterior-cu-convierta-quincho-modal.jpg"
+      "/photos/pri/proj_edificio-castillo-urizar/9867e-exterior-cu-convierta-quincho-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/b758b-exterior-cu-convierta-sum3-modal.jpg",
+      "/photos/pri/proj_edificio-castillo-urizar/cb606-exterior-cu-convierta-cowork-modal.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -741,11 +781,12 @@
   "proj_edificio-trinidad-ramirez": {
     "portada": "/photos/pri/proj_edificio-trinidad-ramirez.jpg",
     "galeria": [
-      "/photos/pri/proj_edificio-trinidad-ramirez/284af-tr-fachada-convierta-modal.jpg",
       "/photos/pri/proj_edificio-trinidad-ramirez/54535-92e6c-espacioscomunes-tr-convierta-quincho.jpg",
       "/photos/pri/proj_edificio-trinidad-ramirez/581ae-tr-fachada-convierta-caracteristica.jpg",
       "/photos/pri/proj_edificio-trinidad-ramirez/8598e-3c9be-espacioscomunes-tr-convierta-cowork2.jpg",
-      "/photos/pri/proj_edificio-trinidad-ramirez/c43ad-espacioscomunes-tr-convierta-hall2.jpg"
+      "/photos/pri/proj_edificio-trinidad-ramirez/c43ad-espacioscomunes-tr-convierta-hall2.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/d29a1-espacioscomunes-tr-convierta_sum3.jpg",
+      "/photos/pri/proj_edificio-trinidad-ramirez/edc70-5fb54-espacioscomunes-tr-convierta-gimnasio.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -753,7 +794,6 @@
   "proj_edificio-lia-aguirre": {
     "portada": "/photos/pri/proj_edificio-lia-aguirre.jpg",
     "galeria": [
-      "/photos/pri/proj_edificio-lia-aguirre/01285-la-fachada-convierta-galeria-fondo.jpg",
       "/photos/pri/proj_edificio-lia-aguirre/2c5ba-exteriores-la-fondo-convierta-fondo-cowork2.jpg",
       "/photos/pri/proj_edificio-lia-aguirre/5c4fd-exteriores-la-fondo-convierta-fondo-hallacceso2.jpg",
       "/photos/pri/proj_edificio-lia-aguirre/628d8-exteriores-la-fondo-convierta-fondo-sum1.jpg",
@@ -762,7 +802,9 @@
       "/photos/pri/proj_edificio-lia-aguirre/8e309-la-fachada-convierta-galeria-fondo2.jpg",
       "/photos/pri/proj_edificio-lia-aguirre/91fa1-exteriores-la-fondo-convierta-fondo-sum3.jpg",
       "/photos/pri/proj_edificio-lia-aguirre/988df-la-fachada-convierta-caracsteristicas2.jpg",
-      "/photos/pri/proj_edificio-lia-aguirre/b768f-exteriores-la-fondo-convierta-fondo-sum2.jpg"
+      "/photos/pri/proj_edificio-lia-aguirre/b768f-exteriores-la-fondo-convierta-fondo-sum2.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/c9e3d-la-fachada-convierta-galeria-modal.jpg",
+      "/photos/pri/proj_edificio-lia-aguirre/d62dc-la-fachada-convierta-galeria-modal2.jpg"
     ],
     "tipologias": [],
     "pdfs": []
@@ -1073,19 +1115,79 @@
   },
   "proj_ciudad-cerrillos": {
     "portada": "/photos/pri/proj_ciudad-cerrillos.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0000_OG_20220928_BUZETA 3_TIPOLOGÖA C.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0001_OG_20220928_BUZETA 3_TIPOLOGÖA A.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0002_OG_20220928_BUZETA 3_TIPOLOGIA F1.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0003_OG_20220928_BUZETA 3_TIPOLOGIA B.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0004_OG_20220928_BUZETA 3_TIPOLOGIA A2.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0005_OGS_Render 14_Piscina_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0006_OGS_Render 13_Quinchos_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0007_OGS_Render 12_Gym_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0008_OGS_Render 11_Pet Laundry_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0009_OGS_Render 10_Lavanderia_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0010_OGS_Render 09_Salขn Gourmet_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0011_OGS_Render 08_Salขn Gourmet_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0012_OGS_Render 07_Cowork_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0013_OGS_Render 06_Cowork_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0014_OGS_Render 05_Pasillo_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0015_OGS_Render 04_Pasillo_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0016_OGS_Render 03_Hall de Acceso_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/c-cerrillos-render_0018_OGS_Render 01_Fachada_Alta.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/cc_0004_Fachada1.jpg",
+      "/photos/pri/proj_ciudad-cerrillos/cc_0005_Fachada2.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
   "proj_ciudad-espana": {
     "portada": "/photos/pri/proj_ciudad-espana.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0000_OG_20220928_BUZETA 3_TIPOLOGÖA C.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0001_OG_20220928_BUZETA 3_TIPOLOGÖA A.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0002_OG_20220928_BUZETA 3_TIPOLOGIA F1.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0003_OG_20220928_BUZETA 3_TIPOLOGIA B.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0004_OG_20220928_BUZETA 3_TIPOLOGIA A2.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0005_OGS_Render 14_Piscina_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0006_OGS_Render 13_Quinchos_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0007_OGS_Render 12_Gym_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0008_OGS_Render 11_Pet Laundry_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0009_OGS_Render 10_Lavanderia_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0010_OGS_Render 09_Salขn Gourmet_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0011_OGS_Render 08_Salขn Gourmet_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0012_OGS_Render 07_Cowork_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0013_OGS_Render 06_Cowork_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0014_OGS_Render 05_Pasillo_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0015_OGS_Render 04_Pasillo_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0016_OGS_Render 03_Hall de Acceso_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/c-cerrillos-render_0018_OGS_Render 01_Fachada_Alta.jpg",
+      "/photos/pri/proj_ciudad-espana/cc_0004_Fachada1.jpg",
+      "/photos/pri/proj_ciudad-espana/cc_0005_Fachada2.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
   "proj_ciudad-lyon": {
     "portada": "/photos/pri/proj_ciudad-lyon.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0000_SALA MULTIUSO_VISTA4_-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0001_SALA MULTIUSO_VISTA3_MODIFICACIONES_-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0002_Render 8 - Quincho 2-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0003_Render 7 - Quincho 1-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0004_OGS_LE_QComun_002.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0005_OGS_LE_QComun_001.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0006_HALL ACCESO VIVIENDA_VISTA2_-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0007_HALL ACCESO OFICINAS_VISTA1_-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c-lyon-render_0008_EDIFICIO_ACCESO_CORREGIDO-edit_B.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0000_TIPO E_DETALLE COCINA_CORRECIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0001_TIPO E_CORRECIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0002_TIPO D_MODIFICACIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0003_TIPO D_BA令_MODIFICACIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0004_TIPO C_CAMRA OP2_MODIFICACIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0005_TIPO B_DORMITORIO_CORRECIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0006_TIPO B_CORRECIONES-edit.jpg",
+      "/photos/pri/proj_ciudad-lyon/c_lyon_render_0007_TIPO A_CORRECIONES-edit.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
@@ -1146,19 +1248,40 @@
   },
   "proj_condominio-alto-hurtado-ii": {
     "portada": "/photos/pri/proj_condominio-alto-hurtado-ii.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_cocina.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_dorm2.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_Dorm3.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_dormppal.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_estar.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-ii/AH_D_livingcomedor.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
   "proj_condominio-alto-hurtado-iii": {
     "portada": "/photos/pri/proj_condominio-alto-hurtado-iii.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_cocina.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_dorm2.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_Dorm3.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_dormppal.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_estar.jpg",
+      "/photos/pri/proj_condominio-alto-hurtado-iii/AH_D_livingcomedor.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
   "proj_porta-hurtado": {
     "portada": "/photos/pri/proj_porta-hurtado.jpg",
-    "galeria": [],
+    "galeria": [
+      "/photos/pri/proj_porta-hurtado/AH_D_cocina.jpg",
+      "/photos/pri/proj_porta-hurtado/AH_D_dorm2.jpg",
+      "/photos/pri/proj_porta-hurtado/AH_D_Dorm3.jpg",
+      "/photos/pri/proj_porta-hurtado/AH_D_dormppal.jpg",
+      "/photos/pri/proj_porta-hurtado/AH_D_estar.jpg",
+      "/photos/pri/proj_porta-hurtado/AH_D_livingcomedor.jpg"
+    ],
     "tipologias": [],
     "pdfs": []
   },
@@ -1281,6 +1404,338 @@
       {
         "nombre": "Brochure_VespucioCapital_2026.pdf",
         "path": "/photos/pri/proj_vespucio-capital/Brochure_VespucioCapital_2026.pdf"
+      }
+    ]
+  },
+  "proj_alameda-4719": {
+    "portada": "/photos/pri/proj_alameda-4719.png",
+    "galeria": [
+      "/photos/pri/proj_alameda-4719/img10.png",
+      "/photos/pri/proj_alameda-4719/img11.png",
+      "/photos/pri/proj_alameda-4719/img2.png",
+      "/photos/pri/proj_alameda-4719/img3.png",
+      "/photos/pri/proj_alameda-4719/img4.png",
+      "/photos/pri/proj_alameda-4719/img5.png",
+      "/photos/pri/proj_alameda-4719/img6.png",
+      "/photos/pri/proj_alameda-4719/img7.png"
+    ],
+    "tipologias": [
+      {
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_alameda-4719/1D,1B.png"
+      },
+      {
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_alameda-4719/2D,1B.png"
+      },
+      {
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_alameda-4719/2D,2B.png"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Alameda 4719.pdf",
+        "path": "/photos/pri/proj_alameda-4719/Brochure%20Alameda%204719.pdf"
+      }
+    ]
+  },
+  "proj_alto-irarrazaval": {
+    "portada": "/photos/pri/proj_alto-irarrazaval.png",
+    "galeria": [
+      "/photos/pri/proj_alto-irarrazaval/img2.png",
+      "/photos/pri/proj_alto-irarrazaval/img3.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Alto Irrarazaval.pdf",
+        "path": "/photos/pri/proj_alto-irarrazaval/Brochure%20Alto%20Irrarazaval.pdf"
+      }
+    ]
+  },
+  "proj_diagonal-vicuna": {
+    "portada": "/photos/pri/proj_diagonal-vicuna.png",
+    "galeria": [
+      "/photos/pri/proj_diagonal-vicuna/img2.png",
+      "/photos/pri/proj_diagonal-vicuna/img3.png",
+      "/photos/pri/proj_diagonal-vicuna/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Diagonal Vicuña.pdf",
+        "path": "/photos/pri/proj_diagonal-vicuna/Brochure%20Diagonal%20Vicu%C3%B1a.pdf"
+      }
+    ]
+  },
+  "proj_edificio-ambar-urbano": {
+    "portada": "/photos/pri/proj_edificio-ambar-urbano.png",
+    "galeria": [
+      "/photos/pri/proj_edificio-ambar-urbano/img2.png",
+      "/photos/pri/proj_edificio-ambar-urbano/img3.png",
+      "/photos/pri/proj_edificio-ambar-urbano/img4.png",
+      "/photos/pri/proj_edificio-ambar-urbano/img5.png",
+      "/photos/pri/proj_edificio-ambar-urbano/studio.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Ambar Urbano - San Pablo 1263.pdf",
+        "path": "/photos/pri/proj_edificio-ambar-urbano/Brochure%20Ambar%20Urbano%20-%20San%20Pablo%201263.pdf"
+      }
+    ]
+  },
+  "proj_edificio-don-pepe-154": {
+    "portada": "/photos/pri/proj_edificio-don-pepe-154.png",
+    "galeria": [
+      "/photos/pri/proj_edificio-don-pepe-154/img2.png",
+      "/photos/pri/proj_edificio-don-pepe-154/img3.png",
+      "/photos/pri/proj_edificio-don-pepe-154/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Don pepe.pdf",
+        "path": "/photos/pri/proj_edificio-don-pepe-154/Brochure%20Don%20pepe.pdf"
+      }
+    ]
+  },
+  "proj_edificio-mapocho-3521-edificio-a": {
+    "portada": "/photos/pri/proj_edificio-mapocho-3521-edificio-a.png",
+    "galeria": [
+      "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img2.png",
+      "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img3.png",
+      "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Mapocho 3521.pdf",
+        "path": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/Brochure%20Mapocho%203521.pdf"
+      }
+    ]
+  },
+  "proj_edificio-plaza-de-lourdes": {
+    "portada": "/photos/pri/proj_edificio-plaza-de-lourdes.png",
+    "galeria": [
+      "/photos/pri/proj_edificio-plaza-de-lourdes/img2.png",
+      "/photos/pri/proj_edificio-plaza-de-lourdes/img3.png",
+      "/photos/pri/proj_edificio-plaza-de-lourdes/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Plaza de lourdes.pdf",
+        "path": "/photos/pri/proj_edificio-plaza-de-lourdes/Brochure%20Plaza%20de%20lourdes.pdf"
+      }
+    ]
+  },
+  "proj_edificio-vitro": {
+    "portada": "/photos/pri/proj_edificio-vitro.png",
+    "galeria": [
+      "/photos/pri/proj_edificio-vitro/img2.png",
+      "/photos/pri/proj_edificio-vitro/img3.png",
+      "/photos/pri/proj_edificio-vitro/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Vitro.pdf",
+        "path": "/photos/pri/proj_edificio-vitro/Brochure%20Vitro.pdf"
+      }
+    ]
+  },
+  "proj_entre-vicunas": {
+    "portada": "/photos/pri/proj_entre-vicunas.png",
+    "galeria": [
+      "/photos/pri/proj_entre-vicunas/img2.png",
+      "/photos/pri/proj_entre-vicunas/img3.png",
+      "/photos/pri/proj_entre-vicunas/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Entre Vicuñas.pdf",
+        "path": "/photos/pri/proj_entre-vicunas/Brochure%20Entre%20Vicu%C3%B1as.pdf"
+      }
+    ]
+  },
+  "proj_froilan-roa-5731-torre-norte": {
+    "portada": "/photos/pri/proj_froilan-roa-5731-torre-norte.png",
+    "galeria": [
+      "/photos/pri/proj_froilan-roa-5731-torre-norte/img2.png",
+      "/photos/pri/proj_froilan-roa-5731-torre-norte/img3.png",
+      "/photos/pri/proj_froilan-roa-5731-torre-norte/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Froilan Roa.pdf",
+        "path": "/photos/pri/proj_froilan-roa-5731-torre-norte/Brochure%20Froilan%20Roa.pdf"
+      }
+    ]
+  },
+  "proj_froilan-roa-5731": {
+    "portada": "/photos/pri/proj_froilan-roa-5731.png",
+    "galeria": [
+      "/photos/pri/proj_froilan-roa-5731/img2.png",
+      "/photos/pri/proj_froilan-roa-5731/img3.png",
+      "/photos/pri/proj_froilan-roa-5731/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Froilan Roa.pdf",
+        "path": "/photos/pri/proj_froilan-roa-5731/Brochure%20Froilan%20Roa.pdf"
+      }
+    ]
+  },
+  "proj_guillermo-mann-1401": {
+    "portada": "/photos/pri/proj_guillermo-mann-1401.png",
+    "galeria": [
+      "/photos/pri/proj_guillermo-mann-1401/img2.png",
+      "/photos/pri/proj_guillermo-mann-1401/img3.png",
+      "/photos/pri/proj_guillermo-mann-1401/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Guillermo Mann.pdf",
+        "path": "/photos/pri/proj_guillermo-mann-1401/Brochure%20Guillermo%20Mann.pdf"
+      }
+    ]
+  },
+  "proj_independencia-4745": {
+    "portada": "/photos/pri/proj_independencia-4745.png",
+    "galeria": [
+      "/photos/pri/proj_independencia-4745/img2.png",
+      "/photos/pri/proj_independencia-4745/img3.png",
+      "/photos/pri/proj_independencia-4745/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Independencia 4745.pdf",
+        "path": "/photos/pri/proj_independencia-4745/Brochure%20Independencia%204745.pdf"
+      }
+    ]
+  },
+  "proj_jose-pedro-alessandri-1498": {
+    "portada": "/photos/pri/proj_jose-pedro-alessandri-1498.png",
+    "galeria": [
+      "/photos/pri/proj_jose-pedro-alessandri-1498/img2.png",
+      "/photos/pri/proj_jose-pedro-alessandri-1498/img3.png",
+      "/photos/pri/proj_jose-pedro-alessandri-1498/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Jose Pedro Alessandri.pdf",
+        "path": "/photos/pri/proj_jose-pedro-alessandri-1498/Brochure%20Jose%20Pedro%20Alessandri.pdf"
+      }
+    ]
+  },
+  "proj_mapocho-3521": {
+    "portada": "/photos/pri/proj_mapocho-3521.png",
+    "galeria": [
+      "/photos/pri/proj_mapocho-3521/img2.png",
+      "/photos/pri/proj_mapocho-3521/img3.png",
+      "/photos/pri/proj_mapocho-3521/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Mapocho 3521.pdf",
+        "path": "/photos/pri/proj_mapocho-3521/Brochure%20Mapocho%203521.pdf"
+      }
+    ]
+  },
+  "proj_mirador-irarrazaval": {
+    "portada": "/photos/pri/proj_mirador-irarrazaval.png",
+    "galeria": [
+      "/photos/pri/proj_mirador-irarrazaval/img2.png",
+      "/photos/pri/proj_mirador-irarrazaval/img3.png",
+      "/photos/pri/proj_mirador-irarrazaval/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Mirador Irrarazaval.pdf",
+        "path": "/photos/pri/proj_mirador-irarrazaval/Brochure%20Mirador%20Irrarazaval.pdf"
+      }
+    ]
+  },
+  "proj_nova-parque": {
+    "portada": "/photos/pri/proj_nova-parque.png",
+    "galeria": [
+      "/photos/pri/proj_nova-parque/img2.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Nova Parque (entel).pdf",
+        "path": "/photos/pri/proj_nova-parque/Brochure%20Nova%20Parque%20%28entel%29.pdf"
+      }
+    ]
+  },
+  "proj_rosas-1444": {
+    "portada": "/photos/pri/proj_rosas-1444.png",
+    "galeria": [
+      "/photos/pri/proj_rosas-1444/img2.png",
+      "/photos/pri/proj_rosas-1444/img3.png",
+      "/photos/pri/proj_rosas-1444/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Rosas 1444.pdf",
+        "path": "/photos/pri/proj_rosas-1444/Brochure%20Rosas%201444.pdf"
+      }
+    ]
+  },
+  "proj_santa-elena-1670": {
+    "portada": "/photos/pri/proj_santa-elena-1670.png",
+    "galeria": [
+      "/photos/pri/proj_santa-elena-1670/img2.png",
+      "/photos/pri/proj_santa-elena-1670/img3.png",
+      "/photos/pri/proj_santa-elena-1670/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Santa Elena 1670.pdf",
+        "path": "/photos/pri/proj_santa-elena-1670/Brochure%20Santa%20Elena%201670.pdf"
+      }
+    ]
+  },
+  "proj_santa-elena-1670-mbi": {
+    "portada": "/photos/pri/proj_santa-elena-1670-mbi.png",
+    "galeria": [
+      "/photos/pri/proj_santa-elena-1670-mbi/img2.png",
+      "/photos/pri/proj_santa-elena-1670-mbi/img3.png",
+      "/photos/pri/proj_santa-elena-1670-mbi/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Santa Elena 1670.pdf",
+        "path": "/photos/pri/proj_santa-elena-1670-mbi/Brochure%20Santa%20Elena%201670.pdf"
+      }
+    ]
+  },
+  "proj_vicuna-mackenna-1432": {
+    "portada": "/photos/pri/proj_vicuna-mackenna-1432.png",
+    "galeria": [
+      "/photos/pri/proj_vicuna-mackenna-1432/img2.png",
+      "/photos/pri/proj_vicuna-mackenna-1432/img3.png",
+      "/photos/pri/proj_vicuna-mackenna-1432/img4.png"
+    ],
+    "tipologias": [],
+    "pdfs": [
+      {
+        "nombre": "Brochure Vic Mackenna 1432.pdf",
+        "path": "/photos/pri/proj_vicuna-mackenna-1432/Brochure%20Vic%20Mackenna%201432.pdf"
       }
     ]
   }
