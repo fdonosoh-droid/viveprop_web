@@ -944,8 +944,8 @@ function _buildPrintDocResumen(r) {
     <td class="ta-r">${fmt.pesos(s.precio_uf * r.valorUF)}</td>
   </tr>`).join('')
 
-  const totalUF    = r.valorVentaUF
-  const pieResumenUF = r.pieTotalUF
+  const totalUF    = r.tasacionUF
+  const pieResumenUF = r.pieCreditoHipUF
   const _pct2      = v => totalUF > 0 ? (v / totalUF * 100).toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%' : '—'
 
   el.innerHTML = `
@@ -977,24 +977,15 @@ function _buildPrintDocResumen(r) {
     </div>
 
     <div class="prd-section">
-      <div class="prd-section-title">Valores</div>
-      <table class="prd-tbl prd-res-tbl">
-        <thead><tr><th>Unidad</th><th class="ta-r">UF</th><th class="ta-r">$</th></tr></thead>
-        <tbody>
-          ${deptoRow}${secRows}
-          <tr class="prd-tbl-total">
-            <td><strong>Total</strong></td>
-            <td class="ta-r"><strong>${fmt.uf2(totalUF)}</strong></td>
-            <td class="ta-r"><strong>${fmt.pesos(totalUF * r.valorUF)}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="prd-section">
       <table class="prd-tbl prd-res-tbl">
         <thead><tr><th>Concepto</th><th class="ta-r">UF</th><th class="ta-r">%</th><th class="ta-r">$</th></tr></thead>
         <tbody>
+          <tr>
+            <td><strong>Valores</strong></td>
+            <td class="ta-r"><strong>${fmt.uf2(totalUF)}</strong></td>
+            <td class="ta-r">100,00%</td>
+            <td class="ta-r"><strong>${fmt.pesos(totalUF * r.valorUF)}</strong></td>
+          </tr>
           <tr>
             <td><strong>Pie</strong></td>
             <td class="ta-r"><strong>${fmt.uf2(pieResumenUF)}</strong></td>
@@ -1004,7 +995,7 @@ function _buildPrintDocResumen(r) {
           <tr class="prd-tbl-total">
             <td><strong>Crédito Hipotecario</strong></td>
             <td class="ta-r"><strong>${fmt.uf2(r.creditoHipFinalUF)}</strong></td>
-            <td class="ta-r">${_pct2(totalUF - pieResumenUF)}</td>
+            <td class="ta-r">${_pct2(r.creditoHipFinalUF)}</td>
             <td class="ta-r"><strong>${fmt.pesos(r.creditoHipFinalUF * r.valorUF)}</strong></td>
           </tr>
         </tbody>
