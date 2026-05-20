@@ -196,9 +196,14 @@ def load_access_data():
         }
 
     # Unidades desde query
-    cur.execute("SELECT * FROM STOCK_MP_VIVEPROP_WEB")
-    cols2 = [c[0] for c in cur.description]
-    all_rows = cur.fetchall()
+    try:
+        cur.execute("SELECT * FROM STOCK_MP_VIVEPROP_WEB")
+        cols2 = [c[0] for c in cur.description]
+        all_rows = cur.fetchall()
+    except Exception as e:
+        conn.close()
+        print(f"  AVISO: Error al ejecutar query STOCK_MP_VIVEPROP_WEB ({e}). Activando fallback a Excel.")
+        return access_projs, None
 
     # Validar calidad de los datos: si PRECIO LISTA es 0 en más del 80% de las filas
     # o PROGRAMA contiene solo números → Access tiene fórmulas rotas.
