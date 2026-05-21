@@ -446,7 +446,7 @@ function _initParamsGrid(parsedCC) {
         const sel = parseFloat(aporteEl.value)
         if (sel !== aporte) {
           warnEl.textContent = sel === 0
-            ? `Aporte vendedor eliminado — se cotizará sin inflar el precio (${aporte}% base del vendedor no aplicado).`
+            ? `Aporte vendedor eliminado — se cotizará sin aumentar el precio (${aporte}% base del vendedor no aplicado).`
             : `Aporte modificado — se cotizará con ${sel}% en vez del ${aporte}% base del vendedor.`
           warnEl.style.display = ''
         } else {
