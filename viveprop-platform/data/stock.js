@@ -1,4 +1,4 @@
-// Generado por gsheet_to_stock.py — 2026-05-20 11:49
+// Generado por gsheet_to_stock.py — 2026-05-21 12:13
 // Propiedades: 975
 const STOCK = [
   {
@@ -7721,7 +7721,7 @@ const STOCK = [
     "m2terraza": "3,13",
     "anio": "2020",
     "estado": "Arrendado",
-    "rango": "UF2500 a UF2999.-",
+    "rango": "UF3000 a UF3499.-",
     "precioSinBono": "2.980,15",
     "bonoPct": 5,
     "bonoUF": "156,85",
