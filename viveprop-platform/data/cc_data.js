@@ -1,4 +1,4 @@
-// Generado por cc_importer.py — 2026-05-20 08:13
+// Generado por cc_importer.py — 2026-05-21 11:52
 // Proyectos con condiciones: 96
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
@@ -1034,7 +1034,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 1,
     "upfrontPct": 0,
@@ -1053,7 +1053,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 1,
     "upfrontPct": 0,
@@ -1072,7 +1072,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 1,
     "upfrontPct": 0,
@@ -1091,7 +1091,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 1,
     "upfrontPct": 0,
@@ -1110,7 +1110,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 1,
     "upfrontPct": 0,
@@ -1129,7 +1129,7 @@ const CC_DATA = {
     "descuentoAdicional": 0,
     "descuentoAdicionalCond": "",
     "aporteInmobiliario": 0,
-    "reservaCLP": 404250,
+    "reservaCLP": 404418,
     "reservaUF": 10.0,
     "cuotasPieN": 8,
     "upfrontPct": 0,
