@@ -392,7 +392,9 @@ function _initParamsGrid(parsedCC) {
     <div class="cp-params-body">
       <div class="cp-form-row cp-form-row--4">
         ${locked('Descuento (%)',          'cpg-dcto',    dcto)}
-        ${locked(isUsada ? 'Aporte Vendedor (%)' : 'Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
+        ${isUsada
+          ? dd('Aporte Vendedor (%)', 'cpg-aporte', [0, 5, 10, 15, 20, 25], aporte, v => v + '%')
+          : locked('Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
         ${dd('% de Pie',    'cpg-pie',    pieOpts,    pie,    v => v + '%')}
         ${isUsada
           ? locked('Cuotas Pie', 'cpg-cuotas', 1)
