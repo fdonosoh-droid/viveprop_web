@@ -1,4 +1,4 @@
-// Generado por cc_importer.py — 2026-05-21 11:52
+// Generado por cc_importer.py — 2026-05-21 11:54
 // Proyectos con condiciones: 96
 const CC_DATA = {
   "proj_vista-llacolen-b2": {
