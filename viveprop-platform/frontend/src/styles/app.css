@@ -931,6 +931,7 @@ html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;color:var(-
 .cp-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px;cursor:pointer;height:32px}
 .cp-fg-noapl{font-size:10px;font-weight:700;color:var(--coral);text-transform:lowercase;letter-spacing:0}
 .cp-fg-base{font-size:10px;font-weight:700;color:var(--brand);text-transform:lowercase;letter-spacing:0}
+.cp-aporte-warn{font-size:11px;color:#92400e;background:#fef3c7;border:1px solid #fcd34d;border-radius:4px;padding:3px 8px;line-height:1.4}
 
 /* cp-results contiene las secciones de resultado, misma estructura que antes */
 #cp-results{display:flex;flex-direction:column;gap:14px}

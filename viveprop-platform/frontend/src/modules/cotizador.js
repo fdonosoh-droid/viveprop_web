@@ -393,7 +393,15 @@ function _initParamsGrid(parsedCC) {
       <div class="cp-form-row cp-form-row--4">
         ${locked('Descuento (%)',          'cpg-dcto',    dcto)}
         ${isUsada
-          ? dd('Aporte Vendedor (%)', 'cpg-aporte', Array.from({length: aporte + 1}, (_, i) => i), aporte, v => v + '%')
+          ? (() => {
+              const _opts = Array.from({length: aporte + 1}, (_, i) => i)
+                .map(v => `<option value="${v}"${v === aporte ? ' selected' : ''}>${v}%</option>`).join('')
+              return `<div class="cp-fg">
+                <label class="cp-fg-lbl">Aporte Vendedor (%)</label>
+                <select id="cpg-aporte" class="cp-input cp-select">${_opts}</select>
+                <span id="cpg-aporte-warn" class="cp-aporte-warn" style="display:none"></span>
+              </div>`
+            })()
           : locked('Aporte Inmobiliaria (%)', 'cpg-aporte', aporte)}
         ${dd('% de Pie',    'cpg-pie',    pieOpts,    pie,    v => v + '%')}
         ${isUsada
@@ -429,6 +437,24 @@ function _initParamsGrid(parsedCC) {
   // Force select values programmatically in case selected attribute is ignored
   const pieEl = document.getElementById('cpg-pie')
   if (pieEl) pieEl.value = String(pie)
+
+  if (isUsada) {
+    const aporteEl = document.getElementById('cpg-aporte')
+    const warnEl   = document.getElementById('cpg-aporte-warn')
+    if (aporteEl && warnEl) {
+      aporteEl.addEventListener('change', () => {
+        const sel = parseFloat(aporteEl.value)
+        if (sel !== aporte) {
+          warnEl.textContent = sel === 0
+            ? `Aporte vendedor eliminado — se cotizará sin inflar el precio (${aporte}% base del vendedor no aplicado).`
+            : `Aporte modificado — se cotizará con ${sel}% en vez del ${aporte}% base del vendedor.`
+          warnEl.style.display = ''
+        } else {
+          warnEl.style.display = 'none'
+        }
+      })
+    }
+  }
 }
 
 function _loadArr() {
