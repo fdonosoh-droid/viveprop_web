@@ -1410,47 +1410,39 @@
   "proj_alameda-4719": {
     "portada": "/photos/pri/proj_alameda-4719.png",
     "galeria": [
-      "/photos/pri/proj_alameda-4719/img1.png",
+      "/photos/pri/proj_alameda-4719/img10.png",
+      "/photos/pri/proj_alameda-4719/img11.png",
       "/photos/pri/proj_alameda-4719/img2.png",
       "/photos/pri/proj_alameda-4719/img3.png",
       "/photos/pri/proj_alameda-4719/img4.png",
       "/photos/pri/proj_alameda-4719/img5.png",
       "/photos/pri/proj_alameda-4719/img6.png",
-      "/photos/pri/proj_alameda-4719/img7.png",
-      "/photos/pri/proj_alameda-4719/img8.png",
-      "/photos/pri/proj_alameda-4719/img9.png",
-      "/photos/pri/proj_alameda-4719/img10.png",
-      "/photos/pri/proj_alameda-4719/img11.png"
+      "/photos/pri/proj_alameda-4719/img7.png"
     ],
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_alameda-4719/1D%2C1B.png"
+        "src": "/photos/pri/proj_alameda-4719/1D,1B.png"
       },
       {
         "label": "2D, 1B",
-        "src": "/photos/pri/proj_alameda-4719/2D%2C1B.png"
+        "src": "/photos/pri/proj_alameda-4719/2D,1B.png"
       },
       {
         "label": "2D, 2B",
-        "src": "/photos/pri/proj_alameda-4719/2D%2C2B.png"
+        "src": "/photos/pri/proj_alameda-4719/2D,2B.png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Alameda 4719.pdf",
         "path": "/photos/pri/proj_alameda-4719/Brochure%20Alameda%204719.pdf"
-      },
-      {
-        "nombre": "Alameda 4719.docx",
-        "path": "/photos/pri/proj_alameda-4719/Alameda%204719.docx"
       }
     ]
   },
   "proj_alto-irarrazaval": {
-    "portada": "/photos/pri/proj_alto-irarrazaval.png",
+    "portada": "/photos/pri/proj_alto-irarrazaval.jpg",
     "galeria": [
-      "/photos/pri/proj_alto-irarrazaval/0.jpg",
       "/photos/pri/proj_alto-irarrazaval/1.jpg",
       "/photos/pri/proj_alto-irarrazaval/2.jpg",
       "/photos/pri/proj_alto-irarrazaval/3.jpg",
@@ -1462,43 +1454,39 @@
     ],
     "tipologias": [
       {
-        "label": "1D, 1B depto 01",
-        "src": "/photos/pri/proj_alto-irarrazaval/1D%2C1B%20depto%2001.jpg"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/1D,1B depto 01.jpg"
       },
       {
-        "label": "1D, 1B depto 03",
-        "src": "/photos/pri/proj_alto-irarrazaval/1D%2C1B%20depto%2003.jpg"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/1D,1B depto 03.jpg"
       },
       {
-        "label": "1D, 1B depto 17",
-        "src": "/photos/pri/proj_alto-irarrazaval/1D%2C1B%20depto%2017.jpg"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/1D,1B depto 17.jpg"
       },
       {
-        "label": "2D, 1B depto 02",
-        "src": "/photos/pri/proj_alto-irarrazaval/2D%2C1B%20depto%2002.jpg"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/2D,1B depto 02.jpg"
       },
       {
-        "label": "2D, 1B depto 11",
-        "src": "/photos/pri/proj_alto-irarrazaval/2D%2C1B%20depto%2011.jpg"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/2D,1B depto 11.jpg"
       },
       {
-        "label": "2D, 1B depto 13",
-        "src": "/photos/pri/proj_alto-irarrazaval/2D%2C1B%20depto%2013.jpg"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_alto-irarrazaval/2D,1B depto 13.jpg"
       },
       {
-        "label": "2D, 2B depto 12",
-        "src": "/photos/pri/proj_alto-irarrazaval/2D%2C2B%20depto%2012.jpg"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_alto-irarrazaval/2D,2B depto 12.jpg"
       },
       {
-        "label": "2D, 2B depto 14",
-        "src": "/photos/pri/proj_alto-irarrazaval/2D%2C2B%20depto%2014.jpg"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_alto-irarrazaval/2D,2B depto 14.jpg"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "AltoIrarazaval.docx",
-        "path": "/photos/pri/proj_alto-irarrazaval/AltoIrarazaval.docx"
-      },
       {
         "nombre": "Brochure Alto Irrarazaval.pdf",
         "path": "/photos/pri/proj_alto-irarrazaval/Brochure%20Alto%20Irrarazaval.pdf"
@@ -1506,76 +1494,51 @@
     ]
   },
   "proj_diagonal-vicuna": {
-    "portada": "/photos/pri/proj_diagonal-vicuna.png",
+    "portada": "/photos/pri/proj_diagonal-vicuna.jpg",
     "galeria": [
-      "/photos/pri/proj_diagonal-vicuna/2.jpg",
-      "/photos/pri/proj_diagonal-vicuna/4.jpg",
-      "/photos/pri/proj_diagonal-vicuna/5.jpg",
-      "/photos/pri/proj_diagonal-vicuna/7.jpg",
-      "/photos/pri/proj_diagonal-vicuna/8.jpg",
-      "/photos/pri/proj_diagonal-vicuna/9.jpg",
+      "/photos/pri/proj_diagonal-vicuna/1 DORM + 1 BAÑO.jpg",
       "/photos/pri/proj_diagonal-vicuna/10.jpg",
       "/photos/pri/proj_diagonal-vicuna/11.jpg",
       "/photos/pri/proj_diagonal-vicuna/12.jpg",
       "/photos/pri/proj_diagonal-vicuna/13.jpg",
       "/photos/pri/proj_diagonal-vicuna/14.jpg",
       "/photos/pri/proj_diagonal-vicuna/15.jpg",
-      "/photos/pri/proj_diagonal-vicuna/16.jpg"
+      "/photos/pri/proj_diagonal-vicuna/16.jpg",
+      "/photos/pri/proj_diagonal-vicuna/2 DORM + 1 BAÑO (3C).jpg",
+      "/photos/pri/proj_diagonal-vicuna/2 DORM + 2 BAÑO (4C).jpg",
+      "/photos/pri/proj_diagonal-vicuna/2 DORM + 2 BAÑO (M).jpg",
+      "/photos/pri/proj_diagonal-vicuna/4.jpg",
+      "/photos/pri/proj_diagonal-vicuna/5.jpg",
+      "/photos/pri/proj_diagonal-vicuna/7.jpg",
+      "/photos/pri/proj_diagonal-vicuna/8.jpg",
+      "/photos/pri/proj_diagonal-vicuna/9.jpg"
     ],
-    "tipologias": [
-      {
-        "label": "1 DORM + 1 BAÑO",
-        "src": "/photos/pri/proj_diagonal-vicuna/1%20DORM%20%2B%201%20BA%C3%91O.jpg"
-      },
-      {
-        "label": "2 DORM + 1 BAÑO (3C)",
-        "src": "/photos/pri/proj_diagonal-vicuna/2%20DORM%20%2B%201%20BA%C3%91O%20%283C%29.jpg"
-      },
-      {
-        "label": "2 DORM + 2 BAÑO (4C)",
-        "src": "/photos/pri/proj_diagonal-vicuna/2%20DORM%20%2B%202%20BA%C3%91O%20%284C%29.jpg"
-      },
-      {
-        "label": "2 DORM + 2 BAÑO (M)",
-        "src": "/photos/pri/proj_diagonal-vicuna/2%20DORM%20%2B%202%20BA%C3%91O%20%28M%29.jpg"
-      }
-    ],
+    "tipologias": [],
     "pdfs": [
       {
         "nombre": "Brochure DIAGONAL VICUÑA.pdf",
         "path": "/photos/pri/proj_diagonal-vicuna/Brochure%20DIAGONAL%20VICU%C3%91A.pdf"
-      },
-      {
-        "nombre": "DiagonalVicuna.docx",
-        "path": "/photos/pri/proj_diagonal-vicuna/DiagonalVicuna.docx"
       }
     ]
   },
   "proj_edificio-ambar-urbano": {
     "portada": "/photos/pri/proj_edificio-ambar-urbano.png",
     "galeria": [
-      "/photos/pri/proj_edificio-ambar-urbano/0.png",
+      "/photos/pri/proj_edificio-ambar-urbano/18.png",
+      "/photos/pri/proj_edificio-ambar-urbano/19.png",
+      "/photos/pri/proj_edificio-ambar-urbano/2D+1B (3C+KA).png",
+      "/photos/pri/proj_edificio-ambar-urbano/2D+2B (4C+KA).png",
       "/photos/pri/proj_edificio-ambar-urbano/4.png",
       "/photos/pri/proj_edificio-ambar-urbano/5.png",
       "/photos/pri/proj_edificio-ambar-urbano/6.png",
       "/photos/pri/proj_edificio-ambar-urbano/7.png",
       "/photos/pri/proj_edificio-ambar-urbano/8.png",
-      "/photos/pri/proj_edificio-ambar-urbano/9.png",
-      "/photos/pri/proj_edificio-ambar-urbano/18.png",
-      "/photos/pri/proj_edificio-ambar-urbano/19.png"
+      "/photos/pri/proj_edificio-ambar-urbano/9.png"
     ],
     "tipologias": [
       {
-        "label": "1D, 1B (2C+KA)",
-        "src": "/photos/pri/proj_edificio-ambar-urbano/1D%2C1B%20%282C%2BKA%29.png"
-      },
-      {
-        "label": "2D+1B (3C+KA)",
-        "src": "/photos/pri/proj_edificio-ambar-urbano/2D%2B1B%20%283C%2BKA%29.png"
-      },
-      {
-        "label": "2D+2B (4C+KA)",
-        "src": "/photos/pri/proj_edificio-ambar-urbano/2D%2B2B%20%284C%2BKA%29.png"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_edificio-ambar-urbano/1D,1B (2C+KA).png"
       },
       {
         "label": "Estudio",
@@ -1583,10 +1546,6 @@
       }
     ],
     "pdfs": [
-      {
-        "nombre": "AmbarUrbano.docx",
-        "path": "/photos/pri/proj_edificio-ambar-urbano/AmbarUrbano.docx"
-      },
       {
         "nombre": "Brochure Ambar Urbano - San Pablo 1263.pdf",
         "path": "/photos/pri/proj_edificio-ambar-urbano/Brochure%20Ambar%20Urbano%20-%20San%20Pablo%201263.pdf"
@@ -1600,7 +1559,6 @@
   "proj_edificio-don-pepe-154": {
     "portada": "/photos/pri/proj_edificio-don-pepe-154.png",
     "galeria": [
-      "/photos/pri/proj_edificio-don-pepe-154/img-000.png",
       "/photos/pri/proj_edificio-don-pepe-154/img-001.png",
       "/photos/pri/proj_edificio-don-pepe-154/img-002.png",
       "/photos/pri/proj_edificio-don-pepe-154/img-003.png",
@@ -1617,36 +1575,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_edificio-don-pepe-154/1D%2C1B.png"
+        "src": "/photos/pri/proj_edificio-don-pepe-154/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_edificio-don-pepe-154/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_edificio-don-pepe-154/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_edificio-don-pepe-154/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_edificio-don-pepe-154/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_edificio-don-pepe-154/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-don-pepe-154/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Don pepe.pdf",
         "path": "/photos/pri/proj_edificio-don-pepe-154/Brochure%20Don%20pepe.pdf"
-      },
-      {
-        "nombre": "DonPepe154.docx",
-        "path": "/photos/pri/proj_edificio-don-pepe-154/DonPepe154.docx"
       }
     ]
   },
   "proj_edificio-mapocho-3521-edificio-a": {
     "portada": "/photos/pri/proj_edificio-mapocho-3521-edificio-a.png",
     "galeria": [
-      "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img-000.png",
       "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img-001.png",
       "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img-002.png",
       "/photos/pri/proj_edificio-mapocho-3521-edificio-a/img-003.png",
@@ -1663,34 +1616,30 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/1D%2C1B.png"
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/2D,1B (4C).png"
       },
       {
-        "label": "3D, 1B (4C)",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D%2C1B%20%284C%29.png"
+        "label": "3D, 1B",
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D,1B (4C).png"
       },
       {
-        "label": "3D, 2B (4C)",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D%2C2B%20%284C%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D,2B (4C) (KC).png"
       },
       {
-        "label": "3D, 2B (4C) (KC)",
-        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D%2C2B%20%284C%29%20%28KC%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/3D,2B (4C).png"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "Mapocho3521.docx",
-        "path": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/Mapocho3521.docx"
-      },
       {
         "nombre": "Brochure Mapocho 3521.pdf",
         "path": "/photos/pri/proj_edificio-mapocho-3521-edificio-a/Brochure%20Mapocho%203521.pdf"
@@ -1700,7 +1649,6 @@
   "proj_edificio-plaza-de-lourdes": {
     "portada": "/photos/pri/proj_edificio-plaza-de-lourdes.png",
     "galeria": [
-      "/photos/pri/proj_edificio-plaza-de-lourdes/img-000.png",
       "/photos/pri/proj_edificio-plaza-de-lourdes/img-001.png",
       "/photos/pri/proj_edificio-plaza-de-lourdes/img-002.png",
       "/photos/pri/proj_edificio-plaza-de-lourdes/img-003.png",
@@ -1714,44 +1662,39 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/1D%2C1B.png"
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D,1B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/2D,2B (M).png"
       },
       {
-        "label": "3D, 2Baños (5C)",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/3D%2C2Ba%C3%B1os%20%285C%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/3D,2Baños (5C).png"
       },
       {
-        "label": "3D, 2Baños (5C-2)",
-        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/3D%2C2Ba%C3%B1os%20%285C-2%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_edificio-plaza-de-lourdes/3D,2Baños (5C-2).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Plaza de lourdes.pdf",
         "path": "/photos/pri/proj_edificio-plaza-de-lourdes/Brochure%20Plaza%20de%20lourdes.pdf"
-      },
-      {
-        "nombre": "PlazaDeLourdes.docx",
-        "path": "/photos/pri/proj_edificio-plaza-de-lourdes/PlazaDeLourdes.docx"
       }
     ]
   },
   "proj_edificio-vitro": {
     "portada": "/photos/pri/proj_edificio-vitro.png",
     "galeria": [
-      "/photos/pri/proj_edificio-vitro/img-000.png",
       "/photos/pri/proj_edificio-vitro/img-001.png",
       "/photos/pri/proj_edificio-vitro/img-002.png",
       "/photos/pri/proj_edificio-vitro/img-003.png",
@@ -1768,36 +1711,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_edificio-vitro/1D%2C1B.png"
+        "src": "/photos/pri/proj_edificio-vitro/1D,1B.png"
       },
       {
-        "label": "2D, 2B (3C)",
-        "src": "/photos/pri/proj_edificio-vitro/2D%2C2B%20%283C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-vitro/2D,2B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_edificio-vitro/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-vitro/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_edificio-vitro/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_edificio-vitro/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Vitro.pdf",
         "path": "/photos/pri/proj_edificio-vitro/Brochure%20Vitro.pdf"
-      },
-      {
-        "nombre": "Vitro.docx",
-        "path": "/photos/pri/proj_edificio-vitro/Vitro.docx"
       }
     ]
   },
   "proj_entre-vicunas": {
     "portada": "/photos/pri/proj_entre-vicunas.png",
     "galeria": [
-      "/photos/pri/proj_entre-vicunas/img-000.png",
       "/photos/pri/proj_entre-vicunas/img-001.png",
       "/photos/pri/proj_entre-vicunas/img-002.png",
       "/photos/pri/proj_entre-vicunas/img-003.png",
@@ -1815,40 +1753,35 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_entre-vicunas/1D%2C1B.png"
+        "src": "/photos/pri/proj_entre-vicunas/1D,1B 1.png"
       },
       {
-        "label": "1D, 1B 1",
-        "src": "/photos/pri/proj_entre-vicunas/1D%2C1B%201.png"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_entre-vicunas/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_entre-vicunas/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_entre-vicunas/2D,1B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_entre-vicunas/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_entre-vicunas/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_entre-vicunas/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_entre-vicunas/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Entre Vicuñas.pdf",
         "path": "/photos/pri/proj_entre-vicunas/Brochure%20Entre%20Vicu%C3%B1as.pdf"
-      },
-      {
-        "nombre": "EntreVicunas.docx",
-        "path": "/photos/pri/proj_entre-vicunas/EntreVicunas.docx"
       }
     ]
   },
   "proj_froilan-roa-5731-torre-norte": {
     "portada": "/photos/pri/proj_froilan-roa-5731-torre-norte.png",
     "galeria": [
-      "/photos/pri/proj_froilan-roa-5731-torre-norte/img-000.png",
       "/photos/pri/proj_froilan-roa-5731-torre-norte/img-001.png",
       "/photos/pri/proj_froilan-roa-5731-torre-norte/img-002.png",
       "/photos/pri/proj_froilan-roa-5731-torre-norte/img-003.png",
@@ -1864,36 +1797,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/1D%2C1B.png"
+        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D,1B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (4C-2)",
-        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D%2C2B%20%284C-2%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_froilan-roa-5731-torre-norte/2D,2B (4C-2).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Froilan Roa.pdf",
         "path": "/photos/pri/proj_froilan-roa-5731-torre-norte/Brochure%20Froilan%20Roa.pdf"
-      },
-      {
-        "nombre": "FroilanRoa5731.docx",
-        "path": "/photos/pri/proj_froilan-roa-5731-torre-norte/FroilanRoa5731.docx"
       }
     ]
   },
   "proj_froilan-roa-5731": {
     "portada": "/photos/pri/proj_froilan-roa-5731.png",
     "galeria": [
-      "/photos/pri/proj_froilan-roa-5731/img-000.png",
       "/photos/pri/proj_froilan-roa-5731/img-001.png",
       "/photos/pri/proj_froilan-roa-5731/img-002.png",
       "/photos/pri/proj_froilan-roa-5731/img-003.png",
@@ -1909,36 +1837,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_froilan-roa-5731/1D%2C1B.png"
+        "src": "/photos/pri/proj_froilan-roa-5731/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_froilan-roa-5731/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_froilan-roa-5731/2D,1B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_froilan-roa-5731/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_froilan-roa-5731/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (4C-2)",
-        "src": "/photos/pri/proj_froilan-roa-5731/2D%2C2B%20%284C-2%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_froilan-roa-5731/2D,2B (4C-2).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Froilan Roa.pdf",
         "path": "/photos/pri/proj_froilan-roa-5731/Brochure%20Froilan%20Roa.pdf"
-      },
-      {
-        "nombre": "FroilanRoa5731.docx",
-        "path": "/photos/pri/proj_froilan-roa-5731/FroilanRoa5731.docx"
       }
     ]
   },
   "proj_guillermo-mann-1401": {
     "portada": "/photos/pri/proj_guillermo-mann-1401.png",
     "galeria": [
-      "/photos/pri/proj_guillermo-mann-1401/guillermo_mann_01.png",
       "/photos/pri/proj_guillermo-mann-1401/guillermo_mann_02.png",
       "/photos/pri/proj_guillermo-mann-1401/guillermo_mann_03.png",
       "/photos/pri/proj_guillermo-mann-1401/guillermo_mann_04.png",
@@ -1956,48 +1879,43 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_guillermo-mann-1401/1D%2C1B.png"
+        "src": "/photos/pri/proj_guillermo-mann-1401/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,1B (4C).png"
       },
       {
-        "label": "2D, 1B (4C1)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C1B%20%284C1%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,1B (4C1).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (4C1)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C2B%20%284C1%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,2B (4C1).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_guillermo-mann-1401/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_guillermo-mann-1401/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Guillermo Mann.pdf",
         "path": "/photos/pri/proj_guillermo-mann-1401/Brochure%20Guillermo%20Mann.pdf"
-      },
-      {
-        "nombre": "GuillermoMann1401.docx",
-        "path": "/photos/pri/proj_guillermo-mann-1401/GuillermoMann1401.docx"
       }
     ]
   },
   "proj_independencia-4745": {
     "portada": "/photos/pri/proj_independencia-4745.png",
     "galeria": [
-      "/photos/pri/proj_independencia-4745/independencia_4745_01.png",
       "/photos/pri/proj_independencia-4745/independencia_4745_02.png",
       "/photos/pri/proj_independencia-4745/independencia_4745_03.png",
       "/photos/pri/proj_independencia-4745/independencia_4745_04.png",
@@ -2011,30 +1929,26 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_independencia-4745/1D%2C1B.png"
+        "src": "/photos/pri/proj_independencia-4745/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_independencia-4745/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_independencia-4745/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_independencia-4745/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_independencia-4745/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_independencia-4745/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_independencia-4745/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_independencia-4745/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_independencia-4745/2D,2B (M).png"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "Independencia_4745.docx",
-        "path": "/photos/pri/proj_independencia-4745/Independencia_4745.docx"
-      },
       {
         "nombre": "Brochure Independencia 4745.pdf",
         "path": "/photos/pri/proj_independencia-4745/Brochure%20Independencia%204745.pdf"
@@ -2044,7 +1958,6 @@
   "proj_jose-pedro-alessandri-1498": {
     "portada": "/photos/pri/proj_jose-pedro-alessandri-1498.png",
     "galeria": [
-      "/photos/pri/proj_jose-pedro-alessandri-1498/jose_pedro_alessandri_1498_01.png",
       "/photos/pri/proj_jose-pedro-alessandri-1498/jose_pedro_alessandri_1498_02.png",
       "/photos/pri/proj_jose-pedro-alessandri-1498/jose_pedro_alessandri_1498_03.png",
       "/photos/pri/proj_jose-pedro-alessandri-1498/jose_pedro_alessandri_1498_04.png",
@@ -2058,45 +1971,40 @@
     ],
     "tipologias": [
       {
-        "label": "1D, 1B (KA)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/1D%2C1B%20%28KA%29.png"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/1D,1B (KA).png"
       },
       {
-        "label": "1D, 1B (KA1)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/1D%2C1B%20%28KA1%29.png"
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/1D,1B (KA1).png"
       },
       {
-        "label": "2D, 1B (4C) (KA)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D%2C1B%20%284C%29%20%28KA%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D,1B (4C) (KA).png"
       },
       {
-        "label": "2D, 1B (4C) (KAB)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D%2C1B%20%284C%29%20%28KAB%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D,1B (4C) (KAB).png"
       },
       {
-        "label": "2D, 2B (4C) (KC)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D%2C2B%20%284C%29%20%28KC%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/2D,2B (4C) (KC).png"
       },
       {
-        "label": "3D, 2B (6C) (KC)",
-        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/3D%2C2B%20%286C%29%20%28KC%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_jose-pedro-alessandri-1498/3D,2B (6C) (KC).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Jose Pedro Alessandri.pdf",
         "path": "/photos/pri/proj_jose-pedro-alessandri-1498/Brochure%20Jose%20Pedro%20Alessandri.pdf"
-      },
-      {
-        "nombre": "JosePedroAlessandri_1498.docx",
-        "path": "/photos/pri/proj_jose-pedro-alessandri-1498/JosePedroAlessandri_1498.docx"
       }
     ]
   },
   "proj_mapocho-3521": {
     "portada": "/photos/pri/proj_mapocho-3521.png",
     "galeria": [
-      "/photos/pri/proj_mapocho-3521/img-000.png",
       "/photos/pri/proj_mapocho-3521/img-001.png",
       "/photos/pri/proj_mapocho-3521/img-002.png",
       "/photos/pri/proj_mapocho-3521/img-003.png",
@@ -2113,34 +2021,30 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_mapocho-3521/1D%2C1B.png"
+        "src": "/photos/pri/proj_mapocho-3521/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_mapocho-3521/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_mapocho-3521/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_mapocho-3521/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_mapocho-3521/2D,1B (4C).png"
       },
       {
-        "label": "3D, 1B (4C)",
-        "src": "/photos/pri/proj_mapocho-3521/3D%2C1B%20%284C%29.png"
+        "label": "3D, 1B",
+        "src": "/photos/pri/proj_mapocho-3521/3D,1B (4C).png"
       },
       {
-        "label": "3D, 2B (4C)",
-        "src": "/photos/pri/proj_mapocho-3521/3D%2C2B%20%284C%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_mapocho-3521/3D,2B (4C) (KC).png"
       },
       {
-        "label": "3D, 2B (4C) (KC)",
-        "src": "/photos/pri/proj_mapocho-3521/3D%2C2B%20%284C%29%20%28KC%29.png"
+        "label": "3D, 2B",
+        "src": "/photos/pri/proj_mapocho-3521/3D,2B (4C).png"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "Mapocho3521.docx",
-        "path": "/photos/pri/proj_mapocho-3521/Mapocho3521.docx"
-      },
       {
         "nombre": "Brochure Mapocho 3521.pdf",
         "path": "/photos/pri/proj_mapocho-3521/Brochure%20Mapocho%203521.pdf"
@@ -2150,7 +2054,6 @@
   "proj_mirador-irarrazaval": {
     "portada": "/photos/pri/proj_mirador-irarrazaval.png",
     "galeria": [
-      "/photos/pri/proj_mirador-irarrazaval/mirador_irarazaval_01.png",
       "/photos/pri/proj_mirador-irarrazaval/mirador_irarazaval_02.png",
       "/photos/pri/proj_mirador-irarrazaval/mirador_irarazaval_03.png",
       "/photos/pri/proj_mirador-irarrazaval/mirador_irarazaval_04.png",
@@ -2163,69 +2066,60 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_mirador-irarrazaval/1D%2C1B.png"
+        "src": "/photos/pri/proj_mirador-irarrazaval/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_mirador-irarrazaval/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_mirador-irarrazaval/2D,1B (3C).png"
       },
       {
-        "label": "2D, 2B (4C)",
-        "src": "/photos/pri/proj_mirador-irarrazaval/2D%2C2B%20%284C%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_mirador-irarrazaval/2D,2B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_mirador-irarrazaval/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_mirador-irarrazaval/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Mirador Irrarazaval.pdf",
         "path": "/photos/pri/proj_mirador-irarrazaval/Brochure%20Mirador%20Irrarazaval.pdf"
-      },
-      {
-        "nombre": "MiradorIrarazaval.docx",
-        "path": "/photos/pri/proj_mirador-irarrazaval/MiradorIrarazaval.docx"
       }
     ]
   },
   "proj_nova-parque": {
     "portada": "/photos/pri/proj_nova-parque.png",
     "galeria": [
-      "/photos/pri/proj_nova-parque/nova_parque_01.png",
       "/photos/pri/proj_nova-parque/nova_parque_03.png"
     ],
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_nova-parque/1D%2C1B.png"
+        "src": "/photos/pri/proj_nova-parque/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_nova-parque/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_nova-parque/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_nova-parque/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_nova-parque/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (3C1)",
-        "src": "/photos/pri/proj_nova-parque/2D%2C2B%20%283C1%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_nova-parque/2D,2B (3C1).png"
       },
       {
-        "label": "2D, 2B (3C2)",
-        "src": "/photos/pri/proj_nova-parque/2D%2C2B%20%283C2%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_nova-parque/2D,2B (3C2).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_nova-parque/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_nova-parque/2D,2B (M).png"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "NovaParque.docx",
-        "path": "/photos/pri/proj_nova-parque/NovaParque.docx"
-      },
       {
         "nombre": "Brochure Nova Parque.pdf",
         "path": "/photos/pri/proj_nova-parque/Brochure%20Nova%20Parque.pdf"
@@ -2235,7 +2129,6 @@
   "proj_rosas-1444": {
     "portada": "/photos/pri/proj_rosas-1444.png",
     "galeria": [
-      "/photos/pri/proj_rosas-1444/rosas_1444_01.png",
       "/photos/pri/proj_rosas-1444/rosas_1444_02.png",
       "/photos/pri/proj_rosas-1444/rosas_1444_03.png",
       "/photos/pri/proj_rosas-1444/rosas_1444_04.png",
@@ -2249,40 +2142,35 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_rosas-1444/1D%2C1B.png"
+        "src": "/photos/pri/proj_rosas-1444/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_rosas-1444/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_rosas-1444/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_rosas-1444/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_rosas-1444/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (KC)",
-        "src": "/photos/pri/proj_rosas-1444/2D%2C2B%20%28KC%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_rosas-1444/2D,2B (KC).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_rosas-1444/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_rosas-1444/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Rosas 1444.pdf",
         "path": "/photos/pri/proj_rosas-1444/Brochure%20Rosas%201444.pdf"
-      },
-      {
-        "nombre": "Rosas_1444.docx",
-        "path": "/photos/pri/proj_rosas-1444/Rosas_1444.docx"
       }
     ]
   },
   "proj_santa-elena-1670": {
     "portada": "/photos/pri/proj_santa-elena-1670.png",
     "galeria": [
-      "/photos/pri/proj_santa-elena-1670/santa_elena_1670_01.png",
       "/photos/pri/proj_santa-elena-1670/santa_elena_1670_02.png",
       "/photos/pri/proj_santa-elena-1670/santa_elena_1670_03.png",
       "/photos/pri/proj_santa-elena-1670/santa_elena_1670_04.png",
@@ -2295,36 +2183,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_santa-elena-1670/1D%2C1B.png"
+        "src": "/photos/pri/proj_santa-elena-1670/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_santa-elena-1670/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_santa-elena-1670/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_santa-elena-1670/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_santa-elena-1670/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_santa-elena-1670/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_santa-elena-1670/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Santa Elena 1670.pdf",
         "path": "/photos/pri/proj_santa-elena-1670/Brochure%20Santa%20Elena%201670.pdf"
-      },
-      {
-        "nombre": "SantaElena_1670.docx",
-        "path": "/photos/pri/proj_santa-elena-1670/SantaElena_1670.docx"
       }
     ]
   },
   "proj_santa-elena-1670-mbi": {
     "portada": "/photos/pri/proj_santa-elena-1670-mbi.png",
     "galeria": [
-      "/photos/pri/proj_santa-elena-1670-mbi/santa_elena_1670_01.png",
       "/photos/pri/proj_santa-elena-1670-mbi/santa_elena_1670_02.png",
       "/photos/pri/proj_santa-elena-1670-mbi/santa_elena_1670_03.png",
       "/photos/pri/proj_santa-elena-1670-mbi/santa_elena_1670_04.png",
@@ -2337,36 +2220,31 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_santa-elena-1670-mbi/1D%2C1B.png"
+        "src": "/photos/pri/proj_santa-elena-1670-mbi/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_santa-elena-1670-mbi/2D,2B (M).png"
       }
     ],
     "pdfs": [
       {
         "nombre": "Brochure Santa Elena 1670.pdf",
         "path": "/photos/pri/proj_santa-elena-1670-mbi/Brochure%20Santa%20Elena%201670.pdf"
-      },
-      {
-        "nombre": "SantaElena_1670.docx",
-        "path": "/photos/pri/proj_santa-elena-1670-mbi/SantaElena_1670.docx"
       }
     ]
   },
   "proj_vicuna-mackenna-1432": {
     "portada": "/photos/pri/proj_vicuna-mackenna-1432.png",
     "galeria": [
-      "/photos/pri/proj_vicuna-mackenna-1432/vicuna_mackenna_1432_01.png",
       "/photos/pri/proj_vicuna-mackenna-1432/vicuna_mackenna_1432_03.png",
       "/photos/pri/proj_vicuna-mackenna-1432/vicuna_mackenna_1432_04.png",
       "/photos/pri/proj_vicuna-mackenna-1432/vicuna_mackenna_1432_05.png",
@@ -2380,26 +2258,22 @@
     "tipologias": [
       {
         "label": "1D, 1B",
-        "src": "/photos/pri/proj_vicuna-mackenna-1432/1D%2C1B.png"
+        "src": "/photos/pri/proj_vicuna-mackenna-1432/1D,1B.png"
       },
       {
-        "label": "2D, 1B (3C)",
-        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D%2C1B%20%283C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D,1B (3C).png"
       },
       {
-        "label": "2D, 1B (4C)",
-        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D%2C1B%20%284C%29.png"
+        "label": "2D, 1B",
+        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D,1B (4C).png"
       },
       {
-        "label": "2D, 2B (M)",
-        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D%2C2B%20%28M%29.png"
+        "label": "2D, 2B",
+        "src": "/photos/pri/proj_vicuna-mackenna-1432/2D,2B (M).png"
       }
     ],
     "pdfs": [
-      {
-        "nombre": "VicunaMackenna_1432.docx",
-        "path": "/photos/pri/proj_vicuna-mackenna-1432/VicunaMackenna_1432.docx"
-      },
       {
         "nombre": "Brochure Vic Mackenna 1432.pdf",
         "path": "/photos/pri/proj_vicuna-mackenna-1432/Brochure%20Vic%20Mackenna%201432.pdf"
