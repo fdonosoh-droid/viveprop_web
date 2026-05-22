@@ -1521,41 +1521,6 @@
       }
     ]
   },
-  "proj_edificio-ambar-urbano": {
-    "portada": "/photos/pri/proj_edificio-ambar-urbano.png",
-    "galeria": [
-      "/photos/pri/proj_edificio-ambar-urbano/18.png",
-      "/photos/pri/proj_edificio-ambar-urbano/19.png",
-      "/photos/pri/proj_edificio-ambar-urbano/2D+1B (3C+KA).png",
-      "/photos/pri/proj_edificio-ambar-urbano/2D+2B (4C+KA).png",
-      "/photos/pri/proj_edificio-ambar-urbano/4.png",
-      "/photos/pri/proj_edificio-ambar-urbano/5.png",
-      "/photos/pri/proj_edificio-ambar-urbano/6.png",
-      "/photos/pri/proj_edificio-ambar-urbano/7.png",
-      "/photos/pri/proj_edificio-ambar-urbano/8.png",
-      "/photos/pri/proj_edificio-ambar-urbano/9.png"
-    ],
-    "tipologias": [
-      {
-        "label": "1D, 1B",
-        "src": "/photos/pri/proj_edificio-ambar-urbano/1D,1B (2C+KA).png"
-      },
-      {
-        "label": "Estudio",
-        "src": "/photos/pri/proj_edificio-ambar-urbano/Estudio.png"
-      }
-    ],
-    "pdfs": [
-      {
-        "nombre": "Brochure Ambar Urbano - San Pablo 1263.pdf",
-        "path": "/photos/pri/proj_edificio-ambar-urbano/Brochure%20Ambar%20Urbano%20-%20San%20Pablo%201263.pdf"
-      },
-      {
-        "nombre": "EU_SNP1263_ARQ_CARPETA DE VENTAS (1).pdf",
-        "path": "/photos/pri/proj_edificio-ambar-urbano/EU_SNP1263_ARQ_CARPETA%20DE%20VENTAS%20%281%29.pdf"
-      }
-    ]
-  },
   "proj_edificio-don-pepe-154": {
     "portada": "/photos/pri/proj_edificio-don-pepe-154.png",
     "galeria": [
@@ -2277,6 +2242,41 @@
       {
         "nombre": "Brochure Vic Mackenna 1432.pdf",
         "path": "/photos/pri/proj_vicuna-mackenna-1432/Brochure%20Vic%20Mackenna%201432.pdf"
+      }
+    ]
+  },
+  "proj_edificio-ambar-urbano": {
+    "portada": "/photos/pri/proj_edificio-ambar-urbano.jpg",
+    "galeria": [
+      "/photos/pri/proj_edificio-ambar-urbano/18.png",
+      "/photos/pri/proj_edificio-ambar-urbano/19.png",
+      "/photos/pri/proj_edificio-ambar-urbano/2D+1B (3C+KA).png",
+      "/photos/pri/proj_edificio-ambar-urbano/2D+2B (4C+KA).png",
+      "/photos/pri/proj_edificio-ambar-urbano/4.png",
+      "/photos/pri/proj_edificio-ambar-urbano/5.png",
+      "/photos/pri/proj_edificio-ambar-urbano/6.png",
+      "/photos/pri/proj_edificio-ambar-urbano/7.png",
+      "/photos/pri/proj_edificio-ambar-urbano/8.png",
+      "/photos/pri/proj_edificio-ambar-urbano/9.png"
+    ],
+    "tipologias": [
+      {
+        "label": "1D, 1B",
+        "src": "/photos/pri/proj_edificio-ambar-urbano/1D,1B (2C+KA).png"
+      },
+      {
+        "label": "Estudio",
+        "src": "/photos/pri/proj_edificio-ambar-urbano/Estudio.png"
+      }
+    ],
+    "pdfs": [
+      {
+        "nombre": "Brochure Ambar Urbano - San Pablo 1263.pdf",
+        "path": "/photos/pri/proj_edificio-ambar-urbano/Brochure%20Ambar%20Urbano%20-%20San%20Pablo%201263.pdf"
+      },
+      {
+        "nombre": "EU_SNP1263_ARQ_CARPETA DE VENTAS (1).pdf",
+        "path": "/photos/pri/proj_edificio-ambar-urbano/EU_SNP1263_ARQ_CARPETA%20DE%20VENTAS%20%281%29.pdf"
       }
     ]
   }
