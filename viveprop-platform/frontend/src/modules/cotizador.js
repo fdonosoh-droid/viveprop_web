@@ -333,11 +333,9 @@ function _initParamsGrid(parsedCC) {
   const isUsada  = _state.project.id.startsWith('sec-')
   const pieBase  = Math.round((parsedCC.piePctDefault ?? PIE_DEFAULT) * 100)
   const isMaestra = _state?.regla?.tipoCalculoBono === 'maestra'
-  const pie = isUsada
-    ? pieBase
-    : isMaestra
-      ? Math.max(0, 20 - aporte)
-      : Math.max(0, (parsedCC.piePctDefault != null ? Math.round(parsedCC.piePctDefault * 100) : 20) - aporte)
+  const pie = isMaestra
+    ? Math.max(0, 20 - aporte)
+    : Math.max(0, (parsedCC.piePctDefault != null ? Math.round(parsedCC.piePctDefault * 100) : 20) - aporte)
 
   // Set title in params step header
   const { project, depto, secundarios } = _state
@@ -475,11 +473,9 @@ function _readParams() {
   const _isMaestra = _state?.regla?.tipoCalculoBono === 'maestra'
   const _isUsada   = _state?.project?.id?.startsWith('sec-')
   const _aporte    = n('cpg-aporte')
-  const _pieFallback = _isUsada
-    ? Math.round((_state?.parsedCC?.piePctDefault ?? PIE_DEFAULT) * 100)
-    : _isMaestra
-      ? Math.max(0, 20 - _aporte)
-      : Math.max(0, (_state?.parsedCC?.piePctDefault != null ? Math.round(_state.parsedCC.piePctDefault * 100) : 20) - _aporte)
+  const _pieFallback = _isMaestra
+    ? Math.max(0, 20 - _aporte)
+    : Math.max(0, (_state?.parsedCC?.piePctDefault != null ? Math.round(_state.parsedCC.piePctDefault * 100) : 20) - _aporte)
   return {
     pie:       n('cpg-pie')       || _pieFallback,
     plazo:     n('cpg-plazo')     || PLAZO_DEFAULT,
@@ -1102,7 +1098,11 @@ export function cotizSecProp(propId) {
     const p = store.STOCK.find(x => x.id === propId)
     if (!p) return
 
-    const precio_uf = parseFloat((p.precioSinBono || '0').replace(/\./g, '').replace(',', '.')) || 0
+    const precio_uf  = parseFloat((p.precioSinBono || '0').replace(/\./g, '').replace(',', '.')) || 0
+    const bonoUFVal  = parseFloat((p.bonoUF       || '0').replace(/\./g, '').replace(',', '.')) || 0
+    // Opción A: precioEscritura = precioSinBono + bonoUF (precio legal de compra).
+    // El banco hipoteca sobre precioEscritura; el vendedor aporta bonoUF al pie del comprador.
+    const precioEscritura = precio_uf + bonoUFVal
 
     const project = {
       id:           `sec-${propId}`,
@@ -1112,14 +1112,14 @@ export function cotizSecProp(propId) {
     }
     const depto = {
       dp:         p.dp || '—',
-      precio_uf,
+      precio_uf:  precioEscritura,
       tipologia:  p.tipologia || '',
       disponible: true,
     }
     const parsedCC = {
       descuentoDepto:     0,
       descuentoAdicional: 0,
-      aporteInmobiliario: (p.bonoPct || 0) / 100,
+      aporteInmobiliario: precioEscritura > 0 ? bonoUFVal / precioEscritura : 0,
       reservaCLP:         0,
       reservaUF:          0,
       cuotasPieN:         1,
@@ -1131,7 +1131,7 @@ export function cotizSecProp(propId) {
       tipoEntrega:        'Usada',
       nota:               '',
     }
-    const regla = getReglaInmobiliaria('')
+    const regla = { tipoCalculoBono: 'usadas', ltvMaxPct: 1.00, pieConjuntosPct: 0.20 }
     _state = { project, depto, secundarios: [], parsedCC, regla, reservaCLP: 0, cliente: null }
     _initClientForm()
     document.getElementById('cotiz-cascade').style.display = 'none'

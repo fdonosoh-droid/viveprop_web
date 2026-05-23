@@ -181,6 +181,17 @@ export function calcularCotizacion(input) {
     saldoAporteInmobUF  = Math.round((tasacionUFfinal - pieCreditoHipUF - creditoHipFinalUF) * 100) / 100
     aportePct           = tasacionUFfinal > 0 ? saldoAporteInmobUF / tasacionUFfinal : 0
 
+  } else if (tipoCalculoBono === 'usadas') {
+    // Usadas Assetplan (Opción A): precioListaDepto ya es precioEscritura (precio real de venta).
+    // El bonoPieUF es el aporte del vendedor al pie; reduce el pie efectivo del comprador.
+    // Tasación = precioEscritura (sin re-inflar — el bono ya está incorporado al precio).
+    bonoPieUF          = bonoPieUF_early
+    tasacionUFfinal    = Math.round(valorVentaUF * 100) / 100
+    saldoAporteInmobUF = bonoPieUF
+    aportePct          = precioDescDepto > 0 ? bonoPieUF / precioDescDepto : 0
+    pieCreditoHipUF    = Math.round((pieTotalUF + bonoPieUF + piePeriodoConstruccionUF + cuotonUF) * 100) / 100
+    creditoHipFinalUF  = Math.round((tasacionUFfinal - pieCreditoHipUF) * 100) / 100
+
   } else {
     // INGEVEC, URMENETA, DEFAULT:
     // Bono sobre precio desc del depto. Pie calculado sobre precio lista (no sobre base inflada).
