@@ -1,5 +1,5 @@
-// Generado por gsheet_to_stock.py — 2026-05-22 11:45
-// Propiedades: 975
+// Generado por gsheet_to_stock.py — 2026-05-23 10:26
+// Propiedades: 971
 const STOCK = [
   {
     "op": "SYG498",
@@ -4809,29 +4809,6 @@ const STOCK = [
     "id": "97635"
   },
   {
-    "op": "45876",
-    "condominio": "Eco Encalada",
-    "direccion": "Av. Almte Blanco Encalada 2527",
-    "comuna": "Santiago",
-    "dp": "610-B",
-    "tipologia": "2D1B",
-    "orientacion": "SP",
-    "est": "222",
-    "bod": "248",
-    "m2interior": "45,00",
-    "m2total": "47,00",
-    "m2terraza": "2,00",
-    "anio": "2021",
-    "estado": "Arrendado",
-    "rango": "Entre 4000 a 4999.-",
-    "precioSinBono": "3.583,80",
-    "bonoPct": 10,
-    "bonoUF": "398,2",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/E3DAD2F7-AC2C-1ABE-6123-7025222D0F2C1701341939741-467764.mp4",
-    "oportunidad": "",
-    "id": "467764"
-  },
-  {
     "op": "41025",
     "condominio": "Neo Cisterna",
     "direccion": "Av. Lo Ovalle 150",
@@ -7590,29 +7567,6 @@ const STOCK = [
     "video": "",
     "oportunidad": "",
     "id": "479565"
-  },
-  {
-    "op": "RDP1183",
-    "condominio": "Condominio Ciudad del Niño",
-    "direccion": "San Petersburgo 6351",
-    "comuna": "San Miguel",
-    "dp": "1412-F",
-    "tipologia": "3D1B",
-    "orientacion": "",
-    "est": "350",
-    "bod": "214",
-    "m2interior": "45,00",
-    "m2total": "47,00",
-    "m2terraza": "2,00",
-    "anio": "",
-    "estado": "Arrendado",
-    "rango": "UF2000 a UF2499.-",
-    "precioSinBono": "1.758,56",
-    "bonoPct": 14,
-    "bonoUF": "293,44",
-    "video": "",
-    "oportunidad": "",
-    "id": "510962"
   },
   {
     "op": "TYC17274",
@@ -17873,29 +17827,6 @@ const STOCK = [
     "id": "215440"
   },
   {
-    "op": "5401",
-    "condominio": "Alto Cochrane II",
-    "direccion": "Tarapaca 1331",
-    "comuna": "Santiago",
-    "dp": "310",
-    "tipologia": "1D1B",
-    "orientacion": "N",
-    "est": "",
-    "bod": "",
-    "m2interior": "27,00",
-    "m2total": "27,00",
-    "m2terraza": "0,00",
-    "anio": "2013",
-    "estado": "Aviso salida",
-    "rango": "UF2000 a UF2499.-",
-    "precioSinBono": "1.703,20",
-    "bonoPct": 20,
-    "bonoUF": "425,8",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/B3C96DA3-CB60-30DA-97E7-F067525ACE47WhatsAppVideo2021-11-03at10.mp4",
-    "oportunidad": "Oportunidad",
-    "id": "8529"
-  },
-  {
     "op": "SYG610",
     "condominio": "Doña Claudia",
     "direccion": "Coquimbo 777",
@@ -19021,29 +18952,6 @@ const STOCK = [
     "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/5D2208C9-7B72-B324-1DC6-CC236A2B0A1F1685668846771-453455.mp4",
     "oportunidad": "",
     "id": "453455"
-  },
-  {
-    "op": "5402",
-    "condominio": "Alto Cochrane II",
-    "direccion": "Tarapaca 1331",
-    "comuna": "Santiago",
-    "dp": "314",
-    "tipologia": "1D1B",
-    "orientacion": "S",
-    "est": "",
-    "bod": "",
-    "m2interior": "27,00",
-    "m2total": "27,00",
-    "m2terraza": "0,00",
-    "anio": "2013",
-    "estado": "Arrendado",
-    "rango": "UF2000 a UF2499.-",
-    "precioSinBono": "1.703,20",
-    "bonoPct": 20,
-    "bonoUF": "425,8",
-    "video": "https://videos-prop-out.s3.us-east-1.amazonaws.com/videos/01097BA3-8209-E8E7-C356-500CE5096AEAtrim.mp4",
-    "oportunidad": "Oportunidad",
-    "id": "8530"
   },
   {
     "op": "SYG495",
