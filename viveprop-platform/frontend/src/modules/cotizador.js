@@ -1099,10 +1099,6 @@ export function cotizSecProp(propId) {
     if (!p) return
 
     const precio_uf  = parseFloat((p.precioSinBono || '0').replace(/\./g, '').replace(',', '.')) || 0
-    const bonoUFVal  = parseFloat((p.bonoUF       || '0').replace(/\./g, '').replace(',', '.')) || 0
-    // Opción A: precioEscritura = precioSinBono + bonoUF (precio legal de compra).
-    // El banco hipoteca sobre precioEscritura; el vendedor aporta bonoUF al pie del comprador.
-    const precioEscritura = precio_uf + bonoUFVal
 
     const project = {
       id:           `sec-${propId}`,
@@ -1112,14 +1108,14 @@ export function cotizSecProp(propId) {
     }
     const depto = {
       dp:         p.dp || '—',
-      precio_uf:  precioEscritura,
+      precio_uf:  precio_uf,
       tipologia:  p.tipologia || '',
       disponible: true,
     }
     const parsedCC = {
       descuentoDepto:     0,
       descuentoAdicional: 0,
-      aporteInmobiliario: precioEscritura > 0 ? bonoUFVal / precioEscritura : 0,
+      aporteInmobiliario: (p.bonoPct || 0) / 100,
       reservaCLP:         0,
       reservaUF:          0,
       cuotasPieN:         1,

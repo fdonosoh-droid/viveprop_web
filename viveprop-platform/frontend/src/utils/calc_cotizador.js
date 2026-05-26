@@ -182,11 +182,10 @@ export function calcularCotizacion(input) {
     aportePct           = tasacionUFfinal > 0 ? saldoAporteInmobUF / tasacionUFfinal : 0
 
   } else if (tipoCalculoBono === 'usadas') {
-    // Usadas Assetplan (Opción A): precioListaDepto ya es precioEscritura (precio real de venta).
-    // El bonoPieUF es el aporte del vendedor al pie; reduce el pie efectivo del comprador.
-    // Tasación = precioEscritura (sin re-inflar — el bono ya está incorporado al precio).
+    // precioListaDepto = precioSinBono; bono del vendedor infla valorCompraDepto (tasación real).
+    // CH = tasación − pieCreditoHipUF; invariante: pieTotalUF + CH = precioSinBono.
     bonoPieUF          = bonoPieUF_early
-    tasacionUFfinal    = Math.round(valorVentaUF * 100) / 100
+    tasacionUFfinal    = Math.round((valorCompraDepto + precioListaOtros) * 100) / 100
     saldoAporteInmobUF = bonoPieUF
     aportePct          = precioDescDepto > 0 ? bonoPieUF / precioDescDepto : 0
     pieCreditoHipUF    = Math.round((pieTotalUF + bonoPieUF + piePeriodoConstruccionUF + cuotonUF) * 100) / 100
