@@ -1,21 +1,46 @@
 """
 audit_multimedia_pri.py
-Genera Excel con estado de imágenes y PDFs por proyecto de mercado primario.
+Genera Excel con estado de imágenes, PDFs y carpetas en disco por proyecto primario.
 """
-import sys, json
+import sys, json, os
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 from pathlib import Path
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-ROOT     = Path(__file__).parent.parent
-PROJECTS = ROOT / "frontend" / "public" / "data" / "projects.json"
-FOTOS    = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
-OUT      = ROOT / "data" / "audit_multimedia_pri.xlsx"
+ROOT      = Path(__file__).parent.parent
+PROJECTS  = ROOT / "frontend" / "public" / "data" / "projects.json"
+FOTOS     = ROOT / "frontend" / "public" / "data" / "fotos_pri.json"
+PHOTOS    = ROOT / "frontend" / "public" / "photos" / "pri"
+OUT       = ROOT / "data" / "audit_multimedia_pri.xlsx"
+
+IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+PDF_EXTS   = {".pdf"}
 
 projects = json.loads(PROJECTS.read_text(encoding="utf-8"))
 fotos    = json.loads(FOTOS.read_text(encoding="utf-8"))
+
+# Inventario en disco: qué carpetas y portadas existen en photos/pri/
+disk_folders = {}   # pid -> Path (o None)
+disk_portadas = {}  # pid -> Path (o None)
+if PHOTOS.is_dir():
+    for item in PHOTOS.iterdir():
+        if item.is_dir():
+            disk_folders[item.name] = item
+        elif item.is_file() and item.suffix.lower() in IMAGE_EXTS:
+            # portada: nombre sin extensión = pid
+            disk_portadas[item.stem] = item
+
+def disk_folder_info(pid):
+    folder = disk_folders.get(pid)
+    if folder is None:
+        return False, 0, 0, 0   # existe, n_img, n_pdf, n_total
+    contents = list(folder.iterdir())
+    n_img  = sum(1 for f in contents if f.is_file() and f.suffix.lower() in IMAGE_EXTS)
+    n_pdf  = sum(1 for f in contents if f.is_file() and f.suffix.lower() in PDF_EXTS)
+    n_total = len(contents)
+    return True, n_img, n_pdf, n_total
 
 rows = []
 for p in projects:
@@ -25,59 +50,72 @@ for p in projects:
     comuna = p.get("comuna", "")
     entrega= p.get("entrega", "")
 
-    # Contar unidades disponibles (excluye bodegas/estacionamientos puros)
-    unidades = p.get("unidades", [])
-    total_unidades   = len(unidades)
-    unidades_disp    = sum(1 for u in unidades if u.get("disponible") and u.get("estado","").lower() == "disponible")
+    unidades      = p.get("unidades", [])
+    unidades_disp = sum(1 for u in unidades if u.get("disponible") and u.get("estado","").lower() == "disponible")
 
-    # Proyectos sin stock disponible → saltar
     if unidades_disp == 0:
         continue
 
-    # Estado multimedia desde fotos_pri.json
+    # ── Manifest (fotos_pri.json) ─────────────────────────────────────────────
     f = fotos.get(pid, {})
-    portada     = f.get("portada", "") or ""
-    galeria     = f.get("galeria", []) or []
-    pdfs        = f.get("pdfs", []) or []
-    tipologias  = f.get("tipologias", []) or []
+    portada       = f.get("portada", "") or ""
+    galeria       = f.get("galeria", []) or []
+    pdfs          = f.get("pdfs", []) or []
+    tipologias    = f.get("tipologias", []) or []
 
-    tiene_portada   = bool(portada)
-    n_galeria       = len(galeria)
-    tiene_galeria   = n_galeria > 0
-    n_pdfs          = len(pdfs)
-    tiene_pdf       = n_pdfs > 0
-    n_tipologias    = len(tipologias)
+    tiene_portada_manifest = bool(portada)
+    n_galeria_manifest     = len(galeria)
+    tiene_galeria_manifest = n_galeria_manifest > 0
+    n_pdfs_manifest        = len(pdfs)
+    tiene_pdf_manifest     = n_pdfs_manifest > 0
 
-    # Etiqueta de carencia
-    faltantes = []
-    if not tiene_portada:  faltantes.append("Portada")
-    if not tiene_galeria:  faltantes.append("Galería")
-    if not tiene_pdf:      faltantes.append("PDF")
-    estado = "Completo" if not faltantes else "Falta: " + " + ".join(faltantes)
+    # ── Disco (photos/pri/) ───────────────────────────────────────────────────
+    tiene_portada_disco = pid in disk_portadas
+    tiene_carpeta_disco, n_img_disco, n_pdf_disco, n_total_disco = disk_folder_info(pid)
+
+    # ── Estado global ─────────────────────────────────────────────────────────
+    faltantes_manifest = []
+    if not tiene_portada_manifest:  faltantes_manifest.append("Portada")
+    if not tiene_galeria_manifest:  faltantes_manifest.append("Galería")
+    if not tiene_pdf_manifest:      faltantes_manifest.append("PDF")
+    estado_manifest = "Completo" if not faltantes_manifest else "Falta: " + " + ".join(faltantes_manifest)
+
+    faltantes_disco = []
+    if not tiene_portada_disco: faltantes_disco.append("Portada")
+    if not tiene_carpeta_disco: faltantes_disco.append("Carpeta")
+    elif n_img_disco == 0:      faltantes_disco.append("Fotos en carpeta")
+    estado_disco = "OK" if not faltantes_disco else "Falta: " + " + ".join(faltantes_disco)
 
     rows.append({
-        "id":             pid,
-        "nombre":         nombre,
-        "inmobiliaria":   inmob,
-        "comuna":         comuna,
-        "entrega":        entrega,
-        "unidades_disp":  unidades_disp,
-        "tiene_portada":  tiene_portada,
-        "n_galeria":      n_galeria,
-        "tiene_galeria":  tiene_galeria,
-        "n_pdfs":         n_pdfs,
-        "tiene_pdf":      tiene_pdf,
-        "n_tipologias":   n_tipologias,
-        "faltantes":      estado,
+        "id":                      pid,
+        "nombre":                  nombre,
+        "inmobiliaria":            inmob,
+        "comuna":                  comuna,
+        "entrega":                 entrega,
+        "unidades_disp":           unidades_disp,
+        # Manifest
+        "tiene_portada_manifest":  tiene_portada_manifest,
+        "n_galeria":               n_galeria_manifest,
+        "tiene_galeria_manifest":  tiene_galeria_manifest,
+        "n_pdfs":                  n_pdfs_manifest,
+        "tiene_pdf_manifest":      tiene_pdf_manifest,
+        "n_tipologias":            len(tipologias),
+        "estado_manifest":         estado_manifest,
+        # Disco
+        "portada_disco":           tiene_portada_disco,
+        "carpeta_disco":           tiene_carpeta_disco,
+        "n_img_disco":             n_img_disco,
+        "n_pdf_disco":             n_pdf_disco,
+        "estado_disco":            estado_disco,
     })
 
-# Ordenar: primero los que tienen más carencias, luego por unidades desc
+# Ordenar: más carencias primero, luego por unidades desc
 def sort_key(r):
-    faltan = 0
-    if not r["tiene_portada"]: faltan += 4
-    if not r["tiene_galeria"]: faltan += 2
-    if not r["tiene_pdf"]:     faltan += 1
-    return (-faltan, -r["unidades_disp"])
+    m = (0 if r["tiene_portada_manifest"] else 4) + \
+        (0 if r["tiene_galeria_manifest"] else 2) + \
+        (0 if r["tiene_pdf_manifest"] else 1)
+    d = (0 if r["portada_disco"] else 2) + (0 if r["carpeta_disco"] else 1)
+    return (-(m + d), -r["unidades_disp"])
 
 rows.sort(key=sort_key)
 
@@ -87,109 +125,103 @@ AMBER  = PatternFill("solid", fgColor="FEF3C7")
 GREEN  = PatternFill("solid", fgColor="DCFCE7")
 GRAY   = PatternFill("solid", fgColor="F3F4F6")
 HEADER = PatternFill("solid", fgColor="1E3A5F")
+HEADER2= PatternFill("solid", fgColor="374151")
 HDR_FONT = Font(name="Calibri", bold=True, color="FFFFFF", size=11)
 BOLD     = Font(name="Calibri", bold=True, size=10)
 NORMAL   = Font(name="Calibri", size=10)
-CENTER   = Alignment(horizontal="center", vertical="center", wrap_text=False)
+CENTER   = Alignment(horizontal="center", vertical="center")
 LEFT     = Alignment(horizontal="left",   vertical="center")
 thin     = Side(border_style="thin", color="D1D5DB")
 BORDER   = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-def fill_for(value, col):
-    if col in ("tiene_portada", "tiene_galeria", "tiene_pdf"):
-        return GREEN if value else RED
-    if col == "faltantes":
-        if value == "Completo": return GREEN
-        if "Portada" in value:  return RED
+bool_labels = {True: "Si", False: "No"}
+
+def cell_fill(key, val):
+    bool_cols_ok = {"tiene_portada_manifest","tiene_galeria_manifest","tiene_pdf_manifest",
+                    "portada_disco","carpeta_disco"}
+    if key in bool_cols_ok:
+        return GREEN if val else RED
+    if key == "estado_manifest":
+        if val == "Completo": return GREEN
+        if "Portada" in val:  return RED
+        return AMBER
+    if key == "estado_disco":
+        if val == "OK":         return GREEN
+        if "Carpeta" in val:    return RED
         return AMBER
     return None
 
 wb = openpyxl.Workbook()
 ws = wb.active
-ws.title = "Auditoría Multimedia"
+ws.title = "Auditoria Multimedia"
 ws.freeze_panes = "A3"
 
-# ── Título ────────────────────────────────────────────────────────────────────
-ws.merge_cells("A1:N1")
+# Título
+ws.merge_cells("A1:S1")
 tc = ws["A1"]
-tc.value = "AUDITORÍA MULTIMEDIA — PROYECTOS MERCADO PRIMARIO"
+tc.value = "AUDITORIA MULTIMEDIA — PROYECTOS MERCADO PRIMARIO"
 tc.font  = Font(name="Calibri", bold=True, size=13, color="1E3A5F")
 tc.alignment = CENTER
-ws.row_dimensions[1].height = 24
+ws.row_dimensions[1].height = 26
 
-# ── Encabezados ───────────────────────────────────────────────────────────────
+# Encabezados — dos grupos: Manifest | Disco
 headers = [
-    ("ID Proyecto",      16),
-    ("Nombre",           32),
-    ("Inmobiliaria",     18),
-    ("Comuna",           14),
-    ("Entrega",          12),
-    ("Unid. Disp.",      11),
-    ("Portada",          10),
-    ("Fotos Galería",    12),
-    ("Galería OK",       11),
-    ("PDFs",             8),
-    ("PDF OK",           9),
-    ("Tipologías",       11),
-    ("Estado",           28),
+    # (label, width, grupo)
+    ("ID Proyecto",         16, "base"),
+    ("Nombre",              32, "base"),
+    ("Inmobiliaria",        18, "base"),
+    ("Comuna",              13, "base"),
+    ("Entrega",             11, "base"),
+    ("Unid. Disp.",         10, "base"),
+    # Manifest
+    ("Portada (manifest)",  16, "manifest"),
+    ("N Fotos Galeria",     14, "manifest"),
+    ("Galeria OK",          11, "manifest"),
+    ("N PDFs",               8, "manifest"),
+    ("PDF OK",               9, "manifest"),
+    ("Tipologias",          10, "manifest"),
+    ("Estado Manifest",     26, "manifest"),
+    # Disco
+    ("Portada en disco",    15, "disco"),
+    ("Carpeta en disco",    14, "disco"),
+    ("Fotos en carpeta",    14, "disco"),
+    ("PDFs en carpeta",     13, "disco"),
+    ("Estado Disco",        26, "disco"),
 ]
 
-for col_idx, (h, w) in enumerate(headers, 1):
+col_keys = [
+    "id","nombre","inmobiliaria","comuna","entrega","unidades_disp",
+    "tiene_portada_manifest","n_galeria","tiene_galeria_manifest","n_pdfs","tiene_pdf_manifest","n_tipologias","estado_manifest",
+    "portada_disco","carpeta_disco","n_img_disco","n_pdf_disco","estado_disco",
+]
+
+for col_idx, (h, w, grupo) in enumerate(headers, 1):
     cell = ws.cell(row=2, column=col_idx, value=h)
-    cell.fill      = HEADER
+    cell.fill      = HEADER if grupo in ("base","manifest") else HEADER2
     cell.font      = HDR_FONT
     cell.alignment = CENTER
     cell.border    = BORDER
     ws.column_dimensions[get_column_letter(col_idx)].width = w
 
-ws.row_dimensions[2].height = 20
-
-# ── Datos ─────────────────────────────────────────────────────────────────────
-col_keys = [
-    "id", "nombre", "inmobiliaria", "comuna", "entrega",
-    "unidades_disp",
-    "tiene_portada", "n_galeria", "tiene_galeria",
-    "n_pdfs", "tiene_pdf",
-    "n_tipologias", "faltantes",
-]
-
-bool_labels = {True: "Sí", False: "No"}
+ws.row_dimensions[2].height = 22
 
 for row_idx, r in enumerate(rows, 3):
     is_gray = row_idx % 2 == 0
     for col_idx, key in enumerate(col_keys, 1):
-        val = r[key]
+        val     = r[key]
         display = bool_labels.get(val, val) if isinstance(val, bool) else val
-        cell = ws.cell(row=row_idx, column=col_idx, value=display)
-        cell.font      = NORMAL
-        cell.border    = BORDER
-
-        # Color por celda
-        f = fill_for(r[key], key)
-        if f:
-            cell.fill = f
-        elif is_gray:
-            cell.fill = GRAY
-
-        # Alineación
-        cell.alignment = CENTER if col_idx not in (2, 3, 13) else LEFT
-
-    ws.row_dimensions[row_idx].height = 16
+        cell    = ws.cell(row=row_idx, column=col_idx, value=display)
+        cell.font   = NORMAL
+        cell.border = BORDER
+        f = cell_fill(key, r[key])
+        if f:           cell.fill = f
+        elif is_gray:   cell.fill = GRAY
+        cell.alignment = LEFT if key in ("nombre","inmobiliaria","estado_manifest","estado_disco") else CENTER
+    ws.row_dimensions[row_idx].height = 15
 
 # ── Hoja resumen ──────────────────────────────────────────────────────────────
 ws2 = wb.create_sheet("Resumen")
-totales = {
-    "Total proyectos con stock":           len(rows),
-    "Proyectos completos":                 sum(1 for r in rows if r["faltantes"] == "Completo"),
-    "Sin portada":                         sum(1 for r in rows if not r["tiene_portada"]),
-    "Sin galería":                         sum(1 for r in rows if not r["tiene_galeria"]),
-    "Sin PDF":                             sum(1 for r in rows if not r["tiene_pdf"]),
-    "Sin portada + galería + PDF (crítico)": sum(1 for r in rows if not r["tiene_portada"] and not r["tiene_galeria"] and not r["tiene_pdf"]),
-    "Unidades sin ningún material":        sum(r["unidades_disp"] for r in rows if not r["tiene_portada"] and not r["tiene_galeria"] and not r["tiene_pdf"]),
-    "Unidades totales en stock":           sum(r["unidades_disp"] for r in rows),
-}
-
-ws2.column_dimensions["A"].width = 42
+ws2.column_dimensions["A"].width = 46
 ws2.column_dimensions["B"].width = 14
 
 ws2.merge_cells("A1:B1")
@@ -199,17 +231,38 @@ t2.font  = Font(name="Calibri", bold=True, size=12, color="1E3A5F")
 t2.alignment = CENTER
 ws2.row_dimensions[1].height = 22
 
-for i, (lbl, val) in enumerate(totales.items(), 2):
+totales = [
+    ("Total proyectos con stock disponible",              len(rows)),
+    ("Proyectos multimedia completos (manifest)",         sum(1 for r in rows if r["estado_manifest"] == "Completo")),
+    ("Proyectos con algun faltante (manifest)",           sum(1 for r in rows if r["estado_manifest"] != "Completo")),
+    ("--- Detalle manifest ---",                          ""),
+    ("  Sin portada",                                     sum(1 for r in rows if not r["tiene_portada_manifest"])),
+    ("  Sin galeria de fotos",                            sum(1 for r in rows if not r["tiene_galeria_manifest"])),
+    ("  Sin PDF/brochure",                                sum(1 for r in rows if not r["tiene_pdf_manifest"])),
+    ("  Sin portada + galeria + PDF (critico)",           sum(1 for r in rows if not r["tiene_portada_manifest"] and not r["tiene_galeria_manifest"] and not r["tiene_pdf_manifest"])),
+    ("--- Detalle disco ---",                             ""),
+    ("  Sin portada en disco",                            sum(1 for r in rows if not r["portada_disco"])),
+    ("  Sin carpeta en disco",                            sum(1 for r in rows if not r["carpeta_disco"])),
+    ("  Con carpeta pero sin fotos",                      sum(1 for r in rows if r["carpeta_disco"] and r["n_img_disco"] == 0)),
+    ("  Sin carpeta NI portada en disco (sin nada)",      sum(1 for r in rows if not r["carpeta_disco"] and not r["portada_disco"])),
+    ("--- Unidades afectadas ---",                        ""),
+    ("  Unidades en proyectos sin nada en disco",         sum(r["unidades_disp"] for r in rows if not r["carpeta_disco"] and not r["portada_disco"])),
+    ("  Total unidades en stock",                         sum(r["unidades_disp"] for r in rows)),
+]
+
+for i, (lbl, val) in enumerate(totales, 2):
     ca = ws2.cell(row=i, column=1, value=lbl)
     cb = ws2.cell(row=i, column=2, value=val)
-    ca.font = NORMAL; ca.alignment = LEFT
-    cb.font = BOLD;   cb.alignment = CENTER
-    ca.border = BORDER; cb.border = BORDER
-    if i % 2 == 0:
+    is_section = str(lbl).startswith("---")
+    ca.font = Font(name="Calibri", bold=is_section, size=10, color="6B7280" if is_section else "000000")
+    cb.font = BOLD
+    ca.alignment = LEFT; cb.alignment = CENTER
+    ca.border = BORDER;  cb.border = BORDER
+    if i % 2 == 0 and not is_section:
         ca.fill = GRAY; cb.fill = GRAY
 
 wb.save(OUT)
 print(f"Excel guardado: {OUT}")
 print(f"Proyectos con stock: {len(rows)}")
-print(f"Completos: {sum(1 for r in rows if r['faltantes'] == 'Completo')}")
-print(f"Con carencias: {sum(1 for r in rows if r['faltantes'] != 'Completo')}")
+print(f"Sin carpeta en disco: {sum(1 for r in rows if not r['carpeta_disco'])}")
+print(f"Sin portada en disco: {sum(1 for r in rows if not r['portada_disco'])}")
