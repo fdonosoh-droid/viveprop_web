@@ -4,7 +4,7 @@ cd /d "C:\AI\viveprop_web\viveprop-platform"
 
 echo.
 echo Paso 1: Copiando fotos y generando fotos_pri.json...
-C:\Python314\python.exe tools\copy_portadas.py
+python tools\copy_portadas.py
 if %errorlevel% neq 0 (
     echo ERROR en copy_portadas.py
     pause
@@ -13,7 +13,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo Paso 2: Generando projects.json...
-C:\Python314\python.exe tools\access_to_projects.py
+python tools\access_to_projects.py
 if %errorlevel% neq 0 (
     echo ERROR al generar projects.json
     pause

@@ -1,3 +1,3 @@
 @echo off
 cd /d "C:\AI\viveprop_web\viveprop-platform"
-C:\Python314\python.exe tools\gsheet_to_stock.py >> tasks\log_stock.txt 2>&1
+python tools\gsheet_to_stock.py >> tasks\log_stock.txt 2>&1
