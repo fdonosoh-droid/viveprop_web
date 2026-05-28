@@ -745,7 +745,12 @@
       "/photos/pri/proj_condominio-parque-del-sur-torre-a/c6e06-eecc-pds-convierta-quincho3.jpg"
     ],
     "tipologias": [],
-    "pdfs": []
+    "pdfs": [
+      {
+        "nombre": "Brochure PdelSur.pdf",
+        "path": "/photos/pri/proj_condominio-parque-del-sur-torre-a/Brochure%20PdelSur.pdf"
+      }
+    ]
   },
   "proj_edificio-coronel-souper": {
     "portada": "/photos/pri/proj_edificio-coronel-souper.jpg",
